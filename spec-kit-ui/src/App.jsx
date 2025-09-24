@@ -1243,8 +1243,7 @@ Please provide specific questions and recommendations for each identified area t
 
                 <div style={{ marginBottom: '1.5rem' }}>
                   <h5 style={{ color: '#ed8936', marginBottom: '0.5rem' }}>🔄 Start-and-Resume Techniques</h5>
-                  <div className="example-code">
-// Effective session resumption pattern
+                  <div className="example-code">{`// Effective session resumption pattern
 /session-status
 Previous work: [brief description]
 Last completed: [specific task]
@@ -1255,13 +1254,12 @@ Context preservation strategies:
 • Summarize key decisions and outcomes
 • Maintain links to important artifacts
 • Preserve configuration and environment details
-• Track unresolved questions and action items</div>
+• Track unresolved questions and action items`}</div>
                 </div>
 
                 <div style={{ marginBottom: '1.5rem' }}>
                   <h5 style={{ color: '#8052d3', marginBottom: '0.5rem' }}>💡 Practical Implementation</h5>
-                  <div className="example-code">
-// Context window optimization example
+                  <div className="example-code">{`// Context window optimization example
 /project-context
 Project: [Project Name]
 Phase: [Current Phase]
@@ -1275,7 +1273,7 @@ Outstanding Issues: [Blocking items]
 /context-save [session-name]
 /context-load [session-name]
 /context-summary
-/next-steps</div>
+/next-steps`}</div>
                 </div>
 
                 <div>
@@ -1308,7 +1306,7 @@ Outstanding Issues: [Blocking items]
               <div className="step-content">
                 <h4>Establish Project Constitution</h4>
                 <p>Create or load your project constitution that will govern all development activities and ensure constitutional compliance.</p>
-                <div className="example-code"># Create a new constitution
+                <div className="example-code">{`# Create a new constitution
 /constitution create
 
 # Load an existing constitution
@@ -1323,7 +1321,7 @@ Outstanding Issues: [Blocking items]
 # Common constitution options:
 --template=sdd           # Use standard SDD constitution template
 --articles=1,2,3,5       # Include specific articles only
---compliance=strict       # Set strict compliance mode</div>
+--compliance=strict       # Set strict compliance mode`}</div>
               </div>
             </div>
 
@@ -1332,7 +1330,7 @@ Outstanding Issues: [Blocking items]
               <div className="step-content">
                 <h4>Install Required Tools</h4>
                 <p>Set up your development environment with AI assistants, version control, and specification templates.</p>
-                <div className="example-code"># Install AI assistant tools
+                <div className="example-code">{`# Install AI assistant tools
 npm install -g ai-assistant-cli
 
 # Set up git repository
@@ -1341,7 +1339,7 @@ cd my-sdd-project
 
 # Create specification directory structure
 mkdir -p specs/templates
-mkdir -p memory/constitution</div>
+mkdir -p memory/constitution`}</div>
               </div>
             </div>
 
@@ -1350,7 +1348,7 @@ mkdir -p memory/constitution</div>
               <div className="step-content">
                 <h4>Configure the Constitution</h4>
                 <p>Create your project constitution that will govern all development activities.</p>
-                <div className="example-code"># memory/constitution.md
+                <div className="example-code">{`# memory/constitution.md
 # The SDD Constitution - Nine Articles Governing Development
 
 ## Article I: Library-First Principle
@@ -1396,7 +1394,7 @@ mkdir -p memory/constitution</div>
 ## Article IX: Research-Driven Development
 - Technical decisions must be researched
 - Context is gathered continuously
-- Best practices are actively sought and applied</div>
+- Best practices are actively sought and applied`}</div>
               </div>
             </div>
           </div>
@@ -1408,12 +1406,12 @@ mkdir -p memory/constitution</div>
               <div className="step-content">
                 <h4>Use the /specify Command</h4>
                 <p>Transform your feature ideas into comprehensive specifications.</p>
-                <div className="example-code">/specify User authentication system with social login and MFA
+                <div className="example-code">{`/specify User authentication system with social login and MFA
 
 # This automatically creates:
 # - Branch: 001-user-auth-system
 # - File: specs/001-user-auth-system/spec.md
-# - Complete PRD with user stories and acceptance criteria</div>
+# - Complete PRD with user stories and acceptance criteria`}</div>
               </div>
             </div>
 
@@ -1422,7 +1420,7 @@ mkdir -p memory/constitution</div>
               <div className="step-content">
                 <h4>Review and Refine</h4>
                 <p>Work through the [NEEDS CLARIFICATION] markers in your specification.</p>
-                <div className="example-code"># In your spec.md file, look for:
+                <div className="example-code">{`# In your spec.md file, look for:
 [NEEDS CLARIFICATION: Which social providers to support?]
 [NEEDS CLARIFICATION: MFA method preferences?]
 [NEEDS CLARIFICATION: Session timeout requirements?]
@@ -1430,7 +1428,7 @@ mkdir -p memory/constitution</div>
 # Replace with specific requirements:
 - Support Google, GitHub, and Microsoft OAuth
 - Implement TOTP-based MFA
-- Session timeout: 30 minutes inactive, 24 hours maximum</div>
+- Session timeout: 30 minutes inactive, 24 hours maximum`}</div>
               </div>
             </div>
           </div>
@@ -1442,14 +1440,14 @@ mkdir -p memory/constitution</div>
               <div className="step-content">
                 <h4>Generate Implementation Plan</h4>
                 <p>Use the /plan command to create a comprehensive technical plan.</p>
-                <div className="example-code">/plan React with TypeScript, Node.js/Express, PostgreSQL, JWT auth
+                <div className="example-code">{`/plan React with TypeScript, Node.js/Express, PostgreSQL, JWT auth
 
 # This generates:
 # - specs/001-user-auth-system/plan.md
 # - specs/001-user-auth-system/data-model.md
 # - specs/001-user-auth-system/contracts/
 # - specs/001-user-auth-system/research.md
-# - specs/001-user-auth-system/quickstart.md</div>
+# - specs/001-user-auth-system/quickstart.md`}</div>
               </div>
             </div>
 
@@ -1458,11 +1456,11 @@ mkdir -p memory/constitution</div>
               <div className="step-content">
                 <h4>Review Constitutional Gates</h4>
                 <p>Ensure your plan passes all constitutional compliance checks.</p>
-                <div className="example-code"># In your plan.md, verify:
+                <div className="example-code">{`# In your plan.md, verify:
 ✓ Simplicity Gate: Using ≤3 projects?
 ✓ Anti-Abstraction Gate: Using framework directly?
 ✓ Integration-First Gate: Contracts defined?
-✓ Test-First Gate: Tests before implementation?</div>
+✓ Test-First Gate: Tests before implementation?`}</div>
               </div>
             </div>
           </div>
@@ -1474,13 +1472,13 @@ mkdir -p memory/constitution</div>
               <div className="step-content">
                 <h4>Generate Tasks</h4>
                 <p>Convert your plan into executable tasks with proper dependencies.</p>
-                <div className="example-code">/tasks
+                <div className="example-code">{`/tasks
 
 # This creates tasks.md with:
 # - Independent tasks marked [P]
 # - Dependency chains
 # - Parallelization groups
-# - Clear acceptance criteria</div>
+# - Clear acceptance criteria`}</div>
               </div>
             </div>
 
@@ -1489,13 +1487,13 @@ mkdir -p memory/constitution</div>
               <div className="step-content">
                 <h4>Execute Test-First Development</h4>
                 <p>Follow the constitutional mandate: tests before implementation.</p>
-                <div className="example-code"># File creation order:
+                <div className="example-code">{`# File creation order:
 1. Create contracts/ with API specifications
 2. Write contract tests (should fail)
 3. Write integration tests (should fail)
 4. Write implementation code
 5. Verify all tests pass
-6. Write E2E tests</div>
+6. Write E2E tests`}</div>
               </div>
             </div>
           </div>
@@ -1820,7 +1818,7 @@ mkdir -p memory/constitution</div>
               </ol>
             </div>
 
-            <div className="example-code"># Feature Specification: [Feature Name]
+            <div className="example-code">{`# Feature Specification: [Feature Name]
 
 ## Overview
 [High-level description of the feature and its purpose]
@@ -1866,7 +1864,7 @@ As a [user type], I want to [action] so that [benefit].
 [NEEDS CLARIFICATION: Question 2]
 
 ---
-*This specification follows the SDD methodology and constitutional principles.*</div>
+*This specification follows the SDD methodology and constitutional principles.*`}</div>
 
             <button className="btn" onClick={() => {
               const templateText = `# Feature Specification: [Feature Name]
@@ -1936,7 +1934,7 @@ As a [user type], I want to [action] so that [benefit].
               </ol>
             </div>
 
-            <div className="example-code"># Implementation Plan: [Project Name]
+            <div className="example-code">{`# Implementation Plan: [Project Name]
 
 ## Phase -1: Pre-Implementation Gates
 ### Simplicity Gate (Article VII)
@@ -2018,7 +2016,7 @@ project/
 - [ ] Documentation complete
 
 ## Complexity Tracking
-*Document any justified complexity with clear rationale*</div>
+*Document any justified complexity with clear rationale*`}</div>
 
             <button className="btn" onClick={() => {
               const templateText = `# Implementation Plan: [Project Name]
@@ -2123,7 +2121,7 @@ project/
                 <li>Review compliance regularly throughout the development process</li>
               </ol>
             </div>
-            <div className="example-code"># Constitutional Compliance Checklist
+            <div className="example-code">{`# Constitutional Compliance Checklist
 
 ## Article I: Library-First Principle
 - [ ] Feature implemented as standalone library
@@ -2165,7 +2163,7 @@ project/
 - [ ] All applicable articles satisfied
 - [ ] Justifications documented for exceptions
 - [ ] Constitutional principles followed
-- [ ] Quality gates passed</div>
+- [ ] Quality gates passed`}</div>
             <button className="btn" onClick={() => {
               const templateText = `# Constitutional Compliance Checklist
 
