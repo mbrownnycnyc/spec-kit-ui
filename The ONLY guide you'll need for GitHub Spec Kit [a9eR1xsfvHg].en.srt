@@ -1,0 +1,10265 @@
+1
+00:00:00,080 --> 00:00:02,869
+
+Hey friends, I am Dan Delamarski. I'm
+
+2
+00:00:02,869 --> 00:00:02,879
+Hey friends, I am Dan Delamarski. I'm
+ 
+
+3
+00:00:02,879 --> 00:00:05,030
+Hey friends, I am Dan Delamarski. I'm
+one of the maintainers for SpecKit, the
+
+4
+00:00:05,030 --> 00:00:05,040
+one of the maintainers for SpecKit, the
+ 
+
+5
+00:00:05,040 --> 00:00:06,789
+one of the maintainers for SpecKit, the
+new project from GitHub. It's that
+
+6
+00:00:06,789 --> 00:00:06,799
+new project from GitHub. It's that
+ 
+
+7
+00:00:06,799 --> 00:00:08,710
+new project from GitHub. It's that
+experiment that you've been hearing all
+
+8
+00:00:08,710 --> 00:00:08,720
+experiment that you've been hearing all
+ 
+
+9
+00:00:08,720 --> 00:00:11,190
+experiment that you've been hearing all
+about on the YouTubes and the Tik Toks
+
+10
+00:00:11,190 --> 00:00:11,200
+about on the YouTubes and the Tik Toks
+ 
+
+11
+00:00:11,200 --> 00:00:13,190
+about on the YouTubes and the Tik Toks
+and the Instagrams and wherever else.
+
+12
+00:00:13,190 --> 00:00:13,200
+and the Instagrams and wherever else.
+ 
+
+13
+00:00:13,200 --> 00:00:16,790
+and the Instagrams and wherever else.
+But seriously, look at the numbers. Look
+
+14
+00:00:16,790 --> 00:00:16,800
+But seriously, look at the numbers. Look
+ 
+
+15
+00:00:16,800 --> 00:00:18,950
+But seriously, look at the numbers. Look
+at this.
+
+16
+00:00:18,950 --> 00:00:18,960
+at this.
+ 
+
+17
+00:00:18,960 --> 00:00:21,109
+at this.
+16.3,000
+
+18
+00:00:21,109 --> 00:00:21,119
+16.3,000
+ 
+
+19
+00:00:21,119 --> 00:00:23,109
+16.3,000
+stars. I I was just celebrating
+
+20
+00:00:23,109 --> 00:00:23,119
+stars. I I was just celebrating
+ 
+
+21
+00:00:23,119 --> 00:00:25,670
+stars. I I was just celebrating
+yesterday that we hit 15,000 and it's
+
+22
+00:00:25,670 --> 00:00:25,680
+yesterday that we hit 15,000 and it's
+ 
+
+23
+00:00:25,680 --> 00:00:28,230
+yesterday that we hit 15,000 and it's
+16.3,000 already a week after release.
+
+24
+00:00:28,230 --> 00:00:28,240
+16.3,000 already a week after release.
+ 
+
+25
+00:00:28,240 --> 00:00:31,990
+16.3,000 already a week after release.
+This is wild to me. Absolutely wild.
+
+26
+00:00:31,990 --> 00:00:32,000
+This is wild to me. Absolutely wild.
+ 
+
+27
+00:00:32,000 --> 00:00:34,470
+This is wild to me. Absolutely wild.
+Thank you. Thank you to all of you who
+
+28
+00:00:34,470 --> 00:00:34,480
+Thank you. Thank you to all of you who
+ 
+
+29
+00:00:34,480 --> 00:00:35,990
+Thank you. Thank you to all of you who
+are trying this out, who are
+
+30
+00:00:35,990 --> 00:00:36,000
+are trying this out, who are
+ 
+
+31
+00:00:36,000 --> 00:00:37,750
+are trying this out, who are
+experimenting, who are filing issues,
+
+32
+00:00:37,750 --> 00:00:37,760
+experimenting, who are filing issues,
+ 
+
+33
+00:00:37,760 --> 00:00:39,430
+experimenting, who are filing issues,
+opening pull requests. It helps
+
+34
+00:00:39,430 --> 00:00:39,440
+opening pull requests. It helps
+ 
+
+35
+00:00:39,440 --> 00:00:42,310
+opening pull requests. It helps
+tremendously. And boy, do we have a lot
+
+36
+00:00:42,310 --> 00:00:42,320
+tremendously. And boy, do we have a lot
+ 
+
+37
+00:00:42,320 --> 00:00:44,869
+tremendously. And boy, do we have a lot
+of stuff in store for you more around
+
+38
+00:00:44,869 --> 00:00:44,879
+of stuff in store for you more around
+ 
+
+39
+00:00:44,879 --> 00:00:47,350
+of stuff in store for you more around
+specit. But actually, that's the point
+
+40
+00:00:47,350 --> 00:00:47,360
+specit. But actually, that's the point
+ 
+
+41
+00:00:47,360 --> 00:00:48,470
+specit. But actually, that's the point
+of the video. We're going to be talking
+
+42
+00:00:48,470 --> 00:00:48,480
+of the video. We're going to be talking
+ 
+
+43
+00:00:48,480 --> 00:00:49,750
+of the video. We're going to be talking
+about specit today. We're going to be
+
+44
+00:00:49,750 --> 00:00:49,760
+about specit today. We're going to be
+ 
+
+45
+00:00:49,760 --> 00:00:53,430
+about specit today. We're going to be
+talking and actually looking at how this
+
+46
+00:00:53,430 --> 00:00:53,440
+talking and actually looking at how this
+ 
+
+47
+00:00:53,440 --> 00:00:55,670
+talking and actually looking at how this
+works. And by the way, like I'm also one
+
+48
+00:00:55,670 --> 00:00:55,680
+works. And by the way, like I'm also one
+ 
+
+49
+00:00:55,680 --> 00:00:56,869
+works. And by the way, like I'm also one
+of those people that looks at these
+
+50
+00:00:56,869 --> 00:00:56,879
+of those people that looks at these
+ 
+
+51
+00:00:56,879 --> 00:00:59,270
+of those people that looks at these
+issues fairly regularly. So if you have
+
+52
+00:00:59,270 --> 00:00:59,280
+issues fairly regularly. So if you have
+ 
+
+53
+00:00:59,280 --> 00:01:01,910
+issues fairly regularly. So if you have
+any feedback, go and submit. Go and
+
+54
+00:01:01,910 --> 00:01:01,920
+any feedback, go and submit. Go and
+ 
+
+55
+00:01:01,920 --> 00:01:04,789
+any feedback, go and submit. Go and
+submit your feedback right here in
+
+56
+00:01:04,789 --> 00:01:04,799
+submit your feedback right here in
+ 
+
+57
+00:01:04,799 --> 00:01:07,750
+submit your feedback right here in
+GitHub. Open an issue. Uh do not open a
+
+58
+00:01:07,750 --> 00:01:07,760
+GitHub. Open an issue. Uh do not open a
+ 
+
+59
+00:01:07,760 --> 00:01:09,350
+GitHub. Open an issue. Uh do not open a
+pull request that rewrites the entire
+
+60
+00:01:09,350 --> 00:01:09,360
+pull request that rewrites the entire
+ 
+
+61
+00:01:09,360 --> 00:01:11,350
+pull request that rewrites the entire
+thing as an MCP server. I know I like
+
+62
+00:01:11,350 --> 00:01:11,360
+thing as an MCP server. I know I like
+ 
+
+63
+00:01:11,360 --> 00:01:15,030
+thing as an MCP server. I know I like
+MCP. I'm going to reject that request
+
+64
+00:01:15,030 --> 00:01:15,040
+MCP. I'm going to reject that request
+ 
+
+65
+00:01:15,040 --> 00:01:16,469
+MCP. I'm going to reject that request
+because you haven't talked to anybody
+
+66
+00:01:16,469 --> 00:01:16,479
+because you haven't talked to anybody
+ 
+
+67
+00:01:16,479 --> 00:01:17,590
+because you haven't talked to anybody
+about this. So if you have any big
+
+68
+00:01:17,590 --> 00:01:17,600
+about this. So if you have any big
+ 
+
+69
+00:01:17,600 --> 00:01:18,789
+about this. So if you have any big
+changes, make sure you talk about this
+
+70
+00:01:18,789 --> 00:01:18,799
+changes, make sure you talk about this
+ 
+
+71
+00:01:18,799 --> 00:01:21,350
+changes, make sure you talk about this
+first in the issue. And what is what is
+
+72
+00:01:21,350 --> 00:01:21,360
+first in the issue. And what is what is
+ 
+
+73
+00:01:21,360 --> 00:01:23,749
+first in the issue. And what is what is
+the the issues that I see sometimes are
+
+74
+00:01:23,749 --> 00:01:23,759
+the the issues that I see sometimes are
+ 
+
+75
+00:01:23,759 --> 00:01:28,789
+the the issues that I see sometimes are
+being open like Dr. D? What is this? I
+
+76
+00:01:28,789 --> 00:01:28,799
+being open like Dr. D? What is this? I
+ 
+
+77
+00:01:28,799 --> 00:01:30,310
+being open like Dr. D? What is this? I
+mean serious. Yeah, do not do not open
+
+78
+00:01:30,310 --> 00:01:30,320
+mean serious. Yeah, do not do not open
+ 
+
+79
+00:01:30,320 --> 00:01:31,990
+mean serious. Yeah, do not do not open
+issues. They just say DR like give me
+
+80
+00:01:31,990 --> 00:01:32,000
+issues. They just say DR like give me
+ 
+
+81
+00:01:32,000 --> 00:01:33,270
+issues. They just say DR like give me
+give me some context for how we can
+
+82
+00:01:33,270 --> 00:01:33,280
+give me some context for how we can
+ 
+
+83
+00:01:33,280 --> 00:01:36,469
+give me some context for how we can
+improve this. But anyway, so specit what
+
+84
+00:01:36,469 --> 00:01:36,479
+improve this. But anyway, so specit what
+ 
+
+85
+00:01:36,479 --> 00:01:39,830
+improve this. But anyway, so specit what
+it is is a toolkit that helps you get
+
+86
+00:01:39,830 --> 00:01:39,840
+it is is a toolkit that helps you get
+ 
+
+87
+00:01:39,840 --> 00:01:41,429
+it is is a toolkit that helps you get
+started with specri development. At
+
+88
+00:01:41,429 --> 00:01:41,439
+started with specri development. At
+ 
+
+89
+00:01:41,439 --> 00:01:43,990
+started with specri development. At
+Microsoft, we are very big on spectrum
+
+90
+00:01:43,990 --> 00:01:44,000
+Microsoft, we are very big on spectrum
+ 
+
+91
+00:01:44,000 --> 00:01:45,670
+Microsoft, we are very big on spectrum
+development lately. And one of the
+
+92
+00:01:45,670 --> 00:01:45,680
+development lately. And one of the
+ 
+
+93
+00:01:45,680 --> 00:01:48,310
+development lately. And one of the
+things that we decided to look at is how
+
+94
+00:01:48,310 --> 00:01:48,320
+things that we decided to look at is how
+ 
+
+95
+00:01:48,320 --> 00:01:51,109
+things that we decided to look at is how
+can we actually simplify the process of
+
+96
+00:01:51,109 --> 00:01:51,119
+can we actually simplify the process of
+ 
+
+97
+00:01:51,119 --> 00:01:53,830
+can we actually simplify the process of
+you using spectrum development to build
+
+98
+00:01:53,830 --> 00:01:53,840
+you using spectrum development to build
+ 
+
+99
+00:01:53,840 --> 00:01:55,350
+you using spectrum development to build
+real software. It's one of those
+
+100
+00:01:55,350 --> 00:01:55,360
+real software. It's one of those
+ 
+
+101
+00:01:55,360 --> 00:01:57,830
+real software. It's one of those
+important things that you don't really
+
+102
+00:01:57,830 --> 00:01:57,840
+important things that you don't really
+ 
+
+103
+00:01:57,840 --> 00:02:00,310
+important things that you don't really
+think about until you actually try it.
+
+104
+00:02:00,310 --> 00:02:00,320
+think about until you actually try it.
+ 
+
+105
+00:02:00,320 --> 00:02:02,069
+think about until you actually try it.
+One of the conversations that I had
+
+106
+00:02:02,069 --> 00:02:02,079
+One of the conversations that I had
+ 
+
+107
+00:02:02,079 --> 00:02:04,389
+One of the conversations that I had
+recently was around vibe coding, right?
+
+108
+00:02:04,389 --> 00:02:04,399
+recently was around vibe coding, right?
+ 
+
+109
+00:02:04,399 --> 00:02:06,709
+recently was around vibe coding, right?
+Like you hear all these people that talk
+
+110
+00:02:06,709 --> 00:02:06,719
+Like you hear all these people that talk
+ 
+
+111
+00:02:06,719 --> 00:02:09,430
+Like you hear all these people that talk
+about vibe coding some SAS app and
+
+112
+00:02:09,430 --> 00:02:09,440
+about vibe coding some SAS app and
+ 
+
+113
+00:02:09,440 --> 00:02:11,110
+about vibe coding some SAS app and
+there's a lot of this imprecision
+
+114
+00:02:11,110 --> 00:02:11,120
+there's a lot of this imprecision
+ 
+
+115
+00:02:11,120 --> 00:02:13,430
+there's a lot of this imprecision
+happening. You end up in these random
+
+116
+00:02:13,430 --> 00:02:13,440
+happening. You end up in these random
+ 
+
+117
+00:02:13,440 --> 00:02:15,270
+happening. You end up in these random
+rabbit holes where the code is not quite
+
+118
+00:02:15,270 --> 00:02:15,280
+rabbit holes where the code is not quite
+ 
+
+119
+00:02:15,280 --> 00:02:16,630
+rabbit holes where the code is not quite
+what you wanted. The implementation is
+
+120
+00:02:16,630 --> 00:02:16,640
+what you wanted. The implementation is
+ 
+
+121
+00:02:16,640 --> 00:02:18,229
+what you wanted. The implementation is
+not quite what you wanted. The design is
+
+122
+00:02:18,229 --> 00:02:18,239
+not quite what you wanted. The design is
+ 
+
+123
+00:02:18,239 --> 00:02:20,390
+not quite what you wanted. The design is
+not quite what you wanted. So spec
+
+124
+00:02:20,390 --> 00:02:20,400
+not quite what you wanted. So spec
+ 
+
+125
+00:02:20,400 --> 00:02:21,750
+not quite what you wanted. So spec
+driven development is something that can
+
+126
+00:02:21,750 --> 00:02:21,760
+driven development is something that can
+ 
+
+127
+00:02:21,760 --> 00:02:24,390
+driven development is something that can
+actually help you get out of that rabbit
+
+128
+00:02:24,390 --> 00:02:24,400
+actually help you get out of that rabbit
+ 
+
+129
+00:02:24,400 --> 00:02:25,830
+actually help you get out of that rabbit
+hole into a little bit more of a
+
+130
+00:02:25,830 --> 00:02:25,840
+hole into a little bit more of a
+ 
+
+131
+00:02:25,840 --> 00:02:27,910
+hole into a little bit more of a
+scalable solution for your software. So
+
+132
+00:02:27,910 --> 00:02:27,920
+scalable solution for your software. So
+ 
+
+133
+00:02:27,920 --> 00:02:29,589
+scalable solution for your software. So
+uh let's take a look here. It's again
+
+134
+00:02:29,589 --> 00:02:29,599
+uh let's take a look here. It's again
+ 
+
+135
+00:02:29,599 --> 00:02:31,270
+uh let's take a look here. It's again
+it's a GitHub repo. It's all open
+
+136
+00:02:31,270 --> 00:02:31,280
+it's a GitHub repo. It's all open
+ 
+
+137
+00:02:31,280 --> 00:02:32,790
+it's a GitHub repo. It's all open
+source. It's free. You can take a look
+
+138
+00:02:32,790 --> 00:02:32,800
+source. It's free. You can take a look
+ 
+
+139
+00:02:32,800 --> 00:02:36,309
+source. It's free. You can take a look
+at stuff that we have here. And uh, of
+
+140
+00:02:36,309 --> 00:02:36,319
+at stuff that we have here. And uh, of
+ 
+
+141
+00:02:36,319 --> 00:02:37,750
+at stuff that we have here. And uh, of
+course, one of the things that I did
+
+142
+00:02:37,750 --> 00:02:37,760
+course, one of the things that I did
+ 
+
+143
+00:02:37,760 --> 00:02:40,710
+course, one of the things that I did
+recently is push the specify CLI
+
+144
+00:02:40,710 --> 00:02:40,720
+recently is push the specify CLI
+ 
+
+145
+00:02:40,720 --> 00:02:42,710
+recently is push the specify CLI
+reference spec kit includes this
+
+146
+00:02:42,710 --> 00:02:42,720
+reference spec kit includes this
+ 
+
+147
+00:02:42,720 --> 00:02:44,869
+reference spec kit includes this
+wonderful thing which is called specify
+
+148
+00:02:44,869 --> 00:02:44,879
+wonderful thing which is called specify
+ 
+
+149
+00:02:44,879 --> 00:02:47,430
+wonderful thing which is called specify
+CLI. It actually scaffolds things for
+
+150
+00:02:47,430 --> 00:02:47,440
+CLI. It actually scaffolds things for
+ 
+
+151
+00:02:47,440 --> 00:02:49,270
+CLI. It actually scaffolds things for
+you. So if you're a developer and you're
+
+152
+00:02:49,270 --> 00:02:49,280
+you. So if you're a developer and you're
+ 
+
+153
+00:02:49,280 --> 00:02:50,710
+you. So if you're a developer and you're
+thinking like, wow, what do I need to
+
+154
+00:02:50,710 --> 00:02:50,720
+thinking like, wow, what do I need to
+ 
+
+155
+00:02:50,720 --> 00:02:53,110
+thinking like, wow, what do I need to
+get started with Spectrum Development?
+
+156
+00:02:53,110 --> 00:02:53,120
+get started with Spectrum Development?
+ 
+
+157
+00:02:53,120 --> 00:02:55,110
+get started with Spectrum Development?
+CLI is right there. So you there's a
+
+158
+00:02:55,110 --> 00:02:55,120
+CLI is right there. So you there's a
+ 
+
+159
+00:02:55,120 --> 00:02:58,070
+CLI is right there. So you there's a
+reference for it now as well. And uh I
+
+160
+00:02:58,070 --> 00:02:58,080
+reference for it now as well. And uh I
+ 
+
+161
+00:02:58,080 --> 00:02:59,990
+reference for it now as well. And uh I
+use uvx and you can install it directly
+
+162
+00:02:59,990 --> 00:03:00,000
+use uvx and you can install it directly
+ 
+
+163
+00:03:00,000 --> 00:03:02,710
+use uvx and you can install it directly
+from the GitHub repo because I have not
+
+164
+00:03:02,710 --> 00:03:02,720
+from the GitHub repo because I have not
+ 
+
+165
+00:03:02,720 --> 00:03:05,670
+from the GitHub repo because I have not
+yet published this to um the Python
+
+166
+00:03:05,670 --> 00:03:05,680
+yet published this to um the Python
+ 
+
+167
+00:03:05,680 --> 00:03:07,750
+yet published this to um the Python
+package repository. It's coming. I'm
+
+168
+00:03:07,750 --> 00:03:07,760
+package repository. It's coming. I'm
+ 
+
+169
+00:03:07,760 --> 00:03:09,509
+package repository. It's coming. I'm
+working on it. I saw that people already
+
+170
+00:03:09,509 --> 00:03:09,519
+working on it. I saw that people already
+ 
+
+171
+00:03:09,519 --> 00:03:11,990
+working on it. I saw that people already
+filed issues on this which is great. But
+
+172
+00:03:11,990 --> 00:03:12,000
+filed issues on this which is great. But
+ 
+
+173
+00:03:12,000 --> 00:03:13,670
+filed issues on this which is great. But
+um we're going to use it directly from
+
+174
+00:03:13,670 --> 00:03:13,680
+um we're going to use it directly from
+ 
+
+175
+00:03:13,680 --> 00:03:15,190
+um we're going to use it directly from
+the repo as is. So I'm just going to
+
+176
+00:03:15,190 --> 00:03:15,200
+the repo as is. So I'm just going to
+ 
+
+177
+00:03:15,200 --> 00:03:17,110
+the repo as is. So I'm just going to
+copy this command with UVX. Shout out to
+
+178
+00:03:17,110 --> 00:03:17,120
+copy this command with UVX. Shout out to
+ 
+
+179
+00:03:17,120 --> 00:03:19,589
+copy this command with UVX. Shout out to
+the folks at Astral. Uh this is
+
+180
+00:03:19,589 --> 00:03:19,599
+the folks at Astral. Uh this is
+ 
+
+181
+00:03:19,599 --> 00:03:23,190
+the folks at Astral. Uh this is
+fantastic. UVX. I I use UV and UVX all
+
+182
+00:03:23,190 --> 00:03:23,200
+fantastic. UVX. I I use UV and UVX all
+ 
+
+183
+00:03:23,200 --> 00:03:26,550
+fantastic. UVX. I I use UV and UVX all
+all the freaking time. Um, also if you
+
+184
+00:03:26,550 --> 00:03:26,560
+all the freaking time. Um, also if you
+ 
+
+185
+00:03:26,560 --> 00:03:28,790
+all the freaking time. Um, also if you
+do not want to use a CLI, that's totally
+
+186
+00:03:28,790 --> 00:03:28,800
+do not want to use a CLI, that's totally
+ 
+
+187
+00:03:28,800 --> 00:03:30,229
+do not want to use a CLI, that's totally
+fine. I understand you don't want to
+
+188
+00:03:30,229 --> 00:03:30,239
+fine. I understand you don't want to
+ 
+
+189
+00:03:30,239 --> 00:03:31,270
+fine. I understand you don't want to
+install things. You don't want to
+
+190
+00:03:31,270 --> 00:03:31,280
+install things. You don't want to
+ 
+
+191
+00:03:31,280 --> 00:03:33,270
+install things. You don't want to
+install UVX.
+
+192
+00:03:33,270 --> 00:03:33,280
+install UVX.
+ 
+
+193
+00:03:33,280 --> 00:03:35,110
+install UVX.
+Shout out to Astral folks. Your product
+
+194
+00:03:35,110 --> 00:03:35,120
+Shout out to Astral folks. Your product
+ 
+
+195
+00:03:35,120 --> 00:03:37,910
+Shout out to Astral folks. Your product
+is great. I love UVX. Um, this is not
+
+196
+00:03:37,910 --> 00:03:37,920
+is great. I love UVX. Um, this is not
+ 
+
+197
+00:03:37,920 --> 00:03:40,309
+is great. I love UVX. Um, this is not
+sponsored by them. But if you do not
+
+198
+00:03:40,309 --> 00:03:40,319
+sponsored by them. But if you do not
+ 
+
+199
+00:03:40,319 --> 00:03:41,750
+sponsored by them. But if you do not
+want to do that, you can go to the
+
+200
+00:03:41,750 --> 00:03:41,760
+want to do that, you can go to the
+ 
+
+201
+00:03:41,760 --> 00:03:43,910
+want to do that, you can go to the
+releases and just download the templates
+
+202
+00:03:43,910 --> 00:03:43,920
+releases and just download the templates
+ 
+
+203
+00:03:43,920 --> 00:03:46,070
+releases and just download the templates
+yourself. We support several agents. And
+
+204
+00:03:46,070 --> 00:03:46,080
+yourself. We support several agents. And
+ 
+
+205
+00:03:46,080 --> 00:03:48,390
+yourself. We support several agents. And
+just today, actually, I launched support
+
+206
+00:03:48,390 --> 00:03:48,400
+just today, actually, I launched support
+ 
+
+207
+00:03:48,400 --> 00:03:50,149
+just today, actually, I launched support
+for Cursor. So, if you're one of those
+
+208
+00:03:50,149 --> 00:03:50,159
+for Cursor. So, if you're one of those
+ 
+
+209
+00:03:50,159 --> 00:03:52,229
+for Cursor. So, if you're one of those
+people that uses Cursor, you're in luck.
+
+210
+00:03:52,229 --> 00:03:52,239
+people that uses Cursor, you're in luck.
+ 
+
+211
+00:03:52,239 --> 00:03:54,390
+people that uses Cursor, you're in luck.
+You can use one of the releases here. So
+
+212
+00:03:54,390 --> 00:03:54,400
+You can use one of the releases here. So
+ 
+
+213
+00:03:54,400 --> 00:03:56,070
+You can use one of the releases here. So
+we have a bunch of them. Uh there's for
+
+214
+00:03:56,070 --> 00:03:56,080
+we have a bunch of them. Uh there's for
+ 
+
+215
+00:03:56,080 --> 00:03:57,750
+we have a bunch of them. Uh there's for
+example for copiloud, we have them for
+
+216
+00:03:57,750 --> 00:03:57,760
+example for copiloud, we have them for
+ 
+
+217
+00:03:57,760 --> 00:03:59,830
+example for copiloud, we have them for
+PowerShell and shell scripts. There's a
+
+218
+00:03:59,830 --> 00:03:59,840
+PowerShell and shell scripts. There's a
+ 
+
+219
+00:03:59,840 --> 00:04:02,149
+PowerShell and shell scripts. There's a
+bunch of them that you will see shortly
+
+220
+00:04:02,149 --> 00:04:02,159
+bunch of them that you will see shortly
+ 
+
+221
+00:04:02,159 --> 00:04:04,710
+bunch of them that you will see shortly
+in our demo. Uh depending on what
+
+222
+00:04:04,710 --> 00:04:04,720
+in our demo. Uh depending on what
+ 
+
+223
+00:04:04,720 --> 00:04:05,990
+in our demo. Uh depending on what
+operating system you're running in. So
+
+224
+00:04:05,990 --> 00:04:06,000
+operating system you're running in. So
+ 
+
+225
+00:04:06,000 --> 00:04:07,270
+operating system you're running in. So
+if you're running on Linux, you might
+
+226
+00:04:07,270 --> 00:04:07,280
+if you're running on Linux, you might
+ 
+
+227
+00:04:07,280 --> 00:04:09,350
+if you're running on Linux, you might
+use bash scripts. If you're running on
+
+228
+00:04:09,350 --> 00:04:09,360
+use bash scripts. If you're running on
+ 
+
+229
+00:04:09,360 --> 00:04:11,670
+use bash scripts. If you're running on
+Windows, you might use PowerShell. No
+
+230
+00:04:11,670 --> 00:04:11,680
+Windows, you might use PowerShell. No
+ 
+
+231
+00:04:11,680 --> 00:04:13,350
+Windows, you might use PowerShell. No
+judgment here. Use whatever fits your
+
+232
+00:04:13,350 --> 00:04:13,360
+judgment here. Use whatever fits your
+ 
+
+233
+00:04:13,360 --> 00:04:14,710
+judgment here. Use whatever fits your
+scenario. But you can download these.
+
+234
+00:04:14,710 --> 00:04:14,720
+scenario. But you can download these.
+ 
+
+235
+00:04:14,720 --> 00:04:17,189
+scenario. But you can download these.
+We're going to say grab the zip file for
+
+236
+00:04:17,189 --> 00:04:17,199
+We're going to say grab the zip file for
+ 
+
+237
+00:04:17,199 --> 00:04:21,349
+We're going to say grab the zip file for
+the PowerShell script for uh our copilot
+
+238
+00:04:21,349 --> 00:04:21,359
+the PowerShell script for uh our copilot
+ 
+
+239
+00:04:21,359 --> 00:04:23,270
+the PowerShell script for uh our copilot
+and put it into downloads. and we're
+
+240
+00:04:23,270 --> 00:04:23,280
+and put it into downloads. and we're
+ 
+
+241
+00:04:23,280 --> 00:04:25,590
+and put it into downloads. and we're
+going to save it here. And let's go and
+
+242
+00:04:25,590 --> 00:04:25,600
+going to save it here. And let's go and
+ 
+
+243
+00:04:25,600 --> 00:04:28,710
+going to save it here. And let's go and
+take a look at it. Let's open it.
+
+244
+00:04:28,710 --> 00:04:28,720
+take a look at it. Let's open it.
+ 
+
+245
+00:04:28,720 --> 00:04:30,150
+take a look at it. Let's open it.
+And you'll notice that I have the
+
+246
+00:04:30,150 --> 00:04:30,160
+And you'll notice that I have the
+ 
+
+247
+00:04:30,160 --> 00:04:32,390
+And you'll notice that I have the
+specify folder that has some metadata
+
+248
+00:04:32,390 --> 00:04:32,400
+specify folder that has some metadata
+ 
+
+249
+00:04:32,400 --> 00:04:34,310
+specify folder that has some metadata
+for specify things like memory, scripts,
+
+250
+00:04:34,310 --> 00:04:34,320
+for specify things like memory, scripts,
+ 
+
+251
+00:04:34,320 --> 00:04:36,070
+for specify things like memory, scripts,
+and templates. And scripts are, of
+
+252
+00:04:36,070 --> 00:04:36,080
+and templates. And scripts are, of
+ 
+
+253
+00:04:36,080 --> 00:04:37,590
+and templates. And scripts are, of
+course, PowerShell because that's what
+
+254
+00:04:37,590 --> 00:04:37,600
+course, PowerShell because that's what
+ 
+
+255
+00:04:37,600 --> 00:04:39,749
+course, PowerShell because that's what
+we downloaded. These are helper scripts.
+
+256
+00:04:39,749 --> 00:04:39,759
+we downloaded. These are helper scripts.
+ 
+
+257
+00:04:39,759 --> 00:04:42,629
+we downloaded. These are helper scripts.
+We have some prompts in the GitHub
+
+258
+00:04:42,629 --> 00:04:42,639
+We have some prompts in the GitHub
+ 
+
+259
+00:04:42,639 --> 00:04:44,710
+We have some prompts in the GitHub
+folder that we'll get to in a second.
+
+260
+00:04:44,710 --> 00:04:44,720
+folder that we'll get to in a second.
+ 
+
+261
+00:04:44,720 --> 00:04:46,390
+folder that we'll get to in a second.
+So, you can just grab this, put it in
+
+262
+00:04:46,390 --> 00:04:46,400
+So, you can just grab this, put it in
+ 
+
+263
+00:04:46,400 --> 00:04:47,830
+So, you can just grab this, put it in
+your project. You do not need to use a
+
+264
+00:04:47,830 --> 00:04:47,840
+your project. You do not need to use a
+ 
+
+265
+00:04:47,840 --> 00:04:50,150
+your project. You do not need to use a
+CLI. I promise you, no installation
+
+266
+00:04:50,150 --> 00:04:50,160
+CLI. I promise you, no installation
+ 
+
+267
+00:04:50,160 --> 00:04:52,870
+CLI. I promise you, no installation
+required. But installation actually
+
+268
+00:04:52,870 --> 00:04:52,880
+required. But installation actually
+ 
+
+269
+00:04:52,880 --> 00:04:55,030
+required. But installation actually
+makes it much easier. So I do recommend
+
+270
+00:04:55,030 --> 00:04:55,040
+makes it much easier. So I do recommend
+ 
+
+271
+00:04:55,040 --> 00:04:56,710
+makes it much easier. So I do recommend
+using it. I just copied the command and
+
+272
+00:04:56,710 --> 00:04:56,720
+using it. I just copied the command and
+ 
+
+273
+00:04:56,720 --> 00:04:58,390
+using it. I just copied the command and
+I'm just going to go to the terminal,
+
+274
+00:04:58,390 --> 00:04:58,400
+I'm just going to go to the terminal,
+ 
+
+275
+00:04:58,400 --> 00:05:00,629
+I'm just going to go to the terminal,
+zoom it in, and we're going to paste it
+
+276
+00:05:00,629 --> 00:05:00,639
+zoom it in, and we're going to paste it
+ 
+
+277
+00:05:00,639 --> 00:05:02,950
+zoom it in, and we're going to paste it
+here. And I'm going to bootstrap a new
+
+278
+00:05:02,950 --> 00:05:02,960
+here. And I'm going to bootstrap a new
+ 
+
+279
+00:05:02,960 --> 00:05:05,030
+here. And I'm going to bootstrap a new
+project. Let's see what is a thing that
+
+280
+00:05:05,030 --> 00:05:05,040
+project. Let's see what is a thing that
+ 
+
+281
+00:05:05,040 --> 00:05:07,909
+project. Let's see what is a thing that
+we want to build today. And let's say I
+
+282
+00:05:07,909 --> 00:05:07,919
+we want to build today. And let's say I
+ 
+
+283
+00:05:07,919 --> 00:05:10,629
+we want to build today. And let's say I
+want to build a podcast website. I am
+
+284
+00:05:10,629 --> 00:05:10,639
+want to build a podcast website. I am
+ 
+
+285
+00:05:10,639 --> 00:05:12,150
+want to build a podcast website. I am
+big at podcasting. If you have not
+
+286
+00:05:12,150 --> 00:05:12,160
+big at podcasting. If you have not
+ 
+
+287
+00:05:12,160 --> 00:05:14,390
+big at podcasting. If you have not
+listened to the work item, check it out.
+
+288
+00:05:14,390 --> 00:05:14,400
+listened to the work item, check it out.
+ 
+
+289
+00:05:14,400 --> 00:05:16,629
+listened to the work item, check it out.
+But let's say I do not have a podcast
+
+290
+00:05:16,629 --> 00:05:16,639
+But let's say I do not have a podcast
+ 
+
+291
+00:05:16,639 --> 00:05:18,070
+But let's say I do not have a podcast
+website and I want to build one for
+
+292
+00:05:18,070 --> 00:05:18,080
+website and I want to build one for
+ 
+
+293
+00:05:18,080 --> 00:05:20,390
+website and I want to build one for
+myself. So naturally what I want to do
+
+294
+00:05:20,390 --> 00:05:20,400
+myself. So naturally what I want to do
+ 
+
+295
+00:05:20,400 --> 00:05:22,950
+myself. So naturally what I want to do
+is just bootstrap the spectrum process
+
+296
+00:05:22,950 --> 00:05:22,960
+is just bootstrap the spectrum process
+ 
+
+297
+00:05:22,960 --> 00:05:24,629
+is just bootstrap the spectrum process
+for the website. I'm going to call it
+
+298
+00:05:24,629 --> 00:05:24,639
+for the website. I'm going to call it
+ 
+
+299
+00:05:24,639 --> 00:05:27,510
+for the website. I'm going to call it
+pod site and we're going to press enter
+
+300
+00:05:27,510 --> 00:05:27,520
+pod site and we're going to press enter
+ 
+
+301
+00:05:27,520 --> 00:05:31,110
+pod site and we're going to press enter
+and wait for specify to launch. Now here
+
+302
+00:05:31,110 --> 00:05:31,120
+and wait for specify to launch. Now here
+ 
+
+303
+00:05:31,120 --> 00:05:33,510
+and wait for specify to launch. Now here
+is where things get interesting. So we
+
+304
+00:05:33,510 --> 00:05:33,520
+is where things get interesting. So we
+ 
+
+305
+00:05:33,520 --> 00:05:36,070
+is where things get interesting. So we
+have different options. I can choose
+
+306
+00:05:36,070 --> 00:05:36,080
+have different options. I can choose
+ 
+
+307
+00:05:36,080 --> 00:05:38,390
+have different options. I can choose
+different agents for which I am
+
+308
+00:05:38,390 --> 00:05:38,400
+different agents for which I am
+ 
+
+309
+00:05:38,400 --> 00:05:40,310
+different agents for which I am
+bootstrapping these custom commands,
+
+310
+00:05:40,310 --> 00:05:40,320
+bootstrapping these custom commands,
+ 
+
+311
+00:05:40,320 --> 00:05:42,790
+bootstrapping these custom commands,
+custom prompts. Sometimes I use copilot,
+
+312
+00:05:42,790 --> 00:05:42,800
+custom prompts. Sometimes I use copilot,
+ 
+
+313
+00:05:42,800 --> 00:05:45,270
+custom prompts. Sometimes I use copilot,
+sometimes I use cloud code. I'm not that
+
+314
+00:05:45,270 --> 00:05:45,280
+sometimes I use cloud code. I'm not that
+ 
+
+315
+00:05:45,280 --> 00:05:48,230
+sometimes I use cloud code. I'm not that
+big on Gemini CLI and cursor, but I know
+
+316
+00:05:48,230 --> 00:05:48,240
+big on Gemini CLI and cursor, but I know
+ 
+
+317
+00:05:48,240 --> 00:05:50,629
+big on Gemini CLI and cursor, but I know
+that other people use them. So, they're
+
+318
+00:05:50,629 --> 00:05:50,639
+that other people use them. So, they're
+ 
+
+319
+00:05:50,639 --> 00:05:51,749
+that other people use them. So, they're
+here. You can use them through the
+
+320
+00:05:51,749 --> 00:05:51,759
+here. You can use them through the
+ 
+
+321
+00:05:51,759 --> 00:05:54,150
+here. You can use them through the
+specify CLI. And because it runs in a
+
+322
+00:05:54,150 --> 00:05:54,160
+specify CLI. And because it runs in a
+ 
+
+323
+00:05:54,160 --> 00:05:55,510
+specify CLI. And because it runs in a
+terminal, you can always just, you know,
+
+324
+00:05:55,510 --> 00:05:55,520
+terminal, you can always just, you know,
+ 
+
+325
+00:05:55,520 --> 00:05:57,110
+terminal, you can always just, you know,
+navigate with your arrows, use your
+
+326
+00:05:57,110 --> 00:05:57,120
+navigate with your arrows, use your
+ 
+
+327
+00:05:57,120 --> 00:05:59,029
+navigate with your arrows, use your
+keyboard, be comfortable with your
+
+328
+00:05:59,029 --> 00:05:59,039
+keyboard, be comfortable with your
+ 
+
+329
+00:05:59,039 --> 00:06:02,070
+keyboard, be comfortable with your
+keyboard, and pick the agent that you
+
+330
+00:06:02,070 --> 00:06:02,080
+keyboard, and pick the agent that you
+ 
+
+331
+00:06:02,080 --> 00:06:04,629
+keyboard, and pick the agent that you
+want. I'm going to pick copilot. Now,
+
+332
+00:06:04,629 --> 00:06:04,639
+want. I'm going to pick copilot. Now,
+ 
+
+333
+00:06:04,639 --> 00:06:07,189
+want. I'm going to pick copilot. Now,
+I'm also picking the type of scripts
+
+334
+00:06:07,189 --> 00:06:07,199
+I'm also picking the type of scripts
+ 
+
+335
+00:06:07,199 --> 00:06:09,830
+I'm also picking the type of scripts
+that I'm going to be using for my helper
+
+336
+00:06:09,830 --> 00:06:09,840
+that I'm going to be using for my helper
+ 
+
+337
+00:06:09,840 --> 00:06:11,189
+that I'm going to be using for my helper
+system, right? Because when we're
+
+338
+00:06:11,189 --> 00:06:11,199
+system, right? Because when we're
+ 
+
+339
+00:06:11,199 --> 00:06:13,270
+system, right? Because when we're
+running a bunch of these prompts, what
+
+340
+00:06:13,270 --> 00:06:13,280
+running a bunch of these prompts, what
+ 
+
+341
+00:06:13,280 --> 00:06:14,309
+running a bunch of these prompts, what
+they're also going to do is they're
+
+342
+00:06:14,309 --> 00:06:14,319
+they're also going to do is they're
+ 
+
+343
+00:06:14,319 --> 00:06:15,430
+they're also going to do is they're
+going to run a bunch of scripts that are
+
+344
+00:06:15,430 --> 00:06:15,440
+going to run a bunch of scripts that are
+ 
+
+345
+00:06:15,440 --> 00:06:17,189
+going to run a bunch of scripts that are
+going to bootstrap things like get
+
+346
+00:06:17,189 --> 00:06:17,199
+going to bootstrap things like get
+ 
+
+347
+00:06:17,199 --> 00:06:21,510
+going to bootstrap things like get
+branches and make sure that the uh JSON
+
+348
+00:06:21,510 --> 00:06:21,520
+branches and make sure that the uh JSON
+ 
+
+349
+00:06:21,520 --> 00:06:23,990
+branches and make sure that the uh JSON
+content that we use to kind of link
+
+350
+00:06:23,990 --> 00:06:24,000
+content that we use to kind of link
+ 
+
+351
+00:06:24,000 --> 00:06:26,790
+content that we use to kind of link
+metadata is the same. And for that, the
+
+352
+00:06:26,790 --> 00:06:26,800
+metadata is the same. And for that, the
+ 
+
+353
+00:06:26,800 --> 00:06:28,150
+metadata is the same. And for that, the
+easiest way to do this is with scripts
+
+354
+00:06:28,150 --> 00:06:28,160
+easiest way to do this is with scripts
+ 
+
+355
+00:06:28,160 --> 00:06:29,670
+easiest way to do this is with scripts
+because it's deterministic. You don't
+
+356
+00:06:29,670 --> 00:06:29,680
+because it's deterministic. You don't
+ 
+
+357
+00:06:29,680 --> 00:06:31,510
+because it's deterministic. You don't
+actually have to rely on the LLM, the
+
+358
+00:06:31,510 --> 00:06:31,520
+actually have to rely on the LLM, the
+ 
+
+359
+00:06:31,520 --> 00:06:33,189
+actually have to rely on the LLM, the
+large language model to go in and figure
+
+360
+00:06:33,189 --> 00:06:33,199
+large language model to go in and figure
+ 
+
+361
+00:06:33,199 --> 00:06:35,510
+large language model to go in and figure
+out how to piece things together. Things
+
+362
+00:06:35,510 --> 00:06:35,520
+out how to piece things together. Things
+ 
+
+363
+00:06:35,520 --> 00:06:38,950
+out how to piece things together. Things
+just work. So it defaults smartly to the
+
+364
+00:06:38,950 --> 00:06:38,960
+just work. So it defaults smartly to the
+ 
+
+365
+00:06:38,960 --> 00:06:40,550
+just work. So it defaults smartly to the
+operating system that you're running in.
+
+366
+00:06:40,550 --> 00:06:40,560
+operating system that you're running in.
+ 
+
+367
+00:06:40,560 --> 00:06:42,950
+operating system that you're running in.
+In this case, I have PowerShell selected
+
+368
+00:06:42,950 --> 00:06:42,960
+In this case, I have PowerShell selected
+ 
+
+369
+00:06:42,960 --> 00:06:44,309
+In this case, I have PowerShell selected
+because I'm running this on a Windows
+
+370
+00:06:44,309 --> 00:06:44,319
+because I'm running this on a Windows
+ 
+
+371
+00:06:44,319 --> 00:06:45,590
+because I'm running this on a Windows
+terminal. It's Windows PowerShell,
+
+372
+00:06:45,590 --> 00:06:45,600
+terminal. It's Windows PowerShell,
+ 
+
+373
+00:06:45,600 --> 00:06:47,990
+terminal. It's Windows PowerShell,
+right? But if I so desire, I can switch
+
+374
+00:06:47,990 --> 00:06:48,000
+right? But if I so desire, I can switch
+ 
+
+375
+00:06:48,000 --> 00:06:49,909
+right? But if I so desire, I can switch
+to shell scripts. If you're running WSL
+
+376
+00:06:49,909 --> 00:06:49,919
+to shell scripts. If you're running WSL
+ 
+
+377
+00:06:49,919 --> 00:06:52,710
+to shell scripts. If you're running WSL
+2 or maybe you have an Ubuntu VM or a
+
+378
+00:06:52,710 --> 00:06:52,720
+2 or maybe you have an Ubuntu VM or a
+ 
+
+379
+00:06:52,720 --> 00:06:54,790
+2 or maybe you have an Ubuntu VM or a
+Fedora VM, you can use that there as
+
+380
+00:06:54,790 --> 00:06:54,800
+Fedora VM, you can use that there as
+ 
+
+381
+00:06:54,800 --> 00:06:57,189
+Fedora VM, you can use that there as
+well. And by the way, this just launched
+
+382
+00:06:57,189 --> 00:06:57,199
+well. And by the way, this just launched
+ 
+
+383
+00:06:57,199 --> 00:06:58,870
+well. And by the way, this just launched
+today. It's hot off the press. You can
+
+384
+00:06:58,870 --> 00:06:58,880
+today. It's hot off the press. You can
+ 
+
+385
+00:06:58,880 --> 00:07:00,950
+today. It's hot off the press. You can
+actually now support PowerShell. You
+
+386
+00:07:00,950 --> 00:07:00,960
+actually now support PowerShell. You
+ 
+
+387
+00:07:00,960 --> 00:07:03,110
+actually now support PowerShell. You
+don't need WSL 2 on Windows to run this.
+
+388
+00:07:03,110 --> 00:07:03,120
+don't need WSL 2 on Windows to run this.
+ 
+
+389
+00:07:03,120 --> 00:07:04,950
+don't need WSL 2 on Windows to run this.
+You can just run it native Windows. I'm
+
+390
+00:07:04,950 --> 00:07:04,960
+You can just run it native Windows. I'm
+ 
+
+391
+00:07:04,960 --> 00:07:06,390
+You can just run it native Windows. I'm
+going to select PowerShell, right?
+
+392
+00:07:06,390 --> 00:07:06,400
+going to select PowerShell, right?
+ 
+
+393
+00:07:06,400 --> 00:07:07,990
+going to select PowerShell, right?
+Because that's that's what we want. We
+
+394
+00:07:07,990 --> 00:07:08,000
+Because that's that's what we want. We
+ 
+
+395
+00:07:08,000 --> 00:07:10,390
+Because that's that's what we want. We
+want to run this on Windows as is.
+
+396
+00:07:10,390 --> 00:07:10,400
+want to run this on Windows as is.
+ 
+
+397
+00:07:10,400 --> 00:07:12,150
+want to run this on Windows as is.
+PowerShell it is. And we'll see some
+
+398
+00:07:12,150 --> 00:07:12,160
+PowerShell it is. And we'll see some
+ 
+
+399
+00:07:12,160 --> 00:07:14,550
+PowerShell it is. And we'll see some
+status changes. This is basically the
+
+400
+00:07:14,550 --> 00:07:14,560
+status changes. This is basically the
+ 
+
+401
+00:07:14,560 --> 00:07:16,629
+status changes. This is basically the
+specified CLI going and downloading a
+
+402
+00:07:16,629 --> 00:07:16,639
+specified CLI going and downloading a
+ 
+
+403
+00:07:16,639 --> 00:07:18,870
+specified CLI going and downloading a
+bunch of stuff and extracting the
+
+404
+00:07:18,870 --> 00:07:18,880
+bunch of stuff and extracting the
+ 
+
+405
+00:07:18,880 --> 00:07:21,110
+bunch of stuff and extracting the
+templates locally. As I mentioned
+
+406
+00:07:21,110 --> 00:07:21,120
+templates locally. As I mentioned
+ 
+
+407
+00:07:21,120 --> 00:07:24,070
+templates locally. As I mentioned
+before, like this is just a convenience
+
+408
+00:07:24,070 --> 00:07:24,080
+before, like this is just a convenience
+ 
+
+409
+00:07:24,080 --> 00:07:25,589
+before, like this is just a convenience
+layer. Like this is not something that
+
+410
+00:07:25,589 --> 00:07:25,599
+layer. Like this is not something that
+ 
+
+411
+00:07:25,599 --> 00:07:27,029
+layer. Like this is not something that
+you have to do. You can just download
+
+412
+00:07:27,029 --> 00:07:27,039
+you have to do. You can just download
+ 
+
+413
+00:07:27,039 --> 00:07:28,469
+you have to do. You can just download
+the zip yourself from the release for
+
+414
+00:07:28,469 --> 00:07:28,479
+the zip yourself from the release for
+ 
+
+415
+00:07:28,479 --> 00:07:30,710
+the zip yourself from the release for
+the agent and the shell script type that
+
+416
+00:07:30,710 --> 00:07:30,720
+the agent and the shell script type that
+ 
+
+417
+00:07:30,720 --> 00:07:32,390
+the agent and the shell script type that
+you want and extract it and put in your
+
+418
+00:07:32,390 --> 00:07:32,400
+you want and extract it and put in your
+ 
+
+419
+00:07:32,400 --> 00:07:34,629
+you want and extract it and put in your
+project. Just as easy.
+
+420
+00:07:34,629 --> 00:07:34,639
+project. Just as easy.
+ 
+
+421
+00:07:34,639 --> 00:07:36,950
+project. Just as easy.
+So now you'll notice that there are some
+
+422
+00:07:36,950 --> 00:07:36,960
+So now you'll notice that there are some
+ 
+
+423
+00:07:36,960 --> 00:07:39,510
+So now you'll notice that there are some
+instructions here for me. I can navigate
+
+424
+00:07:39,510 --> 00:07:39,520
+instructions here for me. I can navigate
+ 
+
+425
+00:07:39,520 --> 00:07:41,749
+instructions here for me. I can navigate
+to the folder. I can open in Visual
+
+426
+00:07:41,749 --> 00:07:41,759
+to the folder. I can open in Visual
+ 
+
+427
+00:07:41,759 --> 00:07:44,469
+to the folder. I can open in Visual
+Studio Code and use some slash commands.
+
+428
+00:07:44,469 --> 00:07:44,479
+Studio Code and use some slash commands.
+ 
+
+429
+00:07:44,479 --> 00:07:46,870
+Studio Code and use some slash commands.
+There are specify plan and tasks. These
+
+430
+00:07:46,870 --> 00:07:46,880
+There are specify plan and tasks. These
+ 
+
+431
+00:07:46,880 --> 00:07:47,830
+There are specify plan and tasks. These
+are going to help me to actually
+
+432
+00:07:47,830 --> 00:07:47,840
+are going to help me to actually
+ 
+
+433
+00:07:47,840 --> 00:07:51,189
+are going to help me to actually
+bootstrap my project. And I can update
+
+434
+00:07:51,189 --> 00:07:51,199
+bootstrap my project. And I can update
+ 
+
+435
+00:07:51,199 --> 00:07:54,390
+bootstrap my project. And I can update
+the constitution file. The constitution
+
+436
+00:07:54,390 --> 00:07:54,400
+the constitution file. The constitution
+ 
+
+437
+00:07:54,400 --> 00:07:55,749
+the constitution file. The constitution
+file is actually something that you
+
+438
+00:07:55,749 --> 00:07:55,759
+file is actually something that you
+ 
+
+439
+00:07:55,759 --> 00:07:57,189
+file is actually something that you
+probably have not heard about before
+
+440
+00:07:57,189 --> 00:07:57,199
+probably have not heard about before
+ 
+
+441
+00:07:57,199 --> 00:07:59,189
+probably have not heard about before
+because it's relatively new. the the the
+
+442
+00:07:59,189 --> 00:07:59,199
+because it's relatively new. the the the
+ 
+
+443
+00:07:59,199 --> 00:08:01,510
+because it's relatively new. the the the
+idea of the constitution is that it
+
+444
+00:08:01,510 --> 00:08:01,520
+idea of the constitution is that it
+ 
+
+445
+00:08:01,520 --> 00:08:03,830
+idea of the constitution is that it
+establishes a set of non-negotiable
+
+446
+00:08:03,830 --> 00:08:03,840
+establishes a set of non-negotiable
+ 
+
+447
+00:08:03,840 --> 00:08:06,710
+establishes a set of non-negotiable
+principles for your project. So if you
+
+448
+00:08:06,710 --> 00:08:06,720
+principles for your project. So if you
+ 
+
+449
+00:08:06,720 --> 00:08:09,029
+principles for your project. So if you
+have things like I always have to have
+
+450
+00:08:09,029 --> 00:08:09,039
+have things like I always have to have
+ 
+
+451
+00:08:09,039 --> 00:08:11,510
+have things like I always have to have
+tests. I always got to make sure that
+
+452
+00:08:11,510 --> 00:08:11,520
+tests. I always got to make sure that
+ 
+
+453
+00:08:11,520 --> 00:08:14,150
+tests. I always got to make sure that
+I'm running Nex.js of a specific
+
+454
+00:08:14,150 --> 00:08:14,160
+I'm running Nex.js of a specific
+ 
+
+455
+00:08:14,160 --> 00:08:16,469
+I'm running Nex.js of a specific
+version, you encode that in the
+
+456
+00:08:16,469 --> 00:08:16,479
+version, you encode that in the
+ 
+
+457
+00:08:16,479 --> 00:08:17,749
+version, you encode that in the
+constitution. That's where the stuff
+
+458
+00:08:17,749 --> 00:08:17,759
+constitution. That's where the stuff
+ 
+
+459
+00:08:17,759 --> 00:08:19,189
+constitution. That's where the stuff
+goes. So this is where the constitution
+
+460
+00:08:19,189 --> 00:08:19,199
+goes. So this is where the constitution
+ 
+
+461
+00:08:19,199 --> 00:08:20,950
+goes. So this is where the constitution
+comes in and it becomes super super
+
+462
+00:08:20,950 --> 00:08:20,960
+comes in and it becomes super super
+ 
+
+463
+00:08:20,960 --> 00:08:24,790
+comes in and it becomes super super
+helpful for any of your projects. Uh now
+
+464
+00:08:24,790 --> 00:08:24,800
+helpful for any of your projects. Uh now
+ 
+
+465
+00:08:24,800 --> 00:08:27,110
+helpful for any of your projects. Uh now
+we're going to jump back here to our
+
+466
+00:08:27,110 --> 00:08:27,120
+we're going to jump back here to our
+ 
+
+467
+00:08:27,120 --> 00:08:28,869
+we're going to jump back here to our
+terminal and I'm going to launch VS Code
+
+468
+00:08:28,869 --> 00:08:28,879
+terminal and I'm going to launch VS Code
+ 
+
+469
+00:08:28,879 --> 00:08:30,390
+terminal and I'm going to launch VS Code
+because I'm going to be iterating on
+
+470
+00:08:30,390 --> 00:08:30,400
+because I'm going to be iterating on
+ 
+
+471
+00:08:30,400 --> 00:08:33,909
+because I'm going to be iterating on
+this project inside VS Code of course
+
+472
+00:08:33,909 --> 00:08:33,919
+this project inside VS Code of course
+ 
+
+473
+00:08:33,919 --> 00:08:35,829
+this project inside VS Code of course
+and we'll notice that the podsite here
+
+474
+00:08:35,829 --> 00:08:35,839
+and we'll notice that the podsite here
+ 
+
+475
+00:08:35,839 --> 00:08:39,110
+and we'll notice that the podsite here
+and this is because I opened the wrong
+
+476
+00:08:39,110 --> 00:08:39,120
+and this is because I opened the wrong
+ 
+
+477
+00:08:39,120 --> 00:08:41,430
+and this is because I opened the wrong
+folder and this is how I know notice
+
+478
+00:08:41,430 --> 00:08:41,440
+folder and this is how I know notice
+ 
+
+479
+00:08:41,440 --> 00:08:43,350
+folder and this is how I know notice
+that I have podsite here and these are
+
+480
+00:08:43,350 --> 00:08:43,360
+that I have podsite here and these are
+ 
+
+481
+00:08:43,360 --> 00:08:45,590
+that I have podsite here and these are
+the GitHub folders. But if I go into
+
+482
+00:08:45,590 --> 00:08:45,600
+the GitHub folders. But if I go into
+ 
+
+483
+00:08:45,600 --> 00:08:48,470
+the GitHub folders. But if I go into
+agent mode and VS code here and if you
+
+484
+00:08:48,470 --> 00:08:48,480
+agent mode and VS code here and if you
+ 
+
+485
+00:08:48,480 --> 00:08:53,350
+agent mode and VS code here and if you
+see if you start typing in /specify
+
+486
+00:08:53,350 --> 00:08:53,360
+
+ 
+
+487
+00:08:53,360 --> 00:08:57,030
+
+oh I can't type slsp specify right and
+
+488
+00:08:57,030 --> 00:08:57,040
+oh I can't type slsp specify right and
+ 
+
+489
+00:08:57,040 --> 00:08:58,630
+oh I can't type slsp specify right and
+you will not see the command there that
+
+490
+00:08:58,630 --> 00:08:58,640
+you will not see the command there that
+ 
+
+491
+00:08:58,640 --> 00:09:00,870
+you will not see the command there that
+means you're in the wrong folder you are
+
+492
+00:09:00,870 --> 00:09:00,880
+means you're in the wrong folder you are
+ 
+
+493
+00:09:00,880 --> 00:09:03,269
+means you're in the wrong folder you are
+one level too high up from where you
+
+494
+00:09:03,269 --> 00:09:03,279
+one level too high up from where you
+ 
+
+495
+00:09:03,279 --> 00:09:05,430
+one level too high up from where you
+need to be to do this we're going to
+
+496
+00:09:05,430 --> 00:09:05,440
+need to be to do this we're going to
+ 
+
+497
+00:09:05,440 --> 00:09:08,310
+need to be to do this we're going to
+close VS go back to the terminal and
+
+498
+00:09:08,310 --> 00:09:08,320
+close VS go back to the terminal and
+ 
+
+499
+00:09:08,320 --> 00:09:11,670
+close VS go back to the terminal and
+we'll go to cd pod site
+
+500
+00:09:11,670 --> 00:09:11,680
+we'll go to cd pod site
+ 
+
+501
+00:09:11,680 --> 00:09:13,190
+we'll go to cd pod site
+that's why I put this instruction here
+
+502
+00:09:13,190 --> 00:09:13,200
+that's why I put this instruction here
+ 
+
+503
+00:09:13,200 --> 00:09:15,430
+that's why I put this instruction here
+in green that you will see here in the
+
+504
+00:09:15,430 --> 00:09:15,440
+in green that you will see here in the
+ 
+
+505
+00:09:15,440 --> 00:09:18,230
+in green that you will see here in the
+terminal. It's called cd podside. Go to
+
+506
+00:09:18,230 --> 00:09:18,240
+terminal. It's called cd podside. Go to
+ 
+
+507
+00:09:18,240 --> 00:09:19,829
+terminal. It's called cd podside. Go to
+the folder to be able to use these
+
+508
+00:09:19,829 --> 00:09:19,839
+the folder to be able to use these
+ 
+
+509
+00:09:19,839 --> 00:09:22,470
+the folder to be able to use these
+commands. So, we're going to go there,
+
+510
+00:09:22,470 --> 00:09:22,480
+commands. So, we're going to go there,
+ 
+
+511
+00:09:22,480 --> 00:09:24,550
+commands. So, we're going to go there,
+right? And now we're going to launch
+
+512
+00:09:24,550 --> 00:09:24,560
+right? And now we're going to launch
+ 
+
+513
+00:09:24,560 --> 00:09:27,269
+right? And now we're going to launch
+code from here.
+
+514
+00:09:27,269 --> 00:09:27,279
+code from here.
+ 
+
+515
+00:09:27,279 --> 00:09:29,430
+code from here.
+Fantastic. Now, we're in VS Code. Now,
+
+516
+00:09:29,430 --> 00:09:29,440
+Fantastic. Now, we're in VS Code. Now,
+ 
+
+517
+00:09:29,440 --> 00:09:31,430
+Fantastic. Now, we're in VS Code. Now,
+we see the GitHub folder and podsite is
+
+518
+00:09:31,430 --> 00:09:31,440
+we see the GitHub folder and podsite is
+ 
+
+519
+00:09:31,440 --> 00:09:34,150
+we see the GitHub folder and podsite is
+at the root, which is fantastic. That's
+
+520
+00:09:34,150 --> 00:09:34,160
+at the root, which is fantastic. That's
+ 
+
+521
+00:09:34,160 --> 00:09:36,630
+at the root, which is fantastic. That's
+exactly what I wanted. And now I see
+
+522
+00:09:36,630 --> 00:09:36,640
+exactly what I wanted. And now I see
+ 
+
+523
+00:09:36,640 --> 00:09:38,710
+exactly what I wanted. And now I see
+that there is the GitHub folder with a
+
+524
+00:09:38,710 --> 00:09:38,720
+that there is the GitHub folder with a
+ 
+
+525
+00:09:38,720 --> 00:09:40,870
+that there is the GitHub folder with a
+bunch of prompts. These are going to be
+
+526
+00:09:40,870 --> 00:09:40,880
+bunch of prompts. These are going to be
+ 
+
+527
+00:09:40,880 --> 00:09:42,470
+bunch of prompts. These are going to be
+our slash commands. And slash commands
+
+528
+00:09:42,470 --> 00:09:42,480
+our slash commands. And slash commands
+ 
+
+529
+00:09:42,480 --> 00:09:44,230
+our slash commands. And slash commands
+in VS Code is nothing other than custom
+
+530
+00:09:44,230 --> 00:09:44,240
+in VS Code is nothing other than custom
+ 
+
+531
+00:09:44,240 --> 00:09:46,230
+in VS Code is nothing other than custom
+prompts. That's that's all it is. It if
+
+532
+00:09:46,230 --> 00:09:46,240
+prompts. That's that's all it is. It if
+ 
+
+533
+00:09:46,240 --> 00:09:48,710
+prompts. That's that's all it is. It if
+you look at any of them, it basically
+
+534
+00:09:48,710 --> 00:09:48,720
+you look at any of them, it basically
+ 
+
+535
+00:09:48,720 --> 00:09:51,190
+you look at any of them, it basically
+outlines a set of instructions for the
+
+536
+00:09:51,190 --> 00:09:51,200
+outlines a set of instructions for the
+ 
+
+537
+00:09:51,200 --> 00:09:53,990
+outlines a set of instructions for the
+LM to follow to establish specific uh
+
+538
+00:09:53,990 --> 00:09:54,000
+LM to follow to establish specific uh
+ 
+
+539
+00:09:54,000 --> 00:09:55,910
+LM to follow to establish specific uh
+conventions around what we're building.
+
+540
+00:09:55,910 --> 00:09:55,920
+conventions around what we're building.
+ 
+
+541
+00:09:55,920 --> 00:09:58,070
+conventions around what we're building.
+So in our case, it requires running a
+
+542
+00:09:58,070 --> 00:09:58,080
+So in our case, it requires running a
+ 
+
+543
+00:09:58,080 --> 00:10:00,230
+So in our case, it requires running a
+specific script. We see some
+
+544
+00:10:00,230 --> 00:10:00,240
+specific script. We see some
+ 
+
+545
+00:10:00,240 --> 00:10:02,070
+specific script. We see some
+instructions for things to do. Use
+
+546
+00:10:02,070 --> 00:10:02,080
+instructions for things to do. Use
+ 
+
+547
+00:10:02,080 --> 00:10:04,389
+instructions for things to do. Use
+absolute paths. It's nice. Same for
+
+548
+00:10:04,389 --> 00:10:04,399
+absolute paths. It's nice. Same for
+ 
+
+549
+00:10:04,399 --> 00:10:07,190
+absolute paths. It's nice. Same for
+specify. Same for tasks. And we again
+
+550
+00:10:07,190 --> 00:10:07,200
+specify. Same for tasks. And we again
+ 
+
+551
+00:10:07,200 --> 00:10:08,550
+specify. Same for tasks. And we again
+we'll see the purpose of these commands
+
+552
+00:10:08,550 --> 00:10:08,560
+we'll see the purpose of these commands
+ 
+
+553
+00:10:08,560 --> 00:10:10,550
+we'll see the purpose of these commands
+just just in a second here. and also
+
+554
+00:10:10,550 --> 00:10:10,560
+just just in a second here. and also
+ 
+
+555
+00:10:10,560 --> 00:10:12,389
+just just in a second here. and also
+have the specify folder. Again, shout
+
+556
+00:10:12,389 --> 00:10:12,399
+have the specify folder. Again, shout
+ 
+
+557
+00:10:12,399 --> 00:10:13,590
+have the specify folder. Again, shout
+out to the community members who
+
+558
+00:10:13,590 --> 00:10:13,600
+out to the community members who
+ 
+
+559
+00:10:13,600 --> 00:10:15,430
+out to the community members who
+suggested this because before if you
+
+560
+00:10:15,430 --> 00:10:15,440
+suggested this because before if you
+ 
+
+561
+00:10:15,440 --> 00:10:16,949
+suggested this because before if you
+have like memory and a bunch of these
+
+562
+00:10:16,949 --> 00:10:16,959
+have like memory and a bunch of these
+ 
+
+563
+00:10:16,959 --> 00:10:18,870
+have like memory and a bunch of these
+helper scripts and the templates, they
+
+564
+00:10:18,870 --> 00:10:18,880
+helper scripts and the templates, they
+ 
+
+565
+00:10:18,880 --> 00:10:20,230
+helper scripts and the templates, they
+would just land directly in the
+
+566
+00:10:20,230 --> 00:10:20,240
+would just land directly in the
+ 
+
+567
+00:10:20,240 --> 00:10:22,230
+would just land directly in the
+repository route, which is not super
+
+568
+00:10:22,230 --> 00:10:22,240
+repository route, which is not super
+ 
+
+569
+00:10:22,240 --> 00:10:25,269
+repository route, which is not super
+helpful if you already have a project.
+
+570
+00:10:25,269 --> 00:10:25,279
+helpful if you already have a project.
+ 
+
+571
+00:10:25,279 --> 00:10:27,990
+helpful if you already have a project.
+So, these simplify things a little bit.
+
+572
+00:10:27,990 --> 00:10:28,000
+So, these simplify things a little bit.
+ 
+
+573
+00:10:28,000 --> 00:10:29,829
+So, these simplify things a little bit.
+So, you can just keep them inside this
+
+574
+00:10:29,829 --> 00:10:29,839
+So, you can just keep them inside this
+ 
+
+575
+00:10:29,839 --> 00:10:31,829
+So, you can just keep them inside this
+specify folder. And if you so desire,
+
+576
+00:10:31,829 --> 00:10:31,839
+specify folder. And if you so desire,
+ 
+
+577
+00:10:31,839 --> 00:10:33,590
+specify folder. And if you so desire,
+you can even get ignore it, which I
+
+578
+00:10:33,590 --> 00:10:33,600
+you can even get ignore it, which I
+ 
+
+579
+00:10:33,600 --> 00:10:34,710
+you can even get ignore it, which I
+don't know why you would do that, but
+
+580
+00:10:34,710 --> 00:10:34,720
+don't know why you would do that, but
+ 
+
+581
+00:10:34,720 --> 00:10:37,350
+don't know why you would do that, but
+you can. So
+
+582
+00:10:37,350 --> 00:10:37,360
+you can. So
+ 
+
+583
+00:10:37,360 --> 00:10:39,750
+you can. So
+now that we have these baseline pieces
+
+584
+00:10:39,750 --> 00:10:39,760
+now that we have these baseline pieces
+ 
+
+585
+00:10:39,760 --> 00:10:42,550
+now that we have these baseline pieces
+here, let's go ahead and use our slash
+
+586
+00:10:42,550 --> 00:10:42,560
+here, let's go ahead and use our slash
+ 
+
+587
+00:10:42,560 --> 00:10:44,389
+here, let's go ahead and use our slash
+commands. I'm going to maximize the chat
+
+588
+00:10:44,389 --> 00:10:44,399
+commands. I'm going to maximize the chat
+ 
+
+589
+00:10:44,399 --> 00:10:47,430
+commands. I'm going to maximize the chat
+box here. I'm going to use GPD5, but you
+
+590
+00:10:47,430 --> 00:10:47,440
+box here. I'm going to use GPD5, but you
+ 
+
+591
+00:10:47,440 --> 00:10:48,949
+box here. I'm going to use GPD5, but you
+can also use different models. You can
+
+592
+00:10:48,949 --> 00:10:48,959
+can also use different models. You can
+ 
+
+593
+00:10:48,959 --> 00:10:50,630
+can also use different models. You can
+actually experiment with different
+
+594
+00:10:50,630 --> 00:10:50,640
+actually experiment with different
+ 
+
+595
+00:10:50,640 --> 00:10:52,870
+actually experiment with different
+models that exist in Copilot or any of
+
+596
+00:10:52,870 --> 00:10:52,880
+models that exist in Copilot or any of
+ 
+
+597
+00:10:52,880 --> 00:10:55,430
+models that exist in Copilot or any of
+the agents that you're using to see what
+
+598
+00:10:55,430 --> 00:10:55,440
+the agents that you're using to see what
+ 
+
+599
+00:10:55,440 --> 00:10:57,590
+the agents that you're using to see what
+output is better for the things that
+
+600
+00:10:57,590 --> 00:10:57,600
+output is better for the things that
+ 
+
+601
+00:10:57,600 --> 00:10:59,910
+output is better for the things that
+you're building. The output will vary.
+
+602
+00:10:59,910 --> 00:10:59,920
+you're building. The output will vary.
+ 
+
+603
+00:10:59,920 --> 00:11:02,230
+you're building. The output will vary.
+So uh for example I like GPD5 and cloud
+
+604
+00:11:02,230 --> 00:11:02,240
+So uh for example I like GPD5 and cloud
+ 
+
+605
+00:11:02,240 --> 00:11:04,550
+So uh for example I like GPD5 and cloud
+sonnet 4 personally but depending on
+
+606
+00:11:04,550 --> 00:11:04,560
+sonnet 4 personally but depending on
+ 
+
+607
+00:11:04,560 --> 00:11:06,870
+sonnet 4 personally but depending on
+what you're building and the scope of
+
+608
+00:11:06,870 --> 00:11:06,880
+what you're building and the scope of
+ 
+
+609
+00:11:06,880 --> 00:11:08,069
+what you're building and the scope of
+things that you're building you might
+
+610
+00:11:08,069 --> 00:11:08,079
+things that you're building you might
+ 
+
+611
+00:11:08,079 --> 00:11:10,389
+things that you're building you might
+want to customize that and as I
+
+612
+00:11:10,389 --> 00:11:10,399
+want to customize that and as I
+ 
+
+613
+00:11:10,399 --> 00:11:11,910
+want to customize that and as I
+mentioned there's this constitution
+
+614
+00:11:11,910 --> 00:11:11,920
+mentioned there's this constitution
+ 
+
+615
+00:11:11,920 --> 00:11:13,190
+mentioned there's this constitution
+document so if you go to memory and
+
+616
+00:11:13,190 --> 00:11:13,200
+document so if you go to memory and
+ 
+
+617
+00:11:13,200 --> 00:11:15,110
+document so if you go to memory and
+there's constitution right now is just a
+
+618
+00:11:15,110 --> 00:11:15,120
+there's constitution right now is just a
+ 
+
+619
+00:11:15,120 --> 00:11:19,030
+there's constitution right now is just a
+blank template but what we can do is
+
+620
+00:11:19,030 --> 00:11:19,040
+blank template but what we can do is
+ 
+
+621
+00:11:19,040 --> 00:11:20,710
+blank template but what we can do is
+establish this constitution with the
+
+622
+00:11:20,710 --> 00:11:20,720
+establish this constitution with the
+ 
+
+623
+00:11:20,720 --> 00:11:22,630
+establish this constitution with the
+help of the LLM. So I'm just going to do
+
+624
+00:11:22,630 --> 00:11:22,640
+help of the LLM. So I'm just going to do
+ 
+
+625
+00:11:22,640 --> 00:11:25,269
+help of the LLM. So I'm just going to do
+that uh and we're going to ask the LLM
+
+626
+00:11:25,269 --> 00:11:25,279
+that uh and we're going to ask the LLM
+ 
+
+627
+00:11:25,279 --> 00:11:29,590
+that uh and we're going to ask the LLM
+to go in and fill this out for us. So
+
+628
+00:11:29,590 --> 00:11:29,600
+to go in and fill this out for us. So
+ 
+
+629
+00:11:29,600 --> 00:11:32,310
+to go in and fill this out for us. So
+fill the constitution
+
+630
+00:11:32,310 --> 00:11:32,320
+fill the constitution
+ 
+
+631
+00:11:32,320 --> 00:11:37,110
+fill the constitution
+with the bare minimum
+
+632
+00:11:37,110 --> 00:11:37,120
+
+ 
+
+633
+00:11:37,120 --> 00:11:40,310
+
+requirements
+
+634
+00:11:40,310 --> 00:11:40,320
+
+ 
+
+635
+00:11:40,320 --> 00:11:43,190
+
+for a static
+
+636
+00:11:43,190 --> 00:11:43,200
+for a static
+ 
+
+637
+00:11:43,200 --> 00:11:47,670
+for a static
+web app
+
+638
+00:11:47,670 --> 00:11:47,680
+
+ 
+
+639
+00:11:47,680 --> 00:11:49,269
+
+based on a template because we want to
+
+640
+00:11:49,269 --> 00:11:49,279
+based on a template because we want to
+ 
+
+641
+00:11:49,279 --> 00:11:51,190
+based on a template because we want to
+follow the template. the Constitution.
+
+642
+00:11:51,190 --> 00:11:51,200
+follow the template. the Constitution.
+ 
+
+643
+00:11:51,200 --> 00:11:52,310
+follow the template. the Constitution.
+If you also look at this, these
+
+644
+00:11:52,310 --> 00:11:52,320
+If you also look at this, these
+ 
+
+645
+00:11:52,320 --> 00:11:56,069
+If you also look at this, these
+principles and examples, it's all about
+
+646
+00:11:56,069 --> 00:11:56,079
+principles and examples, it's all about
+ 
+
+647
+00:11:56,079 --> 00:11:58,949
+principles and examples, it's all about
+making it easy for the LLM to go and
+
+648
+00:11:58,949 --> 00:11:58,959
+making it easy for the LLM to go and
+ 
+
+649
+00:11:58,959 --> 00:12:00,470
+making it easy for the LLM to go and
+fill this out for you. This can
+
+650
+00:12:00,470 --> 00:12:00,480
+fill this out for you. This can
+ 
+
+651
+00:12:00,480 --> 00:12:02,069
+fill this out for you. This can
+bootstrap it. It doesn't mean that you
+
+652
+00:12:02,069 --> 00:12:02,079
+bootstrap it. It doesn't mean that you
+ 
+
+653
+00:12:02,079 --> 00:12:03,829
+bootstrap it. It doesn't mean that you
+cannot do this manually. It's more of
+
+654
+00:12:03,829 --> 00:12:03,839
+cannot do this manually. It's more of
+ 
+
+655
+00:12:03,839 --> 00:12:06,470
+cannot do this manually. It's more of
+this bootstraps it for you and saves you
+
+656
+00:12:06,470 --> 00:12:06,480
+this bootstraps it for you and saves you
+ 
+
+657
+00:12:06,480 --> 00:12:08,069
+this bootstraps it for you and saves you
+some time. So, we're going to press
+
+658
+00:12:08,069 --> 00:12:08,079
+some time. So, we're going to press
+ 
+
+659
+00:12:08,079 --> 00:12:10,550
+some time. So, we're going to press
+enter here. Bare minimum requirements.
+
+660
+00:12:10,550 --> 00:12:10,560
+enter here. Bare minimum requirements.
+ 
+
+661
+00:12:10,560 --> 00:12:11,590
+enter here. Bare minimum requirements.
+And we'll see what it comes up. We're
+
+662
+00:12:11,590 --> 00:12:11,600
+And we'll see what it comes up. We're
+ 
+
+663
+00:12:11,600 --> 00:12:14,310
+And we'll see what it comes up. We're
+going to use GPD5. I GBD5 is good like
+
+664
+00:12:14,310 --> 00:12:14,320
+going to use GPD5. I GBD5 is good like
+ 
+
+665
+00:12:14,320 --> 00:12:16,389
+going to use GPD5. I GBD5 is good like
+for these kind of things. If you use
+
+666
+00:12:16,389 --> 00:12:16,399
+for these kind of things. If you use
+ 
+
+667
+00:12:16,399 --> 00:12:18,470
+for these kind of things. If you use
+things like sonnet, I see it go off the
+
+668
+00:12:18,470 --> 00:12:18,480
+things like sonnet, I see it go off the
+ 
+
+669
+00:12:18,480 --> 00:12:19,910
+things like sonnet, I see it go off the
+rail sometimes and it does a bunch of
+
+670
+00:12:19,910 --> 00:12:19,920
+rail sometimes and it does a bunch of
+ 
+
+671
+00:12:19,920 --> 00:12:21,110
+rail sometimes and it does a bunch of
+stuff and it starts editing the
+
+672
+00:12:21,110 --> 00:12:21,120
+stuff and it starts editing the
+ 
+
+673
+00:12:21,120 --> 00:12:22,389
+stuff and it starts editing the
+constitution file and then it starts
+
+674
+00:12:22,389 --> 00:12:22,399
+constitution file and then it starts
+ 
+
+675
+00:12:22,399 --> 00:12:23,670
+constitution file and then it starts
+creating more files it's going to refer
+
+676
+00:12:23,670 --> 00:12:23,680
+creating more files it's going to refer
+ 
+
+677
+00:12:23,680 --> 00:12:25,430
+creating more files it's going to refer
+to. That's not what we want to do here.
+
+678
+00:12:25,430 --> 00:12:25,440
+to. That's not what we want to do here.
+ 
+
+679
+00:12:25,440 --> 00:12:26,550
+to. That's not what we want to do here.
+So, I'm just going to rely on the
+
+680
+00:12:26,550 --> 00:12:26,560
+So, I'm just going to rely on the
+ 
+
+681
+00:12:26,560 --> 00:12:29,829
+So, I'm just going to rely on the
+constitution. It's it's fine. And it's
+
+682
+00:12:29,829 --> 00:12:29,839
+constitution. It's it's fine. And it's
+ 
+
+683
+00:12:29,839 --> 00:12:32,069
+constitution. It's it's fine. And it's
+going to look at the existing content
+
+684
+00:12:32,069 --> 00:12:32,079
+going to look at the existing content
+ 
+
+685
+00:12:32,079 --> 00:12:33,990
+going to look at the existing content
+and existing template and I hope that
+
+686
+00:12:33,990 --> 00:12:34,000
+and existing template and I hope that
+ 
+
+687
+00:12:34,000 --> 00:12:35,990
+and existing template and I hope that
+it's going to fill this out in the way
+
+688
+00:12:35,990 --> 00:12:36,000
+it's going to fill this out in the way
+ 
+
+689
+00:12:36,000 --> 00:12:38,550
+it's going to fill this out in the way
+that I want to because if I'm going to
+
+690
+00:12:38,550 --> 00:12:38,560
+that I want to because if I'm going to
+ 
+
+691
+00:12:38,560 --> 00:12:39,990
+that I want to because if I'm going to
+be writing this out manually here, it's
+
+692
+00:12:39,990 --> 00:12:40,000
+be writing this out manually here, it's
+ 
+
+693
+00:12:40,000 --> 00:12:41,509
+be writing this out manually here, it's
+going to take us half an hour of this
+
+694
+00:12:41,509 --> 00:12:41,519
+going to take us half an hour of this
+ 
+
+695
+00:12:41,519 --> 00:12:45,269
+going to take us half an hour of this
+video and nobody wants to watch me type.
+
+696
+00:12:45,269 --> 00:12:45,279
+video and nobody wants to watch me type.
+ 
+
+697
+00:12:45,279 --> 00:12:46,870
+video and nobody wants to watch me type.
+So we're going to give it another second
+
+698
+00:12:46,870 --> 00:12:46,880
+So we're going to give it another second
+ 
+
+699
+00:12:46,880 --> 00:12:50,069
+So we're going to give it another second
+here. Um I've also noticed that GP5
+
+700
+00:12:50,069 --> 00:12:50,079
+here. Um I've also noticed that GP5
+ 
+
+701
+00:12:50,079 --> 00:12:51,590
+here. Um I've also noticed that GP5
+sometimes can take a little bit longer
+
+702
+00:12:51,590 --> 00:12:51,600
+sometimes can take a little bit longer
+ 
+
+703
+00:12:51,600 --> 00:12:53,910
+sometimes can take a little bit longer
+than sonnet. So sonnet this in the
+
+704
+00:12:53,910 --> 00:12:53,920
+than sonnet. So sonnet this in the
+ 
+
+705
+00:12:53,920 --> 00:12:55,350
+than sonnet. So sonnet this in the
+context of copout is just going to start
+
+706
+00:12:55,350 --> 00:12:55,360
+context of copout is just going to start
+ 
+
+707
+00:12:55,360 --> 00:12:57,509
+context of copout is just going to start
+iterating on this and just kind of you
+
+708
+00:12:57,509 --> 00:12:57,519
+iterating on this and just kind of you
+ 
+
+709
+00:12:57,519 --> 00:12:59,670
+iterating on this and just kind of you
+will see the changes go gradually into
+
+710
+00:12:59,670 --> 00:12:59,680
+will see the changes go gradually into
+ 
+
+711
+00:12:59,680 --> 00:13:02,389
+will see the changes go gradually into
+the files. GPD5 is a little bit more uh
+
+712
+00:13:02,389 --> 00:13:02,399
+the files. GPD5 is a little bit more uh
+ 
+
+713
+00:13:02,399 --> 00:13:04,230
+the files. GPD5 is a little bit more uh
+I want to say thoughtful where it's
+
+714
+00:13:04,230 --> 00:13:04,240
+I want to say thoughtful where it's
+ 
+
+715
+00:13:04,240 --> 00:13:05,829
+I want to say thoughtful where it's
+going to start thinking and thinking and
+
+716
+00:13:05,829 --> 00:13:05,839
+going to start thinking and thinking and
+ 
+
+717
+00:13:05,839 --> 00:13:07,190
+going to start thinking and thinking and
+thinking and then just spit out the
+
+718
+00:13:07,190 --> 00:13:07,200
+thinking and then just spit out the
+ 
+
+719
+00:13:07,200 --> 00:13:10,150
+thinking and then just spit out the
+whole thing for you which again can be
+
+720
+00:13:10,150 --> 00:13:10,160
+whole thing for you which again can be
+ 
+
+721
+00:13:10,160 --> 00:13:12,150
+whole thing for you which again can be
+nice can be not so nice depending on the
+
+722
+00:13:12,150 --> 00:13:12,160
+nice can be not so nice depending on the
+ 
+
+723
+00:13:12,160 --> 00:13:14,069
+nice can be not so nice depending on the
+scenario you're trying to tackle. So,
+
+724
+00:13:14,069 --> 00:13:14,079
+scenario you're trying to tackle. So,
+ 
+
+725
+00:13:14,079 --> 00:13:16,389
+scenario you're trying to tackle. So,
+uh, pick your battles on the models you
+
+726
+00:13:16,389 --> 00:13:16,399
+uh, pick your battles on the models you
+ 
+
+727
+00:13:16,399 --> 00:13:18,470
+uh, pick your battles on the models you
+want to use and try them out. The only
+
+728
+00:13:18,470 --> 00:13:18,480
+want to use and try them out. The only
+ 
+
+729
+00:13:18,480 --> 00:13:21,430
+want to use and try them out. The only
+way to find out what produces the best
+
+730
+00:13:21,430 --> 00:13:21,440
+way to find out what produces the best
+ 
+
+731
+00:13:21,440 --> 00:13:23,670
+way to find out what produces the best
+results here is through experimentation.
+
+732
+00:13:23,670 --> 00:13:23,680
+results here is through experimentation.
+ 
+
+733
+00:13:23,680 --> 00:13:25,590
+results here is through experimentation.
+Just like spec kit, spec kit, the
+
+734
+00:13:25,590 --> 00:13:25,600
+Just like spec kit, spec kit, the
+ 
+
+735
+00:13:25,600 --> 00:13:27,030
+Just like spec kit, spec kit, the
+spectrum development stuff that we're
+
+736
+00:13:27,030 --> 00:13:27,040
+spectrum development stuff that we're
+ 
+
+737
+00:13:27,040 --> 00:13:29,190
+spectrum development stuff that we're
+shipping here is an experiment. We are
+
+738
+00:13:29,190 --> 00:13:29,200
+shipping here is an experiment. We are
+ 
+
+739
+00:13:29,200 --> 00:13:30,790
+shipping here is an experiment. We are
+here to learn. I just want to remind you
+
+740
+00:13:30,790 --> 00:13:30,800
+here to learn. I just want to remind you
+ 
+
+741
+00:13:30,800 --> 00:13:34,150
+here to learn. I just want to remind you
+that this is not a production scenario.
+
+742
+00:13:34,150 --> 00:13:34,160
+that this is not a production scenario.
+ 
+
+743
+00:13:34,160 --> 00:13:36,069
+that this is not a production scenario.
+Like, there's a lot for us to learn. We
+
+744
+00:13:36,069 --> 00:13:36,079
+Like, there's a lot for us to learn. We
+ 
+
+745
+00:13:36,079 --> 00:13:37,990
+Like, there's a lot for us to learn. We
+want your feedback. We want your input.
+
+746
+00:13:37,990 --> 00:13:38,000
+want your feedback. We want your input.
+ 
+
+747
+00:13:38,000 --> 00:13:39,829
+want your feedback. We want your input.
+So if something breaks, if something
+
+748
+00:13:39,829 --> 00:13:39,839
+So if something breaks, if something
+ 
+
+749
+00:13:39,839 --> 00:13:41,350
+So if something breaks, if something
+doesn't work, if something that it
+
+750
+00:13:41,350 --> 00:13:41,360
+doesn't work, if something that it
+ 
+
+751
+00:13:41,360 --> 00:13:44,069
+doesn't work, if something that it
+produces is garbage, let us know. I want
+
+752
+00:13:44,069 --> 00:13:44,079
+produces is garbage, let us know. I want
+ 
+
+753
+00:13:44,079 --> 00:13:45,590
+produces is garbage, let us know. I want
+to see that garbage. I want to
+
+754
+00:13:45,590 --> 00:13:45,600
+to see that garbage. I want to
+ 
+
+755
+00:13:45,600 --> 00:13:47,670
+to see that garbage. I want to
+understand what worked and what did not
+
+756
+00:13:47,670 --> 00:13:47,680
+understand what worked and what did not
+ 
+
+757
+00:13:47,680 --> 00:13:49,430
+understand what worked and what did not
+work because that will help us make it
+
+758
+00:13:49,430 --> 00:13:49,440
+work because that will help us make it
+ 
+
+759
+00:13:49,440 --> 00:13:53,030
+work because that will help us make it
+better and by proxy improve the product
+
+760
+00:13:53,030 --> 00:13:53,040
+better and by proxy improve the product
+ 
+
+761
+00:13:53,040 --> 00:13:54,470
+better and by proxy improve the product
+for everyone else that might be running
+
+762
+00:13:54,470 --> 00:13:54,480
+for everyone else that might be running
+ 
+
+763
+00:13:54,480 --> 00:13:57,110
+for everyone else that might be running
+in similar situations as you. So it
+
+764
+00:13:57,110 --> 00:13:57,120
+in similar situations as you. So it
+ 
+
+765
+00:13:57,120 --> 00:13:59,030
+in similar situations as you. So it
+looks like GBD5 is still thinking. It's
+
+766
+00:13:59,030 --> 00:13:59,040
+looks like GBD5 is still thinking. It's
+ 
+
+767
+00:13:59,040 --> 00:14:00,949
+looks like GBD5 is still thinking. It's
+going to update the constitution file by
+
+768
+00:14:00,949 --> 00:14:00,959
+going to update the constitution file by
+ 
+
+769
+00:14:00,959 --> 00:14:03,750
+going to update the constitution file by
+updating by replacing the placeholders
+
+770
+00:14:03,750 --> 00:14:03,760
+updating by replacing the placeholders
+ 
+
+771
+00:14:03,760 --> 00:14:06,069
+updating by replacing the placeholders
+with concrete static site requirements.
+
+772
+00:14:06,069 --> 00:14:06,079
+with concrete static site requirements.
+ 
+
+773
+00:14:06,079 --> 00:14:08,470
+with concrete static site requirements.
+So, we're going to wait for it to finish
+
+774
+00:14:08,470 --> 00:14:08,480
+So, we're going to wait for it to finish
+ 
+
+775
+00:14:08,480 --> 00:14:10,150
+So, we're going to wait for it to finish
+this process
+
+776
+00:14:10,150 --> 00:14:10,160
+this process
+ 
+
+777
+00:14:10,160 --> 00:14:12,230
+this process
+>> a few moments later.
+
+778
+00:14:12,230 --> 00:14:12,240
+>> a few moments later.
+ 
+
+779
+00:14:12,240 --> 00:14:14,150
+>> a few moments later.
+>> All right, looks like it finished. So,
+
+780
+00:14:14,150 --> 00:14:14,160
+>> All right, looks like it finished. So,
+ 
+
+781
+00:14:14,160 --> 00:14:15,509
+>> All right, looks like it finished. So,
+I'm just going to keep the changes here
+
+782
+00:14:15,509 --> 00:14:15,519
+I'm just going to keep the changes here
+ 
+
+783
+00:14:15,519 --> 00:14:16,949
+I'm just going to keep the changes here
+and let's take a look at what it
+
+784
+00:14:16,949 --> 00:14:16,959
+and let's take a look at what it
+ 
+
+785
+00:14:16,959 --> 00:14:18,870
+and let's take a look at what it
+actually said. You know, no static first
+
+786
+00:14:18,870 --> 00:14:18,880
+actually said. You know, no static first
+ 
+
+787
+00:14:18,880 --> 00:14:21,030
+actually said. You know, no static first
+delivery, no serverside execution. The
+
+788
+00:14:21,030 --> 00:14:21,040
+delivery, no serverside execution. The
+ 
+
+789
+00:14:21,040 --> 00:14:23,910
+delivery, no serverside execution. The
+site ships HTML, CSS,JS, and static
+
+790
+00:14:23,910 --> 00:14:23,920
+site ships HTML, CSS,JS, and static
+ 
+
+791
+00:14:23,920 --> 00:14:26,389
+site ships HTML, CSS,JS, and static
+assets via CDN. That makes sense.
+
+792
+00:14:26,389 --> 00:14:26,399
+assets via CDN. That makes sense.
+ 
+
+793
+00:14:26,399 --> 00:14:29,189
+assets via CDN. That makes sense.
+Simplicity over tooling. Prefer vanilla
+
+794
+00:14:29,189 --> 00:14:29,199
+Simplicity over tooling. Prefer vanilla
+ 
+
+795
+00:14:29,199 --> 00:14:31,670
+Simplicity over tooling. Prefer vanilla
+HTML, CSS,JS. I like that. I think that
+
+796
+00:14:31,670 --> 00:14:31,680
+HTML, CSS,JS. I like that. I think that
+ 
+
+797
+00:14:31,680 --> 00:14:33,750
+HTML, CSS,JS. I like that. I think that
+makes sense. Accessibility and SEO
+
+798
+00:14:33,750 --> 00:14:33,760
+makes sense. Accessibility and SEO
+ 
+
+799
+00:14:33,760 --> 00:14:36,230
+makes sense. Accessibility and SEO
+baseline also makes sense. Performance
+
+800
+00:14:36,230 --> 00:14:36,240
+baseline also makes sense. Performance
+ 
+
+801
+00:14:36,240 --> 00:14:40,550
+baseline also makes sense. Performance
+budget, you know, I I I I don't
+
+802
+00:14:40,550 --> 00:14:40,560
+budget, you know, I I I I don't
+ 
+
+803
+00:14:40,560 --> 00:14:42,310
+budget, you know, I I I I don't
+necessarily care for these things as we
+
+804
+00:14:42,310 --> 00:14:42,320
+necessarily care for these things as we
+ 
+
+805
+00:14:42,320 --> 00:14:43,750
+necessarily care for these things as we
+are prototyping right now. For
+
+806
+00:14:43,750 --> 00:14:43,760
+are prototyping right now. For
+ 
+
+807
+00:14:43,760 --> 00:14:45,269
+are prototyping right now. For
+production scenarios, you absolutely
+
+808
+00:14:45,269 --> 00:14:45,279
+production scenarios, you absolutely
+ 
+
+809
+00:14:45,279 --> 00:14:46,949
+production scenarios, you absolutely
+should care about performance security
+
+810
+00:14:46,949 --> 00:14:46,959
+should care about performance security
+ 
+
+811
+00:14:46,959 --> 00:14:50,470
+should care about performance security
+for now. I just do not want to deal with
+
+812
+00:14:50,470 --> 00:14:50,480
+for now. I just do not want to deal with
+ 
+
+813
+00:14:50,480 --> 00:14:53,269
+for now. I just do not want to deal with
+that. Um, also things like requirements
+
+814
+00:14:53,269 --> 00:14:53,279
+that. Um, also things like requirements
+ 
+
+815
+00:14:53,279 --> 00:14:54,870
+that. Um, also things like requirements
+here, development workflow, quality
+
+816
+00:14:54,870 --> 00:14:54,880
+here, development workflow, quality
+ 
+
+817
+00:14:54,880 --> 00:14:58,310
+here, development workflow, quality
+gates. Um, yeah, this makes sense, but I
+
+818
+00:14:58,310 --> 00:14:58,320
+gates. Um, yeah, this makes sense, but I
+ 
+
+819
+00:14:58,320 --> 00:14:59,750
+gates. Um, yeah, this makes sense, but I
+think like again for for what we're
+
+820
+00:14:59,750 --> 00:14:59,760
+think like again for for what we're
+ 
+
+821
+00:14:59,760 --> 00:15:00,949
+think like again for for what we're
+trying to do right now, this a little
+
+822
+00:15:00,949 --> 00:15:00,959
+trying to do right now, this a little
+ 
+
+823
+00:15:00,959 --> 00:15:04,310
+trying to do right now, this a little
+bit a little bit too much. So, we're
+
+824
+00:15:04,310 --> 00:15:04,320
+bit a little bit too much. So, we're
+ 
+
+825
+00:15:04,320 --> 00:15:06,949
+bit a little bit too much. So, we're
+just going to remove these pieces. And I
+
+826
+00:15:06,949 --> 00:15:06,959
+just going to remove these pieces. And I
+ 
+
+827
+00:15:06,959 --> 00:15:08,710
+just going to remove these pieces. And I
+think a lot of the the three principles,
+
+828
+00:15:08,710 --> 00:15:08,720
+think a lot of the the three principles,
+ 
+
+829
+00:15:08,720 --> 00:15:10,310
+think a lot of the the three principles,
+the three articles of our constitution
+
+830
+00:15:10,310 --> 00:15:10,320
+the three articles of our constitution
+ 
+
+831
+00:15:10,320 --> 00:15:11,750
+the three articles of our constitution
+make sense. Static first delivery,
+
+832
+00:15:11,750 --> 00:15:11,760
+make sense. Static first delivery,
+ 
+
+833
+00:15:11,760 --> 00:15:12,870
+make sense. Static first delivery,
+simplicity over tooling, and
+
+834
+00:15:12,870 --> 00:15:12,880
+simplicity over tooling, and
+ 
+
+835
+00:15:12,880 --> 00:15:15,189
+simplicity over tooling, and
+accessibility, and SEO baseline, which
+
+836
+00:15:15,189 --> 00:15:15,199
+accessibility, and SEO baseline, which
+ 
+
+837
+00:15:15,199 --> 00:15:17,110
+accessibility, and SEO baseline, which
+is good, right? So, now now we have a
+
+838
+00:15:17,110 --> 00:15:17,120
+is good, right? So, now now we have a
+ 
+
+839
+00:15:17,120 --> 00:15:20,629
+is good, right? So, now now we have a
+constitution. Um, now I can use the
+
+840
+00:15:20,629 --> 00:15:20,639
+constitution. Um, now I can use the
+ 
+
+841
+00:15:20,639 --> 00:15:22,870
+constitution. Um, now I can use the
+specify command that I talked about to
+
+842
+00:15:22,870 --> 00:15:22,880
+specify command that I talked about to
+ 
+
+843
+00:15:22,880 --> 00:15:25,590
+specify command that I talked about to
+define the baseline specification. So
+
+844
+00:15:25,590 --> 00:15:25,600
+define the baseline specification. So
+ 
+
+845
+00:15:25,600 --> 00:15:27,189
+define the baseline specification. So
+let's do that. Let's use slashsp
+
+846
+00:15:27,189 --> 00:15:27,199
+let's do that. Let's use slashsp
+ 
+
+847
+00:15:27,199 --> 00:15:28,790
+let's do that. Let's use slashsp
+specify. And again, because I'm in the
+
+848
+00:15:28,790 --> 00:15:28,800
+specify. And again, because I'm in the
+ 
+
+849
+00:15:28,800 --> 00:15:31,509
+specify. And again, because I'm in the
+right folder now, I see slpspecify slash
+
+850
+00:15:31,509 --> 00:15:31,519
+right folder now, I see slpspecify slash
+ 
+
+851
+00:15:31,519 --> 00:15:34,389
+right folder now, I see slpspecify slash
+specify. And this is where I define like
+
+852
+00:15:34,389 --> 00:15:34,399
+specify. And this is where I define like
+ 
+
+853
+00:15:34,399 --> 00:15:37,829
+specify. And this is where I define like
+a true product manager the what and the
+
+854
+00:15:37,829 --> 00:15:37,839
+a true product manager the what and the
+ 
+
+855
+00:15:37,839 --> 00:15:40,389
+a true product manager the what and the
+why. We're not focusing on a technical
+
+856
+00:15:40,389 --> 00:15:40,399
+why. We're not focusing on a technical
+ 
+
+857
+00:15:40,399 --> 00:15:41,750
+why. We're not focusing on a technical
+requirements. We're not focusing on
+
+858
+00:15:41,750 --> 00:15:41,760
+requirements. We're not focusing on
+ 
+
+859
+00:15:41,760 --> 00:15:44,230
+requirements. We're not focusing on
+saying use Nex.js and this database and
+
+860
+00:15:44,230 --> 00:15:44,240
+saying use Nex.js and this database and
+ 
+
+861
+00:15:44,240 --> 00:15:45,509
+saying use Nex.js and this database and
+so on so forth. Like we we don't care
+
+862
+00:15:45,509 --> 00:15:45,519
+so on so forth. Like we we don't care
+ 
+
+863
+00:15:45,519 --> 00:15:47,269
+so on so forth. Like we we don't care
+about that at this point. This is all
+
+864
+00:15:47,269 --> 00:15:47,279
+about that at this point. This is all
+ 
+
+865
+00:15:47,279 --> 00:15:49,910
+about that at this point. This is all
+about making sure that we are outlining
+
+866
+00:15:49,910 --> 00:15:49,920
+about making sure that we are outlining
+ 
+
+867
+00:15:49,920 --> 00:15:52,470
+about making sure that we are outlining
+the motivation for the product and what
+
+868
+00:15:52,470 --> 00:15:52,480
+the motivation for the product and what
+ 
+
+869
+00:15:52,480 --> 00:15:55,189
+the motivation for the product and what
+actually needs to be built. This is
+
+870
+00:15:55,189 --> 00:15:55,199
+actually needs to be built. This is
+ 
+
+871
+00:15:55,199 --> 00:15:56,870
+actually needs to be built. This is
+helpful because for somebody reading
+
+872
+00:15:56,870 --> 00:15:56,880
+helpful because for somebody reading
+ 
+
+873
+00:15:56,880 --> 00:15:58,550
+helpful because for somebody reading
+this, it is going to be completely
+
+874
+00:15:58,550 --> 00:15:58,560
+this, it is going to be completely
+ 
+
+875
+00:15:58,560 --> 00:16:00,310
+this, it is going to be completely
+detached from the implementation. This
+
+876
+00:16:00,310 --> 00:16:00,320
+detached from the implementation. This
+ 
+
+877
+00:16:00,320 --> 00:16:02,629
+detached from the implementation. This
+is important. The benefit of the spec
+
+878
+00:16:02,629 --> 00:16:02,639
+is important. The benefit of the spec
+ 
+
+879
+00:16:02,639 --> 00:16:04,230
+is important. The benefit of the spec
+here is that it is completely detached
+
+880
+00:16:04,230 --> 00:16:04,240
+here is that it is completely detached
+ 
+
+881
+00:16:04,240 --> 00:16:05,670
+here is that it is completely detached
+from the implementation. So if at some
+
+882
+00:16:05,670 --> 00:16:05,680
+from the implementation. So if at some
+ 
+
+883
+00:16:05,680 --> 00:16:06,629
+from the implementation. So if at some
+point, you know, we're going to be
+
+884
+00:16:06,629 --> 00:16:06,639
+point, you know, we're going to be
+ 
+
+885
+00:16:06,639 --> 00:16:09,110
+point, you know, we're going to be
+building this with Nex.js, but at some
+
+886
+00:16:09,110 --> 00:16:09,120
+building this with Nex.js, but at some
+ 
+
+887
+00:16:09,120 --> 00:16:11,430
+building this with Nex.js, but at some
+point you switch to Hugo or any other
+
+888
+00:16:11,430 --> 00:16:11,440
+point you switch to Hugo or any other
+ 
+
+889
+00:16:11,440 --> 00:16:13,670
+point you switch to Hugo or any other
+static side generator. You use the same
+
+890
+00:16:13,670 --> 00:16:13,680
+static side generator. You use the same
+ 
+
+891
+00:16:13,680 --> 00:16:15,189
+static side generator. You use the same
+spec. The spec is written, the
+
+892
+00:16:15,189 --> 00:16:15,199
+spec. The spec is written, the
+ 
+
+893
+00:16:15,199 --> 00:16:17,110
+spec. The spec is written, the
+requirements are there. You just toss it
+
+894
+00:16:17,110 --> 00:16:17,120
+requirements are there. You just toss it
+ 
+
+895
+00:16:17,120 --> 00:16:19,030
+requirements are there. You just toss it
+into an LLM and ask it to write you
+
+896
+00:16:19,030 --> 00:16:19,040
+into an LLM and ask it to write you
+ 
+
+897
+00:16:19,040 --> 00:16:21,269
+into an LLM and ask it to write you
+three, four, five, six variants based on
+
+898
+00:16:21,269 --> 00:16:21,279
+three, four, five, six variants based on
+ 
+
+899
+00:16:21,279 --> 00:16:23,590
+three, four, five, six variants based on
+the same spec. So kind of neat. a side
+
+900
+00:16:23,590 --> 00:16:23,600
+the same spec. So kind of neat. a side
+ 
+
+901
+00:16:23,600 --> 00:16:25,590
+the same spec. So kind of neat. a side
+effect of what what this is about. So,
+
+902
+00:16:25,590 --> 00:16:25,600
+effect of what what this is about. So,
+ 
+
+903
+00:16:25,600 --> 00:16:26,790
+effect of what what this is about. So,
+we're going to go back here and use
+
+904
+00:16:26,790 --> 00:16:26,800
+we're going to go back here and use
+ 
+
+905
+00:16:26,800 --> 00:16:28,150
+we're going to go back here and use
+specify and this is where I'm going to
+
+906
+00:16:28,150 --> 00:16:28,160
+specify and this is where I'm going to
+ 
+
+907
+00:16:28,160 --> 00:16:31,030
+specify and this is where I'm going to
+say what my requirements are. So, I am
+
+908
+00:16:31,030 --> 00:16:31,040
+say what my requirements are. So, I am
+ 
+
+909
+00:16:31,040 --> 00:16:37,749
+say what my requirements are. So, I am
+building a modern podcast website
+
+910
+00:16:37,749 --> 00:16:37,759
+building a modern podcast website
+ 
+
+911
+00:16:37,759 --> 00:16:40,310
+building a modern podcast website
+to
+
+912
+00:16:40,310 --> 00:16:40,320
+to
+ 
+
+913
+00:16:40,320 --> 00:16:42,949
+to
+look sleek. We want to use the term
+
+914
+00:16:42,949 --> 00:16:42,959
+look sleek. We want to use the term
+ 
+
+915
+00:16:42,959 --> 00:16:45,509
+look sleek. We want to use the term
+sleek. I I think the youths use this
+
+916
+00:16:45,509 --> 00:16:45,519
+sleek. I I think the youths use this
+ 
+
+917
+00:16:45,519 --> 00:16:48,069
+sleek. I I think the youths use this
+term these days, sleek. I wanted to be
+
+918
+00:16:48,069 --> 00:16:48,079
+term these days, sleek. I wanted to be
+ 
+
+919
+00:16:48,079 --> 00:16:52,629
+term these days, sleek. I wanted to be
+sleek. I um something that would stand
+
+920
+00:16:52,629 --> 00:16:52,639
+sleek. I um something that would stand
+ 
+
+921
+00:16:52,639 --> 00:16:55,670
+sleek. I um something that would stand
+out
+
+922
+00:16:55,670 --> 00:16:55,680
+
+ 
+
+923
+00:16:55,680 --> 00:16:58,870
+
+should have a landing page
+
+924
+00:16:58,870 --> 00:16:58,880
+should have a landing page
+ 
+
+925
+00:16:58,880 --> 00:17:03,030
+should have a landing page
+with one featured episode.
+
+926
+00:17:03,030 --> 00:17:03,040
+with one featured episode.
+ 
+
+927
+00:17:03,040 --> 00:17:07,510
+with one featured episode.
+There should be an episodes page,
+
+928
+00:17:07,510 --> 00:17:07,520
+There should be an episodes page,
+ 
+
+929
+00:17:07,520 --> 00:17:10,390
+There should be an episodes page,
+an about page,
+
+930
+00:17:10,390 --> 00:17:10,400
+an about page,
+ 
+
+931
+00:17:10,400 --> 00:17:12,549
+an about page,
+and a
+
+932
+00:17:12,549 --> 00:17:12,559
+and a
+ 
+
+933
+00:17:12,559 --> 00:17:16,309
+and a
+let's see an FAQ page.
+
+934
+00:17:16,309 --> 00:17:16,319
+let's see an FAQ page.
+ 
+
+935
+00:17:16,319 --> 00:17:22,230
+let's see an FAQ page.
+uh should have 20 episodes
+
+936
+00:17:22,230 --> 00:17:22,240
+
+ 
+
+937
+00:17:22,240 --> 00:17:25,350
+
+and the data is mocked. You do not need
+
+938
+00:17:25,350 --> 00:17:25,360
+and the data is mocked. You do not need
+ 
+
+939
+00:17:25,360 --> 00:17:31,430
+and the data is mocked. You do not need
+to pull anything from any real feed,
+
+940
+00:17:31,430 --> 00:17:31,440
+to pull anything from any real feed,
+ 
+
+941
+00:17:31,440 --> 00:17:33,350
+to pull anything from any real feed,
+right? So, we're we're just establishing
+
+942
+00:17:33,350 --> 00:17:33,360
+right? So, we're we're just establishing
+ 
+
+943
+00:17:33,360 --> 00:17:35,350
+right? So, we're we're just establishing
+the requirements. We're detaching
+
+944
+00:17:35,350 --> 00:17:35,360
+the requirements. We're detaching
+ 
+
+945
+00:17:35,360 --> 00:17:37,029
+the requirements. We're detaching
+ourselves from the technical details.
+
+946
+00:17:37,029 --> 00:17:37,039
+ourselves from the technical details.
+ 
+
+947
+00:17:37,039 --> 00:17:38,390
+ourselves from the technical details.
+We're not thinking about any technical
+
+948
+00:17:38,390 --> 00:17:38,400
+We're not thinking about any technical
+ 
+
+949
+00:17:38,400 --> 00:17:39,590
+We're not thinking about any technical
+details. We're just saying like this is
+
+950
+00:17:39,590 --> 00:17:39,600
+details. We're just saying like this is
+ 
+
+951
+00:17:39,600 --> 00:17:41,750
+details. We're just saying like this is
+what you're building. So, I think this
+
+952
+00:17:41,750 --> 00:17:41,760
+what you're building. So, I think this
+ 
+
+953
+00:17:41,760 --> 00:17:43,110
+what you're building. So, I think this
+is good enough for me to start. Again,
+
+954
+00:17:43,110 --> 00:17:43,120
+is good enough for me to start. Again,
+ 
+
+955
+00:17:43,120 --> 00:17:44,789
+is good enough for me to start. Again,
+for a real production scenario, the more
+
+956
+00:17:44,789 --> 00:17:44,799
+for a real production scenario, the more
+ 
+
+957
+00:17:44,799 --> 00:17:47,029
+for a real production scenario, the more
+detailed the prompt, the better for us
+
+958
+00:17:47,029 --> 00:17:47,039
+detailed the prompt, the better for us
+ 
+
+959
+00:17:47,039 --> 00:17:49,510
+detailed the prompt, the better for us
+because we're looking at this very
+
+960
+00:17:49,510 --> 00:17:49,520
+because we're looking at this very
+ 
+
+961
+00:17:49,520 --> 00:17:51,830
+because we're looking at this very
+baseline context. Uh, we're just going
+
+962
+00:17:51,830 --> 00:17:51,840
+baseline context. Uh, we're just going
+ 
+
+963
+00:17:51,840 --> 00:17:53,909
+baseline context. Uh, we're just going
+to use this and I'm going to use
+
+964
+00:17:53,909 --> 00:17:53,919
+to use this and I'm going to use
+ 
+
+965
+00:17:53,919 --> 00:17:55,909
+to use this and I'm going to use
+specify.
+
+966
+00:17:55,909 --> 00:17:55,919
+specify.
+ 
+
+967
+00:17:55,919 --> 00:17:58,230
+specify.
+And what's going to happen here is it's
+
+968
+00:17:58,230 --> 00:17:58,240
+And what's going to happen here is it's
+ 
+
+969
+00:17:58,240 --> 00:18:01,190
+And what's going to happen here is it's
+actually going to go ahead and use our
+
+970
+00:18:01,190 --> 00:18:01,200
+actually going to go ahead and use our
+ 
+
+971
+00:18:01,200 --> 00:18:03,350
+actually going to go ahead and use our
+prompt file, right? Like this is going
+
+972
+00:18:03,350 --> 00:18:03,360
+prompt file, right? Like this is going
+ 
+
+973
+00:18:03,360 --> 00:18:05,110
+prompt file, right? Like this is going
+to use file instructions and specify
+
+974
+00:18:05,110 --> 00:18:05,120
+to use file instructions and specify
+ 
+
+975
+00:18:05,120 --> 00:18:08,150
+to use file instructions and specify
+prompt MD because that's the prompt file
+
+976
+00:18:08,150 --> 00:18:08,160
+prompt MD because that's the prompt file
+ 
+
+977
+00:18:08,160 --> 00:18:09,750
+prompt MD because that's the prompt file
+that drives the slash command, right?
+
+978
+00:18:09,750 --> 00:18:09,760
+that drives the slash command, right?
+ 
+
+979
+00:18:09,760 --> 00:18:11,190
+that drives the slash command, right?
+It's going to read the script that is
+
+980
+00:18:11,190 --> 00:18:11,200
+It's going to read the script that is
+ 
+
+981
+00:18:11,200 --> 00:18:12,470
+It's going to read the script that is
+referenced there. It's very important.
+
+982
+00:18:12,470 --> 00:18:12,480
+referenced there. It's very important.
+ 
+
+983
+00:18:12,480 --> 00:18:14,150
+referenced there. It's very important.
+It's going to read the spec template
+
+984
+00:18:14,150 --> 00:18:14,160
+It's going to read the spec template
+ 
+
+985
+00:18:14,160 --> 00:18:15,669
+It's going to read the spec template
+that is going to be used as a baseline
+
+986
+00:18:15,669 --> 00:18:15,679
+that is going to be used as a baseline
+ 
+
+987
+00:18:15,679 --> 00:18:17,590
+that is going to be used as a baseline
+because look, there's a templates
+
+988
+00:18:17,590 --> 00:18:17,600
+because look, there's a templates
+ 
+
+989
+00:18:17,600 --> 00:18:19,430
+because look, there's a templates
+folder. And it's going to ask us if it
+
+990
+00:18:19,430 --> 00:18:19,440
+folder. And it's going to ask us if it
+ 
+
+991
+00:18:19,440 --> 00:18:21,830
+folder. And it's going to ask us if it
+wants to run this PowerShell script. And
+
+992
+00:18:21,830 --> 00:18:21,840
+wants to run this PowerShell script. And
+ 
+
+993
+00:18:21,840 --> 00:18:23,909
+wants to run this PowerShell script. And
+uh yeah, let's actually enable auto
+
+994
+00:18:23,909 --> 00:18:23,919
+uh yeah, let's actually enable auto
+ 
+
+995
+00:18:23,919 --> 00:18:27,270
+uh yeah, let's actually enable auto
+approve yolo mode for the rescue. And
+
+996
+00:18:27,270 --> 00:18:27,280
+approve yolo mode for the rescue. And
+ 
+
+997
+00:18:27,280 --> 00:18:29,110
+approve yolo mode for the rescue. And
+because I'm running this inside a VM,
+
+998
+00:18:29,110 --> 00:18:29,120
+because I'm running this inside a VM,
+ 
+
+999
+00:18:29,120 --> 00:18:30,789
+because I'm running this inside a VM,
+I'm not really worried about this. I'll
+
+1000
+00:18:30,789 --> 00:18:30,799
+I'm not really worried about this. I'll
+ 
+
+1001
+00:18:30,799 --> 00:18:33,830
+I'm not really worried about this. I'll
+just say allow run this command. It's
+
+1002
+00:18:33,830 --> 00:18:33,840
+just say allow run this command. It's
+ 
+
+1003
+00:18:33,840 --> 00:18:34,950
+just say allow run this command. It's
+going to run a PowerShell script, a
+
+1004
+00:18:34,950 --> 00:18:34,960
+going to run a PowerShell script, a
+ 
+
+1005
+00:18:34,960 --> 00:18:37,270
+going to run a PowerShell script, a
+helper script. Great. It switched to a
+
+1006
+00:18:37,270 --> 00:18:37,280
+helper script. Great. It switched to a
+ 
+
+1007
+00:18:37,280 --> 00:18:40,150
+helper script. Great. It switched to a
+new branch because, as I mentioned, this
+
+1008
+00:18:40,150 --> 00:18:40,160
+new branch because, as I mentioned, this
+ 
+
+1009
+00:18:40,160 --> 00:18:42,549
+new branch because, as I mentioned, this
+is git based. So as you're running this
+
+1010
+00:18:42,549 --> 00:18:42,559
+is git based. So as you're running this
+ 
+
+1011
+00:18:42,559 --> 00:18:44,150
+is git based. So as you're running this
+in your project is going to be using
+
+1012
+00:18:44,150 --> 00:18:44,160
+in your project is going to be using
+ 
+
+1013
+00:18:44,160 --> 00:18:45,750
+in your project is going to be using
+these custom branches to help you
+
+1014
+00:18:45,750 --> 00:18:45,760
+these custom branches to help you
+ 
+
+1015
+00:18:45,760 --> 00:18:47,990
+these custom branches to help you
+organize your work. That way you're not
+
+1016
+00:18:47,990 --> 00:18:48,000
+organize your work. That way you're not
+ 
+
+1017
+00:18:48,000 --> 00:18:49,669
+organize your work. That way you're not
+damaging anything in production and you
+
+1018
+00:18:49,669 --> 00:18:49,679
+damaging anything in production and you
+ 
+
+1019
+00:18:49,679 --> 00:18:51,350
+damaging anything in production and you
+can always roll back changes that you do
+
+1020
+00:18:51,350 --> 00:18:51,360
+can always roll back changes that you do
+ 
+
+1021
+00:18:51,360 --> 00:18:54,710
+can always roll back changes that you do
+not like. Again side effect of the
+
+1022
+00:18:54,710 --> 00:18:54,720
+not like. Again side effect of the
+ 
+
+1023
+00:18:54,720 --> 00:18:56,630
+not like. Again side effect of the
+spectrum process the fact that it forces
+
+1024
+00:18:56,630 --> 00:18:56,640
+spectrum process the fact that it forces
+ 
+
+1025
+00:18:56,640 --> 00:18:58,789
+spectrum process the fact that it forces
+you to think about a lot of these things
+
+1026
+00:18:58,789 --> 00:18:58,799
+you to think about a lot of these things
+ 
+
+1027
+00:18:58,799 --> 00:19:01,350
+you to think about a lot of these things
+where as you're experimenting and as
+
+1028
+00:19:01,350 --> 00:19:01,360
+where as you're experimenting and as
+ 
+
+1029
+00:19:01,360 --> 00:19:03,350
+where as you're experimenting and as
+you're iterating you not want to
+
+1030
+00:19:03,350 --> 00:19:03,360
+you're iterating you not want to
+ 
+
+1031
+00:19:03,360 --> 00:19:04,630
+you're iterating you not want to
+interfere with the existing
+
+1032
+00:19:04,630 --> 00:19:04,640
+interfere with the existing
+ 
+
+1033
+00:19:04,640 --> 00:19:06,150
+interfere with the existing
+implementation. Right? So the spec
+
+1034
+00:19:06,150 --> 00:19:06,160
+implementation. Right? So the spec
+ 
+
+1035
+00:19:06,160 --> 00:19:07,909
+implementation. Right? So the spec
+establishes the baseline. You work
+
+1036
+00:19:07,909 --> 00:19:07,919
+establishes the baseline. You work
+ 
+
+1037
+00:19:07,919 --> 00:19:10,150
+establishes the baseline. You work
+through it, you experiment, and then you
+
+1038
+00:19:10,150 --> 00:19:10,160
+through it, you experiment, and then you
+ 
+
+1039
+00:19:10,160 --> 00:19:12,470
+through it, you experiment, and then you
+merge it into your main branch on an as
+
+1040
+00:19:12,470 --> 00:19:12,480
+merge it into your main branch on an as
+ 
+
+1041
+00:19:12,480 --> 00:19:14,549
+merge it into your main branch on an as
+needed basis. So, looks like it's
+
+1042
+00:19:14,549 --> 00:19:14,559
+needed basis. So, looks like it's
+ 
+
+1043
+00:19:14,559 --> 00:19:16,310
+needed basis. So, looks like it's
+reading some of the information from the
+
+1044
+00:19:16,310 --> 00:19:16,320
+reading some of the information from the
+ 
+
+1045
+00:19:16,320 --> 00:19:19,029
+reading some of the information from the
+spec file that it helpfully created in
+
+1046
+00:19:19,029 --> 00:19:19,039
+spec file that it helpfully created in
+ 
+
+1047
+00:19:19,039 --> 00:19:21,590
+spec file that it helpfully created in
+the specs folder. Uh, the file right now
+
+1048
+00:19:21,590 --> 00:19:21,600
+the specs folder. Uh, the file right now
+ 
+
+1049
+00:19:21,600 --> 00:19:23,909
+the specs folder. Uh, the file right now
+is empty because it has not yet inserted
+
+1050
+00:19:23,909 --> 00:19:23,919
+is empty because it has not yet inserted
+ 
+
+1051
+00:19:23,919 --> 00:19:27,430
+is empty because it has not yet inserted
+the template, but we'll see GPT5 soon
+
+1052
+00:19:27,430 --> 00:19:27,440
+the template, but we'll see GPT5 soon
+ 
+
+1053
+00:19:27,440 --> 00:19:29,029
+the template, but we'll see GPT5 soon
+plug in all the required information,
+
+1054
+00:19:29,029 --> 00:19:29,039
+plug in all the required information,
+ 
+
+1055
+00:19:29,039 --> 00:19:38,230
+plug in all the required information,
+which is going to be nice.
+
+1056
+00:19:38,230 --> 00:19:38,240
+
+ 
+
+1057
+00:19:38,240 --> 00:19:40,549
+
+Wonderful. We now have a specification.
+
+1058
+00:19:40,549 --> 00:19:40,559
+Wonderful. We now have a specification.
+ 
+
+1059
+00:19:40,559 --> 00:19:42,230
+Wonderful. We now have a specification.
+I'm going to keep it because I just
+
+1060
+00:19:42,230 --> 00:19:42,240
+I'm going to keep it because I just
+ 
+
+1061
+00:19:42,240 --> 00:19:45,350
+I'm going to keep it because I just
+trust it that much. I I really don't
+
+1062
+00:19:45,350 --> 00:19:45,360
+trust it that much. I I really don't
+ 
+
+1063
+00:19:45,360 --> 00:19:47,990
+trust it that much. I I really don't
+don't don't trust the LLM to do
+
+1064
+00:19:47,990 --> 00:19:48,000
+don't don't trust the LLM to do
+ 
+
+1065
+00:19:48,000 --> 00:19:49,669
+don't don't trust the LLM to do
+production software for you. Just check
+
+1066
+00:19:49,669 --> 00:19:49,679
+production software for you. Just check
+ 
+
+1067
+00:19:49,679 --> 00:19:53,270
+production software for you. Just check
+it. You have to verify it. Check the
+
+1068
+00:19:53,270 --> 00:19:53,280
+it. You have to verify it. Check the
+ 
+
+1069
+00:19:53,280 --> 00:19:55,830
+it. You have to verify it. Check the
+software statement that is being made in
+
+1070
+00:19:55,830 --> 00:19:55,840
+software statement that is being made in
+ 
+
+1071
+00:19:55,840 --> 00:19:58,150
+software statement that is being made in
+the spec. So, uh we're going to look at
+
+1072
+00:19:58,150 --> 00:19:58,160
+the spec. So, uh we're going to look at
+ 
+
+1073
+00:19:58,160 --> 00:20:00,549
+the spec. So, uh we're going to look at
+the spec here. It created things for a
+
+1074
+00:20:00,549 --> 00:20:00,559
+the spec here. It created things for a
+ 
+
+1075
+00:20:00,559 --> 00:20:03,029
+the spec here. It created things for a
+modern podcast website. Great. That's
+
+1076
+00:20:03,029 --> 00:20:03,039
+modern podcast website. Great. That's
+ 
+
+1077
+00:20:03,039 --> 00:20:05,990
+modern podcast website. Great. That's
+that's what I asked it to do. Um let's
+
+1078
+00:20:05,990 --> 00:20:06,000
+that's what I asked it to do. Um let's
+ 
+
+1079
+00:20:06,000 --> 00:20:07,590
+that's what I asked it to do. Um let's
+take a look here at quick guidelines
+
+1080
+00:20:07,590 --> 00:20:07,600
+take a look here at quick guidelines
+ 
+
+1081
+00:20:07,600 --> 00:20:09,510
+take a look here at quick guidelines
+which is you know again it is the
+
+1082
+00:20:09,510 --> 00:20:09,520
+which is you know again it is the
+ 
+
+1083
+00:20:09,520 --> 00:20:11,270
+which is you know again it is the
+guideline for the spec. We have to
+
+1084
+00:20:11,270 --> 00:20:11,280
+guideline for the spec. We have to
+ 
+
+1085
+00:20:11,280 --> 00:20:13,110
+guideline for the spec. We have to
+respect them. The LLM has to respect
+
+1086
+00:20:13,110 --> 00:20:13,120
+respect them. The LLM has to respect
+ 
+
+1087
+00:20:13,120 --> 00:20:15,430
+respect them. The LLM has to respect
+them. Focus on what users need and why.
+
+1088
+00:20:15,430 --> 00:20:15,440
+them. Focus on what users need and why.
+ 
+
+1089
+00:20:15,440 --> 00:20:18,310
+them. Focus on what users need and why.
+Great. Um for AI generation all the
+
+1090
+00:20:18,310 --> 00:20:18,320
+Great. Um for AI generation all the
+ 
+
+1091
+00:20:18,320 --> 00:20:20,310
+Great. Um for AI generation all the
+stuff that's again helpful baselines
+
+1092
+00:20:20,310 --> 00:20:20,320
+stuff that's again helpful baselines
+ 
+
+1093
+00:20:20,320 --> 00:20:23,430
+stuff that's again helpful baselines
+that we need to maintain and respect. So
+
+1094
+00:20:23,430 --> 00:20:23,440
+that we need to maintain and respect. So
+ 
+
+1095
+00:20:23,440 --> 00:20:25,590
+that we need to maintain and respect. So
+user scenarios and testing. All right.
+
+1096
+00:20:25,590 --> 00:20:25,600
+user scenarios and testing. All right.
+ 
+
+1097
+00:20:25,600 --> 00:20:27,669
+user scenarios and testing. All right.
+There's some user stories and this if
+
+1098
+00:20:27,669 --> 00:20:27,679
+There's some user stories and this if
+ 
+
+1099
+00:20:27,679 --> 00:20:29,750
+There's some user stories and this if
+you're a PM this will sound mighty
+
+1100
+00:20:29,750 --> 00:20:29,760
+you're a PM this will sound mighty
+ 
+
+1101
+00:20:29,760 --> 00:20:31,510
+you're a PM this will sound mighty
+familiar. We have some acceptance
+
+1102
+00:20:31,510 --> 00:20:31,520
+familiar. We have some acceptance
+ 
+
+1103
+00:20:31,520 --> 00:20:34,390
+familiar. We have some acceptance
+scenarios. We have some edge cases,
+
+1104
+00:20:34,390 --> 00:20:34,400
+scenarios. We have some edge cases,
+ 
+
+1105
+00:20:34,400 --> 00:20:36,310
+scenarios. We have some edge cases,
+right? Like it accounted for things like
+
+1106
+00:20:36,310 --> 00:20:36,320
+right? Like it accounted for things like
+ 
+
+1107
+00:20:36,320 --> 00:20:38,630
+right? Like it accounted for things like
+epsert ordering not specified and so on
+
+1108
+00:20:38,630 --> 00:20:38,640
+epsert ordering not specified and so on
+ 
+
+1109
+00:20:38,640 --> 00:20:40,310
+epsert ordering not specified and so on
+so forth. There's also a bunch of
+
+1110
+00:20:40,310 --> 00:20:40,320
+so forth. There's also a bunch of
+ 
+
+1111
+00:20:40,320 --> 00:20:43,029
+so forth. There's also a bunch of
+functional requirements that are also if
+
+1112
+00:20:43,029 --> 00:20:43,039
+functional requirements that are also if
+ 
+
+1113
+00:20:43,039 --> 00:20:44,230
+functional requirements that are also if
+you're a PM, you know, functional
+
+1114
+00:20:44,230 --> 00:20:44,240
+you're a PM, you know, functional
+ 
+
+1115
+00:20:44,240 --> 00:20:45,830
+you're a PM, you know, functional
+requirements, they go into the spec.
+
+1116
+00:20:45,830 --> 00:20:45,840
+requirements, they go into the spec.
+ 
+
+1117
+00:20:45,840 --> 00:20:48,230
+requirements, they go into the spec.
+This is, you know, it's done for you.
+
+1118
+00:20:48,230 --> 00:20:48,240
+This is, you know, it's done for you.
+ 
+
+1119
+00:20:48,240 --> 00:20:50,310
+This is, you know, it's done for you.
+Um, there's a bunch of things that are
+
+1120
+00:20:50,310 --> 00:20:50,320
+Um, there's a bunch of things that are
+ 
+
+1121
+00:20:50,320 --> 00:20:52,630
+Um, there's a bunch of things that are
+here, but also notice that there's a
+
+1122
+00:20:52,630 --> 00:20:52,640
+here, but also notice that there's a
+ 
+
+1123
+00:20:52,640 --> 00:20:55,350
+here, but also notice that there's a
+review and acceptance checklist. This is
+
+1124
+00:20:55,350 --> 00:20:55,360
+review and acceptance checklist. This is
+ 
+
+1125
+00:20:55,360 --> 00:20:57,430
+review and acceptance checklist. This is
+key here. I cannot emphasize this
+
+1126
+00:20:57,430 --> 00:20:57,440
+key here. I cannot emphasize this
+ 
+
+1127
+00:20:57,440 --> 00:20:59,350
+key here. I cannot emphasize this
+enough. If you are having a
+
+1128
+00:20:59,350 --> 00:20:59,360
+enough. If you are having a
+ 
+
+1129
+00:20:59,360 --> 00:21:01,510
+enough. If you are having a
+specification, if you're writing a spec,
+
+1130
+00:21:01,510 --> 00:21:01,520
+specification, if you're writing a spec,
+ 
+
+1131
+00:21:01,520 --> 00:21:03,350
+specification, if you're writing a spec,
+you got to make sure that you have an
+
+1132
+00:21:03,350 --> 00:21:03,360
+you got to make sure that you have an
+ 
+
+1133
+00:21:03,360 --> 00:21:05,830
+you got to make sure that you have an
+acceptance checklist and you got to make
+
+1134
+00:21:05,830 --> 00:21:05,840
+acceptance checklist and you got to make
+ 
+
+1135
+00:21:05,840 --> 00:21:07,270
+acceptance checklist and you got to make
+sure that the acceptance checklist is
+
+1136
+00:21:07,270 --> 00:21:07,280
+sure that the acceptance checklist is
+ 
+
+1137
+00:21:07,280 --> 00:21:09,510
+sure that the acceptance checklist is
+actually filled out. So things like no
+
+1138
+00:21:09,510 --> 00:21:09,520
+actually filled out. So things like no
+ 
+
+1139
+00:21:09,520 --> 00:21:10,710
+actually filled out. So things like no
+implementation details, right? Like
+
+1140
+00:21:10,710 --> 00:21:10,720
+implementation details, right? Like
+ 
+
+1141
+00:21:10,720 --> 00:21:12,310
+implementation details, right? Like
+languages, frames, APIs because that's
+
+1142
+00:21:12,310 --> 00:21:12,320
+languages, frames, APIs because that's
+ 
+
+1143
+00:21:12,320 --> 00:21:14,310
+languages, frames, APIs because that's
+not what we're focusing on. We are
+
+1144
+00:21:14,310 --> 00:21:14,320
+not what we're focusing on. We are
+ 
+
+1145
+00:21:14,320 --> 00:21:16,470
+not what we're focusing on. We are
+focusing on the what and the why, not on
+
+1146
+00:21:16,470 --> 00:21:16,480
+focusing on the what and the why, not on
+ 
+
+1147
+00:21:16,480 --> 00:21:19,270
+focusing on the what and the why, not on
+the how. Uh I also have details about,
+
+1148
+00:21:19,270 --> 00:21:19,280
+the how. Uh I also have details about,
+ 
+
+1149
+00:21:19,280 --> 00:21:20,870
+the how. Uh I also have details about,
+you know, nontechnical stakeholders,
+
+1150
+00:21:20,870 --> 00:21:20,880
+you know, nontechnical stakeholders,
+ 
+
+1151
+00:21:20,880 --> 00:21:23,510
+you know, nontechnical stakeholders,
+mandatory sections completed. One thing
+
+1152
+00:21:23,510 --> 00:21:23,520
+mandatory sections completed. One thing
+ 
+
+1153
+00:21:23,520 --> 00:21:25,590
+mandatory sections completed. One thing
+that is not checked is no needs
+
+1154
+00:21:25,590 --> 00:21:25,600
+that is not checked is no needs
+ 
+
+1155
+00:21:25,600 --> 00:21:27,430
+that is not checked is no needs
+clarification. And that is actually
+
+1156
+00:21:27,430 --> 00:21:27,440
+clarification. And that is actually
+ 
+
+1157
+00:21:27,440 --> 00:21:28,630
+clarification. And that is actually
+something that is missing here right now
+
+1158
+00:21:28,630 --> 00:21:28,640
+something that is missing here right now
+ 
+
+1159
+00:21:28,640 --> 00:21:30,149
+something that is missing here right now
+because if you look at there's items
+
+1160
+00:21:30,149 --> 00:21:30,159
+because if you look at there's items
+ 
+
+1161
+00:21:30,159 --> 00:21:31,990
+because if you look at there's items
+that needs clarification like episode
+
+1162
+00:21:31,990 --> 00:21:32,000
+that needs clarification like episode
+ 
+
+1163
+00:21:32,000 --> 00:21:33,510
+that needs clarification like episode
+list ordering should be reverse
+
+1164
+00:21:33,510 --> 00:21:33,520
+list ordering should be reverse
+ 
+
+1165
+00:21:33,520 --> 00:21:36,310
+list ordering should be reverse
+chronological newest first confirm order
+
+1166
+00:21:36,310 --> 00:21:36,320
+chronological newest first confirm order
+ 
+
+1167
+00:21:36,320 --> 00:21:38,470
+chronological newest first confirm order
+requirement. Now because we're
+
+1168
+00:21:38,470 --> 00:21:38,480
+requirement. Now because we're
+ 
+
+1169
+00:21:38,480 --> 00:21:39,909
+requirement. Now because we're
+prototyping and because we're
+
+1170
+00:21:39,909 --> 00:21:39,919
+prototyping and because we're
+ 
+
+1171
+00:21:39,919 --> 00:21:42,870
+prototyping and because we're
+experimenting with this I can ask the
+
+1172
+00:21:42,870 --> 00:21:42,880
+experimenting with this I can ask the
+ 
+
+1173
+00:21:42,880 --> 00:21:45,830
+experimenting with this I can ask the
+LLM to take a best guess. So we're just
+
+1174
+00:21:45,830 --> 00:21:45,840
+LLM to take a best guess. So we're just
+ 
+
+1175
+00:21:45,840 --> 00:21:48,310
+LLM to take a best guess. So we're just
+going to do that for things that need
+
+1176
+00:21:48,310 --> 00:21:48,320
+going to do that for things that need
+ 
+
+1177
+00:21:48,320 --> 00:21:50,870
+going to do that for things that need
+clarification.
+
+1178
+00:21:50,870 --> 00:21:50,880
+clarification.
+ 
+
+1179
+00:21:50,880 --> 00:21:54,630
+clarification.
+Use the best guess you think is
+
+1180
+00:21:54,630 --> 00:21:54,640
+Use the best guess you think is
+ 
+
+1181
+00:21:54,640 --> 00:21:59,430
+Use the best guess you think is
+reasonable.
+
+1182
+00:21:59,430 --> 00:21:59,440
+
+ 
+
+1183
+00:21:59,440 --> 00:22:01,190
+
+Update
+
+1184
+00:22:01,190 --> 00:22:01,200
+Update
+ 
+
+1185
+00:22:01,200 --> 00:22:03,830
+Update
+acceptance checklist
+
+1186
+00:22:03,830 --> 00:22:03,840
+acceptance checklist
+ 
+
+1187
+00:22:03,840 --> 00:22:06,470
+acceptance checklist
+after.
+
+1188
+00:22:06,470 --> 00:22:06,480
+after.
+ 
+
+1189
+00:22:06,480 --> 00:22:07,909
+after.
+And we're going to have the LM basically
+
+1190
+00:22:07,909 --> 00:22:07,919
+And we're going to have the LM basically
+ 
+
+1191
+00:22:07,919 --> 00:22:10,149
+And we're going to have the LM basically
+fill this out for us because I do not
+
+1192
+00:22:10,149 --> 00:22:10,159
+fill this out for us because I do not
+ 
+
+1193
+00:22:10,159 --> 00:22:11,990
+fill this out for us because I do not
+want you to think about this prototype.
+
+1194
+00:22:11,990 --> 00:22:12,000
+want you to think about this prototype.
+ 
+
+1195
+00:22:12,000 --> 00:22:14,710
+want you to think about this prototype.
+I just wanted to kind of vibe code, I
+
+1196
+00:22:14,710 --> 00:22:14,720
+I just wanted to kind of vibe code, I
+ 
+
+1197
+00:22:14,720 --> 00:22:16,310
+I just wanted to kind of vibe code, I
+guess, but it's not really vibe coding
+
+1198
+00:22:16,310 --> 00:22:16,320
+guess, but it's not really vibe coding
+ 
+
+1199
+00:22:16,320 --> 00:22:18,470
+guess, but it's not really vibe coding
+because I I am structuring this a little
+
+1200
+00:22:18,470 --> 00:22:18,480
+because I I am structuring this a little
+ 
+
+1201
+00:22:18,480 --> 00:22:21,350
+because I I am structuring this a little
+bit better than just vibe coding. So
+
+1202
+00:22:21,350 --> 00:22:21,360
+bit better than just vibe coding. So
+ 
+
+1203
+00:22:21,360 --> 00:22:23,750
+bit better than just vibe coding. So
+once the spec is established, mind you
+
+1204
+00:22:23,750 --> 00:22:23,760
+once the spec is established, mind you
+ 
+
+1205
+00:22:23,760 --> 00:22:25,350
+once the spec is established, mind you
+this is very easy to share with your
+
+1206
+00:22:25,350 --> 00:22:25,360
+this is very easy to share with your
+ 
+
+1207
+00:22:25,360 --> 00:22:26,789
+this is very easy to share with your
+team. So if somebody comes in and says
+
+1208
+00:22:26,789 --> 00:22:26,799
+team. So if somebody comes in and says
+ 
+
+1209
+00:22:26,799 --> 00:22:28,870
+team. So if somebody comes in and says
+how did you build this website, look at
+
+1210
+00:22:28,870 --> 00:22:28,880
+how did you build this website, look at
+ 
+
+1211
+00:22:28,880 --> 00:22:31,430
+how did you build this website, look at
+the spec, look at the rationale. You as
+
+1212
+00:22:31,430 --> 00:22:31,440
+the spec, look at the rationale. You as
+ 
+
+1213
+00:22:31,440 --> 00:22:33,909
+the spec, look at the rationale. You as
+a human in the loop can go in and edit
+
+1214
+00:22:33,909 --> 00:22:33,919
+a human in the loop can go in and edit
+ 
+
+1215
+00:22:33,919 --> 00:22:35,750
+a human in the loop can go in and edit
+this. People make the mistake of
+
+1216
+00:22:35,750 --> 00:22:35,760
+this. People make the mistake of
+ 
+
+1217
+00:22:35,760 --> 00:22:37,990
+this. People make the mistake of
+thinking that oh the LM produced this. I
+
+1218
+00:22:37,990 --> 00:22:38,000
+thinking that oh the LM produced this. I
+ 
+
+1219
+00:22:38,000 --> 00:22:39,990
+thinking that oh the LM produced this. I
+can only manage this with ALM. No, it's
+
+1220
+00:22:39,990 --> 00:22:40,000
+can only manage this with ALM. No, it's
+ 
+
+1221
+00:22:40,000 --> 00:22:43,510
+can only manage this with ALM. No, it's
+a markdown file. Go in with your hands
+
+1222
+00:22:43,510 --> 00:22:43,520
+a markdown file. Go in with your hands
+ 
+
+1223
+00:22:43,520 --> 00:22:45,190
+a markdown file. Go in with your hands
+and start typing and entering
+
+1224
+00:22:45,190 --> 00:22:45,200
+and start typing and entering
+ 
+
+1225
+00:22:45,200 --> 00:22:47,190
+and start typing and entering
+requirements that you feel are, you
+
+1226
+00:22:47,190 --> 00:22:47,200
+requirements that you feel are, you
+ 
+
+1227
+00:22:47,200 --> 00:22:49,990
+requirements that you feel are, you
+know, required for your product. So if
+
+1228
+00:22:49,990 --> 00:22:50,000
+know, required for your product. So if
+ 
+
+1229
+00:22:50,000 --> 00:22:52,070
+know, required for your product. So if
+you feel strongly that the landing page
+
+1230
+00:22:52,070 --> 00:22:52,080
+you feel strongly that the landing page
+ 
+
+1231
+00:22:52,080 --> 00:22:54,789
+you feel strongly that the landing page
+should have a logo centered at the very
+
+1232
+00:22:54,789 --> 00:22:54,799
+should have a logo centered at the very
+ 
+
+1233
+00:22:54,799 --> 00:22:57,909
+should have a logo centered at the very
+very middle and some gradient that looks
+
+1234
+00:22:57,909 --> 00:22:57,919
+very middle and some gradient that looks
+ 
+
+1235
+00:22:57,919 --> 00:23:00,230
+very middle and some gradient that looks
+like a rainbow, you absolutely can do
+
+1236
+00:23:00,230 --> 00:23:00,240
+like a rainbow, you absolutely can do
+ 
+
+1237
+00:23:00,240 --> 00:23:02,149
+like a rainbow, you absolutely can do
+just go and add another functional
+
+1238
+00:23:02,149 --> 00:23:02,159
+just go and add another functional
+ 
+
+1239
+00:23:02,159 --> 00:23:03,510
+just go and add another functional
+requirement that you can do this
+
+1240
+00:23:03,510 --> 00:23:03,520
+requirement that you can do this
+ 
+
+1241
+00:23:03,520 --> 00:23:04,950
+requirement that you can do this
+manually. You don't need to ask the LM
+
+1242
+00:23:04,950 --> 00:23:04,960
+manually. You don't need to ask the LM
+ 
+
+1243
+00:23:04,960 --> 00:23:06,630
+manually. You don't need to ask the LM
+to do this. Um again and this is
+
+1244
+00:23:06,630 --> 00:23:06,640
+to do this. Um again and this is
+ 
+
+1245
+00:23:06,640 --> 00:23:07,990
+to do this. Um again and this is
+especially important if you're running
+
+1246
+00:23:07,990 --> 00:23:08,000
+especially important if you're running
+ 
+
+1247
+00:23:08,000 --> 00:23:09,669
+especially important if you're running
+into you know enterprise environments or
+
+1248
+00:23:09,669 --> 00:23:09,679
+into you know enterprise environments or
+ 
+
+1249
+00:23:09,679 --> 00:23:11,110
+into you know enterprise environments or
+environments where it's more controlled
+
+1250
+00:23:11,110 --> 00:23:11,120
+environments where it's more controlled
+ 
+
+1251
+00:23:11,120 --> 00:23:13,029
+environments where it's more controlled
+where you need to actually add specific
+
+1252
+00:23:13,029 --> 00:23:13,039
+where you need to actually add specific
+ 
+
+1253
+00:23:13,039 --> 00:23:14,789
+where you need to actually add specific
+requirements. Sometimes the LLM cannot
+
+1254
+00:23:14,789 --> 00:23:14,799
+requirements. Sometimes the LLM cannot
+ 
+
+1255
+00:23:14,799 --> 00:23:17,029
+requirements. Sometimes the LLM cannot
+guess for you which it's fine. you know,
+
+1256
+00:23:17,029 --> 00:23:17,039
+guess for you which it's fine. you know,
+ 
+
+1257
+00:23:17,039 --> 00:23:19,190
+guess for you which it's fine. you know,
+manual work is still there and we as
+
+1258
+00:23:19,190 --> 00:23:19,200
+manual work is still there and we as
+ 
+
+1259
+00:23:19,200 --> 00:23:21,270
+manual work is still there and we as
+developers need to go in and do that
+
+1260
+00:23:21,270 --> 00:23:21,280
+developers need to go in and do that
+ 
+
+1261
+00:23:21,280 --> 00:23:23,270
+developers need to go in and do that
+from time to time. So, we're just going
+
+1262
+00:23:23,270 --> 00:23:23,280
+from time to time. So, we're just going
+ 
+
+1263
+00:23:23,280 --> 00:23:26,390
+from time to time. So, we're just going
+to wait for GBD5 here to think a little
+
+1264
+00:23:26,390 --> 00:23:26,400
+to wait for GBD5 here to think a little
+ 
+
+1265
+00:23:26,400 --> 00:23:29,110
+to wait for GBD5 here to think a little
+bit and
+
+1266
+00:23:29,110 --> 00:23:29,120
+bit and
+ 
+
+1267
+00:23:29,120 --> 00:23:43,029
+bit and
+fill out our clarification items.
+
+1268
+00:23:43,029 --> 00:23:43,039
+
+ 
+
+1269
+00:23:43,039 --> 00:23:46,390
+
+We now have the updated checklist. uh
+
+1270
+00:23:46,390 --> 00:23:46,400
+We now have the updated checklist. uh
+ 
+
+1271
+00:23:46,400 --> 00:23:48,710
+We now have the updated checklist. uh
+allegedly. So let's scroll back here. So
+
+1272
+00:23:48,710 --> 00:23:48,720
+allegedly. So let's scroll back here. So
+ 
+
+1273
+00:23:48,720 --> 00:23:51,190
+allegedly. So let's scroll back here. So
+all right, looks like we're good. No
+
+1274
+00:23:51,190 --> 00:23:51,200
+all right, looks like we're good. No
+ 
+
+1275
+00:23:51,200 --> 00:23:53,190
+all right, looks like we're good. No
+needs clarification anywhere in the
+
+1276
+00:23:53,190 --> 00:23:53,200
+needs clarification anywhere in the
+ 
+
+1277
+00:23:53,200 --> 00:23:55,590
+needs clarification anywhere in the
+code, which is our spec. It's not
+
+1278
+00:23:55,590 --> 00:23:55,600
+code, which is our spec. It's not
+ 
+
+1279
+00:23:55,600 --> 00:23:57,590
+code, which is our spec. It's not
+actually code. It's a markdown file.
+
+1280
+00:23:57,590 --> 00:23:57,600
+actually code. It's a markdown file.
+ 
+
+1281
+00:23:57,600 --> 00:23:59,590
+actually code. It's a markdown file.
+We're going to look here. It looks
+
+1282
+00:23:59,590 --> 00:23:59,600
+We're going to look here. It looks
+ 
+
+1283
+00:23:59,600 --> 00:24:01,990
+We're going to look here. It looks
+great. I think we're ready to go to the
+
+1284
+00:24:01,990 --> 00:24:02,000
+great. I think we're ready to go to the
+ 
+
+1285
+00:24:02,000 --> 00:24:03,430
+great. I think we're ready to go to the
+next step. The next step is we're going
+
+1286
+00:24:03,430 --> 00:24:03,440
+next step. The next step is we're going
+ 
+
+1287
+00:24:03,440 --> 00:24:05,909
+next step. The next step is we're going
+to be using the slash plan command. And
+
+1288
+00:24:05,909 --> 00:24:05,919
+to be using the slash plan command. And
+ 
+
+1289
+00:24:05,919 --> 00:24:07,830
+to be using the slash plan command. And
+this is where we actually specify the
+
+1290
+00:24:07,830 --> 00:24:07,840
+this is where we actually specify the
+ 
+
+1291
+00:24:07,840 --> 00:24:09,350
+this is where we actually specify the
+technical requirements. So I'm going to
+
+1292
+00:24:09,350 --> 00:24:09,360
+technical requirements. So I'm going to
+ 
+
+1293
+00:24:09,360 --> 00:24:11,669
+technical requirements. So I'm going to
+use
+
+1294
+00:24:11,669 --> 00:24:11,679
+use
+ 
+
+1295
+00:24:11,679 --> 00:24:13,830
+use
+next.js JS
+
+1296
+00:24:13,830 --> 00:24:13,840
+next.js JS
+ 
+
+1297
+00:24:13,840 --> 00:24:16,789
+next.js JS
+with static site
+
+1298
+00:24:16,789 --> 00:24:16,799
+with static site
+ 
+
+1299
+00:24:16,799 --> 00:24:19,110
+with static site
+configuration.
+
+1300
+00:24:19,110 --> 00:24:19,120
+configuration.
+ 
+
+1301
+00:24:19,120 --> 00:24:29,269
+configuration.
+No databases
+
+1302
+00:24:29,269 --> 00:24:29,279
+
+ 
+
+1303
+00:24:29,279 --> 00:24:30,789
+
+and what to make sure that the site is
+
+1304
+00:24:30,789 --> 00:24:30,799
+and what to make sure that the site is
+ 
+
+1305
+00:24:30,799 --> 00:24:36,310
+and what to make sure that the site is
+responsive
+
+1306
+00:24:36,310 --> 00:24:36,320
+
+ 
+
+1307
+00:24:36,320 --> 00:24:39,510
+
+and ready for mobile because 2025 we
+
+1308
+00:24:39,510 --> 00:24:39,520
+and ready for mobile because 2025 we
+ 
+
+1309
+00:24:39,520 --> 00:24:41,909
+and ready for mobile because 2025 we
+still have mobile phones. we need them.
+
+1310
+00:24:41,909 --> 00:24:41,919
+still have mobile phones. we need them.
+ 
+
+1311
+00:24:41,919 --> 00:24:43,990
+still have mobile phones. we need them.
+So this is good. It gives us a baseline
+
+1312
+00:24:43,990 --> 00:24:44,000
+So this is good. It gives us a baseline
+ 
+
+1313
+00:24:44,000 --> 00:24:45,350
+So this is good. It gives us a baseline
+for what to think about. So we're going
+
+1314
+00:24:45,350 --> 00:24:45,360
+for what to think about. So we're going
+ 
+
+1315
+00:24:45,360 --> 00:24:46,870
+for what to think about. So we're going
+to use again the plan prompt. It's going
+
+1316
+00:24:46,870 --> 00:24:46,880
+to use again the plan prompt. It's going
+ 
+
+1317
+00:24:46,880 --> 00:24:49,110
+to use again the plan prompt. It's going
+to run some helper scripts as well. So
+
+1318
+00:24:49,110 --> 00:24:49,120
+to run some helper scripts as well. So
+ 
+
+1319
+00:24:49,120 --> 00:24:51,029
+to run some helper scripts as well. So
+we do need access to the terminal here
+
+1320
+00:24:51,029 --> 00:24:51,039
+we do need access to the terminal here
+ 
+
+1321
+00:24:51,039 --> 00:24:52,870
+we do need access to the terminal here
+in VS Code or whatever agent you're
+
+1322
+00:24:52,870 --> 00:24:52,880
+in VS Code or whatever agent you're
+ 
+
+1323
+00:24:52,880 --> 00:24:54,070
+in VS Code or whatever agent you're
+using. If you're using cloud code, we're
+
+1324
+00:24:54,070 --> 00:24:54,080
+using. If you're using cloud code, we're
+ 
+
+1325
+00:24:54,080 --> 00:24:55,350
+using. If you're using cloud code, we're
+just going to use cloud code because
+
+1326
+00:24:55,350 --> 00:24:55,360
+just going to use cloud code because
+ 
+
+1327
+00:24:55,360 --> 00:24:57,430
+just going to use cloud code because
+cloud code is very good about running
+
+1328
+00:24:57,430 --> 00:24:57,440
+cloud code is very good about running
+ 
+
+1329
+00:24:57,440 --> 00:24:59,269
+cloud code is very good about running
+things directly in your terminal. So
+
+1330
+00:24:59,269 --> 00:24:59,279
+things directly in your terminal. So
+ 
+
+1331
+00:24:59,279 --> 00:25:01,269
+things directly in your terminal. So
+it's also going to bootstrap some
+
+1332
+00:25:01,269 --> 00:25:01,279
+it's also going to bootstrap some
+ 
+
+1333
+00:25:01,279 --> 00:25:02,710
+it's also going to bootstrap some
+additional content here that we'll see
+
+1334
+00:25:02,710 --> 00:25:02,720
+additional content here that we'll see
+ 
+
+1335
+00:25:02,720 --> 00:25:04,630
+additional content here that we'll see
+shortly in the repository. things like
+
+1336
+00:25:04,630 --> 00:25:04,640
+shortly in the repository. things like
+ 
+
+1337
+00:25:04,640 --> 00:25:07,350
+shortly in the repository. things like
+the plan, the contract and notice most
+
+1338
+00:25:07,350 --> 00:25:07,360
+the plan, the contract and notice most
+ 
+
+1339
+00:25:07,360 --> 00:25:09,510
+the plan, the contract and notice most
+importantly that it does consult the
+
+1340
+00:25:09,510 --> 00:25:09,520
+importantly that it does consult the
+ 
+
+1341
+00:25:09,520 --> 00:25:11,269
+importantly that it does consult the
+constitution like there is then read the
+
+1342
+00:25:11,269 --> 00:25:11,279
+constitution like there is then read the
+ 
+
+1343
+00:25:11,279 --> 00:25:13,350
+constitution like there is then read the
+spec constitution and plan template. So
+
+1344
+00:25:13,350 --> 00:25:13,360
+spec constitution and plan template. So
+ 
+
+1345
+00:25:13,360 --> 00:25:15,510
+spec constitution and plan template. So
+constitution is in play the the the set
+
+1346
+00:25:15,510 --> 00:25:15,520
+constitution is in play the the the set
+ 
+
+1347
+00:25:15,520 --> 00:25:17,190
+constitution is in play the the the set
+of non-negotiable things that we talked
+
+1348
+00:25:17,190 --> 00:25:17,200
+of non-negotiable things that we talked
+ 
+
+1349
+00:25:17,200 --> 00:25:20,149
+of non-negotiable things that we talked
+about earlier is still in play very
+
+1350
+00:25:20,149 --> 00:25:20,159
+about earlier is still in play very
+ 
+
+1351
+00:25:20,159 --> 00:25:21,909
+about earlier is still in play very
+important. So, we're going to run the
+
+1352
+00:25:21,909 --> 00:25:21,919
+important. So, we're going to run the
+ 
+
+1353
+00:25:21,919 --> 00:25:23,990
+important. So, we're going to run the
+script. We're going to allow it. YOLO.
+
+1354
+00:25:23,990 --> 00:25:24,000
+script. We're going to allow it. YOLO.
+ 
+
+1355
+00:25:24,000 --> 00:25:25,430
+script. We're going to allow it. YOLO.
+Not quite yolo because I still had to
+
+1356
+00:25:25,430 --> 00:25:25,440
+Not quite yolo because I still had to
+ 
+
+1357
+00:25:25,440 --> 00:25:27,590
+Not quite yolo because I still had to
+approve it for some reason. But, um, we
+
+1358
+00:25:27,590 --> 00:25:27,600
+approve it for some reason. But, um, we
+ 
+
+1359
+00:25:27,600 --> 00:25:29,430
+approve it for some reason. But, um, we
+see the JSON here, which is the output
+
+1360
+00:25:29,430 --> 00:25:29,440
+see the JSON here, which is the output
+ 
+
+1361
+00:25:29,440 --> 00:25:32,070
+see the JSON here, which is the output
+of the script because if it's JSON, it's
+
+1362
+00:25:32,070 --> 00:25:32,080
+of the script because if it's JSON, it's
+ 
+
+1363
+00:25:32,080 --> 00:25:33,909
+of the script because if it's JSON, it's
+very easy for the LM to parse and
+
+1364
+00:25:33,909 --> 00:25:33,919
+very easy for the LM to parse and
+ 
+
+1365
+00:25:33,919 --> 00:25:35,269
+very easy for the LM to parse and
+understand it. Notice that it read the
+
+1366
+00:25:35,269 --> 00:25:35,279
+understand it. Notice that it read the
+ 
+
+1367
+00:25:35,279 --> 00:25:37,190
+understand it. Notice that it read the
+constitution because these are
+
+1368
+00:25:37,190 --> 00:25:37,200
+constitution because these are
+ 
+
+1369
+00:25:37,200 --> 00:25:38,870
+constitution because these are
+non-negotiable principles. We got to
+
+1370
+00:25:38,870 --> 00:25:38,880
+non-negotiable principles. We got to
+ 
+
+1371
+00:25:38,880 --> 00:25:39,990
+non-negotiable principles. We got to
+respect them no matter what you're
+
+1372
+00:25:39,990 --> 00:25:40,000
+respect them no matter what you're
+ 
+
+1373
+00:25:40,000 --> 00:25:41,990
+respect them no matter what you're
+doing. So you have this plan step that's
+
+1374
+00:25:41,990 --> 00:25:42,000
+doing. So you have this plan step that's
+ 
+
+1375
+00:25:42,000 --> 00:25:44,310
+doing. So you have this plan step that's
+going to read it and then it's going to
+
+1376
+00:25:44,310 --> 00:25:44,320
+going to read it and then it's going to
+ 
+
+1377
+00:25:44,320 --> 00:25:47,269
+going to read it and then it's going to
+go ahead and fill out the actual plan
+
+1378
+00:25:47,269 --> 00:25:47,279
+go ahead and fill out the actual plan
+ 
+
+1379
+00:25:47,279 --> 00:25:49,750
+go ahead and fill out the actual plan
+and a bunch of additional metadata
+
+1380
+00:25:49,750 --> 00:25:49,760
+and a bunch of additional metadata
+ 
+
+1381
+00:25:49,760 --> 00:25:51,350
+and a bunch of additional metadata
+around it that's going to help us
+
+1382
+00:25:51,350 --> 00:25:51,360
+around it that's going to help us
+ 
+
+1383
+00:25:51,360 --> 00:25:54,149
+around it that's going to help us
+establish a good project baseline.
+
+1384
+00:25:54,149 --> 00:25:54,159
+establish a good project baseline.
+ 
+
+1385
+00:25:54,159 --> 00:25:55,830
+establish a good project baseline.
+Notice that because all the stuff also
+
+1386
+00:25:55,830 --> 00:25:55,840
+Notice that because all the stuff also
+ 
+
+1387
+00:25:55,840 --> 00:25:59,110
+Notice that because all the stuff also
+lives in a dedicated folder. So 001 I am
+
+1388
+00:25:59,110 --> 00:25:59,120
+lives in a dedicated folder. So 001 I am
+ 
+
+1389
+00:25:59,120 --> 00:26:00,870
+lives in a dedicated folder. So 001 I am
+building because it just picks up from
+
+1390
+00:26:00,870 --> 00:26:00,880
+building because it just picks up from
+ 
+
+1391
+00:26:00,880 --> 00:26:02,630
+building because it just picks up from
+your prompt and it generates a name for
+
+1392
+00:26:02,630 --> 00:26:02,640
+your prompt and it generates a name for
+ 
+
+1393
+00:26:02,640 --> 00:26:04,710
+your prompt and it generates a name for
+the for the feature. All the stuff is
+
+1394
+00:26:04,710 --> 00:26:04,720
+the for the feature. All the stuff is
+ 
+
+1395
+00:26:04,720 --> 00:26:07,669
+the for the feature. All the stuff is
+grouped here. So later on if you decide
+
+1396
+00:26:07,669 --> 00:26:07,679
+grouped here. So later on if you decide
+ 
+
+1397
+00:26:07,679 --> 00:26:09,669
+grouped here. So later on if you decide
+to rebuild the entire feature like you
+
+1398
+00:26:09,669 --> 00:26:09,679
+to rebuild the entire feature like you
+ 
+
+1399
+00:26:09,679 --> 00:26:10,870
+to rebuild the entire feature like you
+see what it built and you're like you
+
+1400
+00:26:10,870 --> 00:26:10,880
+see what it built and you're like you
+ 
+
+1401
+00:26:10,880 --> 00:26:14,230
+see what it built and you're like you
+know what set 5 or sorry set 4 did not
+
+1402
+00:26:14,230 --> 00:26:14,240
+know what set 5 or sorry set 4 did not
+ 
+
+1403
+00:26:14,240 --> 00:26:15,990
+know what set 5 or sorry set 4 did not
+quite do the thing that it expected to
+
+1404
+00:26:15,990 --> 00:26:16,000
+quite do the thing that it expected to
+ 
+
+1405
+00:26:16,000 --> 00:26:17,590
+quite do the thing that it expected to
+do. I want to switch to GPT5 or I want
+
+1406
+00:26:17,590 --> 00:26:17,600
+do. I want to switch to GPT5 or I want
+ 
+
+1407
+00:26:17,600 --> 00:26:20,789
+do. I want to switch to GPT5 or I want
+to switch to uh maybe GPT41
+
+1408
+00:26:20,789 --> 00:26:20,799
+to switch to uh maybe GPT41
+ 
+
+1409
+00:26:20,799 --> 00:26:22,470
+to switch to uh maybe GPT41
+and try out how this works for maybe
+
+1410
+00:26:22,470 --> 00:26:22,480
+and try out how this works for maybe
+ 
+
+1411
+00:26:22,480 --> 00:26:25,029
+and try out how this works for maybe
+Gemini Flash. You essentially have the
+
+1412
+00:26:25,029 --> 00:26:25,039
+Gemini Flash. You essentially have the
+ 
+
+1413
+00:26:25,039 --> 00:26:27,110
+Gemini Flash. You essentially have the
+spec. You have all your artifacts. You
+
+1414
+00:26:27,110 --> 00:26:27,120
+spec. You have all your artifacts. You
+ 
+
+1415
+00:26:27,120 --> 00:26:29,430
+spec. You have all your artifacts. You
+can just delete the source. The spec is
+
+1416
+00:26:29,430 --> 00:26:29,440
+can just delete the source. The spec is
+ 
+
+1417
+00:26:29,440 --> 00:26:31,510
+can just delete the source. The spec is
+still there and then use a different
+
+1418
+00:26:31,510 --> 00:26:31,520
+still there and then use a different
+ 
+
+1419
+00:26:31,520 --> 00:26:33,190
+still there and then use a different
+model. So you use the model switcher
+
+1420
+00:26:33,190 --> 00:26:33,200
+model. So you use the model switcher
+ 
+
+1421
+00:26:33,200 --> 00:26:35,830
+model. So you use the model switcher
+here in the chat and just reimplement
+
+1422
+00:26:35,830 --> 00:26:35,840
+here in the chat and just reimplement
+ 
+
+1423
+00:26:35,840 --> 00:26:38,390
+here in the chat and just reimplement
+it. That's that's it. You can just
+
+1424
+00:26:38,390 --> 00:26:38,400
+it. That's that's it. You can just
+ 
+
+1425
+00:26:38,400 --> 00:26:39,830
+it. That's that's it. You can just
+rebuild it. You can add additional
+
+1426
+00:26:39,830 --> 00:26:39,840
+rebuild it. You can add additional
+ 
+
+1427
+00:26:39,840 --> 00:26:41,269
+rebuild it. You can add additional
+requirements. If you see that the logo
+
+1428
+00:26:41,269 --> 00:26:41,279
+requirements. If you see that the logo
+ 
+
+1429
+00:26:41,279 --> 00:26:42,789
+requirements. If you see that the logo
+is generated the wrong way or it's kind
+
+1430
+00:26:42,789 --> 00:26:42,799
+is generated the wrong way or it's kind
+ 
+
+1431
+00:26:42,799 --> 00:26:45,110
+is generated the wrong way or it's kind
+of the the layout of the page is funky.
+
+1432
+00:26:45,110 --> 00:26:45,120
+of the the layout of the page is funky.
+ 
+
+1433
+00:26:45,120 --> 00:26:47,430
+of the the layout of the page is funky.
+There's no header and footer. Go and
+
+1434
+00:26:47,430 --> 00:26:47,440
+There's no header and footer. Go and
+ 
+
+1435
+00:26:47,440 --> 00:26:49,430
+There's no header and footer. Go and
+edit the spec and just rebuild the
+
+1436
+00:26:49,430 --> 00:26:49,440
+edit the spec and just rebuild the
+ 
+
+1437
+00:26:49,440 --> 00:26:51,750
+edit the spec and just rebuild the
+source. Once the source is created, of
+
+1438
+00:26:51,750 --> 00:26:51,760
+source. Once the source is created, of
+ 
+
+1439
+00:26:51,760 --> 00:26:53,350
+source. Once the source is created, of
+course, you can iterate on it
+
+1440
+00:26:53,350 --> 00:26:53,360
+course, you can iterate on it
+ 
+
+1441
+00:26:53,360 --> 00:26:55,110
+course, you can iterate on it
+differently. Like you can add another
+
+1442
+00:26:55,110 --> 00:26:55,120
+differently. Like you can add another
+ 
+
+1443
+00:26:55,120 --> 00:26:56,789
+differently. Like you can add another
+spec for another feature, for another
+
+1444
+00:26:56,789 --> 00:26:56,799
+spec for another feature, for another
+ 
+
+1445
+00:26:56,799 --> 00:26:59,029
+spec for another feature, for another
+component. you the the one spec that we
+
+1446
+00:26:59,029 --> 00:26:59,039
+component. you the the one spec that we
+ 
+
+1447
+00:26:59,039 --> 00:27:00,950
+component. you the the one spec that we
+have here in this what we refer to as
+
+1448
+00:27:00,950 --> 00:27:00,960
+have here in this what we refer to as
+ 
+
+1449
+00:27:00,960 --> 00:27:02,390
+have here in this what we refer to as
+green field project because we're
+
+1450
+00:27:02,390 --> 00:27:02,400
+green field project because we're
+ 
+
+1451
+00:27:02,400 --> 00:27:06,149
+green field project because we're
+creating a new thing is just that is
+
+1452
+00:27:06,149 --> 00:27:06,159
+creating a new thing is just that is
+ 
+
+1453
+00:27:06,159 --> 00:27:07,590
+creating a new thing is just that is
+just the bootstrap of the project. You
+
+1454
+00:27:07,590 --> 00:27:07,600
+just the bootstrap of the project. You
+ 
+
+1455
+00:27:07,600 --> 00:27:10,149
+just the bootstrap of the project. You
+can do this exact same thing for any
+
+1456
+00:27:10,149 --> 00:27:10,159
+can do this exact same thing for any
+ 
+
+1457
+00:27:10,159 --> 00:27:12,070
+can do this exact same thing for any
+other features. If you want to add
+
+1458
+00:27:12,070 --> 00:27:12,080
+other features. If you want to add
+ 
+
+1459
+00:27:12,080 --> 00:27:14,470
+other features. If you want to add
+support for a Spotify player for example
+
+1460
+00:27:14,470 --> 00:27:14,480
+support for a Spotify player for example
+ 
+
+1461
+00:27:14,480 --> 00:27:18,149
+support for a Spotify player for example
+in your podcast page just use specify to
+
+1462
+00:27:18,149 --> 00:27:18,159
+in your podcast page just use specify to
+ 
+
+1463
+00:27:18,159 --> 00:27:20,149
+in your podcast page just use specify to
+essentially create a new feature right
+
+1464
+00:27:20,149 --> 00:27:20,159
+essentially create a new feature right
+ 
+
+1465
+00:27:20,159 --> 00:27:23,029
+essentially create a new feature right
+like that's kind of it. you use plan to
+
+1466
+00:27:23,029 --> 00:27:23,039
+like that's kind of it. you use plan to
+ 
+
+1467
+00:27:23,039 --> 00:27:24,470
+like that's kind of it. you use plan to
+go and create another set of technical
+
+1468
+00:27:24,470 --> 00:27:24,480
+go and create another set of technical
+ 
+
+1469
+00:27:24,480 --> 00:27:26,630
+go and create another set of technical
+details for that feature because that's
+
+1470
+00:27:26,630 --> 00:27:26,640
+details for that feature because that's
+ 
+
+1471
+00:27:26,640 --> 00:27:27,830
+details for that feature because that's
+what it's going to do. It's going to
+
+1472
+00:27:27,830 --> 00:27:27,840
+what it's going to do. It's going to
+ 
+
+1473
+00:27:27,840 --> 00:27:30,630
+what it's going to do. It's going to
+create new subfolders that you can then
+
+1474
+00:27:30,630 --> 00:27:30,640
+create new subfolders that you can then
+ 
+
+1475
+00:27:30,640 --> 00:27:32,710
+create new subfolders that you can then
+iterate on. So here we're going to wait
+
+1476
+00:27:32,710 --> 00:27:32,720
+iterate on. So here we're going to wait
+ 
+
+1477
+00:27:32,720 --> 00:27:35,669
+iterate on. So here we're going to wait
+a little bit for GPD5 to go and think
+
+1478
+00:27:35,669 --> 00:27:35,679
+a little bit for GPD5 to go and think
+ 
+
+1479
+00:27:35,679 --> 00:27:36,870
+a little bit for GPD5 to go and think
+through. But notice that it actually
+
+1480
+00:27:36,870 --> 00:27:36,880
+through. But notice that it actually
+ 
+
+1481
+00:27:36,880 --> 00:27:38,149
+through. But notice that it actually
+started thinking about things like
+
+1482
+00:27:38,149 --> 00:27:38,159
+started thinking about things like
+ 
+
+1483
+00:27:38,159 --> 00:27:39,590
+started thinking about things like
+contracts because it's going to look at
+
+1484
+00:27:39,590 --> 00:27:39,600
+contracts because it's going to look at
+ 
+
+1485
+00:27:39,600 --> 00:27:41,029
+contracts because it's going to look at
+data contracts that exist within the
+
+1486
+00:27:41,029 --> 00:27:41,039
+data contracts that exist within the
+ 
+
+1487
+00:27:41,039 --> 00:27:43,029
+data contracts that exist within the
+pages. But uh I'm not going to disturb
+
+1488
+00:27:43,029 --> 00:27:43,039
+pages. But uh I'm not going to disturb
+ 
+
+1489
+00:27:43,039 --> 00:27:45,510
+pages. But uh I'm not going to disturb
+it. I'm going to let it think and do its
+
+1490
+00:27:45,510 --> 00:27:45,520
+it. I'm going to let it think and do its
+ 
+
+1491
+00:27:45,520 --> 00:27:48,230
+it. I'm going to let it think and do its
+job. And we're going to get back here
+
+1492
+00:27:48,230 --> 00:27:48,240
+job. And we're going to get back here
+ 
+
+1493
+00:27:48,240 --> 00:27:52,230
+job. And we're going to get back here
+once we see the actual outcome of the
+
+1494
+00:27:52,230 --> 00:27:52,240
+once we see the actual outcome of the
+ 
+
+1495
+00:27:52,240 --> 00:27:54,789
+once we see the actual outcome of the
+process.
+
+1496
+00:27:54,789 --> 00:27:54,799
+process.
+ 
+
+1497
+00:27:54,799 --> 00:27:57,590
+process.
+>> No. God,
+
+1498
+00:27:57,590 --> 00:27:57,600
+>> No. God,
+ 
+
+1499
+00:27:57,600 --> 00:28:02,630
+>> No. God,
+no. God, please. No. No. No.
+
+1500
+00:28:02,630 --> 00:28:02,640
+no. God, please. No. No. No.
+ 
+
+1501
+00:28:02,640 --> 00:28:04,070
+no. God, please. No. No. No.
+No.
+
+1502
+00:28:04,070 --> 00:28:04,080
+No.
+ 
+
+1503
+00:28:04,080 --> 00:28:07,830
+No.
+>> All right. We now have the plan. The
+
+1504
+00:28:07,830 --> 00:28:07,840
+>> All right. We now have the plan. The
+ 
+
+1505
+00:28:07,840 --> 00:28:10,549
+>> All right. We now have the plan. The
+plan is good. We can take a look here.
+
+1506
+00:28:10,549 --> 00:28:10,559
+plan is good. We can take a look here.
+ 
+
+1507
+00:28:10,559 --> 00:28:12,470
+plan is good. We can take a look here.
+We see plan. I'm going to keep all of
+
+1508
+00:28:12,470 --> 00:28:12,480
+We see plan. I'm going to keep all of
+ 
+
+1509
+00:28:12,480 --> 00:28:14,149
+We see plan. I'm going to keep all of
+the changes. It created a bunch of other
+
+1510
+00:28:14,149 --> 00:28:14,159
+the changes. It created a bunch of other
+ 
+
+1511
+00:28:14,159 --> 00:28:16,710
+the changes. It created a bunch of other
+metadata here. So we can scroll through
+
+1512
+00:28:16,710 --> 00:28:16,720
+metadata here. So we can scroll through
+ 
+
+1513
+00:28:16,720 --> 00:28:18,549
+metadata here. So we can scroll through
+the plan. We can minimize the terminal
+
+1514
+00:28:18,549 --> 00:28:18,559
+the plan. We can minimize the terminal
+ 
+
+1515
+00:28:18,559 --> 00:28:21,669
+the plan. We can minimize the terminal
+just a little bit. We see that it has an
+
+1516
+00:28:21,669 --> 00:28:21,679
+just a little bit. We see that it has an
+ 
+
+1517
+00:28:21,679 --> 00:28:24,630
+just a little bit. We see that it has an
+execution flow for the plan. Great. Uh
+
+1518
+00:28:24,630 --> 00:28:24,640
+execution flow for the plan. Great. Uh
+ 
+
+1519
+00:28:24,640 --> 00:28:26,789
+execution flow for the plan. Great. Uh
+technical context, language version,
+
+1520
+00:28:26,789 --> 00:28:26,799
+technical context, language version,
+ 
+
+1521
+00:28:26,799 --> 00:28:28,630
+technical context, language version,
+JavaScript, TypeScript, and Node.js.
+
+1522
+00:28:28,630 --> 00:28:28,640
+JavaScript, TypeScript, and Node.js.
+ 
+
+1523
+00:28:28,640 --> 00:28:30,789
+JavaScript, TypeScript, and Node.js.
+Great. Primary dependencies, Nex.js,
+
+1524
+00:28:30,789 --> 00:28:30,799
+Great. Primary dependencies, Nex.js,
+ 
+
+1525
+00:28:30,799 --> 00:28:33,190
+Great. Primary dependencies, Nex.js,
+static expert, SSG, right? Because we
+
+1526
+00:28:33,190 --> 00:28:33,200
+static expert, SSG, right? Because we
+ 
+
+1527
+00:28:33,200 --> 00:28:35,510
+static expert, SSG, right? Because we
+asked for a static site. It's great. It
+
+1528
+00:28:35,510 --> 00:28:35,520
+asked for a static site. It's great. It
+ 
+
+1529
+00:28:35,520 --> 00:28:37,830
+asked for a static site. It's great. It
+thinks about that. Testing Lighthouse
+
+1530
+00:28:37,830 --> 00:28:37,840
+thinks about that. Testing Lighthouse
+ 
+
+1531
+00:28:37,840 --> 00:28:39,750
+thinks about that. Testing Lighthouse
+and some other libraries. Target
+
+1532
+00:28:39,750 --> 00:28:39,760
+and some other libraries. Target
+ 
+
+1533
+00:28:39,760 --> 00:28:43,029
+and some other libraries. Target
+platform static hosting over CDN versify
+
+1534
+00:28:43,029 --> 00:28:43,039
+platform static hosting over CDN versify
+ 
+
+1535
+00:28:43,039 --> 00:28:44,789
+platform static hosting over CDN versify
+GitHub pages. Azure static web apps.
+
+1536
+00:28:44,789 --> 00:28:44,799
+GitHub pages. Azure static web apps.
+ 
+
+1537
+00:28:44,799 --> 00:28:46,789
+GitHub pages. Azure static web apps.
+That's that is right. I actually made
+
+1538
+00:28:46,789 --> 00:28:46,799
+That's that is right. I actually made
+ 
+
+1539
+00:28:46,799 --> 00:28:48,389
+That's that is right. I actually made
+some good assumptions. I did not specify
+
+1540
+00:28:48,389 --> 00:28:48,399
+some good assumptions. I did not specify
+ 
+
+1541
+00:28:48,399 --> 00:28:50,950
+some good assumptions. I did not specify
+this. Uh keep in mind that if I wanted
+
+1542
+00:28:50,950 --> 00:28:50,960
+this. Uh keep in mind that if I wanted
+ 
+
+1543
+00:28:50,960 --> 00:28:52,789
+this. Uh keep in mind that if I wanted
+for example to host things on say
+
+1544
+00:28:52,789 --> 00:28:52,799
+for example to host things on say
+ 
+
+1545
+00:28:52,799 --> 00:28:55,909
+for example to host things on say
+Cloudflare or Azure, I can specify that
+
+1546
+00:28:55,909 --> 00:28:55,919
+Cloudflare or Azure, I can specify that
+ 
+
+1547
+00:28:55,919 --> 00:28:57,990
+Cloudflare or Azure, I can specify that
+in the constitution. I can say that
+
+1548
+00:28:57,990 --> 00:28:58,000
+in the constitution. I can say that
+ 
+
+1549
+00:28:58,000 --> 00:29:00,070
+in the constitution. I can say that
+everything that you do has to be
+
+1550
+00:29:00,070 --> 00:29:00,080
+everything that you do has to be
+ 
+
+1551
+00:29:00,080 --> 00:29:02,549
+everything that you do has to be
+oriented for Cloudflare or Azure or
+
+1552
+00:29:02,549 --> 00:29:02,559
+oriented for Cloudflare or Azure or
+ 
+
+1553
+00:29:02,559 --> 00:29:04,710
+oriented for Cloudflare or Azure or
+anything any any other provider whatever
+
+1554
+00:29:04,710 --> 00:29:04,720
+anything any any other provider whatever
+ 
+
+1555
+00:29:04,720 --> 00:29:06,789
+anything any any other provider whatever
+you want uh or any other technical
+
+1556
+00:29:06,789 --> 00:29:06,799
+you want uh or any other technical
+ 
+
+1557
+00:29:06,799 --> 00:29:09,510
+you want uh or any other technical
+requirements by the way. So um we have
+
+1558
+00:29:09,510 --> 00:29:09,520
+requirements by the way. So um we have
+ 
+
+1559
+00:29:09,520 --> 00:29:11,269
+requirements by the way. So um we have
+the project types some constitution
+
+1560
+00:29:11,269 --> 00:29:11,279
+the project types some constitution
+ 
+
+1561
+00:29:11,279 --> 00:29:13,510
+the project types some constitution
+checks and there's a gate that again it
+
+1562
+00:29:13,510 --> 00:29:13,520
+checks and there's a gate that again it
+ 
+
+1563
+00:29:13,520 --> 00:29:16,470
+checks and there's a gate that again it
+must pass the constitutional check it
+
+1564
+00:29:16,470 --> 00:29:16,480
+must pass the constitutional check it
+ 
+
+1565
+00:29:16,480 --> 00:29:18,549
+must pass the constitutional check it
+must pass the requirements that we have
+
+1566
+00:29:18,549 --> 00:29:18,559
+must pass the requirements that we have
+ 
+
+1567
+00:29:18,559 --> 00:29:19,990
+must pass the requirements that we have
+established for things like use
+
+1568
+00:29:19,990 --> 00:29:20,000
+established for things like use
+ 
+
+1569
+00:29:20,000 --> 00:29:21,590
+established for things like use
+framework single data model avoiding
+
+1570
+00:29:21,590 --> 00:29:21,600
+framework single data model avoiding
+ 
+
+1571
+00:29:21,600 --> 00:29:24,710
+framework single data model avoiding
+patterns yep architecture static first
+
+1572
+00:29:24,710 --> 00:29:24,720
+patterns yep architecture static first
+ 
+
+1573
+00:29:24,720 --> 00:29:27,269
+patterns yep architecture static first
+dependencies minimal yep makes sense
+
+1574
+00:29:27,269 --> 00:29:27,279
+dependencies minimal yep makes sense
+ 
+
+1575
+00:29:27,279 --> 00:29:29,590
+dependencies minimal yep makes sense
+makes sense there's some outline for
+
+1576
+00:29:29,590 --> 00:29:29,600
+makes sense there's some outline for
+ 
+
+1577
+00:29:29,600 --> 00:29:31,990
+makes sense there's some outline for
+outline and research all right some
+
+1578
+00:29:31,990 --> 00:29:32,000
+outline and research all right some
+ 
+
+1579
+00:29:32,000 --> 00:29:33,430
+outline and research all right some
+research artifacts created and by the
+
+1580
+00:29:33,430 --> 00:29:33,440
+research artifacts created and by the
+ 
+
+1581
+00:29:33,440 --> 00:29:35,350
+research artifacts created and by the
+way copilot in this case did not do the
+
+1582
+00:29:35,350 --> 00:29:35,360
+way copilot in this case did not do the
+ 
+
+1583
+00:29:35,360 --> 00:29:37,269
+way copilot in this case did not do the
+actual research it used its training
+
+1584
+00:29:37,269 --> 00:29:37,279
+actual research it used its training
+ 
+
+1585
+00:29:37,279 --> 00:29:39,590
+actual research it used its training
+data to come up with this research.mmd
+
+1586
+00:29:39,590 --> 00:29:39,600
+data to come up with this research.mmd
+ 
+
+1587
+00:29:39,600 --> 00:29:42,950
+data to come up with this research.mmd
+file. Other agents like copilot, sorry,
+
+1588
+00:29:42,950 --> 00:29:42,960
+file. Other agents like copilot, sorry,
+ 
+
+1589
+00:29:42,960 --> 00:29:45,830
+file. Other agents like copilot, sorry,
+like quad code can actually go and do
+
+1590
+00:29:45,830 --> 00:29:45,840
+like quad code can actually go and do
+ 
+
+1591
+00:29:45,840 --> 00:29:47,990
+like quad code can actually go and do
+research. So this you you'd get the the
+
+1592
+00:29:47,990 --> 00:29:48,000
+research. So this you you'd get the the
+ 
+
+1593
+00:29:48,000 --> 00:29:50,070
+research. So this you you'd get the the
+freshest information from the internet.
+
+1594
+00:29:50,070 --> 00:29:50,080
+freshest information from the internet.
+ 
+
+1595
+00:29:50,080 --> 00:29:51,909
+freshest information from the internet.
+Um but it actually made some pretty good
+
+1596
+00:29:51,909 --> 00:29:51,919
+Um but it actually made some pretty good
+ 
+
+1597
+00:29:51,919 --> 00:29:54,070
+Um but it actually made some pretty good
+assumptions here. So we have the
+
+1598
+00:29:54,070 --> 00:29:54,080
+assumptions here. So we have the
+ 
+
+1599
+00:29:54,080 --> 00:29:56,470
+assumptions here. So we have the
+context, we have some of the outline on
+
+1600
+00:29:56,470 --> 00:29:56,480
+context, we have some of the outline on
+ 
+
+1601
+00:29:56,480 --> 00:29:58,950
+context, we have some of the outline on
+the phases. Uh and now look, we're
+
+1602
+00:29:58,950 --> 00:29:58,960
+the phases. Uh and now look, we're
+ 
+
+1603
+00:29:58,960 --> 00:30:01,110
+the phases. Uh and now look, we're
+missing the task generated. We're going
+
+1604
+00:30:01,110 --> 00:30:01,120
+missing the task generated. We're going
+ 
+
+1605
+00:30:01,120 --> 00:30:03,190
+missing the task generated. We're going
+to run the task command now. Uh but
+
+1606
+00:30:03,190 --> 00:30:03,200
+to run the task command now. Uh but
+ 
+
+1607
+00:30:03,200 --> 00:30:04,230
+to run the task command now. Uh but
+before we do that, let's take a look
+
+1608
+00:30:04,230 --> 00:30:04,240
+before we do that, let's take a look
+ 
+
+1609
+00:30:04,240 --> 00:30:05,990
+before we do that, let's take a look
+here. So there is a research file like I
+
+1610
+00:30:05,990 --> 00:30:06,000
+here. So there is a research file like I
+ 
+
+1611
+00:30:06,000 --> 00:30:08,310
+here. So there is a research file like I
+mentioned. So it looked through its
+
+1612
+00:30:08,310 --> 00:30:08,320
+mentioned. So it looked through its
+ 
+
+1613
+00:30:08,320 --> 00:30:09,830
+mentioned. So it looked through its
+training data because all this is
+
+1614
+00:30:09,830 --> 00:30:09,840
+training data because all this is
+ 
+
+1615
+00:30:09,840 --> 00:30:11,350
+training data because all this is
+generated by the LLM basically, right?
+
+1616
+00:30:11,350 --> 00:30:11,360
+generated by the LLM basically, right?
+ 
+
+1617
+00:30:11,360 --> 00:30:12,870
+generated by the LLM basically, right?
+Like it's all whatever is embedded in
+
+1618
+00:30:12,870 --> 00:30:12,880
+Like it's all whatever is embedded in
+ 
+
+1619
+00:30:12,880 --> 00:30:14,230
+Like it's all whatever is embedded in
+the training data. That's what it's used
+
+1620
+00:30:14,230 --> 00:30:14,240
+the training data. That's what it's used
+ 
+
+1621
+00:30:14,240 --> 00:30:15,669
+the training data. That's what it's used
+for its inspiration instead of actually
+
+1622
+00:30:15,669 --> 00:30:15,679
+for its inspiration instead of actually
+ 
+
+1623
+00:30:15,679 --> 00:30:18,310
+for its inspiration instead of actually
+going out into the web. Uh we can use
+
+1624
+00:30:18,310 --> 00:30:18,320
+going out into the web. Uh we can use
+ 
+
+1625
+00:30:18,320 --> 00:30:20,549
+going out into the web. Uh we can use
+something like the beast mode from our
+
+1626
+00:30:20,549 --> 00:30:20,559
+something like the beast mode from our
+ 
+
+1627
+00:30:20,559 --> 00:30:23,029
+something like the beast mode from our
+good friend Burke Holland uh to force it
+
+1628
+00:30:23,029 --> 00:30:23,039
+good friend Burke Holland uh to force it
+ 
+
+1629
+00:30:23,039 --> 00:30:25,190
+good friend Burke Holland uh to force it
+to do certain things, but I just use
+
+1630
+00:30:25,190 --> 00:30:25,200
+to do certain things, but I just use
+ 
+
+1631
+00:30:25,200 --> 00:30:27,029
+to do certain things, but I just use
+standard agent mode here because I did
+
+1632
+00:30:27,029 --> 00:30:27,039
+standard agent mode here because I did
+ 
+
+1633
+00:30:27,039 --> 00:30:29,590
+standard agent mode here because I did
+not use custom modes now which which is
+
+1634
+00:30:29,590 --> 00:30:29,600
+not use custom modes now which which is
+ 
+
+1635
+00:30:29,600 --> 00:30:31,830
+not use custom modes now which which is
+fine for our prototype. It's okay. So we
+
+1636
+00:30:31,830 --> 00:30:31,840
+fine for our prototype. It's okay. So we
+ 
+
+1637
+00:30:31,840 --> 00:30:33,430
+fine for our prototype. It's okay. So we
+have this. We have some data model
+
+1638
+00:30:33,430 --> 00:30:33,440
+have this. We have some data model
+ 
+
+1639
+00:30:33,440 --> 00:30:35,269
+have this. We have some data model
+outline for you know fields for an
+
+1640
+00:30:35,269 --> 00:30:35,279
+outline for you know fields for an
+ 
+
+1641
+00:30:35,279 --> 00:30:36,870
+outline for you know fields for an
+episode which is again great. It has the
+
+1642
+00:30:36,870 --> 00:30:36,880
+episode which is again great. It has the
+ 
+
+1643
+00:30:36,880 --> 00:30:39,110
+episode which is again great. It has the
+context. We're building a podcast
+
+1644
+00:30:39,110 --> 00:30:39,120
+context. We're building a podcast
+ 
+
+1645
+00:30:39,120 --> 00:30:41,590
+context. We're building a podcast
+website some details about the site some
+
+1646
+00:30:41,590 --> 00:30:41,600
+website some details about the site some
+ 
+
+1647
+00:30:41,600 --> 00:30:44,549
+website some details about the site some
+validation rules derived views. Um we
+
+1648
+00:30:44,549 --> 00:30:44,559
+validation rules derived views. Um we
+ 
+
+1649
+00:30:44,559 --> 00:30:46,470
+validation rules derived views. Um we
+still have our spec. We have our quick
+
+1650
+00:30:46,470 --> 00:30:46,480
+still have our spec. We have our quick
+ 
+
+1651
+00:30:46,480 --> 00:30:49,669
+still have our spec. We have our quick
+start that gives some idea of what the
+
+1652
+00:30:49,669 --> 00:30:49,679
+start that gives some idea of what the
+ 
+
+1653
+00:30:49,679 --> 00:30:52,070
+start that gives some idea of what the
+site is about and the prerequisites that
+
+1654
+00:30:52,070 --> 00:30:52,080
+site is about and the prerequisites that
+ 
+
+1655
+00:30:52,080 --> 00:30:53,510
+site is about and the prerequisites that
+are required for the site to actually
+
+1656
+00:30:53,510 --> 00:30:53,520
+are required for the site to actually
+ 
+
+1657
+00:30:53,520 --> 00:30:56,070
+are required for the site to actually
+run. Again super super nice to have this
+
+1658
+00:30:56,070 --> 00:30:56,080
+run. Again super super nice to have this
+ 
+
+1659
+00:30:56,080 --> 00:30:58,310
+run. Again super super nice to have this
+in one place. the spec and all the
+
+1660
+00:30:58,310 --> 00:30:58,320
+in one place. the spec and all the
+ 
+
+1661
+00:30:58,320 --> 00:31:01,029
+in one place. the spec and all the
+artifacts become that piece of
+
+1662
+00:31:01,029 --> 00:31:01,039
+artifacts become that piece of
+ 
+
+1663
+00:31:01,039 --> 00:31:02,870
+artifacts become that piece of
+executable context that you can pass to
+
+1664
+00:31:02,870 --> 00:31:02,880
+executable context that you can pass to
+ 
+
+1665
+00:31:02,880 --> 00:31:05,029
+executable context that you can pass to
+your team and have them work on it. But
+
+1666
+00:31:05,029 --> 00:31:05,039
+your team and have them work on it. But
+ 
+
+1667
+00:31:05,039 --> 00:31:08,070
+your team and have them work on it. But
+uh we have the plan u now as the plan
+
+1668
+00:31:08,070 --> 00:31:08,080
+uh we have the plan u now as the plan
+ 
+
+1669
+00:31:08,080 --> 00:31:09,909
+uh we have the plan u now as the plan
+says we got to jump to our task. So we
+
+1670
+00:31:09,909 --> 00:31:09,919
+says we got to jump to our task. So we
+ 
+
+1671
+00:31:09,919 --> 00:31:17,510
+says we got to jump to our task. So we
+can use tasks and say break this down.
+
+1672
+00:31:17,510 --> 00:31:17,520
+
+ 
+
+1673
+00:31:17,520 --> 00:31:19,750
+
+Right? So once again, it's going to run
+
+1674
+00:31:19,750 --> 00:31:19,760
+Right? So once again, it's going to run
+ 
+
+1675
+00:31:19,760 --> 00:31:21,029
+Right? So once again, it's going to run
+some helper scripts that are going to
+
+1676
+00:31:21,029 --> 00:31:21,039
+some helper scripts that are going to
+ 
+
+1677
+00:31:21,039 --> 00:31:23,750
+some helper scripts that are going to
+guide it through and it's going to break
+
+1678
+00:31:23,750 --> 00:31:23,760
+guide it through and it's going to break
+ 
+
+1679
+00:31:23,760 --> 00:31:25,830
+guide it through and it's going to break
+the work down into manageable chunks
+
+1680
+00:31:25,830 --> 00:31:25,840
+the work down into manageable chunks
+ 
+
+1681
+00:31:25,840 --> 00:31:28,630
+the work down into manageable chunks
+that the agent can tackle one by one
+
+1682
+00:31:28,630 --> 00:31:28,640
+that the agent can tackle one by one
+ 
+
+1683
+00:31:28,640 --> 00:31:32,230
+that the agent can tackle one by one
+because that is super nice. That is kind
+
+1684
+00:31:32,230 --> 00:31:32,240
+because that is super nice. That is kind
+ 
+
+1685
+00:31:32,240 --> 00:31:34,549
+because that is super nice. That is kind
+of the ability of seeing exactly what it
+
+1686
+00:31:34,549 --> 00:31:34,559
+of the ability of seeing exactly what it
+ 
+
+1687
+00:31:34,559 --> 00:31:37,029
+of the ability of seeing exactly what it
+needs to do instead of it assuming that
+
+1688
+00:31:37,029 --> 00:31:37,039
+needs to do instead of it assuming that
+ 
+
+1689
+00:31:37,039 --> 00:31:39,509
+needs to do instead of it assuming that
+it needs to partake in certain actions.
+
+1690
+00:31:39,509 --> 00:31:39,519
+it needs to partake in certain actions.
+ 
+
+1691
+00:31:39,519 --> 00:31:41,350
+it needs to partake in certain actions.
+Right? So if I want to build the
+
+1692
+00:31:41,350 --> 00:31:41,360
+Right? So if I want to build the
+ 
+
+1693
+00:31:41,360 --> 00:31:43,509
+Right? So if I want to build the
+testdriven developmentbased approach
+
+1694
+00:31:43,509 --> 00:31:43,519
+testdriven developmentbased approach
+ 
+
+1695
+00:31:43,519 --> 00:31:45,669
+testdriven developmentbased approach
+where I want to have tests first, all
+
+1696
+00:31:45,669 --> 00:31:45,679
+where I want to have tests first, all
+ 
+
+1697
+00:31:45,679 --> 00:31:47,909
+where I want to have tests first, all
+that stuff, you know, can be broken down
+
+1698
+00:31:47,909 --> 00:31:47,919
+that stuff, you know, can be broken down
+ 
+
+1699
+00:31:47,919 --> 00:31:49,430
+that stuff, you know, can be broken down
+into individual tasks. It's going to do
+
+1700
+00:31:49,430 --> 00:31:49,440
+into individual tasks. It's going to do
+ 
+
+1701
+00:31:49,440 --> 00:31:50,630
+into individual tasks. It's going to do
+that first. It's going to make sure the
+
+1702
+00:31:50,630 --> 00:31:50,640
+that first. It's going to make sure the
+ 
+
+1703
+00:31:50,640 --> 00:31:52,389
+that first. It's going to make sure the
+tests are passing and then jump to
+
+1704
+00:31:52,389 --> 00:31:52,399
+tests are passing and then jump to
+ 
+
+1705
+00:31:52,399 --> 00:31:53,669
+tests are passing and then jump to
+implementation of the data model and so
+
+1706
+00:31:53,669 --> 00:31:53,679
+implementation of the data model and so
+ 
+
+1707
+00:31:53,679 --> 00:31:56,230
+implementation of the data model and so
+on so forth. So uh we're going to uh
+
+1708
+00:31:56,230 --> 00:31:56,240
+on so forth. So uh we're going to uh
+ 
+
+1709
+00:31:56,240 --> 00:32:00,230
+on so forth. So uh we're going to uh
+have it do some more work here.
+
+1710
+00:32:00,230 --> 00:32:00,240
+have it do some more work here.
+ 
+
+1711
+00:32:00,240 --> 00:32:02,230
+have it do some more work here.
+Going to check task prerequisites. All
+
+1712
+00:32:02,230 --> 00:32:02,240
+Going to check task prerequisites. All
+ 
+
+1713
+00:32:02,240 --> 00:32:03,750
+Going to check task prerequisites. All
+right. So it's going to use a test
+
+1714
+00:32:03,750 --> 00:32:03,760
+right. So it's going to use a test
+ 
+
+1715
+00:32:03,760 --> 00:32:05,509
+right. So it's going to use a test
+template.
+
+1716
+00:32:05,509 --> 00:32:05,519
+template.
+ 
+
+1717
+00:32:05,519 --> 00:32:08,230
+template.
+Going to set things up for us. And we're
+
+1718
+00:32:08,230 --> 00:32:08,240
+Going to set things up for us. And we're
+ 
+
+1719
+00:32:08,240 --> 00:32:10,710
+Going to set things up for us. And we're
+going to get another tasks.md
+
+1720
+00:32:10,710 --> 00:32:10,720
+going to get another tasks.md
+ 
+
+1721
+00:32:10,720 --> 00:32:12,710
+going to get another tasks.md
+file, another markdown file in our
+
+1722
+00:32:12,710 --> 00:32:12,720
+file, another markdown file in our
+ 
+
+1723
+00:32:12,720 --> 00:32:15,590
+file, another markdown file in our
+folder that we can use to actually
+
+1724
+00:32:15,590 --> 00:32:15,600
+folder that we can use to actually
+ 
+
+1725
+00:32:15,600 --> 00:32:16,870
+folder that we can use to actually
+browse through the task. Right now,
+
+1726
+00:32:16,870 --> 00:32:16,880
+browse through the task. Right now,
+ 
+
+1727
+00:32:16,880 --> 00:32:18,470
+browse through the task. Right now,
+because it's all marked down, it's all
+
+1728
+00:32:18,470 --> 00:32:18,480
+because it's all marked down, it's all
+ 
+
+1729
+00:32:18,480 --> 00:32:19,909
+because it's all marked down, it's all
+available to you as a developer. You can
+
+1730
+00:32:19,909 --> 00:32:19,919
+available to you as a developer. You can
+ 
+
+1731
+00:32:19,919 --> 00:32:22,549
+available to you as a developer. You can
+use the LLM here in this chat view and
+
+1732
+00:32:22,549 --> 00:32:22,559
+use the LLM here in this chat view and
+ 
+
+1733
+00:32:22,559 --> 00:32:24,070
+use the LLM here in this chat view and
+just guide it through all the things
+
+1734
+00:32:24,070 --> 00:32:24,080
+just guide it through all the things
+ 
+
+1735
+00:32:24,080 --> 00:32:26,549
+just guide it through all the things
+that you need. Or you can just go into
+
+1736
+00:32:26,549 --> 00:32:26,559
+that you need. Or you can just go into
+ 
+
+1737
+00:32:26,559 --> 00:32:28,389
+that you need. Or you can just go into
+the markdown and start tinkering with it
+
+1738
+00:32:28,389 --> 00:32:28,399
+the markdown and start tinkering with it
+ 
+
+1739
+00:32:28,399 --> 00:32:30,310
+the markdown and start tinkering with it
+because it's so easily editable. It
+
+1740
+00:32:30,310 --> 00:32:30,320
+because it's so easily editable. It
+ 
+
+1741
+00:32:30,320 --> 00:32:31,909
+because it's so easily editable. It
+doesn't need a proprietary editor of any
+
+1742
+00:32:31,909 --> 00:32:31,919
+doesn't need a proprietary editor of any
+ 
+
+1743
+00:32:31,919 --> 00:32:33,990
+doesn't need a proprietary editor of any
+kind. You can just open this and you
+
+1744
+00:32:33,990 --> 00:32:34,000
+kind. You can just open this and you
+ 
+
+1745
+00:32:34,000 --> 00:32:35,110
+kind. You can just open this and you
+know anywhere else where you've
+
+1746
+00:32:35,110 --> 00:32:35,120
+know anywhere else where you've
+ 
+
+1747
+00:32:35,120 --> 00:32:37,029
+know anywhere else where you've
+integrated copilot you know it doesn't
+
+1748
+00:32:37,029 --> 00:32:37,039
+integrated copilot you know it doesn't
+ 
+
+1749
+00:32:37,039 --> 00:32:38,549
+integrated copilot you know it doesn't
+actually need to be VS code I just
+
+1750
+00:32:38,549 --> 00:32:38,559
+actually need to be VS code I just
+ 
+
+1751
+00:32:38,559 --> 00:32:41,509
+actually need to be VS code I just
+happen to use VS code right um and again
+
+1752
+00:32:41,509 --> 00:32:41,519
+happen to use VS code right um and again
+ 
+
+1753
+00:32:41,519 --> 00:32:43,909
+happen to use VS code right um and again
+specit and specify are compatible with
+
+1754
+00:32:43,909 --> 00:32:43,919
+specit and specify are compatible with
+ 
+
+1755
+00:32:43,919 --> 00:32:45,669
+specit and specify are compatible with
+many other agents and more agents are
+
+1756
+00:32:45,669 --> 00:32:45,679
+many other agents and more agents are
+ 
+
+1757
+00:32:45,679 --> 00:32:47,029
+many other agents and more agents are
+coming like I'm working right now on
+
+1758
+00:32:47,029 --> 00:32:47,039
+coming like I'm working right now on
+ 
+
+1759
+00:32:47,039 --> 00:32:50,470
+coming like I'm working right now on
+open AI codeex uh QN uh we're looking at
+
+1760
+00:32:50,470 --> 00:32:50,480
+open AI codeex uh QN uh we're looking at
+ 
+
+1761
+00:32:50,480 --> 00:32:53,110
+open AI codeex uh QN uh we're looking at
+adding that as well uh open code root
+
+1762
+00:32:53,110 --> 00:32:53,120
+adding that as well uh open code root
+ 
+
+1763
+00:32:53,120 --> 00:32:55,269
+adding that as well uh open code root
+code like all those wonderful wonderful
+
+1764
+00:32:55,269 --> 00:32:55,279
+code like all those wonderful wonderful
+ 
+
+1765
+00:32:55,279 --> 00:32:56,710
+code like all those wonderful wonderful
+projects from the community are going to
+
+1766
+00:32:56,710 --> 00:32:56,720
+projects from the community are going to
+ 
+
+1767
+00:32:56,720 --> 00:32:59,110
+projects from the community are going to
+be coming in so uh again I'm going to
+
+1768
+00:32:59,110 --> 00:32:59,120
+be coming in so uh again I'm going to
+ 
+
+1769
+00:32:59,120 --> 00:33:02,950
+be coming in so uh again I'm going to
+let chat uh or GPD5 five in this case.
+
+1770
+00:33:02,950 --> 00:33:02,960
+let chat uh or GPD5 five in this case.
+ 
+
+1771
+00:33:02,960 --> 00:33:05,509
+let chat uh or GPD5 five in this case.
+Think a little bit and create our task
+
+1772
+00:33:05,509 --> 00:33:05,519
+Think a little bit and create our task
+ 
+
+1773
+00:33:05,519 --> 00:33:10,630
+Think a little bit and create our task
+list.
+
+1774
+00:33:10,630 --> 00:33:10,640
+
+ 
+
+1775
+00:33:10,640 --> 00:33:13,669
+
+Look at that. We have our task file. So,
+
+1776
+00:33:13,669 --> 00:33:13,679
+Look at that. We have our task file. So,
+ 
+
+1777
+00:33:13,679 --> 00:33:15,669
+Look at that. We have our task file. So,
+if I go here again, we're going to keep
+
+1778
+00:33:15,669 --> 00:33:15,679
+if I go here again, we're going to keep
+ 
+
+1779
+00:33:15,679 --> 00:33:18,310
+if I go here again, we're going to keep
+all the changes as is. And we see a
+
+1780
+00:33:18,310 --> 00:33:18,320
+all the changes as is. And we see a
+ 
+
+1781
+00:33:18,320 --> 00:33:19,990
+all the changes as is. And we see a
+bunch of t Let's Let's actually reduce
+
+1782
+00:33:19,990 --> 00:33:20,000
+bunch of t Let's Let's actually reduce
+ 
+
+1783
+00:33:20,000 --> 00:33:22,070
+bunch of t Let's Let's actually reduce
+the size here, right? So, you can
+
+1784
+00:33:22,070 --> 00:33:22,080
+the size here, right? So, you can
+ 
+
+1785
+00:33:22,080 --> 00:33:24,389
+the size here, right? So, you can
+actually see a little bit. We're going
+
+1786
+00:33:24,389 --> 00:33:24,399
+actually see a little bit. We're going
+ 
+
+1787
+00:33:24,399 --> 00:33:26,789
+actually see a little bit. We're going
+to reduce the size of this as well. Um,
+
+1788
+00:33:26,789 --> 00:33:26,799
+to reduce the size of this as well. Um,
+ 
+
+1789
+00:33:26,799 --> 00:33:28,789
+to reduce the size of this as well. Um,
+and we see the the the sections here,
+
+1790
+00:33:28,789 --> 00:33:28,799
+and we see the the the sections here,
+ 
+
+1791
+00:33:28,799 --> 00:33:31,350
+and we see the the the sections here,
+right? like it it just chunk this into
+
+1792
+00:33:31,350 --> 00:33:31,360
+right? like it it just chunk this into
+ 
+
+1793
+00:33:31,360 --> 00:33:33,750
+right? like it it just chunk this into
+individual phases. We have setup
+
+1794
+00:33:33,750 --> 00:33:33,760
+individual phases. We have setup
+ 
+
+1795
+00:33:33,760 --> 00:33:36,310
+individual phases. We have setup
+initialize next.js app skeleton. Yep.
+
+1796
+00:33:36,310 --> 00:33:36,320
+initialize next.js app skeleton. Yep.
+ 
+
+1797
+00:33:36,320 --> 00:33:38,470
+initialize next.js app skeleton. Yep.
+Yep. That sounds good. Test first must
+
+1798
+00:33:38,470 --> 00:33:38,480
+Yep. That sounds good. Test first must
+ 
+
+1799
+00:33:38,480 --> 00:33:40,470
+Yep. That sounds good. Test first must
+fail before 33. All right. Yeah, because
+
+1800
+00:33:40,470 --> 00:33:40,480
+fail before 33. All right. Yeah, because
+ 
+
+1801
+00:33:40,480 --> 00:33:41,990
+fail before 33. All right. Yeah, because
+we do want to use test-driven
+
+1802
+00:33:41,990 --> 00:33:42,000
+we do want to use test-driven
+ 
+
+1803
+00:33:42,000 --> 00:33:44,710
+we do want to use test-driven
+development here. Uh, okay, that sounds
+
+1804
+00:33:44,710 --> 00:33:44,720
+development here. Uh, okay, that sounds
+ 
+
+1805
+00:33:44,720 --> 00:33:46,710
+development here. Uh, okay, that sounds
+good. Core implementation only after
+
+1806
+00:33:46,710 --> 00:33:46,720
+good. Core implementation only after
+ 
+
+1807
+00:33:46,720 --> 00:33:48,149
+good. Core implementation only after
+tests are failing, right? Because we're
+
+1808
+00:33:48,149 --> 00:33:48,159
+tests are failing, right? Because we're
+ 
+
+1809
+00:33:48,159 --> 00:33:50,549
+tests are failing, right? Because we're
+setting up the test first. Makes sense.
+
+1810
+00:33:50,549 --> 00:33:50,559
+setting up the test first. Makes sense.
+ 
+
+1811
+00:33:50,559 --> 00:33:53,590
+setting up the test first. Makes sense.
+About page, so on so forth. Integration
+
+1812
+00:33:53,590 --> 00:33:53,600
+About page, so on so forth. Integration
+ 
+
+1813
+00:33:53,600 --> 00:33:55,830
+About page, so on so forth. Integration
+refinement, run lighthouse. And this is
+
+1814
+00:33:55,830 --> 00:33:55,840
+refinement, run lighthouse. And this is
+ 
+
+1815
+00:33:55,840 --> 00:33:57,669
+refinement, run lighthouse. And this is
+where I can, you know, you can you can
+
+1816
+00:33:57,669 --> 00:33:57,679
+where I can, you know, you can you can
+ 
+
+1817
+00:33:57,679 --> 00:33:59,269
+where I can, you know, you can you can
+tweak, you can remove things you don't
+
+1818
+00:33:59,269 --> 00:33:59,279
+tweak, you can remove things you don't
+ 
+
+1819
+00:33:59,279 --> 00:34:01,350
+tweak, you can remove things you don't
+like. You know, do you want to run
+
+1820
+00:34:01,350 --> 00:34:01,360
+like. You know, do you want to run
+ 
+
+1821
+00:34:01,360 --> 00:34:03,029
+like. You know, do you want to run
+Lighthouse on a prototype? Maybe, maybe
+
+1822
+00:34:03,029 --> 00:34:03,039
+Lighthouse on a prototype? Maybe, maybe
+ 
+
+1823
+00:34:03,039 --> 00:34:05,110
+Lighthouse on a prototype? Maybe, maybe
+not. Uh, and of course, polish,
+
+1824
+00:34:05,110 --> 00:34:05,120
+not. Uh, and of course, polish,
+ 
+
+1825
+00:34:05,120 --> 00:34:07,750
+not. Uh, and of course, polish,
+responsive images, documentation, all
+
+1826
+00:34:07,750 --> 00:34:07,760
+responsive images, documentation, all
+ 
+
+1827
+00:34:07,760 --> 00:34:10,550
+responsive images, documentation, all
+good. Accessibility polish. Sounds good.
+
+1828
+00:34:10,550 --> 00:34:10,560
+good. Accessibility polish. Sounds good.
+ 
+
+1829
+00:34:10,560 --> 00:34:12,230
+good. Accessibility polish. Sounds good.
+I think we're ready. I think we're good
+
+1830
+00:34:12,230 --> 00:34:12,240
+I think we're ready. I think we're good
+ 
+
+1831
+00:34:12,240 --> 00:34:13,829
+I think we're ready. I think we're good
+to implement this. So, I'm just going to
+
+1832
+00:34:13,829 --> 00:34:13,839
+to implement this. So, I'm just going to
+ 
+
+1833
+00:34:13,839 --> 00:34:16,629
+to implement this. So, I'm just going to
+go ahead and switch my model to Cloud
+
+1834
+00:34:16,629 --> 00:34:16,639
+go ahead and switch my model to Cloud
+ 
+
+1835
+00:34:16,639 --> 00:34:19,030
+go ahead and switch my model to Cloud
+Sonnet 4 because I like this the most
+
+1836
+00:34:19,030 --> 00:34:19,040
+Sonnet 4 because I like this the most
+ 
+
+1837
+00:34:19,040 --> 00:34:21,589
+Sonnet 4 because I like this the most
+for code. GBD5 is good at setting up the
+
+1838
+00:34:21,589 --> 00:34:21,599
+for code. GBD5 is good at setting up the
+ 
+
+1839
+00:34:21,599 --> 00:34:24,149
+for code. GBD5 is good at setting up the
+the kind of the spec scaffolding for us,
+
+1840
+00:34:24,149 --> 00:34:24,159
+the kind of the spec scaffolding for us,
+ 
+
+1841
+00:34:24,159 --> 00:34:27,270
+the kind of the spec scaffolding for us,
+but for creative output, Sonnet 4 is
+
+1842
+00:34:27,270 --> 00:34:27,280
+but for creative output, Sonnet 4 is
+ 
+
+1843
+00:34:27,280 --> 00:34:28,710
+but for creative output, Sonnet 4 is
+still unbeatable to me. So, I'm just
+
+1844
+00:34:28,710 --> 00:34:28,720
+still unbeatable to me. So, I'm just
+ 
+
+1845
+00:34:28,720 --> 00:34:32,389
+still unbeatable to me. So, I'm just
+going to say this and say implement
+
+1846
+00:34:32,389 --> 00:34:32,399
+going to say this and say implement
+ 
+
+1847
+00:34:32,399 --> 00:34:36,790
+going to say this and say implement
+the tasks for this project
+
+1848
+00:34:36,790 --> 00:34:36,800
+the tasks for this project
+ 
+
+1849
+00:34:36,800 --> 00:34:41,990
+the tasks for this project
+and update the task list as you go.
+
+1850
+00:34:41,990 --> 00:34:42,000
+and update the task list as you go.
+ 
+
+1851
+00:34:42,000 --> 00:34:43,829
+and update the task list as you go.
+And
+
+1852
+00:34:43,829 --> 00:34:43,839
+And
+ 
+
+1853
+00:34:43,839 --> 00:34:45,510
+And
+now we're going to let the agent run
+
+1854
+00:34:45,510 --> 00:34:45,520
+now we're going to let the agent run
+ 
+
+1855
+00:34:45,520 --> 00:34:51,200
+now we're going to let the agent run
+wild and go and implement our website.
+
+1856
+00:34:51,200 --> 00:34:51,210
+wild and go and implement our website.
+ 
+
+1857
+00:34:51,210 --> 00:34:58,060
+wild and go and implement our website.
+[Music]
+
+1858
+00:34:58,060 --> 00:34:58,070
+[Music]
+ 
+
+1859
+00:34:58,070 --> 00:35:06,390
+[Music]
+[Applause]
+
+1860
+00:35:06,390 --> 00:35:06,400
+
+ 
+
+1861
+00:35:06,400 --> 00:35:07,530
+
+Heat.
+
+1862
+00:35:07,530 --> 00:35:07,540
+Heat.
+ 
+
+1863
+00:35:07,540 --> 00:35:21,030
+Heat.
+[Music]
+
+1864
+00:35:21,030 --> 00:35:21,040
+[Music]
+ 
+
+1865
+00:35:21,040 --> 00:35:22,800
+[Music]
+Heat.
+
+1866
+00:35:22,800 --> 00:35:22,810
+Heat.
+ 
+
+1867
+00:35:22,810 --> 00:35:44,230
+Heat.
+[Music]
+
+1868
+00:35:44,230 --> 00:35:44,240
+
+ 
+
+1869
+00:35:44,240 --> 00:35:46,800
+
+Heat. Heat.
+
+1870
+00:35:46,800 --> 00:35:46,810
+Heat. Heat.
+ 
+
+1871
+00:35:46,810 --> 00:35:55,829
+Heat. Heat.
+[Music]
+
+1872
+00:35:55,829 --> 00:35:55,839
+
+ 
+
+1873
+00:35:55,839 --> 00:36:00,300
+
+Thank you.
+
+1874
+00:36:00,300 --> 00:36:00,310
+
+ 
+
+1875
+00:36:00,310 --> 00:36:06,090
+
+[Music]
+
+1876
+00:36:06,090 --> 00:36:06,100
+
+ 
+
+1877
+00:36:06,100 --> 00:36:24,950
+
+[Music]
+
+1878
+00:36:24,950 --> 00:36:24,960
+
+ 
+
+1879
+00:36:24,960 --> 00:36:27,910
+
+Tada. Looks like it did it. It It
+
+1880
+00:36:27,910 --> 00:36:27,920
+Tada. Looks like it did it. It It
+ 
+
+1881
+00:36:27,920 --> 00:36:31,030
+Tada. Looks like it did it. It It
+finished the work. It did the things
+
+1882
+00:36:31,030 --> 00:36:31,040
+finished the work. It did the things
+ 
+
+1883
+00:36:31,040 --> 00:36:33,589
+finished the work. It did the things
+that it was supposed to do. Now, I have
+
+1884
+00:36:33,589 --> 00:36:33,599
+that it was supposed to do. Now, I have
+ 
+
+1885
+00:36:33,599 --> 00:36:35,510
+that it was supposed to do. Now, I have
+not seen the output. This is going to be
+
+1886
+00:36:35,510 --> 00:36:35,520
+not seen the output. This is going to be
+ 
+
+1887
+00:36:35,520 --> 00:36:37,349
+not seen the output. This is going to be
+a surprise. So, let's keep all the
+
+1888
+00:36:37,349 --> 00:36:37,359
+a surprise. So, let's keep all the
+ 
+
+1889
+00:36:37,359 --> 00:36:39,349
+a surprise. So, let's keep all the
+changes. Let's make sure that we keep
+
+1890
+00:36:39,349 --> 00:36:39,359
+changes. Let's make sure that we keep
+ 
+
+1891
+00:36:39,359 --> 00:36:42,150
+changes. Let's make sure that we keep
+it. It updated all the tasks. It failed
+
+1892
+00:36:42,150 --> 00:36:42,160
+it. It updated all the tasks. It failed
+ 
+
+1893
+00:36:42,160 --> 00:36:43,829
+it. It updated all the tasks. It failed
+on some Lighthouse test, but that is
+
+1894
+00:36:43,829 --> 00:36:43,839
+on some Lighthouse test, but that is
+ 
+
+1895
+00:36:43,839 --> 00:36:46,150
+on some Lighthouse test, but that is
+because I don't have Chrome installed.
+
+1896
+00:36:46,150 --> 00:36:46,160
+because I don't have Chrome installed.
+ 
+
+1897
+00:36:46,160 --> 00:36:49,349
+because I don't have Chrome installed.
+But we can actually run npm
+
+1898
+00:36:49,349 --> 00:36:49,359
+But we can actually run npm
+ 
+
+1899
+00:36:49,359 --> 00:36:54,390
+But we can actually run npm
+uh I like to run num npm run build.
+
+1900
+00:36:54,390 --> 00:36:54,400
+uh I like to run num npm run build.
+ 
+
+1901
+00:36:54,400 --> 00:36:58,230
+uh I like to run num npm run build.
+Let's build our static site
+
+1902
+00:36:58,230 --> 00:36:58,240
+Let's build our static site
+ 
+
+1903
+00:36:58,240 --> 00:37:01,589
+Let's build our static site
+and then we're going to run npm npm
+
+1904
+00:37:01,589 --> 00:37:01,599
+and then we're going to run npm npm
+ 
+
+1905
+00:37:01,599 --> 00:37:04,310
+and then we're going to run npm npm
+rundev to actually see it in action once
+
+1906
+00:37:04,310 --> 00:37:04,320
+rundev to actually see it in action once
+ 
+
+1907
+00:37:04,320 --> 00:37:06,470
+rundev to actually see it in action once
+it actually builds. So we'll see we'll
+
+1908
+00:37:06,470 --> 00:37:06,480
+it actually builds. So we'll see we'll
+ 
+
+1909
+00:37:06,480 --> 00:37:09,349
+it actually builds. So we'll see we'll
+see what it looks like.
+
+1910
+00:37:09,349 --> 00:37:09,359
+see what it looks like.
+ 
+
+1911
+00:37:09,359 --> 00:37:12,230
+see what it looks like.
+All right.
+
+1912
+00:37:12,230 --> 00:37:12,240
+All right.
+ 
+
+1913
+00:37:12,240 --> 00:37:14,310
+All right.
+Selecting build traces being the most
+
+1914
+00:37:14,310 --> 00:37:14,320
+Selecting build traces being the most
+ 
+
+1915
+00:37:14,320 --> 00:37:18,470
+Selecting build traces being the most
+timeconuming thing apparently.
+
+1916
+00:37:18,470 --> 00:37:18,480
+
+ 
+
+1917
+00:37:18,480 --> 00:37:21,910
+
+All right. And then npm run
+
+1918
+00:37:21,910 --> 00:37:21,920
+All right. And then npm run
+ 
+
+1919
+00:37:21,920 --> 00:37:24,150
+All right. And then npm run
+dev.
+
+1920
+00:37:24,150 --> 00:37:24,160
+dev.
+ 
+
+1921
+00:37:24,160 --> 00:37:28,150
+dev.
+Okay. Localhost 3000.
+
+1922
+00:37:28,150 --> 00:37:28,160
+Okay. Localhost 3000.
+ 
+
+1923
+00:37:28,160 --> 00:37:30,069
+Okay. Localhost 3000.
+See, let's see what our podcast site
+
+1924
+00:37:30,069 --> 00:37:30,079
+See, let's see what our podcast site
+ 
+
+1925
+00:37:30,079 --> 00:37:32,950
+See, let's see what our podcast site
+looks like. It's loading.
+
+1926
+00:37:32,950 --> 00:37:32,960
+looks like. It's loading.
+ 
+
+1927
+00:37:32,960 --> 00:37:35,190
+looks like. It's loading.
+This can be horribly bad. But actually,
+
+1928
+00:37:35,190 --> 00:37:35,200
+This can be horribly bad. But actually,
+ 
+
+1929
+00:37:35,200 --> 00:37:37,349
+This can be horribly bad. But actually,
+like look, it's it's not bad. it, you
+
+1930
+00:37:37,349 --> 00:37:37,359
+like look, it's it's not bad. it, you
+ 
+
+1931
+00:37:37,359 --> 00:37:40,150
+like look, it's it's not bad. it, you
+know, master the art of podcasting.
+
+1932
+00:37:40,150 --> 00:37:40,160
+know, master the art of podcasting.
+ 
+
+1933
+00:37:40,160 --> 00:37:43,030
+know, master the art of podcasting.
+Featured episode looking good. Has all
+
+1934
+00:37:43,030 --> 00:37:43,040
+Featured episode looking good. Has all
+ 
+
+1935
+00:37:43,040 --> 00:37:45,990
+Featured episode looking good. Has all
+the details. Pod side. I have my about
+
+1936
+00:37:45,990 --> 00:37:46,000
+the details. Pod side. I have my about
+ 
+
+1937
+00:37:46,000 --> 00:37:48,790
+the details. Pod side. I have my about
+page. If I go here, there's a nice
+
+1938
+00:37:48,790 --> 00:37:48,800
+page. If I go here, there's a nice
+ 
+
+1939
+00:37:48,800 --> 00:37:52,390
+page. If I go here, there's a nice
+description. All right. FAQ.
+
+1940
+00:37:52,390 --> 00:37:52,400
+description. All right. FAQ.
+ 
+
+1941
+00:37:52,400 --> 00:37:55,990
+description. All right. FAQ.
+Okay. Yeah, there's there's an FAQ.
+
+1942
+00:37:55,990 --> 00:37:56,000
+Okay. Yeah, there's there's an FAQ.
+ 
+
+1943
+00:37:56,000 --> 00:37:58,870
+Okay. Yeah, there's there's an FAQ.
+All right. Great. Episodes. Let's take a
+
+1944
+00:37:58,870 --> 00:37:58,880
+All right. Great. Episodes. Let's take a
+ 
+
+1945
+00:37:58,880 --> 00:38:01,750
+All right. Great. Episodes. Let's take a
+look here. We have individual podcast
+
+1946
+00:38:01,750 --> 00:38:01,760
+look here. We have individual podcast
+ 
+
+1947
+00:38:01,760 --> 00:38:04,390
+look here. We have individual podcast
+episodes with links to the podcast
+
+1948
+00:38:04,390 --> 00:38:04,400
+episodes with links to the podcast
+ 
+
+1949
+00:38:04,400 --> 00:38:07,270
+episodes with links to the podcast
+platform. And keep in mind that in this
+
+1950
+00:38:07,270 --> 00:38:07,280
+platform. And keep in mind that in this
+ 
+
+1951
+00:38:07,280 --> 00:38:09,990
+platform. And keep in mind that in this
+context, what I can also do is if I plug
+
+1952
+00:38:09,990 --> 00:38:10,000
+context, what I can also do is if I plug
+ 
+
+1953
+00:38:10,000 --> 00:38:13,589
+context, what I can also do is if I plug
+in MCP tools like Figma MCP, I can link
+
+1954
+00:38:13,589 --> 00:38:13,599
+in MCP tools like Figma MCP, I can link
+ 
+
+1955
+00:38:13,599 --> 00:38:16,150
+in MCP tools like Figma MCP, I can link
+to actual design. So I can actually get
+
+1956
+00:38:16,150 --> 00:38:16,160
+to actual design. So I can actually get
+ 
+
+1957
+00:38:16,160 --> 00:38:18,950
+to actual design. So I can actually get
+it to build things that fit the design
+
+1958
+00:38:18,950 --> 00:38:18,960
+it to build things that fit the design
+ 
+
+1959
+00:38:18,960 --> 00:38:20,790
+it to build things that fit the design
+system of my organization. So I don't
+
+1960
+00:38:20,790 --> 00:38:20,800
+system of my organization. So I don't
+ 
+
+1961
+00:38:20,800 --> 00:38:22,390
+system of my organization. So I don't
+have to randomly assume that it's going
+
+1962
+00:38:22,390 --> 00:38:22,400
+have to randomly assume that it's going
+ 
+
+1963
+00:38:22,400 --> 00:38:23,750
+have to randomly assume that it's going
+to build the right thing. So this is
+
+1964
+00:38:23,750 --> 00:38:23,760
+to build the right thing. So this is
+ 
+
+1965
+00:38:23,760 --> 00:38:25,430
+to build the right thing. So this is
+kind of nice. Like it did create all
+
+1966
+00:38:25,430 --> 00:38:25,440
+kind of nice. Like it did create all
+ 
+
+1967
+00:38:25,440 --> 00:38:27,990
+kind of nice. Like it did create all
+this stuff. Now you might actually ask
+
+1968
+00:38:27,990 --> 00:38:28,000
+this stuff. Now you might actually ask
+ 
+
+1969
+00:38:28,000 --> 00:38:29,750
+this stuff. Now you might actually ask
+yourselves like, well, is is this really
+
+1970
+00:38:29,750 --> 00:38:29,760
+yourselves like, well, is is this really
+ 
+
+1971
+00:38:29,760 --> 00:38:31,349
+yourselves like, well, is is this really
+better than vibe coding? Like I could
+
+1972
+00:38:31,349 --> 00:38:31,359
+better than vibe coding? Like I could
+ 
+
+1973
+00:38:31,359 --> 00:38:33,030
+better than vibe coding? Like I could
+have vibe coded this entire pod side,
+
+1974
+00:38:33,030 --> 00:38:33,040
+have vibe coded this entire pod side,
+ 
+
+1975
+00:38:33,040 --> 00:38:36,069
+have vibe coded this entire pod side,
+right? But the thing is is that now that
+
+1976
+00:38:36,069 --> 00:38:36,079
+right? But the thing is is that now that
+ 
+
+1977
+00:38:36,079 --> 00:38:37,670
+right? But the thing is is that now that
+I have the spec, now that I have the
+
+1978
+00:38:37,670 --> 00:38:37,680
+I have the spec, now that I have the
+ 
+
+1979
+00:38:37,680 --> 00:38:39,750
+I have the spec, now that I have the
+artifacts here in my spec
+
+1980
+00:38:39,750 --> 00:38:39,760
+artifacts here in my spec
+ 
+
+1981
+00:38:39,760 --> 00:38:42,230
+artifacts here in my spec
+implementation, I can easily customize
+
+1982
+00:38:42,230 --> 00:38:42,240
+implementation, I can easily customize
+ 
+
+1983
+00:38:42,240 --> 00:38:44,870
+implementation, I can easily customize
+it. I can now tweak it. I can add things
+
+1984
+00:38:44,870 --> 00:38:44,880
+it. I can now tweak it. I can add things
+ 
+
+1985
+00:38:44,880 --> 00:38:46,870
+it. I can now tweak it. I can add things
+like I want to make sure that the color
+
+1986
+00:38:46,870 --> 00:38:46,880
+like I want to make sure that the color
+ 
+
+1987
+00:38:46,880 --> 00:38:47,990
+like I want to make sure that the color
+is certain way. I want to make sure that
+
+1988
+00:38:47,990 --> 00:38:48,000
+is certain way. I want to make sure that
+ 
+
+1989
+00:38:48,000 --> 00:38:49,430
+is certain way. I want to make sure that
+a specific design decision is being
+
+1990
+00:38:49,430 --> 00:38:49,440
+a specific design decision is being
+ 
+
+1991
+00:38:49,440 --> 00:38:51,190
+a specific design decision is being
+made. And that makes it easier for me to
+
+1992
+00:38:51,190 --> 00:38:51,200
+made. And that makes it easier for me to
+ 
+
+1993
+00:38:51,200 --> 00:38:53,589
+made. And that makes it easier for me to
+then reimplement and rebuild things and
+
+1994
+00:38:53,589 --> 00:38:53,599
+then reimplement and rebuild things and
+ 
+
+1995
+00:38:53,599 --> 00:38:56,069
+then reimplement and rebuild things and
+additively add features in a structured
+
+1996
+00:38:56,069 --> 00:38:56,079
+additively add features in a structured
+ 
+
+1997
+00:38:56,079 --> 00:38:59,349
+additively add features in a structured
+way because that then can be used as
+
+1998
+00:38:59,349 --> 00:38:59,359
+way because that then can be used as
+ 
+
+1999
+00:38:59,359 --> 00:39:01,910
+way because that then can be used as
+context. So something that my colleague
+
+2000
+00:39:01,910 --> 00:39:01,920
+context. So something that my colleague
+ 
+
+2001
+00:39:01,920 --> 00:39:03,750
+context. So something that my colleague
+and friend John Lamb is working on is
+
+2002
+00:39:03,750 --> 00:39:03,760
+and friend John Lamb is working on is
+ 
+
+2003
+00:39:03,760 --> 00:39:05,510
+and friend John Lamb is working on is
+optimizing some of these context
+
+2004
+00:39:05,510 --> 00:39:05,520
+optimizing some of these context
+ 
+
+2005
+00:39:05,520 --> 00:39:07,270
+optimizing some of these context
+acquisition strategies. So that's going
+
+2006
+00:39:07,270 --> 00:39:07,280
+acquisition strategies. So that's going
+ 
+
+2007
+00:39:07,280 --> 00:39:08,710
+acquisition strategies. So that's going
+to change in the future. But you can
+
+2008
+00:39:08,710 --> 00:39:08,720
+to change in the future. But you can
+ 
+
+2009
+00:39:08,720 --> 00:39:10,630
+to change in the future. But you can
+imagine that as I have more of this
+
+2010
+00:39:10,630 --> 00:39:10,640
+imagine that as I have more of this
+ 
+
+2011
+00:39:10,640 --> 00:39:13,270
+imagine that as I have more of this
+context in the memory of the system that
+
+2012
+00:39:13,270 --> 00:39:13,280
+context in the memory of the system that
+ 
+
+2013
+00:39:13,280 --> 00:39:15,349
+context in the memory of the system that
+is being built, it actually makes it
+
+2014
+00:39:15,349 --> 00:39:15,359
+is being built, it actually makes it
+ 
+
+2015
+00:39:15,359 --> 00:39:18,150
+is being built, it actually makes it
+easier to build consistent software. So
+
+2016
+00:39:18,150 --> 00:39:18,160
+easier to build consistent software. So
+ 
+
+2017
+00:39:18,160 --> 00:39:20,150
+easier to build consistent software. So
+uh hopefully this is a great intro for
+
+2018
+00:39:20,150 --> 00:39:20,160
+uh hopefully this is a great intro for
+ 
+
+2019
+00:39:20,160 --> 00:39:22,230
+uh hopefully this is a great intro for
+you to see like how spectra works, what
+
+2020
+00:39:22,230 --> 00:39:22,240
+you to see like how spectra works, what
+ 
+
+2021
+00:39:22,240 --> 00:39:23,750
+you to see like how spectra works, what
+are the artifacts and how it produces
+
+2022
+00:39:23,750 --> 00:39:23,760
+are the artifacts and how it produces
+ 
+
+2023
+00:39:23,760 --> 00:39:26,870
+are the artifacts and how it produces
+them and how you can then tweak them. I
+
+2024
+00:39:26,870 --> 00:39:26,880
+them and how you can then tweak them. I
+ 
+
+2025
+00:39:26,880 --> 00:39:28,790
+them and how you can then tweak them. I
+really really hope that you go to spec
+
+2026
+00:39:28,790 --> 00:39:28,800
+really really hope that you go to spec
+ 
+
+2027
+00:39:28,800 --> 00:39:31,270
+really really hope that you go to spec
+kit. You try it out. You get it running
+
+2028
+00:39:31,270 --> 00:39:31,280
+kit. You try it out. You get it running
+ 
+
+2029
+00:39:31,280 --> 00:39:33,349
+kit. You try it out. You get it running
+on your box. You see what works and what
+
+2030
+00:39:33,349 --> 00:39:33,359
+on your box. You see what works and what
+ 
+
+2031
+00:39:33,359 --> 00:39:34,790
+on your box. You see what works and what
+doesn't, especially as you start
+
+2032
+00:39:34,790 --> 00:39:34,800
+doesn't, especially as you start
+ 
+
+2033
+00:39:34,800 --> 00:39:36,550
+doesn't, especially as you start
+compounding many many different features
+
+2034
+00:39:36,550 --> 00:39:36,560
+compounding many many different features
+ 
+
+2035
+00:39:36,560 --> 00:39:39,190
+compounding many many different features
+and bug fixes and all these things for
+
+2036
+00:39:39,190 --> 00:39:39,200
+and bug fixes and all these things for
+ 
+
+2037
+00:39:39,200 --> 00:39:41,430
+and bug fixes and all these things for
+your projects. Let me know. Go to
+
+2038
+00:39:41,430 --> 00:39:41,440
+your projects. Let me know. Go to
+ 
+
+2039
+00:39:41,440 --> 00:39:45,510
+your projects. Let me know. Go to
+github.com/github/spec-kit.
+
+2040
+00:39:45,510 --> 00:39:45,520
+
+ 
+
+2041
+00:39:45,520 --> 00:39:48,470
+
+Download it. Use it. Tell me what's
+
+2042
+00:39:48,470 --> 00:39:48,480
+Download it. Use it. Tell me what's
+ 
+
+2043
+00:39:48,480 --> 00:39:50,710
+Download it. Use it. Tell me what's
+wrong. And then I will see you in the
+
+2044
+00:39:50,710 --> 00:39:50,720
+wrong. And then I will see you in the
+ 
+
+2045
+00:39:50,720 --> 00:39:52,230
+wrong. And then I will see you in the
+next video where we're going to talk
+
+2046
+00:39:52,230 --> 00:39:52,240
+next video where we're going to talk
+ 
+
+2047
+00:39:52,240 --> 00:39:54,790
+next video where we're going to talk
+about more complex things that are also
+
+2048
+00:39:54,790 --> 00:39:54,800
+about more complex things that are also
+ 
+
+2049
+00:39:54,800 --> 00:39:56,310
+about more complex things that are also
+being accomplished with the help of
+
+2050
+00:39:56,310 --> 00:39:56,320
+being accomplished with the help of
+ 
+
+2051
+00:39:56,320 --> 00:39:58,069
+being accomplished with the help of
+specd driven development. I hope you
+
+2052
+00:39:58,069 --> 00:39:58,079
+specd driven development. I hope you
+ 
+
+2053
+00:39:58,079 --> 00:40:02,079
+specd driven development. I hope you
+enjoy this. I'll see you in the next
+

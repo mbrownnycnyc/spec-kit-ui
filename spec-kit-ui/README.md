@@ -2,6 +2,8 @@
 
 A comprehensive web-based user interface for learning and implementing Spec-Driven Development (SDD). This interactive toolkit provides guidance, prompt generation, and step-by-step tutorials for mastering the SDD methodology.
 
+**SpecKit has achieved rapid adoption with over 16,300 GitHub stars, making it one of the fastest-growing developer tools for specification-driven development.**
+
 ## 🌟 Features
 
 ### 📋 Overview
@@ -38,10 +40,17 @@ A comprehensive web-based user interface for learning and implementing Spec-Driv
 ### Prerequisites
 - Node.js (v16 or higher)
 - npm or yarn package manager
+- VS Code with SpecKit extension (optional but recommended)
+- PowerShell or bash shell for CLI operations
 
 ### Installation
 
-1. **Clone the repository**
+1. **Using SpecKit CLI (Recommended)**
+   ```bash
+   uvx --from git+https://github.com/github/spec-kit.git specify init <PROJECT_NAME>
+   ```
+
+2. **Clone the repository** (for UI development)
    ```bash
    git clone <repository-url>
    cd spec-kit-ui/spec-kit-ui
@@ -78,6 +87,21 @@ The application is organized into five main sections accessible via the navigati
 3. **Prompt Generator**: Create customized prompts for your projects
 4. **Interactive Tutorials**: Hands-on learning modules
 5. **Templates**: Ready-to-use templates and examples
+
+### VS Code Integration
+SpecKit provides seamless integration with VS Code through slash commands:
+
+- **`/specify`**: Create comprehensive feature specifications
+- **`/plan`**: Generate detailed implementation plans
+- **`/tasks`**: Create executable task lists
+- **`/constitution`**: Manage project governance and principles
+
+### Multi-Agent Support
+SpecKit works with your preferred AI assistant:
+- **GitHub Copilot**: Native integration in VS Code
+- **Claude Code**: Full support for Claude-based development
+- **Gemini CLI**: Google AI assistant compatibility
+- **Cursor**: Multi-model AI editor support
 
 ### Using the Prompt Generator
 
@@ -119,11 +143,13 @@ The application is organized into five main sections accessible via the navigati
 
 ## 🔧 Technology Stack
 
-- **Frontend**: React 18 with JSX
+- **Frontend**: React 19 with JSX
 - **Build Tool**: Vite for fast development and building
 - **Styling**: Custom CSS with modern design principles
 - **State Management**: React Hooks (useState, useEffect)
 - **Icons**: Native emoji icons for universal compatibility
+- **Multi-Agent Support**: Works with Copilot, Claude Code, Gemini CLI, and Cursor
+- **Cross-Platform**: Native support for both PowerShell and bash environments
 
 ## 📋 SDD Methodology Overview
 
