@@ -734,6 +734,19 @@ body.dark-theme .card .step-content h6 {
 body.dark-theme .step-content h5[style*="color: '#667eea'"] {
   color: #cbd5e0 !important;
 }
+
+/* Additional fallback selectors for the purple heading */
+body.dark-theme .step-content h5[style*="#667eea"] {
+  color: #cbd5e0 !important;
+}
+
+body.dark-theme .card .step-content h5[style*="color: '#667eea'"] {
+  color: #cbd5e0 !important;
+}
+
+body.dark-theme .card .step-content h5[style*="#667eea"] {
+  color: #cbd5e0 !important;
+}
 body.dark-theme .card .step-content p,
 body.dark-theme .card .step-content li,
 body.dark-theme .card .step-content span,
