@@ -226,8 +226,9 @@ function App() {
       name: 'Constitution',
       description: 'Create project governance principles and development guidelines',
       why: 'A constitution serves as the foundation for all development decisions, ensuring consistent quality, testing standards, and adherence to SDD principles throughout the project lifecycle.',
-      whatToDoNext: '1. Create a constitution file: Copy the generated prompt and save it as ```constitution.md``` in your project root directory\n2. Establish foundation: Execute ```/constitution``` to set up your project\'s governing principles and development guidelines\n3. Reference throughout development: Review your constitution.md file anytime during development\n4. Update as needed: Revise your constitution as project requirements evolve while maintaining core principles',
-      template: `Create a comprehensive constitution for the {project_type} project that will govern all development activities and ensure constitutional compliance.
+      whenToChange: 'Different constitutions should be used when the target has distinct:\n\u00A0\u00A0\u00A0\u00A0• Purpose or Domain: Unique goals, like gaming vs. e-commerce, requiring specific principles.\n\u00A0\u00A0\u00A0\u00A0• Architecture: Different patterns, e.g., MVVM vs. Clean Architecture.\n\u00A0\u00A0\u00A0\u00A0• Technical Requirements: Varying APIs, libraries, or performance needs.\n\u00A0\u00A0\u00A0\u00A0• UI/UX Standards: Custom branding or design guidelines.\n\u00A0\u00A0\u00A0\u00A0• Team Practices: Unique coding standards, testing, or deployment processes.\n\u00A0\u00A0\u00A0\u00A0• Constraints: Specific device support, offline modes, or security needs.\n\nRule: Use a new constitution per app unless they share identical conventions.',
+      whatToDoNext: '1. Fill out the below Template Variables to Complete or leverage the Quick Start Templates above.\n2. Click Generate Prompt and scroll to "Generated Prompt" section.\n3. Execute the prompt prepending with `/constitution`\n4. Update as needed: Revise your constitution as project requirements evolve while maintaining core principles',
+      template: `/constitution Create a comprehensive constitution for the {project_type} project that will govern all development activities and ensure constitutional compliance.
 
 Core Principles:
 - Library-First Development: Prioritize reusable, well-documented libraries over monolithic code
@@ -254,21 +255,6 @@ Compliance and Governance:
 - Review and approval processes: {review_processes}
 - Success metrics and KPIs: {success_metrics}
 
-## Constitution Command:
-${'```'}bash
-/constitution
-${'```'}
-
-## Directory Structure:
-${'```'}
-project/
-├── memory/
-│   └── constitution.md
-├── specs/
-├── packages/
-└── tests/
-${'```'}
-
 This constitution will guide all technical decisions, ensure consistency across the project, and maintain alignment with SDD principles.`,
       variables: [
         { key: 'project_type', label: 'Project Type', placeholder: 'e.g., web application, mobile app, API service' },
@@ -290,163 +276,111 @@ This constitution will guide all technical decisions, ensure consistency across 
       name: 'Specification',
       description: 'Generate a complete feature specification',
       why: 'Feature specifications capture user requirements, business logic, and acceptance criteria in a structured format. They serve as the foundation for technical planning and ensure all stakeholders have a shared understanding of what needs to be built.',
-      whatToDoNext: '1. Create a specification file: Copy the generated prompt and save it as ```spec-feature-name.md``` in your project root directory\n2. Use with SDD: Execute ```/specify spec-feature-name.md``` to generate comprehensive feature specifications\n3. Review generated specification: The AI will create detailed specifications based on your feature description\n4. Validate constitutional compliance: Use ```/constitution check spec-feature-name.md``` to ensure alignment\n5. Proceed to clarification: Use ```/clarify``` to resolve any ambiguities before technical planning',
+      whatToDoNext: '1. Fill out the below Template Variables to Complete or leverage the Quick Start Templates above.\n2. Click Generate Prompt and scroll to "Generated Prompt" section.\n3. Execute the prompt prepending with `/specify`\n4. Update as needed: Revise your specification as requirements evolve while ensuring constitutional compliance',
       template: `Create a comprehensive feature specification for {feature_type} that will serve as the foundation for implementation.
 
 ## Feature Overview
 **Feature Name:** {feature_name}
 **Feature Type:** {feature_type}
-**Primary Functionality:** {primary_functionality}
+**Business Objective:** {business_objective}
 
-## Business Context
-**Business Problem:** {business_problem}
-**Target Users:** {target_users}
-**Success Metrics:** {success_metrics}
+## User Scenarios
+{user_scenarios}
 
-## User Stories
-- As a {user_role_1}, I want to {user_action_1} so that {user_benefit_1}
-- As a {user_role_2}, I want to {user_action_2} so that {user_benefit_2}
-- As a {user_role_3}, I want to {user_action_3} so that {user_benefit_3}
+## Core Capabilities
+{core_capabilities}
 
-## Functional Requirements
-**Core Features:**
-1. {key_feature_1} - {feature_description_1}
-2. {key_feature_2} - {feature_description_2}
-3. {key_feature_3} - {feature_description_3}
+## Requirements
+{requirements}
 
-**Key Functionality:**
-- {primary_functionality}
-- Integration requirements: {integration_requirements}
-- Performance requirements: {performance_requirements}
+## Integration Context
+{integration_context}
 
-## Technical Constraints
-**Technology Stack:** {tech_stack}
-**Existing Systems:** {existing_systems}
-**Compliance Requirements:** {compliance_requirements}
-**Security Requirements:** {security_requirements}
-
-## Acceptance Criteria
-**Given-When-Then Format:**
-- Given {context_1}, when {action_1}, then {outcome_1}
-- Given {context_2}, when {action_2}, then {outcome_2}
-- Given {context_3}, when {action_3}, then {outcome_3}
-
-## Non-Functional Requirements
-**Performance:** {performance_targets}
-**Scalability:** {scalability_requirements}
-**Reliability:** {reliability_requirements}
-**Usability:** {usability_requirements}
-**Accessibility:** {accessibility_requirements}
-
-## Assumptions and Dependencies
-**Assumptions:** {assumptions}
-**Dependencies:** {dependencies}
-**Risks:** {risks}
+## Success Criteria
+{success_criteria}
 
 ## SDD Workflow Commands:
 ${'```'}bash
-/specify spec-feature-name.md
-/clarify clarification-questions.md
-/constitution check spec-feature-name.md
+/specify {feature_name}-specification.md
+/constitution check {feature_name}-specification.md
+/clarify {feature_name}-specification.md
 /plan implementation-plan.md
 ${'```'}
 
-## Directory Structure:
-${'```'}
-project/
-├── specs/
-│   ├── spec-feature-name.md
-│   └── clarification-questions.md
-├── memory/
-│   └── constitution.md
-├── packages/
-└── tests/
+## Example Specification Format:
+${'```'}markdown
+# Feature Specification: {feature_name}
+
+## Overview
+{business_objective}
+
+## User Scenarios
+- As a [user type], I want to [action] so that [benefit]
+- As a [user type], I want to [action] so that [benefit]
+
+## Core Capabilities
+1. [Capability 1]
+   - Description: [Detailed description]
+   - Acceptance Criteria: [Specific, measurable criteria]
+
+2. [Capability 2]
+   - Description: [Detailed description]
+   - Acceptance Criteria: [Specific, measurable criteria]
+
+## Requirements
+- Performance: [Specific performance requirements]
+- Security: [Security requirements]
+- Compliance: [Regulatory compliance needs]
+- Accessibility: [Accessibility standards]
+
+## Integration Context
+- Systems: [Existing system integrations]
+- Technology: [Technology stack and tools]
+- Dependencies: [External dependencies and APIs]
+
+## Success Criteria
+- [Measurable success metric 1]
+- [Measurable success metric 2]
+- [Measurable success metric 3]
 ${'```'}
 
 This specification will guide the technical planning and implementation phases while ensuring alignment with user needs and business objectives.`,
       variables: [
         { key: 'feature_name', label: 'Feature Name', placeholder: 'e.g., User Management System, Payment Processing' },
-        { key: 'feature_type', label: 'Feature Type', placeholder: 'e.g., web application, mobile app, API service' },
-        { key: 'primary_functionality', label: 'Primary Functionality', placeholder: 'e.g., user authentication, data processing, payment handling' },
-        { key: 'business_problem', label: 'Business Problem', placeholder: 'e.g., manual user management is inefficient, payment processing is slow' },
-        { key: 'target_users', label: 'Target Users', placeholder: 'e.g., administrators, end customers, internal staff' },
-        { key: 'success_metrics', label: 'Success Metrics', placeholder: 'e.g., reduce processing time by 50%, increase user satisfaction' },
-        { key: 'user_role_1', label: 'User Role 1', placeholder: 'e.g., administrator, end user, manager' },
-        { key: 'user_action_1', label: 'User Action 1', placeholder: 'e.g., manage users, process payments, view reports' },
-        { key: 'user_benefit_1', label: 'User Benefit 1', placeholder: 'e.g., save time, improve accuracy, gain insights' },
-        { key: 'user_role_2', label: 'User Role 2', placeholder: 'e.g., customer, support agent, analyst' },
-        { key: 'user_action_2', label: 'User Action 2', placeholder: 'e.g., make purchases, resolve issues, analyze data' },
-        { key: 'user_benefit_2', label: 'User Benefit 2', placeholder: 'e.g., convenience, efficiency, understanding' },
-        { key: 'user_role_3', label: 'User Role 3', placeholder: 'e.g., auditor, developer, stakeholder' },
-        { key: 'user_action_3', label: 'User Action 3', placeholder: 'e.g., review logs, maintain system, monitor progress' },
-        { key: 'user_benefit_3', label: 'User Benefit 3', placeholder: 'e.g., compliance, productivity, visibility' },
-        { key: 'key_feature_1', label: 'Key Feature 1', placeholder: 'e.g., authentication, dashboard, reporting' },
-        { key: 'feature_description_1', label: 'Feature Description 1', placeholder: 'e.g., secure login with multi-factor authentication' },
-        { key: 'key_feature_2', label: 'Key Feature 2', placeholder: 'e.g., data management, notifications, export' },
-        { key: 'feature_description_2', label: 'Feature Description 2', placeholder: 'e.g., automated data backup and restore' },
-        { key: 'key_feature_3', label: 'Key Feature 3', placeholder: 'e.g., analytics, search, filtering' },
-        { key: 'feature_description_3', label: 'Feature Description 3', placeholder: 'e.g., real-time analytics dashboard' },
-        { key: 'integration_requirements', label: 'Integration Requirements', placeholder: 'e.g., third-party APIs, legacy systems' },
-        { key: 'performance_requirements', label: 'Performance Requirements', placeholder: 'e.g., response time, throughput, concurrency' },
-        { key: 'tech_stack', label: 'Technology Stack', placeholder: 'e.g., React, Node.js, PostgreSQL' },
-        { key: 'existing_systems', label: 'Existing Systems', placeholder: 'e.g., CRM, ERP, payment processors' },
-        { key: 'compliance_requirements', label: 'Compliance Requirements', placeholder: 'e.g., GDPR, HIPAA, industry regulations' },
-        { key: 'security_requirements', label: 'Security Requirements', placeholder: 'e.g., encryption, audit logs, access controls' },
-        { key: 'context_1', label: 'Context 1', placeholder: 'e.g., user is logged in, form is submitted' },
-        { key: 'action_1', label: 'Action 1', placeholder: 'e.g., clicks save button, submits data' },
-        { key: 'outcome_1', label: 'Outcome 1', placeholder: 'e.g., data is saved, success message shown' },
-        { key: 'context_2', label: 'Context 2', placeholder: 'e.g., payment is processed, validation fails' },
-        { key: 'action_2', label: 'Action 2', placeholder: 'e.g., processes payment, shows error' },
-        { key: 'outcome_2', label: 'Outcome 2', placeholder: 'e.g., payment completed, error displayed' },
-        { key: 'context_3', label: 'Context 3', placeholder: 'e.g., report is generated, data is exported' },
-        { key: 'action_3', label: 'Action 3', placeholder: 'e.g., generates report, downloads file' },
-        { key: 'outcome_3', label: 'Outcome 3', placeholder: 'e.g., report displayed, file downloaded' },
-        { key: 'performance_targets', label: 'Performance Targets', placeholder: 'e.g., <2s response time, 1000 concurrent users' },
-        { key: 'scalability_requirements', label: 'Scalability Requirements', placeholder: 'e.g., horizontal scaling, load balancing' },
-        { key: 'reliability_requirements', label: 'Reliability Requirements', placeholder: 'e.g., 99.9% uptime, fault tolerance' },
-        { key: 'usability_requirements', label: 'Usability Requirements', placeholder: 'e.g., intuitive interface, accessibility' },
-        { key: 'accessibility_requirements', label: 'Accessibility Requirements', placeholder: 'e.g., WCAG 2.1, screen reader support' },
-        { key: 'assumptions', label: 'Assumptions', placeholder: 'e.g., users have basic computer skills' },
-        { key: 'dependencies', label: 'Dependencies', placeholder: 'e.g., third-party services, APIs' },
-        { key: 'risks', label: 'Risks', placeholder: 'e.g., integration complexity, performance issues' }
+        { key: 'feature_type', label: 'Feature Type', placeholder: 'e.g., New Feature, Enhancement, Bug Fix, API Service' },
+        { key: 'business_objective', label: 'Business Objective', placeholder: 'e.g., Streamline user onboarding, Reduce payment processing time, Improve data analytics capabilities' },
+        { key: 'user_scenarios', label: 'User Scenarios', placeholder: 'e.g., Admin: Add/remove users, Customer: Make purchases, Manager: View reports - describe role-action-benefit patterns' },
+        { key: 'core_capabilities', label: 'Core Capabilities', placeholder: 'e.g., User authentication with MFA, Real-time dashboard with filters, Automated reporting system with export' },
+        { key: 'requirements', label: 'Requirements', placeholder: 'e.g., Performance: <2s response time, Security: Encryption at rest, Compliance: GDPR, Accessibility: WCAG 2.1' },
+        { key: 'integration_context', label: 'Integration Context', placeholder: 'e.g., Integrates with existing CRM, Uses PostgreSQL database, React frontend with Node.js backend, Deploys to AWS' },
+        { key: 'success_criteria', label: 'Success Criteria', placeholder: 'e.g., 50% reduction in processing time, 99.9% uptime, User satisfaction score >4.5, Successful deployment by Q3' }
       ]
     },
     {
       name: 'Clarification',
       description: 'Refine specifications and resolve ambiguities before technical planning',
       why: 'Clarification reduces rework downstream by ensuring all requirements are well-understood before technical decisions are made. It identifies underspecified areas and resolves conflicts early in the process.',
-      whatToDoNext: '1. Create a clarification document: Copy the generated prompt and save it as ```clarification-questions.md``` in your project root directory\n2. Use with SDD: Execute ```/clarify clarification-questions.md``` to systematically review your specification\n3. Address identified gaps: Fill in missing details and resolve conflicting requirements\n4. Validate completeness: Ensure all aspects are properly specified before proceeding to implementation planning\n5. Iterate as needed: Use clarification iteratively throughout the specification process',
+      whatToDoNext: '1. Fill out the below Template Variables to Complete or leverage the Quick Start Templates above.\n2. Click Generate Prompt and scroll to "Generated Prompt" section.\n3. Execute the prompt prepending with `/clarify`\n4. Update as needed: Refine your clarification questions as new requirements or ambiguities emerge during specification',
       template: `Review the following specification for {specification_name} and identify areas that need clarification or additional detail.
 
 Specification Focus: {specification_focus}
-Current Specification State: {specification_state}
 
-Areas Requiring Clarification:
+## Areas Requiring Clarification:
 
-1. Functional Requirements:
-   - Missing user stories: {missing_user_stories}
-   - Unclear features: {unclear_features}
-   - Edge cases not covered: {edge_cases}
+### 1. Core Functionality Gaps
+{core_functionality_gaps}
 
-2. Technical Requirements:
-   - Performance ambiguities: {performance_ambiguities}
-   - Integration questions: {integration_questions}
-   - Security considerations: {security_considerations}
+### 2. Technical Requirements
+{technical_requirements}
 
-3. User Experience:
-   - User interaction flows: {ux_ambiguities}
-   - Error handling scenarios: {error_handling_scenarios}
-   - Accessibility requirements: {accessibility_requirements}
+### 3. User Experience Needs
+{user_experience_needs}
 
-4. Business Logic:
-   - Business rule gaps: {business_rule_gaps}
-   - Data validation needs: {data_validation_needs}
-   - Workflow complexities: {workflow_complexities}
+### 4. Business Logic Clarification
+{business_logic_clarification}
 
-5. Acceptance Criteria:
-   - Undefined success metrics: {undefined_metrics}
-   - Testing requirements: {testing_requirements}
-   - Deployment considerations: {deployment_considerations}
+### 5. Success Criteria
+{success_criteria}
 
 ## Specification Review Commands:
 ${'```'}bash
@@ -478,103 +412,126 @@ Please provide specific questions and recommendations for each identified area t
       variables: [
         { key: 'specification_name', label: 'Specification Name', placeholder: 'e.g., User Management System, E-commerce Platform' },
         { key: 'specification_focus', label: 'Specification Focus', placeholder: 'e.g., user authentication, payment processing, data analytics' },
-        { key: 'specification_state', label: 'Current Specification State', placeholder: 'e.g., initial draft, partially complete, needs review' },
-        { key: 'missing_user_stories', label: 'Missing User Stories', placeholder: 'e.g., admin user management, password reset flows' },
-        { key: 'unclear_features', label: 'Unclear Features', placeholder: 'e.g., real-time notifications, offline functionality' },
-        { key: 'edge_cases', label: 'Edge Cases Not Covered', placeholder: 'e.g., network failures, concurrent user conflicts' },
-        { key: 'performance_ambiguities', label: 'Performance Ambiguities', placeholder: 'e.g., concurrent user limits, data processing requirements' },
-        { key: 'integration_questions', label: 'Integration Questions', placeholder: 'e.g., third-party API dependencies, database schema conflicts' },
-        { key: 'security_considerations', label: 'Security Considerations', placeholder: 'e.g., data encryption, authorization rules, audit logging' },
-        { key: 'ux_ambiguities', label: 'UX Ambiguities', placeholder: 'e.g., mobile responsiveness, error message formats' },
-        { key: 'error_handling_scenarios', label: 'Error Handling Scenarios', placeholder: 'e.g., invalid input handling, service unavailable responses' },
-        { key: 'accessibility_requirements', label: 'Accessibility Requirements', placeholder: 'e.g., screen reader support, keyboard navigation' },
-        { key: 'business_rule_gaps', label: 'Business Rule Gaps', placeholder: 'e.g., approval workflows, data retention policies' },
-        { key: 'data_validation_needs', label: 'Data Validation Needs', placeholder: 'e.g., input format validation, business rule validation' },
-        { key: 'workflow_complexities', label: 'Workflow Complexities', placeholder: 'e.g., multi-step processes, conditional logic' },
-        { key: 'undefined_metrics', label: 'Undefined Success Metrics', placeholder: 'e.g., response time targets, user satisfaction goals' },
-        { key: 'testing_requirements', label: 'Testing Requirements', placeholder: 'e.g., load testing requirements, compatibility testing' },
-        { key: 'deployment_considerations', label: 'Deployment Considerations', placeholder: 'e.g., environment configurations, migration strategies' }
+        { key: 'core_functionality_gaps', label: 'Core Functionality Gaps', placeholder: 'e.g., missing user stories, unclear features, edge cases not covered' },
+        { key: 'technical_requirements', label: 'Technical Requirements', placeholder: 'e.g., performance targets, integration needs, security considerations, scalability concerns' },
+        { key: 'user_experience_needs', label: 'User Experience Needs', placeholder: 'e.g., interaction flows, error handling, accessibility requirements, mobile responsiveness' },
+        { key: 'business_logic_clarification', label: 'Business Logic Clarification', placeholder: 'e.g., business rules, data validation, workflow complexities, approval processes' },
+        { key: 'success_criteria', label: 'Success Criteria', placeholder: 'e.g., measurable metrics, testing requirements, deployment considerations, acceptance criteria' }
       ]
     },
     {
       name: 'Implementation Plan',
       description: 'Create detailed technical implementation plan from specifications',
       why: 'Implementation plans bridge the gap between specification and code. They provide technical guidance, architecture decisions, and a clear roadmap for developers while ensuring constitutional compliance throughout the development process.',
-      whatToDoNext: '1. Create an implementation plan file: Copy the generated prompt and save it as ```plan-feature-name.md``` in your project root directory\n2. Use with SDD: Execute ```/plan plan-feature-name.md``` to generate detailed technical tasks and implementation steps\n3. Review generated tasks: The AI will create executable task lists and technical guidance based on your plan\n4. Execute development tasks: Follow the constitutional mandate with test-first development, starting with contract definitions\n5. Iterate and refine: Use the ```/tasks``` command to track progress and ensure compliance with your implementation plan',
-      template: `Based on the specification for {project_name}, create an implementation plan using {tech_stack}.
+      whatToDoNext: '1. Fill out the below Template Variables to Complete or leverage the Quick Start Templates above.\n2. Click Generate Prompt and scroll to "Generated Prompt" section.\n3. Execute the prompt prepending with `/plan`\n4. Update as needed: Adjust your implementation plan as technical requirements or architectural decisions evolve',
+      template: `Create a comprehensive implementation plan for {project_name} that aligns with SDD constitutional principles.
 
-Architecture Overview:
-- Frontend: {frontend_tech}
-- Backend: {backend_tech}
-- Database: {database_tech}
-- Deployment: {deployment_strategy}
+## Technology Foundation
+{technology_foundation}
 
-Key Components:
-1. {component_1} - {component_1_description}
-2. {component_2} - {component_2_description}
-3. {component_3} - {component_3_description}
+## Component Architecture
+{component_architecture}
 
-Data Model:
-- Main entities: {main_entities}
-- Relationships: {entity_relationships}
-- Key considerations: {data_considerations}
+## Data Model
+{data_model}
 
-API Design:
-- REST endpoints: {api_endpoints}
-- Authentication: {auth_method}
-- Rate limiting: {rate_limiting}
+## API Contract
+{api_contract}
 
-Testing Strategy:
-- Unit tests: {unit_test_coverage}
-- Integration tests: {integration_test_coverage}
-- E2E tests: {e2e_test_coverage}
+## Testing Approach
+{testing_approach}
+
+## Deployment Strategy
+{deployment_strategy}
+
+## SDD Implementation Commands:
+${'```'}bash
+/plan {project_name}-implementation.md
+/tasks
+/constitution check {project_name}-implementation.md
+${'```'}
+
+## Constitutional Compliance Requirements:
+✓ **Library-First Principle**: Each component starts as a standalone library
+✓ **CLI Interface Mandate**: All functionality accessible via command-line interfaces
+✓ **Test-First Imperative**: No implementation code before tests
+✓ **Integration-First Testing**: Use realistic environments over mocks
 
 ## Project Structure:
 ${'```'}
 project/
 ├── packages/
-│   ├── {component_1}/
-│   ├── {component_2}/
-│   └── {component_3}/
+│   ├── component-1/
+│   │   ├── src/
+│   │   ├── tests/
+│   │   └── cli.js
+│   ├── component-2/
+│   │   ├── src/
+│   │   ├── tests/
+│   │   └── cli.js
+│   └── component-3/
+│       ├── src/
+│       ├── tests/
+│       └── cli.js
 ├── specs/
 ├── tests/
+│   ├── integration/
+│   └── e2e/
+├── memory/
+│   └── constitution.md
 └── docs/
 ${'```'}
 
-## Commands:
-${'```'}bash
-/plan implementation-plan.md
-/tasks
-/constitution check
-${'```'}
+## Example Implementation Plan Format:
+${'```'}markdown
+# Implementation Plan: {project_name}
 
-Constitutional Compliance:
-✓ Library-First Principle
-✓ CLI Interface Mandate
-✓ Test-First Imperative
-✓ Integration-First Testing`,
+## Technology Foundation
+- Frontend: [Framework and tools]
+- Backend: [Server and runtime]
+- Database: [Storage and caching]
+- Infrastructure: [Deployment and operations]
+
+## Component Architecture
+1. **[Component Name]**
+   - Purpose: [Component responsibility]
+   - CLI Interface: [Command-line operations]
+   - Dependencies: [External dependencies]
+
+2. **[Component Name]**
+   - Purpose: [Component responsibility]
+   - CLI Interface: [Command-line operations]
+   - Dependencies: [External dependencies]
+
+## Data Model
+- **[Entity Name]**: [Description and fields]
+- **[Entity Name]**: [Description and fields]
+- Relationships: [Entity relationships and constraints]
+
+## API Contract
+- **POST /api/endpoint**: [Description]
+- **GET /api/endpoint**: [Description]
+- Authentication: [Security approach]
+- Rate Limiting: [Throttling strategy]
+
+## Testing Approach
+- Unit Tests: [Coverage targets and framework]
+- Integration Tests: [Environment and scope]
+- E2E Tests: [Workflow validation]
+
+## Deployment Strategy
+- CI/CD: [Pipeline automation]
+- Environment: [Deployment targets]
+- Monitoring: [Observability and alerting]
+${'```'}`,
       variables: [
-        { key: 'project_name', label: 'Project Name', placeholder: 'e.g., E-commerce Platform' },
-        { key: 'tech_stack', label: 'Technology Stack', placeholder: 'e.g., MERN stack' },
-        { key: 'frontend_tech', label: 'Frontend Technology', placeholder: 'e.g., React with TypeScript' },
-        { key: 'backend_tech', label: 'Backend Technology', placeholder: 'e.g., Node.js with Express' },
-        { key: 'database_tech', label: 'Database Technology', placeholder: 'e.g., MongoDB with Redis caching' },
-        { key: 'deployment_strategy', label: 'Deployment Strategy', placeholder: 'e.g., Docker containers on AWS' },
-        { key: 'component_1', label: 'Component 1', placeholder: 'e.g., User Service' },
-        { key: 'component_1_description', label: 'Component 1 Description', placeholder: 'e.g., Handles user authentication and profiles' },
-        { key: 'component_2', label: 'Component 2', placeholder: 'e.g., Order Service' },
-        { key: 'component_2_description', label: 'Component 2 Description', placeholder: 'e.g., Manages order processing and inventory' },
-        { key: 'component_3', label: 'Component 3', placeholder: 'e.g., Payment Service' },
-        { key: 'component_3_description', label: 'Component 3 Description', placeholder: 'e.g., Processes payments and refunds' },
-        { key: 'main_entities', label: 'Main Entities', placeholder: 'e.g., User, Product, Order, Payment' },
-        { key: 'entity_relationships', label: 'Entity Relationships', placeholder: 'e.g., User-Order (1:N), Order-Product (N:M)' },
-        { key: 'data_considerations', label: 'Data Considerations', placeholder: 'e.g., Data consistency, transaction management' },
-        { key: 'api_endpoints', label: 'API Endpoints', placeholder: 'e.g., RESTful APIs with OpenAPI spec' },
-        { key: 'auth_method', label: 'Authentication Method', placeholder: 'e.g., JWT tokens with refresh mechanism' },
-        { key: 'rate_limiting', label: 'Rate Limiting', placeholder: 'e.g., 100 requests per minute per user' },
-        { key: 'unit_test_coverage', label: 'Unit Test Coverage', placeholder: 'e.g., 90% code coverage' },
-        { key: 'integration_test_coverage', label: 'Integration Test Coverage', placeholder: 'e.g., All critical paths tested' },
-        { key: 'e2e_test_coverage', label: 'E2E Test Coverage', placeholder: 'e.g., Key user workflows tested' }
+        { key: 'project_name', label: 'Project Name', placeholder: 'e.g., E-commerce Platform, User Management System' },
+        { key: 'technology_foundation', label: 'Technology Foundation', placeholder: 'e.g., React/Node.js/PostgreSQL with Docker containers on AWS, including CDN, caching, and monitoring' },
+        { key: 'component_architecture', label: 'Component Architecture', placeholder: 'e.g., User Service (authentication, profiles), Order Service (processing, inventory), Payment Service (transactions, refunds) - each as standalone libraries with CLI interfaces' },
+        { key: 'data_model', label: 'Data Model', placeholder: 'e.g., User, Product, Order, Payment entities with relationships: User-Order (1:N), Order-Product (N:M), Order-Payment (1:1). Consider data consistency and transaction management' },
+        { key: 'api_contract', label: 'API Contract', placeholder: 'e.g., RESTful endpoints with OpenAPI spec: POST /api/auth/login, GET /api/users/{id}, POST /api/orders. JWT authentication with rate limiting: 100 requests/minute/user' },
+        { key: 'testing_approach', label: 'Testing Approach', placeholder: 'e.g., Test-first with 90% unit coverage, integration-first testing with realistic environments, E2E testing for key workflows. Focus on contract testing and integration validation' },
+        { key: 'deployment_strategy', label: 'Deployment Strategy', placeholder: 'e.g., CI/CD pipeline with automated testing, blue-green deployments, container orchestration, monitoring and logging, backup and disaster recovery procedures' }
       ]
     },
     {
@@ -614,39 +571,23 @@ Constitutional Compliance:
       description: 'Native Android application with modern architecture',
       icon: '🤖',
       featureSpecVars: {
-        feature_type: 'Android mobile application',
-        primary_functionality: 'provide a seamless mobile experience for users to manage their accounts and access core features',
-        key_features: 'user authentication, push notifications, offline data synchronization, camera integration, location services',
-        existing_systems: 'REST APIs, Firebase services, Google Play Services, third-party analytics',
-        tech_stack: 'Android (Kotlin), Jetpack Compose, MVVM architecture, Room database, Retrofit',
-        compliance_requirements: 'Google Play Store policies, GDPR compliance, security best practices',
-        performance_targets: '<2s app startup time, <500ms API response time, 60fps UI rendering',
-        user_action_1: 'create accounts, login securely, and manage their profiles',
-        system_behavior_1: 'sync data automatically and send push notifications for important updates',
-        performance_metrics: 'handle 10,000+ concurrent users with minimal battery impact'
+        feature_name: 'Android Mobile Application',
+        feature_type: 'Android Mobile App',
+        business_objective: 'Create a native Android application that provides seamless user experience with offline capabilities and push notifications',
+        user_scenarios: 'Admin: Manage users and settings, Customer: Access core features and personalize experience, Manager: Monitor analytics and generate reports',
+        core_capabilities: 'User authentication with biometric support, Real-time data synchronization with offline mode, Push notification system with rich media, Camera and location integration, Material 3 UI with adaptive layouts',
+        requirements: 'Performance: <2s startup time, Security: Biometric auth + data encryption, Compliance: Google Play Store + GDPR, Accessibility: WCAG 2.1 with screen reader support',
+        integration_context: 'REST APIs with OpenAPI spec, Firebase for backend services, Google Play Services integration, Third-party analytics SDKs, Kotlin Coroutines for async operations',
+        success_criteria: '4.5+ star rating, <1% crash rate, 99.9% uptime, 10K+ concurrent users with minimal battery impact'
       },
       implementationPlanVars: {
         project_name: 'Android Mobile Application',
-        tech_stack: 'Native Android development',
-        frontend_tech: 'Jetpack Compose with Material 3',
-        backend_tech: 'Node.js/Express REST APIs',
-        database_tech: 'Room database with Firebase Firestore sync',
-        deployment_strategy: 'Google Play Store with CI/CD pipeline',
-        component_1: 'Authentication Module',
-        component_1_description: 'Handles user login, registration, and session management with biometric support',
-        component_2: 'Data Sync Service',
-        component_2_description: 'Manages offline data storage and synchronization with backend',
-        component_3: 'Notification Service',
-        component_3_description: 'Handles push notifications and in-app messaging',
-        main_entities: 'User, Profile, Settings, Notification, SyncRecord',
-        entity_relationships: 'User-Profile (1:1), User-Notification (1:N), User-SyncRecord (1:N)',
-        data_considerations: 'Offline-first approach, data encryption, conflict resolution',
-        api_endpoints: 'RESTful APIs with OpenAPI 3.0 specification',
-        auth_method: 'JWT tokens with refresh mechanism and OAuth 2.0',
-        rate_limiting: '100 requests per minute per user',
-        unit_test_coverage: '85% code coverage with JUnit',
-        integration_test_coverage: 'All API endpoints and critical user flows',
-        e2e_test_coverage: 'Core user journeys with UI testing'
+        technology_foundation: 'Kotlin with Jetpack Compose, Material 3 UI, MVVM architecture, Room database, Retrofit for networking, Coroutines for async operations',
+        component_architecture: 'Authentication Service (biometric auth, session management, CLI tools for user management), Data Sync Service (offline-first storage, conflict resolution, CLI sync commands), Notification Service (push notifications, rich media, CLI notification testing)',
+        data_model: 'User, Profile, Settings, Notification, SyncRecord entities with relationships: User-Profile (1:1), User-Notification (1:N), User-SyncRecord (1:N). Offline-first with encryption and conflict resolution',
+        api_contract: 'RESTful endpoints: POST /api/auth/login, GET /api/users/{id}, POST /api/sync. JWT with OAuth 2.0, rate limiting: 100 requests/minute/user',
+        testing_approach: 'Test-first with 85% JUnit coverage, integration-first with realistic network conditions, Espresso for UI testing, Robolectric for unit tests',
+        deployment_strategy: 'Google Play Store with staged rollout, CI/CD using GitHub Actions, automated testing on emulator matrix, crash reporting with Firebase'
       },
       constitutionVars: {
         project_type: 'Android mobile application',
@@ -664,24 +605,13 @@ Constitutional Compliance:
         success_metrics: '<1% crash rate, >4.5 star rating, <100ms API response time, 99.9% uptime'
       },
       clarifyVars: {
-        specification_name: 'Android Mobile App Feature Specification',
+        specification_name: 'Android Mobile Application',
         specification_focus: 'user authentication, data synchronization, push notifications, offline functionality',
-        specification_state: 'initial draft with core features defined',
-        missing_user_stories: 'admin user management, data export functionality, advanced search features',
-        unclear_features: 'offline data conflict resolution, notification throttling, background processing limits',
-        edge_cases: 'network connectivity loss during sync, low storage scenarios, multiple device synchronization',
-        performance_ambiguities: 'concurrent sync operations, large dataset handling, memory usage limits',
-        integration_questions: 'third-party SDK dependencies, Firebase service integration, payment gateway integration',
-        security_considerations: 'data encryption requirements, secure storage of sensitive data, authentication timeout policies',
-        ux_ambiguities: 'tablet UI layout, dark mode implementation, accessibility features for motor impairments',
-        error_handling_scenarios: 'network failure recovery, authentication token refresh, corrupted local data handling',
-        accessibility_requirements: 'screen reader support, color contrast compliance, motor accessibility features',
-        business_rule_gaps: 'data retention policies, user account deactivation, content moderation guidelines',
-        data_validation_needs: 'input format validation, business rule validation, data integrity checks',
-        workflow_complexities: 'multi-device sync conflict resolution, offline operation workflows, background processing',
-        undefined_metrics: 'user engagement targets, performance benchmarks, error rate thresholds',
-        testing_requirements: 'device compatibility testing, network condition testing, accessibility testing',
-        deployment_considerations: 'staged rollout strategy, A/B testing framework, crash reporting integration'
+        core_functionality_gaps: 'admin user management workflows, data export/import functionality, advanced search and filtering capabilities',
+        technical_requirements: 'battery optimization strategies, memory usage limits, background processing constraints, network connectivity handling',
+        user_experience_needs: 'tablet UI layout optimization, dark mode implementation, accessibility features for motor impairments, offline mode user guidance',
+        business_logic_clarification: 'data retention policies, user account deactivation workflows, content moderation guidelines, notification throttling policies',
+        success_criteria: 'user engagement targets, performance benchmarks, error rate thresholds, app store rating goals, crash rate limits'
       },
       taskListVars: {
         project_name: 'Android Mobile Application',
@@ -724,54 +654,38 @@ Constitutional Compliance:
       description: 'Native iOS application following Apple design guidelines',
       icon: '📱',
       featureSpecVars: {
+        feature_name: 'iOS Mobile Application',
         feature_type: 'iOS mobile application',
-        primary_functionality: 'deliver a premium iOS experience with intuitive interface and seamless performance',
-        key_features: 'Face ID/Touch ID authentication, CloudKit integration, HealthKit integration, Apple Pay support, iMessage extension',
-        existing_systems: 'Apple ecosystems, CloudKit, HealthKit, Apple Pay, third-party iOS SDKs',
-        tech_stack: 'iOS (Swift), SwiftUI, Combine framework, Core Data, CloudKit',
-        compliance_requirements: 'App Store Review Guidelines, Apple Human Interface Guidelines, GDPR, ATT compliance',
-        performance_targets: '<1.5s app launch time, <300ms UI response, smooth 60fps animations',
-        user_action_1: 'authenticate securely using biometrics and manage their preferences',
-        system_behavior_1: 'sync data across devices via iCloud and provide contextual notifications',
-        performance_metrics: 'optimized for battery life with efficient background processing'
+        business_objective: 'deliver a premium iOS experience with intuitive interface and seamless performance',
+        user_scenarios: 'User: Authenticate with Face ID/Touch ID, Admin: Manage app settings and analytics, Customer: Make purchases with Apple Pay',
+        core_capabilities: 'biometric authentication, CloudKit synchronization, Apple Pay integration, HealthKit features, iMessage extension support',
+        requirements: '<1.5s app launch time, <300ms UI response, App Store Review Guidelines, Apple Human Interface Guidelines, GDPR compliance',
+        integration_context: 'Apple ecosystem integration, CloudKit backend, HealthKit data access, Apple Pay processing, third-party iOS SDKs',
+        success_criteria: '99.9% uptime, <1% crash rate, App Store approval success, user satisfaction score >4.5'
       },
       implementationPlanVars: {
         project_name: 'iOS Mobile Application',
-        tech_stack: 'Native iOS development',
-        frontend_tech: 'SwiftUI with Combine framework',
-        backend_tech: 'CloudKit and serverless functions',
-        database_tech: 'Core Data with CloudKit synchronization',
-        deployment_strategy: 'App Store with TestFlight beta testing',
-        component_1: 'Authentication Service',
-        component_1_description: 'Manages biometric authentication and iCloud account integration',
-        component_2: 'Data Sync Manager',
-        component_2_description: 'Handles Core Data and CloudKit synchronization',
-        component_3: 'Apple Pay Integration',
-        component_3_description: 'Manages payment processing and transaction history',
-        main_entities: 'User, Profile, Transaction, Preference, SyncData',
-        entity_relationships: 'User-Profile (1:1), User-Transaction (1:N), User-Preference (1:1)',
-        data_considerations: 'Privacy-focused design, minimal data collection, end-to-end encryption',
-        api_endpoints: 'CloudKit web services and Apple native APIs',
-        auth_method: 'Biometric authentication with iCloud account',
-        rate_limiting: 'App Store and Apple rate limits apply',
-        unit_test_coverage: '90% coverage with XCTest framework',
-        integration_test_coverage: 'All Apple integrations and core features',
-        e2e_test_coverage: 'Complete user flows with UI automation'
+        technology_foundation: 'Swift/SwiftUI/Combine with Core Data and CloudKit, Apple native frameworks, TestFlight deployment, MVVM architecture',
+        component_architecture: 'Authentication Service (biometrics, iCloud), Data Sync Manager (Core Data, CloudKit), Apple Pay Integration (transactions, payment processing) - each as standalone modules with clear interfaces',
+        data_model: 'User, Profile, Transaction, Preference, SyncData entities with relationships: User-Profile (1:1), User-Transaction (1:N), User-Preference (1:1). Privacy-first design with encryption',
+        api_contract: 'CloudKit web services and Apple native APIs with Combine publishers, biometric authentication via LocalAuthentication framework, payment processing via PassKit',
+        testing_approach: 'XCTest framework with 90% unit coverage, XCUITest for integration testing, TestFlight beta testing, device compatibility matrix, performance testing for launch times',
+        deployment_strategy: 'App Store deployment with TestFlight beta testing, CI/CD with Xcode Cloud, automated builds and releases, crash reporting integration, App Store optimization'
       },
       constitutionVars: {
         project_type: 'iOS mobile application',
-        code_quality_requirements: 'Swift coding standards, SwiftLint strict mode, 90% test coverage, memory safety',
-        testing_standards: 'XCTest for unit tests, XCTest UI for automation, 90% coverage minimum',
-        performance_targets: '<1.5s app launch time, <16ms UI response, <200ms API response, 99.9% uptime',
-        security_requirements: 'Biometric authentication, Keychain security, App Transport Security, data encryption',
+        code_quality_requirements: 'Swift coding standards, SwiftLint strict mode, 90% test coverage, memory safety, protocol-oriented design',
+        testing_standards: 'XCTest for unit tests, XCUITest for automation, 90% coverage minimum, device compatibility testing',
+        performance_targets: '<1.5s app launch time, <16ms UI response, <200ms API response, 99.9% uptime, battery efficiency',
+        security_requirements: 'Biometric authentication, Keychain security, App Transport Security, data encryption, privacy-first design',
         tech_stack_constraints: 'Swift, SwiftUI, Combine, Core Data, CloudKit, Apple native frameworks only',
-        architecture_principles: 'MVVM pattern, Clean Architecture, Combine framework, protocol-oriented design',
-        documentation_standards: 'SwiftDoc for all public APIs, Xcode markup, README with setup instructions',
-        deployment_requirements: 'App Store deployment, TestFlight beta testing, CI/CD with Xcode Cloud',
-        regulatory_compliance: 'App Store Review Guidelines, Apple Human Interface Guidelines, GDPR, ATT',
-        team_workflow: 'Agile development, 1-week sprints, app store review management, automated testing',
-        review_processes: 'Mandatory code review, UI/UX review, App Store guideline compliance check',
-        success_metrics: '<1% crash rate, >4.5 star rating, <50ms UI response time, 99.9% uptime'
+        architecture_principles: 'MVVM pattern, Clean Architecture, Combine framework, protocol-oriented design, modular components',
+        documentation_standards: 'SwiftDoc for all public APIs, Xcode markup, README with setup instructions, architecture diagrams',
+        deployment_requirements: 'App Store deployment, TestFlight beta testing, CI/CD with Xcode Cloud, automated releases',
+        regulatory_compliance: 'App Store Review Guidelines, Apple Human Interface Guidelines, GDPR, ATT, privacy regulations',
+        team_workflow: 'Agile development, 1-week sprints, app store review management, automated testing, UX reviews',
+        review_processes: 'Mandatory code review, UI/UX review, App Store guideline compliance check, security audit',
+        success_metrics: '<1% crash rate, >4.5 star rating, <50ms UI response time, 99.9% uptime, user satisfaction'
       },
       clarifyVars: {
         specification_name: 'iOS Mobile App Feature Specification',
@@ -782,16 +696,7 @@ Constitutional Compliance:
         edge_cases: 'low storage scenarios, network connectivity loss, iCloud account switching, data migration',
         performance_ambiguities: 'background processing limits, memory usage constraints, battery optimization',
         integration_questions: 'CloudKit container configuration, HealthKit data sharing, Apple Pay testing environment',
-        security_considerations: 'Keychain data storage, biometric fallback options, data encryption requirements',
-        ux_ambiguities: 'Dynamic Type scaling, VoiceOver support, Dark Mode implementation, iPad multitasking',
-        error_handling_scenarios: 'iCloud authentication failures, network timeouts, Core Data corruption handling',
-        accessibility_requirements: 'VoiceOver compatibility, Dynamic Type support, Switch Control, Reduce Motion',
-        business_rule_gaps: 'subscription management, family sharing rules, data retention policies',
-        data_validation_needs: 'input sanitization, business rule validation, data integrity checks',
-        workflow_complexities: 'multi-device sync workflows, background processing, user data migration',
-        undefined_metrics: 'user engagement targets, app store performance benchmarks, retention rate goals',
-        testing_requirements: 'device compatibility matrix, iOS version testing, accessibility testing',
-        deployment_considerations: 'App Store review preparation, TestFlight distribution, beta testing strategy'
+        security_considerations: 'Keychain data storage, biometric fallback options, data encryption requirements'
       },
       taskListVars: {
         project_name: 'iOS Mobile Application',
@@ -834,54 +739,38 @@ Constitutional Compliance:
       description: 'Modern responsive web application with PWA capabilities',
       icon: '🌐',
       featureSpecVars: {
+        feature_name: 'Progressive Web Application',
         feature_type: 'progressive web application (PWA)',
-        primary_functionality: 'provide a responsive web experience that works across all devices and supports offline functionality',
-        key_features: 'responsive design, offline capabilities, push notifications, SEO optimization, cross-browser compatibility',
-        existing_systems: 'third-party APIs, analytics platforms, payment gateways, content management systems',
-        tech_stack: 'React, TypeScript, Next.js, Tailwind CSS, Progressive Web App technologies',
-        compliance_requirements: 'WCAG 2.1 accessibility, GDPR, CCPA, cookie consent',
-        performance_targets: '<3s first contentful paint, <1s time to interactive, 90+ Lighthouse score',
-        user_action_1: 'access the application from any device and work offline when needed',
-        system_behavior_1: 'cache content for offline use and sync when connectivity is restored',
-        performance_metrics: 'support 50,000+ concurrent users with automatic scaling'
+        business_objective: 'provide a responsive web experience that works across all devices and supports offline functionality',
+        user_scenarios: 'User: Access from any device with offline support, Admin: Manage content and analytics, Developer: Deploy and monitor performance',
+        core_capabilities: 'responsive design, offline capabilities, push notifications, SEO optimization, cross-browser compatibility, PWA installation',
+        requirements: '<3s first contentful paint, <1s time to interactive, 90+ Lighthouse score, WCAG 2.1 accessibility, GDPR/CCPA compliance',
+        integration_context: 'third-party APIs, analytics platforms, payment gateways, content management systems, service workers, cloud hosting',
+        success_criteria: '99.9% uptime, 50,000+ concurrent users, 90+ Lighthouse score, successful PWA installation rate >80%'
       },
       implementationPlanVars: {
         project_name: 'Progressive Web Application',
-        tech_stack: 'Modern web development stack',
-        frontend_tech: 'React 18 with TypeScript and Next.js 14',
-        backend_tech: 'Node.js with Express or Next.js API routes',
-        database_tech: 'PostgreSQL with Redis caching',
-        deployment_strategy: 'Vercel with CI/CD pipeline and multi-region deployment',
-        component_1: 'Authentication System',
-        component_1_description: 'Handles user login, registration, and session management with social login',
-        component_2: 'Service Worker Manager',
-        component_2_description: 'Manages offline caching and background synchronization',
-        component_3: 'API Gateway',
-        component_3_description: 'Handles API requests, rate limiting, and response caching',
-        main_entities: 'User, Session, Cache, Config, AuditLog',
-        entity_relationships: 'User-Session (1:N), User-Cache (1:N), Config-AuditLog (1:N)',
-        data_considerations: 'Offline data consistency, cache invalidation strategies',
-        api_endpoints: 'RESTful APIs with GraphQL support and OpenAPI documentation',
-        auth_method: 'JWT tokens with OAuth 2.0 and social login providers',
-        rate_limiting: '1000 requests per hour per IP address',
-        unit_test_coverage: '90% with Jest and React Testing Library',
-        integration_test_coverage: 'All API integrations and database operations',
-        e2e_test_coverage: 'Critical user journeys with Cypress'
+        technology_foundation: 'React/TypeScript/Next.js with PostgreSQL and Redis, Vercel deployment, service workers, CI/CD automation',
+        component_architecture: 'Authentication System (social login, sessions), Service Worker Manager (offline caching, sync), API Gateway (rate limiting, caching) - each as standalone libraries with CLI interfaces',
+        data_model: 'User, Session, Cache, Config, AuditLog entities with relationships: User-Session (1:N), User-Cache (1:N), Config-AuditLog (1:N). Focus on offline data consistency and cache invalidation',
+        api_contract: 'RESTful APIs with GraphQL support and OpenAPI documentation, JWT authentication with OAuth 2.0, rate limiting: 1000 requests/hour/IP, social login integration',
+        testing_approach: '90% unit coverage with Jest and React Testing Library, integration testing for APIs and database, E2E testing with Cypress for critical user journeys, Lighthouse performance monitoring',
+        deployment_strategy: 'Vercel multi-region deployment with CI/CD pipeline, automated testing and builds, service worker deployment strategy, cache invalidation, A/B testing framework'
       },
       constitutionVars: {
         project_type: 'progressive web application (PWA)',
-        code_quality_requirements: 'TypeScript strict mode, ESLint configuration, Prettier formatting, 90% test coverage',
-        testing_standards: 'Jest for unit tests, React Testing Library, Cypress for E2E, 90% coverage minimum',
-        performance_targets: '<3s first contentful paint, <1s time to interactive, 90+ Lighthouse score',
-        security_requirements: 'HTTPS enforcement, CSP headers, XSS protection, CSRF protection, secure cookies',
-        tech_stack_constraints: 'React, TypeScript, Next.js, Tailwind CSS, Vercel deployment, PostgreSQL database',
-        architecture_principles: 'Component-based architecture, service workers, progressive enhancement, offline-first',
-        documentation_standards: 'JSDoc comments, Storybook for components, API documentation with OpenAPI',
-        deployment_requirements: 'Vercel deployment, CI/CD pipeline, automated testing, multi-region CDN',
-        regulatory_compliance: 'GDPR, CCPA, WCAG 2.1 accessibility, cookie consent, data privacy',
-        team_workflow: 'Agile development, 2-week sprints, code reviews, automated testing, feature flags',
-        review_processes: 'Mandatory code review, security review for auth features, performance review',
-        success_metrics: '<2s page load, 99.9% uptime, 90+ Lighthouse score, 95% test coverage'
+        code_quality_requirements: 'TypeScript strict mode, ESLint configuration, Prettier formatting, 90% test coverage, component documentation',
+        testing_standards: 'Jest for unit tests, React Testing Library, Cypress for E2E, 90% coverage minimum, accessibility testing',
+        performance_targets: '<3s first contentful paint, <1s time to interactive, 90+ Lighthouse score, Core Web Vitals optimization',
+        security_requirements: 'HTTPS enforcement, CSP headers, XSS protection, CSRF protection, secure cookies, input validation',
+        tech_stack_constraints: 'React, TypeScript, Next.js, Tailwind CSS, Vercel deployment, PostgreSQL database, service workers',
+        architecture_principles: 'Component-based architecture, service workers, progressive enhancement, offline-first, responsive design',
+        documentation_standards: 'JSDoc comments, Storybook for components, API documentation with OpenAPI, architecture diagrams',
+        deployment_requirements: 'Vercel deployment, CI/CD pipeline, automated testing, multi-region CDN, progressive deployment',
+        regulatory_compliance: 'GDPR, CCPA, WCAG 2.1 accessibility, cookie consent, data privacy, security standards',
+        team_workflow: 'Agile development, 2-week sprints, code reviews, automated testing, feature flags, performance monitoring',
+        review_processes: 'Mandatory code review, security review for auth features, performance review, accessibility review',
+        success_metrics: '<2s page load, 99.9% uptime, 90+ Lighthouse score, 95% test coverage, user satisfaction'
       },
       clarifyVars: {
         specification_name: 'Progressive Web Application Specification',
@@ -892,16 +781,7 @@ Constitutional Compliance:
         edge_cases: 'network connectivity loss, browser compatibility issues, storage quota exceeded',
         performance_ambiguities: 'cache invalidation strategies, image optimization, bundle size limits',
         integration_questions: 'third-party service dependencies, analytics integration, payment gateway requirements',
-        security_considerations: 'offline data security, service worker security, XSS prevention in offline mode',
-        ux_ambiguities: 'mobile vs desktop layouts, offline mode indication, update notification behavior',
-        error_handling_scenarios: 'network failure handling, service worker errors, cache corruption recovery',
-        accessibility_requirements: 'screen reader support, keyboard navigation, color contrast compliance',
-        business_rule_gaps: 'data retention policies, user consent management, offline usage analytics',
-        data_validation_needs: 'input validation, data sanitization, business rule validation',
-        workflow_complexities: 'background sync conflicts, update deployment strategies, multi-tab synchronization',
-        undefined_metrics: 'offline usage targets, install conversion rates, performance benchmarks',
-        testing_requirements: 'cross-browser testing, offline mode testing, Lighthouse score monitoring',
-        deployment_considerations: 'service worker deployment strategy, cache invalidation, A/B testing framework'
+        security_considerations: 'offline data security, service worker security, XSS prevention in offline mode'
       },
       taskListVars: {
         project_name: 'Progressive Web Application',
@@ -944,54 +824,38 @@ Constitutional Compliance:
       description: 'Multi-tenant software-as-a-service platform',
       icon: '☁️',
       featureSpecVars: {
+        feature_name: 'Multi-Tenant SaaS Platform',
         feature_type: 'multi-tenant SaaS platform',
-        primary_functionality: 'provide a scalable, secure platform for multiple organizations with customizable features',
-        key_features: 'multi-tenant architecture, role-based access control, API integration, billing system, analytics dashboard',
-        existing_systems: 'payment processors, email services, CRM systems, monitoring tools',
-        tech_stack: 'Microservices architecture, container orchestration, cloud-native technologies',
-        compliance_requirements: 'SOC 2, ISO 27001, GDPR, HIPAA if applicable',
-        performance_targets: '<2s API response time, 99.9% uptime, horizontal scalability',
-        user_action_1: 'manage their organization, users, and access enterprise features',
-        system_behavior_1: 'enforce tenant isolation and provide real-time analytics',
-        performance_metrics: 'support 10,000+ organizations with 100,000+ concurrent users'
+        business_objective: 'provide a scalable, secure platform for multiple organizations with customizable features and real-time analytics',
+        user_scenarios: 'Admin: Manage organization and users, Developer: Integrate APIs and customize features, Customer: Access enterprise features and analytics',
+        core_capabilities: 'multi-tenant architecture, role-based access control, API integration, billing system, analytics dashboard, real-time monitoring',
+        requirements: '<2s API response time, 99.9% uptime, horizontal scalability, SOC 2/ISO 27001 compliance, GDPR/HIPAA if applicable',
+        integration_context: 'payment processors, email services, CRM systems, monitoring tools, identity providers, analytics platforms',
+        success_criteria: '10,000+ organizations, 100,000+ concurrent users, 99.9% uptime, tenant isolation security, real-time analytics <1s latency'
       },
       implementationPlanVars: {
         project_name: 'Multi-Tenant SaaS Platform',
-        tech_stack: 'Cloud-native microservices',
-        frontend_tech: 'React with TypeScript and micro-frontends',
-        backend_tech: 'Node.js/Python microservices with message queues',
-        database_tech: 'PostgreSQL with tenant isolation, Redis, Elasticsearch',
-        deployment_strategy: 'Kubernetes on AWS/GCP with Helm charts',
-        component_1: 'Tenant Management Service',
-        component_1_description: 'Handles tenant provisioning, configuration, and isolation',
-        component_2: 'Billing & Subscription Service',
-        component_2_description: 'Manages subscriptions, invoicing, and payment processing',
-        component_3: 'Analytics Engine',
-        component_3_description: 'Provides real-time analytics and reporting across tenants',
-        main_entities: 'Tenant, User, Subscription, Invoice, AnalyticsData',
-        entity_relationships: 'Tenant-User (1:N), Tenant-Subscription (1:1), User-AnalyticsData (1:N)',
-        data_considerations: 'Tenant data isolation, compliance requirements, data retention',
-        api_endpoints: 'RESTful APIs with tenant context and rate limiting',
-        auth_method: 'OAuth 2.0 with JWT and multi-factor authentication',
-        rate_limiting: 'Per-tenant rate limiting with burst handling',
-        unit_test_coverage: '95% with comprehensive mocking',
-        integration_test_coverage: 'All service integrations and tenant isolation',
-        e2e_test_coverage: 'Multi-tenant workflows with performance testing'
+        technology_foundation: 'Cloud-native microservices with Kubernetes, PostgreSQL tenant isolation, Redis/Elasticsearch, React/TypeScript micro-frontends, multi-region deployment',
+        component_architecture: 'Tenant Management Service (provisioning, isolation), Billing & Subscription Service (payments, invoicing), Analytics Engine (real-time reporting) - each as standalone libraries with CLI interfaces',
+        data_model: 'Tenant, User, Subscription, Invoice, AnalyticsData entities with relationships: Tenant-User (1:N), Tenant-Subscription (1:1), User-AnalyticsData (1:N). Strict tenant isolation and compliance requirements',
+        api_contract: 'RESTful APIs with tenant context and rate limiting, OAuth 2.0 with JWT and MFA, per-tenant rate limiting with burst handling, comprehensive audit logging',
+        testing_approach: '95% unit coverage with comprehensive mocking, integration testing for all service integrations and tenant isolation, E2E testing for multi-tenant workflows, chaos engineering, load testing',
+        deployment_strategy: 'Kubernetes on AWS/GCP with Helm charts, multi-region deployment, blue-green deployments, automated scaling, comprehensive monitoring and alerting'
       },
       constitutionVars: {
         project_type: 'multi-tenant SaaS platform',
-        code_quality_requirements: 'Multi-language standards, container security, 95% test coverage, code quality gates',
-        testing_standards: 'Multi-service testing, chaos engineering, load testing, 95% coverage minimum',
-        performance_targets: '<2s API response, 99.9% uptime, horizontal scaling, <100ms tenant provisioning',
-        security_requirements: 'Multi-tenant isolation, encryption at rest/transit, RBAC, audit logging, MFA',
-        tech_stack_constraints: 'Cloud-native, container-based, microservices, Kubernetes, AWS/GCP services',
-        architecture_principles: 'Microservices, tenant isolation, event-driven, API-first, infrastructure as code',
-        documentation_standards: 'API documentation, architecture diagrams, runbooks, compliance documentation',
-        deployment_requirements: 'Kubernetes, Istio service mesh, Helm charts, GitOps, multi-region deployment',
-        regulatory_compliance: 'SOC 2, ISO 27001, GDPR, HIPAA, data residency requirements',
-        team_workflow: 'DevOps practices, infrastructure as code, automated testing, incident management',
-        review_processes: 'Security review, architecture review, compliance review, performance review',
-        success_metrics: '99.9% uptime, <2s API response, 95% test coverage, zero security incidents'
+        code_quality_requirements: 'Multi-language standards, container security, 95% test coverage, code quality gates, SAST/DAST scanning',
+        testing_standards: 'Multi-service testing, chaos engineering, load testing, 95% coverage minimum, tenant isolation testing',
+        performance_targets: '<2s API response, 99.9% uptime, horizontal scaling, <100ms tenant provisioning, auto-scaling thresholds',
+        security_requirements: 'Multi-tenant isolation, encryption at rest/transit, RBAC, audit logging, MFA, zero-trust architecture',
+        tech_stack_constraints: 'Cloud-native, container-based, microservices, Kubernetes, AWS/GCP services, Istio service mesh',
+        architecture_principles: 'Microservices, tenant isolation, event-driven, API-first, infrastructure as code, immutable infrastructure',
+        documentation_standards: 'API documentation, architecture diagrams, runbooks, compliance documentation, tenant setup guides',
+        deployment_requirements: 'Kubernetes, Istio service mesh, Helm charts, GitOps, multi-region deployment, blue-green deployments',
+        regulatory_compliance: 'SOC 2, ISO 27001, GDPR, HIPAA, data residency requirements, industry-specific regulations',
+        team_workflow: 'DevOps practices, infrastructure as code, automated testing, incident management, compliance monitoring',
+        review_processes: 'Security review, architecture review, compliance review, performance review, tenant onboarding review',
+        success_metrics: '99.9% uptime, <2s API response, 95% test coverage, zero security incidents, tenant satisfaction >90%'
       },
       clarifyVars: {
         specification_name: 'Multi-Tenant SaaS Platform Specification',
@@ -1002,16 +866,7 @@ Constitutional Compliance:
         edge_cases: 'tenant resource exhaustion, data conflicts, cross-tenant data access, compliance violations',
         performance_ambiguities: 'concurrent tenant limits, data processing requirements, scaling thresholds',
         integration_questions: 'third-party service dependencies, payment processor integration, monitoring tools',
-        security_considerations: 'tenant isolation mechanisms, data encryption requirements, audit logging scope',
-        ux_ambiguities: 'white-label customization options, admin interface complexity, user management workflows',
-        error_handling_scenarios: 'tenant failure isolation, data corruption recovery, billing system failures',
-        accessibility_requirements: 'WCAG 2.1 compliance, screen reader support, keyboard navigation',
-        business_rule_gaps: 'tenant pricing models, feature tier definitions, data retention policies',
-        data_validation_needs: 'tenant-specific validation rules, data format standards, integrity checks',
-        workflow_complexities: 'tenant provisioning workflows, subscription management, billing cycles',
-        undefined_metrics: 'tenant acquisition costs, churn rate targets, customer satisfaction goals',
-        testing_requirements: 'multi-tenant testing, isolation verification, load testing, compliance testing',
-        deployment_considerations: 'blue-green deployments, tenant migration strategies, rollback procedures'
+        security_considerations: 'tenant isolation mechanisms, data encryption requirements, audit logging scope'
       },
       taskListVars: {
         project_name: 'Multi-Tenant SaaS Platform',
@@ -1054,54 +909,38 @@ Constitutional Compliance:
       description: 'RESTful API service with comprehensive documentation',
       icon: '🔧',
       featureSpecVars: {
+        feature_name: 'RESTful API Service',
         feature_type: 'RESTful API service',
-        primary_functionality: 'provide reliable, scalable APIs for external and internal consumption',
-        key_features: 'RESTful design, comprehensive documentation, rate limiting, monitoring, SDK support',
-        existing_systems: 'databases, external APIs, authentication services, monitoring tools',
-        tech_stack: 'API-first design, microservices, cloud infrastructure',
-        compliance_requirements: 'API security best practices, data privacy regulations',
-        performance_targets: '<100ms response time, 99.99% uptime, auto-scaling',
-        user_action_1: 'integrate with the API using SDKs or direct HTTP calls',
-        system_behavior_1: 'enforce rate limits, authenticate requests, and provide real-time monitoring',
-        performance_metrics: 'handle millions of requests per day with automatic scaling'
+        business_objective: 'provide reliable, scalable APIs for external and internal consumption with comprehensive monitoring and documentation',
+        user_scenarios: 'Developer: Integrate with API using SDKs, Admin: Monitor API usage and performance, Partner: Access APIs through developer portal',
+        core_capabilities: 'RESTful design, comprehensive documentation, rate limiting, monitoring, SDK support, authentication, auto-scaling',
+        requirements: '<100ms response time, 99.99% uptime, auto-scaling, API security best practices, data privacy regulations',
+        integration_context: 'databases, external APIs, authentication services, monitoring tools, caching layers, CDN',
+        success_criteria: 'millions of requests per day, 99.99% uptime, developer satisfaction >90%, comprehensive API coverage'
       },
       implementationPlanVars: {
         project_name: 'RESTful API Service',
-        tech_stack: 'API-first development',
-        frontend_tech: 'API documentation portal (Swagger/OpenAPI)',
-        backend_tech: 'Node.js/Python with Express/FastAPI',
-        database_tech: 'PostgreSQL with read replicas, Redis caching',
-        deployment_strategy: 'Docker containers with Kubernetes orchestration',
-        component_1: 'API Gateway',
-        component_1_description: 'Handles request routing, authentication, and rate limiting',
-        component_2: 'Authentication Service',
-        component_2_description: 'Manages API keys, OAuth tokens, and access control',
-        component_3: 'Monitoring & Analytics',
-        component_3_description: 'Provides API usage analytics, performance monitoring, and alerting',
-        main_entities: 'APIKey, User, RequestLog, RateLimit, Analytics',
-        entity_relationships: 'User-APIKey (1:N), APIKey-RequestLog (1:N)',
-        data_considerations: 'API key security, request logging privacy, data retention',
-        api_endpoints: 'Well-designed RESTful endpoints with HATEOAS support',
-        auth_method: 'API keys and OAuth 2.0 tokens',
-        rate_limiting: 'Tiered rate limiting based on subscription level',
-        unit_test_coverage: '95% with comprehensive error scenario testing',
-        integration_test_coverage: 'All database operations and external integrations',
-        e2e_test_coverage: 'Complete API contract testing with load testing'
+        technology_foundation: 'API-first design with Node.js/Python, PostgreSQL with read replicas, Redis caching, Kubernetes orchestration, comprehensive monitoring',
+        component_architecture: 'API Gateway (routing, auth, rate limiting), Authentication Service (API keys, OAuth), Monitoring & Analytics (usage analytics, performance) - each as standalone libraries with CLI interfaces',
+        data_model: 'APIKey, User, RequestLog, RateLimit, Analytics entities with relationships: User-APIKey (1:N), APIKey-RequestLog (1:N). Focus on API key security and request logging privacy',
+        api_contract: 'Well-designed RESTful endpoints with HATEOAS support, OpenAPI 3.0 specification, API keys and OAuth 2.0 tokens, tiered rate limiting based on subscription level',
+        testing_approach: '95% unit coverage with comprehensive error scenario testing, integration testing for all database operations and external integrations, E2E API contract testing with load testing and chaos engineering',
+        deployment_strategy: 'Docker containers with Kubernetes orchestration, blue-green deployments, auto-scaling, comprehensive monitoring and alerting, API documentation portal'
       },
       constitutionVars: {
         project_type: 'RESTful API service',
-        code_quality_requirements: 'API-first standards, OpenAPI specification, 95% test coverage, linting rules',
-        testing_standards: 'Contract testing, load testing, chaos engineering, 95% coverage minimum',
-        performance_targets: '<100ms response time, 99.99% uptime, auto-scaling, 1000+ RPS',
-        security_requirements: 'API security, OAuth 2.0, rate limiting, DDoS protection, audit logging',
-        tech_stack_constraints: 'API Gateway, Node.js/Python, PostgreSQL, Redis, Kubernetes, monitoring tools',
-        architecture_principles: 'API-first design, microservices, event-driven, circuit breakers, auto-scaling',
-        documentation_standards: 'OpenAPI 3.0 specification, API documentation, developer guides',
-        deployment_requirements: 'Kubernetes, Istio service mesh, GitOps, blue-green deployments',
-        regulatory_compliance: 'API security best practices, data privacy regulations, industry standards',
-        team_workflow: 'API-first development, contract testing, monitoring, incident response',
-        review_processes: 'API design review, security review, performance review, compliance review',
-        success_metrics: '99.99% uptime, <100ms response time, 99.9% SLA, zero security breaches'
+        code_quality_requirements: 'API-first standards, OpenAPI specification, 95% test coverage, linting rules, API contract testing',
+        testing_standards: 'Contract testing, load testing, chaos engineering, 95% coverage minimum, API version testing',
+        performance_targets: '<100ms response time, 99.99% uptime, auto-scaling, 1000+ RPS, circuit breaker patterns',
+        security_requirements: 'API security, OAuth 2.0, rate limiting, DDoS protection, audit logging, input validation',
+        tech_stack_constraints: 'API Gateway, Node.js/Python, PostgreSQL, Redis, Kubernetes, monitoring tools, service mesh',
+        architecture_principles: 'API-first design, microservices, event-driven, circuit breakers, auto-scaling, stateless services',
+        documentation_standards: 'OpenAPI 3.0 specification, API documentation, developer guides, SDK documentation',
+        deployment_requirements: 'Kubernetes, Istio service mesh, GitOps, blue-green deployments, canary releases',
+        regulatory_compliance: 'API security best practices, data privacy regulations, industry standards, PCI DSS if applicable',
+        team_workflow: 'API-first development, contract testing, monitoring, incident response, developer support',
+        review_processes: 'API design review, security review, performance review, compliance review, developer experience review',
+        success_metrics: '99.99% uptime, <100ms response time, 99.9% SLA, zero security breaches, developer satisfaction >90%'
       },
       clarifyVars: {
         specification_name: 'RESTful API Service Specification',
@@ -1112,16 +951,7 @@ Constitutional Compliance:
         edge_cases: 'API authentication failures, rate limit exhaustion, malformed requests, DDoS attacks',
         performance_ambiguities: 'concurrent request limits, data processing requirements, caching strategies',
         integration_questions: 'third-party API dependencies, database connection pooling, monitoring tools',
-        security_considerations: 'API key management, authentication token lifecycle, request validation',
-        ux_ambiguities: 'developer portal interface, API documentation format, error message clarity',
-        error_handling_scenarios: 'service degradation, database failures, authentication service outages',
-        accessibility_requirements: 'API documentation accessibility, screen reader support for developer portal',
-        business_rule_gaps: 'API pricing tiers, usage limits, subscription management, data retention',
-        data_validation_needs: 'request validation, response format validation, data sanitization',
-        workflow_complexities: 'API version management, deprecation strategies, backward compatibility',
-        undefined_metrics: 'API usage targets, error rate thresholds, performance benchmarks',
-        testing_requirements: 'contract testing, load testing, security testing, compatibility testing',
-        deployment_considerations: 'API gateway configuration, SSL certificate management, monitoring setup'
+        security_considerations: 'API key management, authentication token lifecycle, request validation'
       },
       taskListVars: {
         project_name: 'RESTful API Service',
@@ -1164,71 +994,48 @@ Constitutional Compliance:
       description: 'Cross-platform desktop application with native performance',
       icon: '💻',
       featureSpecVars: {
+        feature_name: 'Cross-Platform Desktop Application',
         feature_type: 'cross-platform desktop application',
-        primary_functionality: 'provide native desktop experience with offline capabilities and system integration',
-        key_features: 'cross-platform support, offline functionality, system notifications, file system access, hardware integration',
-        existing_systems: 'operating system APIs, local databases, cloud services, system utilities',
-        tech_stack: 'Electron or Tauri, native modules, system APIs',
-        compliance_requirements: 'platform-specific requirements, data privacy, security certifications',
-        performance_targets: '<2s app startup, <100ms UI response, minimal memory footprint',
-        user_action_1: 'install and run the application on their preferred operating system',
-        system_behavior_1: 'integrate with system features and provide seamless offline experience',
-        performance_metrics: 'efficient resource usage with native performance'
+        business_objective: 'provide native desktop experience with offline capabilities and system integration across multiple platforms',
+        user_scenarios: 'User: Install and run on preferred OS, Admin: Manage settings and updates, Developer: Extend with plugins and integrations',
+        core_capabilities: 'cross-platform support, offline functionality, system notifications, file system access, hardware integration, auto-updates',
+        requirements: '<2s app startup, <100ms UI response, minimal memory footprint, platform-specific requirements, data privacy compliance',
+        integration_context: 'operating system APIs, local databases, cloud services, system utilities, native modules, plugin architecture',
+        success_criteria: 'native performance on all platforms, seamless offline experience, user satisfaction >90%, efficient resource usage'
       },
       implementationPlanVars: {
         project_name: 'Cross-Platform Desktop Application',
-        tech_stack: 'Desktop application framework',
-        frontend_tech: 'React with TypeScript (Electron) or native UI (Tauri)',
-        backend_tech: 'Node.js backend or Rust core (Tauri)',
-        database_tech: 'SQLite for local storage, with cloud sync capabilities',
-        deployment_strategy: 'Platform-specific installers with auto-update',
-        component_1: 'System Integration Manager',
-        component_1_description: 'Handles OS-level features like notifications, files, and hardware',
-        component_2: 'Data Synchronization Service',
-        component_2_description: 'Manages offline data storage and cloud synchronization',
-        component_3: 'Auto-Update System',
-        component_3_description: 'Handles application updates and version management',
-        main_entities: 'User, Settings, LocalData, SyncRecord, UpdateLog',
-        entity_relationships: 'User-Settings (1:1), User-LocalData (1:N), User-SyncRecord (1:N)',
-        data_considerations: 'Local data encryption, sync conflict resolution, privacy',
-        api_endpoints: 'Local APIs for system integration and cloud sync endpoints',
-        auth_method: 'Local authentication with optional cloud account sync',
-        rate_limiting: 'Local API calls without rate limiting',
-        unit_test_coverage: '90% with platform-specific testing',
-        integration_test_coverage: 'All system integrations and file operations',
-        e2e_test_coverage: 'Cross-platform user workflows with automated UI testing'
+        technology_foundation: 'Electron/Tauri with React/TypeScript or Rust, SQLite local storage, cloud sync, platform-specific installers with auto-update',
+        component_architecture: 'System Integration Manager (notifications, files, hardware), Data Synchronization Service (offline storage, cloud sync), Auto-Update System (updates, version management) - each as standalone libraries with CLI interfaces',
+        data_model: 'User, Settings, LocalData, SyncRecord, UpdateLog entities with relationships: User-Settings (1:1), User-LocalData (1:N), User-SyncRecord (1:N). Focus on local data encryption and sync conflict resolution',
+        api_contract: 'Local APIs for system integration and cloud sync endpoints, local authentication with optional cloud account sync, secure local API communication',
+        testing_approach: '90% unit coverage with platform-specific testing, integration testing for all system integrations and file operations, E2E testing for cross-platform user workflows with automated UI testing',
+        deployment_strategy: 'Platform-specific installers with auto-update, CI/CD for multiple platforms, code signing, notarization, app store distribution if applicable'
       },
       constitutionVars: {
         project_type: 'cross-platform desktop application',
-        code_quality_requirements: 'Platform-specific standards, memory safety, 90% test coverage, native performance',
-        testing_standards: 'Unit testing, integration testing, UI automation, 90% coverage minimum',
-        performance_targets: '<2s startup time, <100ms UI response, minimal memory usage, native performance',
-        security_requirements: 'Local data encryption, secure updates, system integration security, code signing',
-        tech_stack_constraints: 'Electron or Tauri framework, TypeScript/Rust, SQLite, native modules',
-        architecture_principles: 'Cross-platform compatibility, native performance, offline-first, system integration',
-        documentation_standards: 'Platform-specific documentation, API documentation, setup guides',
-        deployment_requirements: 'Platform-specific installers, auto-update, code signing, distribution channels',
-        regulatory_compliance: 'Platform store requirements, data privacy, security certifications',
-        team_workflow: 'Cross-platform development, testing automation, release management',
-        review_processes: 'Code review, security review, performance review, platform compatibility testing',
-        success_metrics: '<2s startup, <100ms UI response, 99.9% stability, native performance feel'
+        code_quality_requirements: 'Platform-specific standards, memory safety, 90% test coverage, native performance, code linting',
+        testing_standards: 'Unit testing, integration testing, UI automation, 90% coverage minimum, platform compatibility testing',
+        performance_targets: '<2s startup time, <100ms UI response, minimal memory usage, native performance, battery efficiency',
+        security_requirements: 'Local data encryption, secure updates, system integration security, code signing, secure storage',
+        tech_stack_constraints: 'Electron or Tauri framework, TypeScript/Rust, SQLite, native modules, platform APIs',
+        architecture_principles: 'Cross-platform compatibility, native performance, offline-first, system integration, modular design',
+        documentation_standards: 'Platform-specific documentation, API documentation, setup guides, developer guides',
+        deployment_requirements: 'Platform-specific installers, auto-update, code signing, distribution channels, CI/CD automation',
+        regulatory_compliance: 'Platform store requirements, data privacy, security certifications, accessibility standards',
+        team_workflow: 'Cross-platform development, testing automation, release management, platform-specific expertise',
+        review_processes: 'Code review, security review, performance review, platform compatibility testing, UX review',
+        success_metrics: '<2s startup, <100ms UI response, 99.9% stability, native performance feel, user satisfaction'
       },
       clarifyVars: {
         specification_name: 'Cross-Platform Desktop Application Specification',
         specification_focus: 'system integration, offline capabilities, cross-platform compatibility, native features',
         specification_state: 'initial draft with cross-platform requirements identified',
-        missing_user_stories: 'system preferences integration, file association handling, system tray features',
-        unclear_features: 'hardware integration approach, system resource usage, update mechanism behavior',
-        edge_cases: 'low disk space scenarios, network connectivity loss, system sleep/resume handling',
-        performance_ambiguities: 'memory usage limits, CPU usage targets, battery optimization requirements',
-        integration_questions: 'system API dependencies, hardware integration requirements, cloud service dependencies',
-        security_considerations: 'local data encryption, secure update mechanism, system permission requirements',
-        ux_ambiguities: 'platform-specific UI adaptations, system integration patterns, offline mode indication',
-        error_handling_scenarios: 'system API failures, file system errors, update failures, network timeouts',
-        accessibility_requirements: 'platform accessibility APIs, screen reader support, keyboard navigation',
-        business_rule_gaps: 'update policies, data synchronization rules, user account management',
-        data_validation_needs: 'input validation, file system validation, data integrity checks',
-        workflow_complexities: 'background processing, system integration workflows, update management',
+        unclear_elements: 'hardware integration approach, system resource usage, update mechanism behavior, offline sync strategy, native performance targets, cross-platform UI consistency',
+        stakeholder_alignment: 'development team needs clear platform priorities, UX team needs design system requirements, operations needs deployment strategy',
+        technical_concerns: 'memory usage limits, CPU usage targets, battery optimization requirements, system API dependencies, hardware integration requirements',
+        validation_priorities: 'cross-platform testing, performance benchmarks, offline functionality testing, system integration testing, update mechanism testing',
+        refinement_focus: 'platform-specific capabilities, system integration patterns, offline-first architecture, native performance optimization',
         undefined_metrics: 'resource usage targets, user adoption goals, crash rate thresholds',
         testing_requirements: 'cross-platform testing, hardware integration testing, performance testing',
         deployment_considerations: 'platform-specific packaging, code signing, distribution channels, update strategy'
@@ -2542,11 +2349,7 @@ Constitutional Compliance:
               This transformative approach leverages AI to understand and implement complex specifications,
               making specifications executable artifacts rather than static documents.
             </p>
-            <div style={{ background: 'rgba(72, 187, 120, 0.1)', padding: '1.5rem', borderRadius: '12px', borderLeft: '4px solid #48bb78', marginTop: '1.5rem' }}>
-              <h4 style={{ color: '#48bb78', marginBottom: '1rem' }}>🌟 Rapid Adoption</h4>
-              <p><strong>SpecKit has achieved over 16,300 GitHub stars</strong>, making it one of the fastest-growing developer tools for specification-driven development.</p>
-            </div>
-
+            
             <div style={{ background: 'rgba(66, 153, 225, 0.1)', padding: '1.5rem', borderRadius: '12px', borderLeft: '4px solid #4299e1', marginTop: '1.5rem' }}>
               <h4 style={{ color: '#4299e1', marginBottom: '1rem' }}>🚀 Quick Start with SpecKit</h4>
               <p><strong>Install SpecKit instantly with uvx:</strong></p>
@@ -2584,55 +2387,9 @@ Constitutional Compliance:
             </div>
           </div>
 
-          <div className="card">
-            <h3>Multi-Agent Support</h3>
-            <p>SpecKit works seamlessly with your preferred AI assistant, providing flexibility for your development workflow:</p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
-              <div style={{ background: 'rgba(66, 153, 225, 0.1)', padding: '1rem', borderRadius: '8px', borderLeft: '3px solid #4299e1' }}>
-                <h4 style={{ color: '#4299e1', marginBottom: '0.5rem' }}>🤖 GitHub Copilot</h4>
-                <p style={{ fontSize: '0.9rem', margin: 0 }}>Native integration in VS Code with slash commands</p>
-              </div>
-              <div style={{ background: 'rgba(102, 126, 234, 0.1)', padding: '1rem', borderRadius: '8px', borderLeft: '3px solid #667eea' }}>
-                <h4 style={{ color: '#667eea', marginBottom: '0.5rem' }}>🎯 Claude Code</h4>
-                <p style={{ fontSize: '0.9rem', margin: 0 }}>Full support for Claude-based development workflows</p>
-              </div>
-              <div style={{ background: 'rgba(72, 187, 120, 0.1)', padding: '1rem', borderRadius: '8px', borderLeft: '3px solid #48bb78' }}>
-                <h4 style={{ color: '#48bb78', marginBottom: '0.5rem' }}>🔍 Gemini CLI</h4>
-                <p style={{ fontSize: '0.9rem', margin: 0 }}>Google AI assistant compatibility and support</p>
-              </div>
-              <div style={{ background: 'rgba(237, 137, 54, 0.1)', padding: '1rem', borderRadius: '8px', borderLeft: '3px solid #ed8936' }}>
-                <h4 style={{ color: '#ed8936', marginBottom: '0.5rem' }}>✨ Cursor</h4>
-                <p style={{ fontSize: '0.9rem', margin: 0 }}>Multi-model AI editor with full SpecKit integration</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="card">
-            <h3>Cross-Platform Support</h3>
-            <p>SpecKit provides native support for both major shell environments:</p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
-              <div style={{ background: 'rgba(0, 114, 198, 0.1)', padding: '1rem', borderRadius: '8px', borderLeft: '3px solid #0072c6' }}>
-                <h4 style={{ color: '#0072c6', marginBottom: '0.5rem' }}>💻 PowerShell</h4>
-                <p style={{ fontSize: '0.9rem', margin: 0 }}>Native Windows PowerShell support with full CLI functionality</p>
-              </div>
-              <div style={{ background: 'rgba(240, 101, 149, 0.1)', padding: '1rem', borderRadius: '8px', borderLeft: '3px solid #f06595' }}>
-                <h4 style={{ color: '#f06595', marginBottom: '0.5rem' }}>🐧 Bash</h4>
-                <p style={{ fontSize: '0.9rem', margin: 0 }}>Full bash shell support for Linux and macOS environments</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="card">
-            <h3>VS Code Integration</h3>
-            <p>SpecKit provides seamless integration with Visual Studio Code through powerful slash commands:</p>
-            <div style={{ background: 'rgba(66, 153, 225, 0.05)', padding: '1rem', borderRadius: '8px', marginTop: '1rem' }}>
-              <code style={{ display: 'block', padding: '0.5rem', background: '#2d3748', color: '#e2e8f0', borderRadius: '4px', marginBottom: '0.5rem' }}>/specify [feature description]</code>
-              <code style={{ display: 'block', padding: '0.5rem', background: '#2d3748', color: '#e2e8f0', borderRadius: '4px', marginBottom: '0.5rem' }}>/plan [technology choices]</code>
-              <code style={{ display: 'block', padding: '0.5rem', background: '#2d3748', color: '#e2e8f0', borderRadius: '4px', marginBottom: '0.5rem' }}>/tasks</code>
-              <code style={{ display: 'block', padding: '0.5rem', background: '#2d3748', color: '#e2e8f0', borderRadius: '4px' }}>/constitution</code>
-            </div>
-          </div>
-
+          
+          
+          
           <div className="card">
             <h3>The SDD Workflow</h3>
             <div className="progress-bar">
@@ -2932,6 +2689,16 @@ Outstanding Issues: [Blocking items]
                     </h5>
                     <p style={{ margin: 0, color: '#2d3748', lineHeight: '1.6' }}>{template.why}</p>
                   </div>
+
+                  {/* When to Change Your Constitution Section */}
+                  {template.whenToChange && (
+                    <div style={{ background: 'rgba(236, 72, 153, 0.1)', padding: '1rem', borderRadius: '8px', margin: '1rem 0' }}>
+                      <h5 style={{ color: '#ec4899', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        🔄 When to Change Your Constitution
+                      </h5>
+                      <p style={{ margin: 0, color: '#2d3748', lineHeight: '1.6', whiteSpace: 'pre-line' }}>{template.whenToChange}</p>
+                    </div>
+                  )}
 
                   {/* What to Do Next Section */}
                   <div style={{ background: 'rgba(237, 137, 54, 0.1)', padding: '1rem', borderRadius: '8px', margin: '1rem 0' }}>
@@ -3536,6 +3303,19 @@ project/
             <div style={{ background: 'rgba(72, 187, 120, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
               <h4 style={{ color: '#48bb78', marginBottom: '1rem' }}>🤔 Why This Template Matters</h4>
               <p style={{ textAlign: 'left', lineHeight: '1.8', margin: 0, color: '#2d3748' }}>The Constitution ensures your implementations follow Spec-Driven Development principles consistently. This checklist validates compliance with core tenets like library-first development, CLI accessibility, test-first implementation, and simplicity.</p>
+            </div>
+            <div style={{ background: 'rgba(236, 72, 153, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
+              <h4 style={{ color: '#ec4899', marginBottom: '1rem' }}>🔄 When to Change Your Constitution</h4>
+              <p style={{ textAlign: 'left', lineHeight: '1.8', margin: 0, color: '#2d3748' }}>Different constitutions should be used when applications have distinct:</p>
+              <ul style={{ textAlign: 'left', lineHeight: '1.8', paddingLeft: '1.5rem', margin: '0.5rem 0', color: '#2d3748' }}>
+                <li><strong>Purpose or Domain:</strong> Unique goals, like gaming vs. e-commerce, requiring specific principles</li>
+                <li><strong>Architecture:</strong> Different patterns, e.g., MVVM vs. Clean Architecture</li>
+                <li><strong>Technical Requirements:</strong> Varying APIs, libraries, or performance needs</li>
+                <li><strong>UI/UX Standards:</strong> Custom branding or design guidelines</li>
+                <li><strong>Team Practices:</strong> Unique coding standards, testing, or deployment processes</li>
+                <li><strong>Constraints:</strong> Specific device support, offline modes, or security needs</li>
+              </ul>
+              <p style={{ textAlign: 'left', lineHeight: '1.8', margin: '0.5rem 0 0 0', color: '#2d3748' }}>Use a new constitution per app unless they share identical conventions.</p>
             </div>
             <div style={{ background: 'rgba(102, 126, 234, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
               <h4 style={{ color: '#667eea', marginBottom: '1rem' }}>🎯 What to Do Next</h4>

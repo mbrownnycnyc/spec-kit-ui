@@ -1,10 +1,15 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance for AI assistants when working with code in this repository.
 
 ## Project Overview
 
-This repository contains documentation for **Spec-Driven Development (SDD)**, a methodology that inverts the traditional software development workflow. Instead of specifications serving code, code serves specifications. The single-file documentation (`spec-driven.md`) provides the complete methodology description, principles, implementation approaches, and tools.
+This repository contains both documentation and a React UI implementation for **Spec-Driven Development (SDD)**, a methodology that inverts the traditional software development workflow. Instead of specifications serving code, code serves specifications.
+
+**Repository Structure:**
+- `spec-driven.md` - Complete methodology documentation
+- `spec-kit-ui/` - React-based web interface for learning and implementing SDD
+- The UI provides interactive prompt generators, tutorials, and templates for SDD workflows
 
 ## Key Concepts
 
@@ -36,12 +41,24 @@ The methodology provides three powerful commands:
 
 ## Working with This Repository
 
-Since this is a documentation-only repository focused on the SDD methodology:
+This repository contains both SDD methodology documentation and a React UI implementation:
 
+### Documentation Work
 - The main artifact is `spec-driven.md` which contains the complete methodology
-- No traditional build commands or package management exists
-- The repository serves as a reference and template for implementing SDD in other projects
-- When applying SDD to actual projects, you would use the described commands and templates
+- Use this as a reference for understanding SDD principles and implementation approaches
+- The documentation serves as a template for implementing SDD in other projects
+
+### React UI Development
+- The UI is in the `spec-kit-ui/` subdirectory
+- **Development**: `cd spec-kit-ui && npm run dev`
+- **Build**: `cd spec-kit-ui && npm run build`
+- **Lint**: `cd spec-kit-ui && npm run lint`
+- The UI provides interactive prompt generators for SDD workflows
+
+### Important Notes
+- **Never reference "claude" in commits or PRs**
+- Focus on the SDD methodology and user benefits
+- Maintain the educational and practical value of the UI components
 
 ## Template Structure
 
@@ -51,6 +68,15 @@ The methodology relies on structured templates that:
 - **Force Explicit Uncertainty Markers**: Use `[NEEDS CLARIFICATION]` for ambiguities
 - **Enforce Constitutional Compliance**: Phase gates check architectural principles
 - **Maintain Hierarchical Detail**: Keep high-level plans readable, extract complexity to separate files
+
+### Recent Template Optimizations
+The React UI prompt generators have been optimized for efficiency and effectiveness:
+
+- **Specification Template**: Reduced from 43 to 8 variables (-81% reduction)
+- **Implementation Plan Template**: Reduced from 19 to 7 variables (-63% reduction)
+- **Clarification Template**: Reduced from 17 to 7 variables (-59% reduction)
+
+These optimizations focus on natural language expression over rigid forms, reducing cognitive load while improving prompt quality.
 
 ## Architecture Focus
 
