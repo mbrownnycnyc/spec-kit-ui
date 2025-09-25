@@ -2626,13 +2626,20 @@ ${'```'}`,
           <div className="card">
             <h3>Spec-ear-fier</h3>
             <p>Capture your thoughts naturally through speech and transform them into structured specifications.</p>
-
+              <div style={{ background: 'rgba(99, 102, 241, 0.1)', padding: '1rem', borderRadius: '8px', marginTop: '1rem' }}>
+                <p style={{ margin: 0, fontSize: '0.9rem', fontStyle: 'italic', color: '#000000' }}>
+                  "Spec-ear-fier gave me the entry point to spec-kit that I didn't know I needed.  It was like a giant, red easy button from Staples in the early aughts (one you might sit on like a comfy couch) that's allowed me to take my waking nightmare of an idea to a concrete money making machine.  Thanks Sam Altman!" - Matt Brown
+                </p>
+              </div>
             <div style={{ background: 'rgba(72, 187, 120, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
               <h4 style={{ color: '#48bb78', marginBottom: '1rem' }}>🎯 How to Use This Tool</h4>
               <p style={{ marginBottom: '1rem', lineHeight: '1.6' }}>
                 <strong>Spec-ear-fier</strong> is your digital thinking partner for capturing the free formation of ideas.
                 It's designed for the messy, iterative process of problem-solving where your best insights emerge
-                through natural expression rather than structured forms.
+                through natural expression rather than structured forms. 
+              </p>
+              <p style={{ marginBottom: '1rem', lineHeight: '1.6' }}>
+              <strong>Just talk</strong> and let Spec-ear-fier do the rest.
               </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginTop: '1.5rem' }}>
@@ -2686,13 +2693,13 @@ ${'```'}`,
               <div style={{ background: 'rgba(99, 102, 241, 0.1)', padding: '1rem', borderRadius: '8px', marginTop: '1rem' }}>
                 <p style={{ margin: 0, fontSize: '0.9rem', fontStyle: 'italic', color: '#000000' }}>
                   "The best specifications emerge from the messy process of thinking through problems out loud.
-                  Spec-ear-fier captures that creative energy and transforms it into structured precision."
+                  Spec-ear-fier captures that creative energy and transforms it into structured precision." - a person from thispersondoesnotexist.com
                 </p>
               </div>
             </div>
 
             <div style={{ background: 'rgba(237, 137, 54, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
-              <h4 style={{ color: '#ed8936', marginBottom: '1rem' }}>🎙️ Speech to Text</h4>
+              <h4 style={{ color: '#ed8936', marginBottom: '1rem' }}>🎙️ Rick Rubin Machine</h4>
 
               {/* Browser Compatibility Warning */}
               {!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) && (
@@ -2752,7 +2759,7 @@ ${'```'}`,
               {/* Text Output */}
               <div style={{ marginBottom: '1rem' }}>
                 <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: '#2d3748' }}>
-                  Transcript:
+                  It's The Word... It's The Word... It's The Word... It's The Word...
                   {isRecording && (
                     <span style={{
                       marginLeft: '0.5rem',
@@ -2767,7 +2774,7 @@ ${'```'}`,
                 <textarea
                   value={transcript}
                   onChange={(e) => setTranscript(e.target.value)}
-                  placeholder="Your speech will appear here as text..."
+                  placeholder="Your words will appear here as words..."
                   style={{
                     width: '100%',
                     minHeight: '300px',
