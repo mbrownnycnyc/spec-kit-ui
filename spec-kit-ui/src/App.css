@@ -14,6 +14,23 @@ body {
   min-height: 100vh;
 }
 
+/* Pulse animation for visual feedback */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+/* Smooth transitions for interactive elements */
+textarea {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -396,6 +413,300 @@ nav {
 
 .card p {
   color: #4a5568;
+}
+
+/* Dark Theme Styles */
+body.dark-theme {
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+}
+
+body.dark-theme .container {
+  color: #e2e8f0;
+}
+
+body.dark-theme header {
+  background: rgba(45, 55, 72, 0.95);
+  color: #e2e8f0;
+}
+
+body.dark-theme h1 {
+  color: #e2e8f0;
+}
+
+body.dark-theme .subtitle {
+  color: #a0aec0;
+}
+
+body.dark-theme .nav-button {
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+  color: white;
+}
+
+body.dark-theme .nav-button:hover {
+  box-shadow: 0 6px 20px rgba(66, 153, 225, 0.4);
+}
+
+body.dark-theme .nav-button.active {
+  background: linear-gradient(135deg, #2b6cb0 0%, #2c5282 100%);
+}
+
+body.dark-theme .content-section {
+  background: rgba(45, 55, 72, 0.95);
+  color: #e2e8f0;
+}
+
+body.dark-theme .card {
+  background: rgba(26, 32, 44, 0.8);
+  border: 1px solid rgba(74, 85, 104, 0.3);
+}
+
+body.dark-theme .card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .card h3 {
+  color: #e2e8f0;
+}
+
+body.dark-theme .card h4,
+body.dark-theme .card h5 {
+  color: #e2e8f0;
+}
+
+body.dark-theme .card p {
+  color: #cbd5e0;
+}
+
+body.dark-theme .btn {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  color: white;
+}
+
+body.dark-theme .btn-secondary {
+  background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+}
+
+body.dark-theme .form-group label {
+  color: #e2e8f0;
+}
+
+body.dark-theme .form-group input,
+body.dark-theme .form-group textarea,
+body.dark-theme .form-group select {
+  background: #2d3748;
+  border-color: #4a5568;
+  color: #e2e8f0;
+}
+
+body.dark-theme .form-group input:focus,
+body.dark-theme .form-group textarea:focus,
+body.dark-theme .form-group select:focus {
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+body.dark-theme .example-code {
+  background: #1a202c;
+  color: #e2e8f0;
+}
+
+body.dark-theme .example-code code {
+  color: #e2e8f0;
+}
+
+body.dark-theme .prompt-output {
+  background: #2d3748;
+  border-color: #4a5568;
+  color: #e2e8f0;
+}
+
+body.dark-theme .step {
+  background: rgba(66, 153, 225, 0.1);
+  border-left-color: #4299e1;
+}
+
+body.dark-theme .step-content h4 {
+  color: #e2e8f0;
+}
+
+body.dark-theme .step-content p {
+  color: #cbd5e0;
+}
+
+body.dark-theme .text-dark,
+body.dark-theme .text-dark li,
+body.dark-theme .text-dark p,
+body.dark-theme .text-dark strong {
+  color: #e2e8f0 !important;
+}
+
+/* Dark theme toggle button */
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Dark theme specific toggle styles */
+body.dark-theme .theme-toggle {
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+}
+
+/* Additional dark theme fixes for components */
+body.dark-theme .markdown-content {
+  color: #e2e8f0;
+}
+
+body.dark-theme .markdown-content p,
+body.dark-theme .markdown-content li,
+body.dark-theme .markdown-content h3,
+body.dark-theme .markdown-content h4,
+body.dark-theme .markdown-content h5 {
+  color: #e2e8f0 !important;
+}
+
+body.dark-theme .tutorial-header {
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+}
+
+body.dark-theme .tutorial-content {
+  background: #2d3748;
+  color: #e2e8f0;
+}
+
+body.dark-theme .video-placeholder {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+body.dark-theme .diagram-container {
+  background: rgba(66, 153, 225, 0.1);
+  border-color: rgba(66, 153, 225, 0.3);
+}
+
+body.dark-theme .diagram-step {
+  background: #2d3748;
+  border-color: #4299e1;
+  color: #4299e1;
+}
+
+body.dark-theme .case-study-container {
+  background: rgba(66, 153, 225, 0.1);
+  border-color: rgba(66, 153, 225, 0.3);
+}
+
+body.dark-theme .case-study-section h5 {
+  color: #4299e1;
+}
+
+body.dark-theme .case-study-outcomes li {
+  color: #48bb78;
+}
+
+body.dark-theme .stat-card {
+  background: rgba(26, 32, 44, 0.8);
+  border: 1px solid rgba(74, 85, 104, 0.3);
+}
+
+body.dark-theme .stat-label {
+  color: #a0aec0;
+}
+
+body.dark-theme .community-tab {
+  background: #4a5568;
+  color: #e2e8f0;
+}
+
+body.dark-theme .community-tab.active {
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+}
+
+body.dark-theme .community-tab:hover:not(.active) {
+  background: #718096;
+}
+
+body.dark-theme .post-card {
+  background: rgba(26, 32, 44, 0.8);
+  border: 1px solid rgba(74, 85, 104, 0.3);
+}
+
+body.dark-theme .post-title {
+  color: #e2e8f0;
+}
+
+body.dark-theme .post-info {
+  color: #a0aec0;
+}
+
+body.dark-theme .action-button {
+  background: #4a5568;
+  color: #e2e8f0;
+}
+
+body.dark-theme .action-button:hover {
+  background: #718096;
+}
+
+body.dark-theme .tag {
+  background: rgba(66, 153, 225, 0.2);
+  color: #4299e1;
+}
+
+body.dark-theme .modal-text-fix {
+  color: #e2e8f0 !important;
+}
+
+body.dark-theme div[style*="background: white"] {
+  background: #2d3748 !important;
+}
+
+body.dark-theme div[style*="background: white"] h2,
+body.dark-theme div[style*="background: white"] p,
+body.dark-theme div[style*="background: white"] label {
+  color: #e2e8f0 !important;
+}
+
+/* Dark theme for form elements */
+body.dark-theme .variable-input label {
+  color: #e2e8f0 !important;
+}
+
+body.dark-theme .variable-input input {
+  background: #2d3748;
+  border-color: #4a5568;
+  color: #e2e8f0;
+}
+
+body.dark-theme .help-text {
+  color: #a0aec0 !important;
+}
+
+/* Dark theme for step-by-step journey */
+body.dark-theme .step-number {
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+  color: white;
 }
 
 /* Interactive Learning Modules text color fixes */
