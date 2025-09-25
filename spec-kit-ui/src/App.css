@@ -731,7 +731,7 @@ body.dark-theme .card .step-content h6 {
 }
 
 /* Override inline styles for specific elements in dark mode */
-body.dark-theme h5[style*="color: '#667eea'"] {
+body.dark-theme .step-content h5[style*="color: '#667eea'"] {
   color: #cbd5e0 !important;
 }
 body.dark-theme .card .step-content p,
