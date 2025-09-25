@@ -225,7 +225,8 @@ function App() {
     {
       name: 'Constitution',
       description: 'Create project governance principles and development guidelines',
-      why: 'A constitution serves as the foundation for all development decisions, ensuring consistent quality, testing standards, and adherence to SDD principles throughout the project lifecycle.',
+      why: 'The constitution serves as the foundation for all development decisions, ensuring consistent quality, testing standards, and adherence to SDD principles.',
+      what: 'Create a comprehensive constitution with principles focused on code quality, testing standards, user experience consistency, and performance requirements.',
       whenToChange: 'Different constitutions should be used when the target has distinct:\n\u00A0\u00A0\u00A0\u00A0• Purpose or Domain: Unique goals, like gaming vs. e-commerce, requiring specific principles.\n\u00A0\u00A0\u00A0\u00A0• Architecture: Different patterns, e.g., MVVM vs. Clean Architecture.\n\u00A0\u00A0\u00A0\u00A0• Technical Requirements: Varying APIs, libraries, or performance needs.\n\u00A0\u00A0\u00A0\u00A0• UI/UX Standards: Custom branding or design guidelines.\n\u00A0\u00A0\u00A0\u00A0• Team Practices: Unique coding standards, testing, or deployment processes.\n\u00A0\u00A0\u00A0\u00A0• Constraints: Specific device support, offline modes, or security needs.\n\nRule: Use a new constitution per app unless they share identical conventions.',
       whatToDoNext: '1. Fill out the below Template Variables to Complete or leverage the Quick Start Templates above.\n2. Click Generate Prompt and scroll to "Generated Prompt" section.\n3. Execute the prompt prepending with `/constitution`\n4. Update as needed: Revise your constitution as project requirements evolve while maintaining core principles',
       template: `/constitution Create a comprehensive constitution for the {project_type} project that will govern all development activities and ensure constitutional compliance.
@@ -275,7 +276,8 @@ This constitution will guide all technical decisions, ensure consistency across 
     {
       name: 'Specification',
       description: 'Generate a complete feature specification',
-      why: 'Feature specifications capture user requirements, business logic, and acceptance criteria in a structured format. They serve as the foundation for technical planning and ensure all stakeholders have a shared understanding of what needs to be built.',
+      why: 'Specifications are the foundation of SDD. They serve as the primary artifact that guides all development activities, ensuring clarity and completeness before any code is written.',
+      what: 'Create a comprehensive Product Requirements Document (PRD) that includes user stories, acceptance criteria, technical constraints, and success metrics.',
       whatToDoNext: '1. Fill out the below Template Variables to Complete or leverage the Quick Start Templates above.\n2. Click Generate Prompt and scroll to "Generated Prompt" section.\n3. Execute the prompt prepending with `/specify`\n4. Update as needed: Revise your specification as requirements evolve while ensuring constitutional compliance',
       template: `Create a comprehensive feature specification for {feature_type} that will serve as the foundation for implementation.
 
@@ -359,7 +361,8 @@ This specification will guide the technical planning and implementation phases w
     {
       name: 'Clarification',
       description: 'Refine specifications and resolve ambiguities before technical planning',
-      why: 'Clarification reduces rework downstream by ensuring all requirements are well-understood before technical decisions are made. It identifies underspecified areas and resolves conflicts early in the process.',
+      why: 'Clarification reduces rework downstream by ensuring all requirements are well-understood before technical decisions are made.',
+      what: 'Go through the specification systematically, asking questions to identify missing details, conflicting requirements, or unclear functionality.',
       whatToDoNext: '1. Fill out the below Template Variables to Complete or leverage the Quick Start Templates above.\n2. Click Generate Prompt and scroll to "Generated Prompt" section.\n3. Execute the prompt prepending with `/clarify`\n4. Update as needed: Refine your clarification questions as new requirements or ambiguities emerge during specification',
       template: `Review the following specification for {specification_name} and identify areas that need clarification or additional detail.
 
@@ -422,7 +425,8 @@ Please provide specific questions and recommendations for each identified area t
     {
       name: 'Implementation Plan',
       description: 'Create detailed technical implementation plan from specifications',
-      why: 'Implementation plans bridge the gap between specification and code. They provide technical guidance, architecture decisions, and a clear roadmap for developers while ensuring constitutional compliance throughout the development process.',
+      why: 'A solid technical plan ensures architectural consistency, identifies potential challenges early, and provides a roadmap for implementation.',
+      what: 'Create a comprehensive technical plan including technology stack, architecture decisions, data models, API contracts, testing strategy, and deployment approach.',
       whatToDoNext: '1. Fill out the below Template Variables to Complete or leverage the Quick Start Templates above.\n2. Click Generate Prompt and scroll to "Generated Prompt" section.\n3. Execute the prompt prepending with `/plan`\n4. Update as needed: Adjust your implementation plan as technical requirements or architectural decisions evolve',
       template: `Create a comprehensive implementation plan for {project_name} that aligns with SDD constitutional principles.
 
@@ -537,29 +541,25 @@ ${'```'}`,
     {
       name: 'Task List',
       description: 'Generate executable task lists from implementation plans',
-      why: 'Task lists break down implementation plans into concrete, actionable tasks that developers can execute. They provide clear prioritization, dependencies, and acceptance criteria for each task while ensuring constitutional compliance throughout development.',
-      whatToDoNext: '1. Execute ```/tasks``` to generate detailed, executable task lists from your implementation plan\n2. Review generated tasks: The AI will create prioritized tasks with dependencies and acceptance criteria\n3. Execute tasks systematically: Follow the constitutional mandate with test-first development\n4. Track progress: Use the task list to monitor development progress and ensure compliance',
-      templateInstructions: 'Templates aren\'t relevant to this slash command. `/task` is the only invocation of the slash command. ',
-      template: `Templates aren't relevant to this slash command`,
+      why: 'Task generation transforms high-level plans into manageable work items, making progress trackable and ensuring nothing is missed during implementation.',
+      what: 'Generate a prioritized list of executable tasks with dependencies, time estimates, and clear acceptance criteria for each work item.',
+      whatToDoNext: '1. Execute the prompt `/tasks` to generate tasks.\n2. Update as needed: Refine your task list as implementation requirements evolve or new dependencies emerge',
       variables: []
     },
     {
       name: 'Analysis',
       description: 'Analyze code quality, architecture, and constitutional compliance',
       why: 'Analysis ensures that implemented code meets quality standards, follows architectural best practices, and complies with constitutional requirements. It provides insights into code health, performance, and areas for improvement.',
-      whatToDoNext: '1. Execute ```/analyze``` to perform comprehensive code analysis and cross-artifact consistency checks\n2. Review analysis results: The AI will provide detailed insights into code quality and compliance\n3. Address identified issues: Fix any constitutional violations or quality concerns\n4. Iterate and improve: Use analysis feedback to continuously improve code quality',
-      templateInstructions: 'Templates aren\'t relevant to this slash command. `/analyze` is the only invocation of the slash command. ',
-      template: `Templates aren't relevant to this slash command`,
+      whatToDoNext: '1. Execute the prompt `/analyze` to perform analysis.\n2. Update as needed: Refine your analysis approach based on findings or changing requirements',
       variables: []
     },
     {
       name: 'Implementation',
       description: 'Execute the implementation phase with constitutional compliance',
-      why: 'Implementation is where specifications and plans become working code. Following constitutional principles during implementation ensures that the resulting system is modular, testable, maintainable, and aligned with SDD methodology.',
-      whatToDoNext: '1. Execute ```/implement``` to start the implementation phase and execute all tasks\n2. Follow constitutional principles: Implement with test-first development, library-first approach\n3. Validate compliance: Use ```/constitution check``` throughout implementation\n4. Iterate and improve: Continuously refine implementation based on feedback',
-      templateInstructions: 'Templates aren\'t relevant to this slash command. `/implement` is the only invocation of the slash command. ',
-      template: `Templates aren't relevant to this slash command`,
-      variables: []
+      why: 'Following constitutional principles ensures high-quality, maintainable code that emphasizes simplicity, testability, and integration-first development.',
+      what: 'Execute all tasks from tasks.md in the correct order, respecting dependencies and parallel execution markers. Follow TDD approach and constitutional compliance.',
+      whatToDoNext: '1. Execute the prompt `/implement` to start implementation.\n2. Update as needed: Refine your implementation approach based on testing results or evolving requirements',
+        variables: []
     }
   ]
 
@@ -2319,7 +2319,7 @@ ${'```'}`,
   return (
     <div className="container">
       <header>
-        <h1>Spec-Driven Development Toolkit</h1>
+        <h1>Spec Kit UI</h1>
         <p className="subtitle">Master the art of specification-first software development</p>
 
         <nav>
@@ -2387,149 +2387,31 @@ ${'```'}`,
             </div>
           </div>
 
-          
-          
-          
+  
           <div className="card">
-            <h3>The SDD Workflow</h3>
-            <div className="progress-bar">
-              <div className="progress-fill" style={{ width: `${tutorialProgress}%` }}></div>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '2rem' }}>
-              <span>{tutorialProgress}% Complete</span>
-            </div>
-            {sddSteps.map((step, index) => (
-              <div key={index} className="step" style={{ marginBottom: '2rem', border: completedSteps[index] ? '2px solid #48bb78' : '2px solid #e2e8f0', borderRadius: '12px', overflow: 'hidden' }}>
-                <div className="step-number" style={{ background: completedSteps[index] ? 'linear-gradient(135deg, #48bb78 0%, #38a169 100%)' : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
-                  {completedSteps[index] ? '✓' : index + 1}
-                </div>
-                <div className="step-content">
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
-                    <div>
-                      <h4 style={{ color: completedSteps[index] ? '#48bb78' : '#2d3748' }}>{step.title}</h4>
-                      <p>{step.description}</p>
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                      <button
-                        className="btn"
-                        onClick={() => completeWorkflowStep(index)}
-                        disabled={completedSteps[index]}
-                        style={{
-                          background: completedSteps[index] ? 'linear-gradient(135deg, #48bb78 0%, #38a169 100%)' : 'linear-gradient(135deg, #4299e1 0%, #3182ce 100%)',
-                          opacity: completedSteps[index] ? 0.7 : 1,
-                          cursor: completedSteps[index] ? 'not-allowed' : 'pointer'
-                        }}
-                      >
-                        {completedSteps[index] ? 'Completed ✓' : 'Complete Step'}
-                      </button>
-                      <button
-                        className="btn-secondary"
-                        onClick={() => toggleStepDetails(index)}
-                        style={{ fontSize: '0.8rem', padding: '0.5rem 1rem' }}
-                      >
-                        {expandedStep === index ? 'Hide Details' : 'Show Details'}
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="example-code">{step.command}</div>
-
-                  {expandedStep === index && (
-                    <div style={{ marginTop: '1.5rem', padding: '1.5rem', background: 'rgba(102, 126, 234, 0.05)', borderRadius: '8px', borderLeft: '4px solid #667eea' }}>
-                      <div style={{ marginBottom: '1.5rem' }}>
-                        <h5 style={{ color: '#667eea', marginBottom: '0.5rem' }}>🤔 Why This Step Matters</h5>
-                        <p style={{ lineHeight: '1.6', margin: 0 }}>{step.why}</p>
-                      </div>
-
-                      <div style={{ marginBottom: '1.5rem' }}>
-                        <h5 style={{ color: '#48bb78', marginBottom: '0.5rem' }}>🎯 What You\'ll Accomplish</h5>
-                        <p style={{ lineHeight: '1.6', margin: 0 }}>{step.what}</p>
-                      </div>
-
-                      <div style={{ marginBottom: '1.5rem' }}>
-                        <h5 style={{ color: '#ed8936', marginBottom: '0.5rem' }}>📋 Scope & Execution</h5>
-                        <p style={{ lineHeight: '1.6', margin: 0 }}>{step.scope}</p>
-                      </div>
-
-                      <div>
-                        <h5 style={{ color: '#8052d3', marginBottom: '0.5rem' }}>💡 Practical Examples</h5>
-                        <ul style={{ textAlign: 'left', lineHeight: '1.8', margin: 0, paddingLeft: '1.5rem', color: '#2d3748' }}>
-                          {step.examples.map((example, exampleIndex) => (
-                            <li key={exampleIndex} style={{ marginBottom: '0.5rem', color: '#2d3748' }}>{example}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="card">
-            <h3>Best Practices for Context Window Size Control and Start-and-Resume</h3>
+            <h3>Leverage Google Gemini CLI for Large Context Work</h3>
             <div className="step">
               <div className="step-content">
+                <div style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
+                  <img src="gemini-cli-image.png" alt="Google Gemini CLI Large Context Window" style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px', marginBottom: '1rem' }} />
+                </div>
                 <div style={{ marginBottom: '1.5rem' }}>
-                  <h5 style={{ color: '#667eea', marginBottom: '0.5rem' }}>📏 Context Window Management</h5>
-                  <p style={{ lineHeight: '1.6', margin: 0 }}>Effective context window management is crucial for maintaining conversation continuity and ensuring comprehensive analysis.</p>
+                  <h5 style={{ color: '#667eea', marginBottom: '0.5rem' }}>🚀 Why Gemini CLI for Spec-Driven Development</h5>
+                  <p style={{ lineHeight: '1.6', margin: 0 }}>Google Gemini CLI's massive context window (up to 1M tokens) enables comprehensive analysis of entire projects, making it ideal for context-intensive spec-kit workflows and slash commands.</p>
                 </div>
 
                 <div style={{ marginBottom: '1.5rem' }}>
-                  <h5 style={{ color: '#48bb78', marginBottom: '0.5rem' }}>🎯 Key Strategies</h5>
+                  <h5 style={{ color: '#48bb78', marginBottom: '0.5rem' }}>🎯 Context Window Intensive Work</h5>
                   <ul style={{ textAlign: 'left', lineHeight: '1.8', margin: 0, paddingLeft: '1.5rem', color: '#2d3748' }}>
-                    <li style={{ marginBottom: '0.5rem', color: '#2d3748' }}><strong>Strategic Summarization:</strong> Condense previous conversations while preserving critical decisions and context</li>
-                    <li style={{ marginBottom: '0.5rem', color: '#2d3748' }}><strong>Hierarchical Organization:</strong> Structure information with clear headers, bullet points, and prioritized details</li>
-                    <li style={{ marginBottom: '0.5rem', color: '#2d3748' }}><strong>Progressive Elaboration:</strong> Start with high-level overviews, then drill into specifics as needed</li>
-                    <li style={{ marginBottom: '0.5rem', color: '#2d3748' }}><strong>Context Pruning:</strong> Remove redundant or less relevant information while preserving essential context</li>
+                    <li style={{ marginBottom: '0.5rem', color: '#2d3748' }}><strong>Complete Constitution Analysis:</strong> Process full constitutional documents with all principles, guidelines, and compliance requirements simultaneously</li>
+                    <li style={{ marginBottom: '0.5rem', color: '#2d3748' }}><strong>Comprehensive Specification Processing:</strong> Handle entire PRDs with user stories, acceptance criteria, technical constraints, and success metrics in single context</li>
+                    <li style={{ marginBottom: '0.5rem', color: '#2d3748' }}><strong>Full Implementation Planning:</strong> Analyze complete technical architectures, data models, API contracts, testing strategies, and deployment approaches together</li>
+                    <li style={{ marginBottom: '0.5rem', color: '#2d3748' }}><strong>Cross-Artifact Validation:</strong> Compare specifications, implementation code, and constitutional requirements across entire project scope</li>
+                    <li style={{ marginBottom: '0.5rem', color: '#2d3748' }}><strong>Research Integration:</strong> Incorporate multiple research sources, findings, and technical documentation into unified development context</li>
                   </ul>
                 </div>
 
-                <div style={{ marginBottom: '1.5rem' }}>
-                  <h5 style={{ color: '#ed8936', marginBottom: '0.5rem' }}>🔄 Start-and-Resume Techniques</h5>
-                  <div className="example-code">{`// Effective session resumption pattern
-/session-status
-Previous work: [brief description]
-Last completed: [specific task]
-Current context: [key points]
-Next steps: [immediate priorities]
-
-Context preservation strategies:
-• Summarize key decisions and outcomes
-• Maintain links to important artifacts
-• Preserve configuration and environment details
-• Track unresolved questions and action items`}</div>
                 </div>
-
-                <div style={{ marginBottom: '1.5rem' }}>
-                  <h5 style={{ color: '#8052d3', marginBottom: '0.5rem' }}>💡 Practical Implementation</h5>
-                  <div className="example-code">{`// Context window optimization example
-/project-context
-Project: [Project Name]
-Phase: [Current Phase]
-Constitution: [Key principles]
-Specifications: [Brief descriptions]
-Implementation Status: [Progress summary]
-Key Decisions: [Critical choices made]
-Outstanding Issues: [Blocking items]
-
-// Session management commands
-/context-save [session-name]
-/context-load [session-name]
-/context-summary
-/next-steps`}</div>
-                </div>
-
-                <div>
-                  <h5 style={{ color: '#e53e3e', marginBottom: '0.5rem' }}>⚠️ Common Pitfalls to Avoid</h5>
-                  <ul style={{ textAlign: 'left', lineHeight: '1.8', margin: 0, paddingLeft: '1.5rem', color: '#2d3748' }}>
-                    <li style={{ marginBottom: '0.5rem', color: '#2d3748' }}><strong>Information Overload:</strong> Including excessive detail that obscures key points</li>
-                    <li style={{ marginBottom: '0.5rem', color: '#2d3748' }}><strong>Context Loss:</strong> Failing to preserve critical background information</li>
-                    <li style={{ marginBottom: '0.5rem', color: '#2d3748' }}><strong>Poor Organization:</strong> Presenting information without clear structure or hierarchy</li>
-                    <li style={{ marginBottom: '0.5rem', color: '#2d3748' }}><strong>Inconsistent Summarization:</strong> Varying levels of detail that make context hard to follow</li>
-                  </ul>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -2708,64 +2590,68 @@ Outstanding Issues: [Blocking items]
                     <p style={{ margin: 0, color: '#2d3748', lineHeight: '1.6', whiteSpace: 'pre-line' }}>{template.whatToDoNext}</p>
                   </div>
 
-                  <div style={{ background: 'rgba(255, 255, 255, 0.8)', padding: '1rem', borderRadius: '8px', margin: '1rem 0', border: '1px solid #e2e8f0' }}>
-                    <h5 style={{ marginBottom: '1rem' }}>📝 Template Instructions:</h5>
-                    {template.templateInstructions ? (
-                      <p style={{ fontSize: '0.9rem', color: '#4a5568', marginBottom: '1rem', whiteSpace: 'pre-line' }}>
-                        {template.templateInstructions}
-                      </p>
-                    ) : (
-                      <>
-                        <p style={{ fontSize: '0.9rem', color: '#4a5568', marginBottom: '1rem' }}>
-                          Fill in all the variables below to customize your template. Each placeholder will be replaced with your specific information.
+                  {template.variables.length > 0 && (
+                    <div style={{ background: 'rgba(255, 255, 255, 0.8)', padding: '1rem', borderRadius: '8px', margin: '1rem 0', border: '1px solid #e2e8f0' }}>
+                      <h5 style={{ marginBottom: '1rem' }}>📝 Template Instructions:</h5>
+                      {template.templateInstructions ? (
+                        <p style={{ fontSize: '0.9rem', color: '#4a5568', marginBottom: '1rem', whiteSpace: 'pre-line' }}>
+                          {template.templateInstructions}
                         </p>
+                      ) : (
+                        <>
+                          <p style={{ fontSize: '0.9rem', color: '#4a5568', marginBottom: '1rem' }}>
+                            Fill in all the variables below to customize your template. Each placeholder will be replaced with your specific information.
+                          </p>
 
-                        <h5>Variables to Complete:</h5>
-                        {template.variables.map((variable, varIndex) => (
-                          <div key={varIndex} className="variable-input">
-                            <label>{variable.label}:</label>
-                            <input
-                              type="text"
-                              placeholder={variable.placeholder}
-                              value={promptVariables[`${templateIndex}_${variable.key}`] || ''}
-                              onChange={(e) => handleVariableChange(templateIndex, variable.key, e.target.value)}
-                            />
-                          </div>
-                        ))}
-                      </>
-                    )}
-                  </div>
+                          <h5>Variables to Complete:</h5>
+                          {template.variables.map((variable, varIndex) => (
+                            <div key={varIndex} className="variable-input">
+                              <label>{variable.label}:</label>
+                              <input
+                                type="text"
+                                placeholder={variable.placeholder}
+                                value={promptVariables[`${templateIndex}_${variable.key}`] || ''}
+                                onChange={(e) => handleVariableChange(templateIndex, variable.key, e.target.value)}
+                              />
+                            </div>
+                          ))}
+                        </>
+                      )}
+                    </div>
+                  )}
 
-                  <button
-                    className="btn"
-                    onClick={() => generatePrompt(templateIndex)}
-                    disabled={generatingPrompt}
-                    style={{
-                      position: 'relative',
-                      minWidth: '140px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.5rem',
-                      justifyContent: 'center'
-                    }}
-                  >
-                    {generatingPrompt ? (
-                      <>
-                        <span>⏳</span>
-                        <span>Generating...</span>
-                      </>
-                    ) : generateSuccess ? (
-                      <>
-                        <span>✅</span>
-                        <span>Generated!</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>🚀</span>
-                        <span>Generate Prompt</span>
-                      </>
-                    )}
-                  </button>
+                  {template.variables.length > 0 && (
+                    <button
+                      className="btn"
+                      onClick={() => generatePrompt(templateIndex)}
+                      disabled={generatingPrompt}
+                      style={{
+                        position: 'relative',
+                        minWidth: '140px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        justifyContent: 'center'
+                      }}
+                    >
+                      {generatingPrompt ? (
+                        <>
+                          <span>⏳</span>
+                          <span>Generating...</span>
+                        </>
+                      ) : generateSuccess ? (
+                        <>
+                          <span>✅</span>
+                          <span>Generated!</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>🚀</span>
+                          <span>Generate Prompt</span>
+                        </>
+                      )}
+                    </button>
+                  )}
                 </div>
               )}
             </div>
