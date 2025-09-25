@@ -206,7 +206,7 @@ nav {
 }
 
 .prompt-output {
-  background: #f7fafc;
+  background: #edf2f7;
   border: 2px solid #e2e8f0;
   border-radius: 8px;
   padding: 1rem;
@@ -421,16 +421,16 @@ body.dark-theme {
 }
 
 body.dark-theme .container {
-  color: #e2e8f0;
+  color: #edf2f7;
 }
 
 body.dark-theme header {
   background: rgba(45, 55, 72, 0.95);
-  color: #e2e8f0;
+  color: #edf2f7;
 }
 
 body.dark-theme h1 {
-  color: #e2e8f0;
+  color: #edf2f7;
 }
 
 body.dark-theme .subtitle {
@@ -452,7 +452,7 @@ body.dark-theme .nav-button.active {
 
 body.dark-theme .content-section {
   background: rgba(45, 55, 72, 0.95);
-  color: #e2e8f0;
+  color: #edf2f7;
 }
 
 body.dark-theme .card {
@@ -465,12 +465,12 @@ body.dark-theme .card:hover {
 }
 
 body.dark-theme .card h3 {
-  color: #e2e8f0;
+  color: #edf2f7;
 }
 
 body.dark-theme .card h4,
 body.dark-theme .card h5 {
-  color: #e2e8f0;
+  color: #edf2f7;
 }
 
 body.dark-theme .card p {
@@ -487,7 +487,7 @@ body.dark-theme .btn-secondary {
 }
 
 body.dark-theme .form-group label {
-  color: #e2e8f0;
+  color: #edf2f7;
 }
 
 body.dark-theme .form-group input,
@@ -507,17 +507,17 @@ body.dark-theme .form-group select:focus {
 
 body.dark-theme .example-code {
   background: #1a202c;
-  color: #e2e8f0;
+  color: #edf2f7;
 }
 
 body.dark-theme .example-code code {
-  color: #e2e8f0;
+  color: #edf2f7;
 }
 
 body.dark-theme .prompt-output {
   background: #2d3748;
   border-color: #4a5568;
-  color: #e2e8f0;
+  color: #edf2f7;
 }
 
 body.dark-theme .step {
@@ -526,18 +526,18 @@ body.dark-theme .step {
 }
 
 body.dark-theme .step-content h4 {
-  color: #e2e8f0;
+  color: #edf2f7;
 }
 
 body.dark-theme .step-content p {
-  color: #cbd5e0;
+  color: #edf2f7;
 }
 
 body.dark-theme .text-dark,
 body.dark-theme .text-dark li,
 body.dark-theme .text-dark p,
 body.dark-theme .text-dark strong {
-  color: #e2e8f0 !important;
+  color: #edf2f7 !important;
 }
 
 /* Dark theme toggle button */
@@ -577,7 +577,7 @@ body.dark-theme .theme-toggle {
 
 /* Additional dark theme fixes for components */
 body.dark-theme .markdown-content {
-  color: #e2e8f0;
+  color: #edf2f7;
 }
 
 body.dark-theme .markdown-content p,
@@ -585,7 +585,7 @@ body.dark-theme .markdown-content li,
 body.dark-theme .markdown-content h3,
 body.dark-theme .markdown-content h4,
 body.dark-theme .markdown-content h5 {
-  color: #e2e8f0 !important;
+  color: #edf2f7 !important;
 }
 
 body.dark-theme .tutorial-header {
@@ -594,7 +594,7 @@ body.dark-theme .tutorial-header {
 
 body.dark-theme .tutorial-content {
   background: #2d3748;
-  color: #e2e8f0;
+  color: #edf2f7;
 }
 
 body.dark-theme .video-placeholder {
@@ -653,7 +653,7 @@ body.dark-theme .post-card {
 }
 
 body.dark-theme .post-title {
-  color: #e2e8f0;
+  color: #edf2f7;
 }
 
 body.dark-theme .post-info {
@@ -662,7 +662,7 @@ body.dark-theme .post-info {
 
 body.dark-theme .action-button {
   background: #4a5568;
-  color: #e2e8f0;
+  color: #edf2f7;
 }
 
 body.dark-theme .action-button:hover {
@@ -675,7 +675,7 @@ body.dark-theme .tag {
 }
 
 body.dark-theme .modal-text-fix {
-  color: #e2e8f0 !important;
+  color: #edf2f7 !important;
 }
 
 body.dark-theme div[style*="background: white"] {
@@ -685,18 +685,18 @@ body.dark-theme div[style*="background: white"] {
 body.dark-theme div[style*="background: white"] h2,
 body.dark-theme div[style*="background: white"] p,
 body.dark-theme div[style*="background: white"] label {
-  color: #e2e8f0 !important;
+  color: #edf2f7 !important;
 }
 
 /* Dark theme for form elements */
 body.dark-theme .variable-input label {
-  color: #e2e8f0 !important;
+  color: #edf2f7 !important;
 }
 
 body.dark-theme .variable-input input {
   background: #2d3748;
   border-color: #4a5568;
-  color: #e2e8f0;
+  color: #edf2f7;
 }
 
 body.dark-theme .help-text {
@@ -721,6 +721,24 @@ body.dark-theme .step-number {
 .card .step-content span,
 .card .step-content div:not(.example-code) {
   color: #4a5568 !important;
+}
+
+/* Dark mode fixes for card step-content */
+body.dark-theme .card .step-content h4,
+body.dark-theme .card .step-content h5,
+body.dark-theme .card .step-content h6 {
+  color: #edf2f7 !important;
+}
+
+/* Override inline styles for specific elements in dark mode */
+body.dark-theme h5[style*="color: '#667eea'"] {
+  color: #cbd5e0 !important;
+}
+body.dark-theme .card .step-content p,
+body.dark-theme .card .step-content li,
+body.dark-theme .card .step-content span,
+body.dark-theme .card .step-content div:not(.example-code) {
+  color: #edf2f7 !important;
 }
 
 /* Tutorial content text fixes */
