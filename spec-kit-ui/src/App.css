@@ -737,21 +737,21 @@ body.dark-theme .step-content h5[style*="color: '#667eea'"] {
 
 /* Additional fallback selectors for the purple heading */
 body.dark-theme .step-content h5[style*="#667eea"] {
-  color: #cbd5e0 !important;
+  color: #4a5568 !important;
 }
 
 body.dark-theme .card .step-content h5[style*="color: '#667eea'"] {
-  color: #cbd5e0 !important;
+  color: #4a5568 !important;
 }
 
 body.dark-theme .card .step-content h5[style*="#667eea"] {
-  color: #cbd5e0 !important;
+  color: #4a5568 !important;
 }
 body.dark-theme .card .step-content p,
 body.dark-theme .card .step-content li,
 body.dark-theme .card .step-content span,
 body.dark-theme .card .step-content div:not(.example-code) {
-  color: #edf2f7 !important;
+  color: #4a5568 !important;
 }
 
 /* Tutorial content text fixes */

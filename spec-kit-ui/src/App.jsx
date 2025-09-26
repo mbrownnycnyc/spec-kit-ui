@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import './App.css'
@@ -30,6 +30,7 @@ function App() {
   const [transcript, setTranscript] = useState('')
   const [recognition, setRecognition] = useState(null)
   const [isProcessing, setIsProcessing] = useState(false)
+  const transcriptDebounceRef = useRef(null)
   const [doNotSave, setDoNotSave] = useState(false)
   const [saveButtonState, setSaveButtonState] = useState('normal') // 'normal', 'saved', 'saving'
   const [tutorialProgress, setTutorialProgress] = useState(0)
@@ -2342,6 +2343,27 @@ ${'```'}`,
     }
   }
 
+  // Function to normalize transcript punctuation and spacing
+  const normalizeTranscript = (text) => {
+    return text
+      // Fix spacing around periods, question marks, and exclamation marks
+      // Use two spaces after periods, one space after other punctuation
+      .replace(/\s*([.!?])\s*/g, (match, punctuation) => {
+        return punctuation === '.' ? '.  ' : punctuation + ' '
+      })
+      // Remove spaces before punctuation
+      .replace(/\s+([.!?])/g, '$1')
+      // Fix multiple spaces (but preserve double spaces after periods)
+      .replace(/([^.!?])\s+/g, '$1 ')
+      .replace(/\s{3,}/g, '  ')
+      // Fix spacing after commas, colons, and semicolons
+      .replace(/\s*([,;:])\s*/g, '$1 ')
+      // Remove spaces before commas, colons, and semicolons
+      .replace(/\s+([,;:])/g, '$1')
+      // Trim leading/trailing whitespace
+      .trim()
+  }
+
   // Initialize speech recognition
   useEffect(() => {
     // Check if we're on the client side and speech recognition is supported
@@ -2370,18 +2392,27 @@ ${'```'}`,
         if (interimTranscript) {
           setTranscript(prev => {
             // Remove any trailing interim text from previous update
-            const baseText = prev.replace(/ [^\.!?]*$/, '')
+            const baseText = prev.replace(/ [^.!?]*$/, '')
             return baseText + ' ' + interimTranscript
           })
         }
 
-        // Add final results
+        // Add final results with normalized punctuation (with debounce delay)
         if (finalTranscript) {
-          setTranscript(prev => {
-            // Remove any interim text that might be there
-            const baseText = prev.replace(/ [^\.!?]*$/, '')
-            return baseText + finalTranscript
-          })
+          // Clear any existing debounce timer
+          if (transcriptDebounceRef.current) {
+            clearTimeout(transcriptDebounceRef.current)
+          }
+
+          // Set a new timer to delay the transcript update
+          transcriptDebounceRef.current = setTimeout(() => {
+            setTranscript(prev => {
+              // Remove any interim text that might be there
+              const baseText = prev.replace(/ [^.!?]*$/, '')
+              const combinedText = baseText + finalTranscript
+              return normalizeTranscript(combinedText)
+            })
+          }, 1200) // 1.2 second delay before processing final transcript
         }
       }
 
@@ -2392,11 +2423,12 @@ ${'```'}`,
 
       recognitionInstance.onend = () => {
         if (isRecording) {
-          // Restart recognition if we're still supposed to be recording
+          // Try to restart recognition for continuous recording
           try {
             recognitionInstance.start()
-          } catch (error) {
-            console.error('Error restarting recognition:', error)
+          } catch (err) {
+            // If restart fails (e.g., due to silence timeout), update recording state
+            console.log('Recording stopped due to silence or timeout')
             setIsRecording(false)
           }
         }
@@ -2405,6 +2437,10 @@ ${'```'}`,
       setRecognition(recognitionInstance)
 
       return () => {
+        // Clear any pending transcript debounce timer
+        if (transcriptDebounceRef.current) {
+          clearTimeout(transcriptDebounceRef.current)
+        }
         try {
           recognitionInstance.stop()
         } catch (error) {
