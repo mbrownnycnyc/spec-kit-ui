@@ -7,6 +7,8 @@ function App() {
   const [activeSection, setActiveSection] = useState('overview')
   const [promptVariables, setPromptVariables] = useState({})
   const [generatedPrompt, setGeneratedPrompt] = useState('')
+  const [specEarFierGeneratedPrompt, setSpecEarFierGeneratedPrompt] = useState('')
+  const [promptGeneratorGeneratedPrompt, setPromptGeneratorGeneratedPrompt] = useState('')
   const [isDarkTheme, setIsDarkTheme] = useState(false)
 
   // Theme toggle effect
@@ -574,7 +576,7 @@ ${'```'}`,
       name: 'Analysis',
       description: 'Analyze code quality, architecture, and constitutional compliance',
       why: 'Analysis ensures that implemented code meets quality standards, follows architectural best practices, and complies with constitutional requirements. It provides insights into code health, performance, and areas for improvement.',
-      whatToDoNext: '1. Execute the prompt `/analyze` to perform analysis.\n2. Update as needed: Refine your analysis approach based on findings or changing requirements',
+      whatToDoNext: '1. Execute the prompt `/analyze` to perform analysis.\n2. Update as needed: Refine your analysis approach based on findings or changing requirements.\n3. When you are done, you may be prompted to allow it to show you changes.  Proceed with allowing it to show you changes, then use \"can you go ahead and make these edits for me?  use sequential-thinking\" to have your coding agent resolve the problems.\n4. Re-run `/analyze` another time and repeat.',
       variables: []
     },
     {
@@ -2080,7 +2082,7 @@ ${'```'}`,
         prompt = prompt.replace(new RegExp(`{${variable.key}}`, 'g'), value)
       })
 
-      setGeneratedPrompt(prompt)
+      setPromptGeneratorGeneratedPrompt(prompt)
       setGeneratingPrompt(false)
       setGenerateSuccess(true)
 
@@ -3027,7 +3029,7 @@ Create separate fenced code blocks for each area needing clarification:
 
 Now analyze the transcript and provide the team with their next steps for transforming their ideas into structured specifications.`
 
-                    setGeneratedPrompt(prompt)
+                    setSpecEarFierGeneratedPrompt(prompt)
                     setGeneratingPrompt(false)
                   }}
                   disabled={!transcript.trim() || generatingPrompt}
@@ -3064,13 +3066,13 @@ Now analyze the transcript and provide the team with their next steps for transf
               </div>
 
               {/* Generated Prompt Section */}
-              {generatedPrompt && (
+              {specEarFierGeneratedPrompt && (
                 <div className="card" style={{ marginTop: '2rem' }}>
                   <h4>Generated Prompt:</h4>
-                  <div className="prompt-output">{generatedPrompt}</div>
+                  <div className="prompt-output">{specEarFierGeneratedPrompt}</div>
                   <button
                     className="btn-secondary"
-                    onClick={() => navigator.clipboard.writeText(generatedPrompt)}
+                    onClick={() => navigator.clipboard.writeText(specEarFierGeneratedPrompt)}
                     style={{ marginTop: '1rem' }}
                   >
                     Copy to Clipboard
@@ -3357,11 +3359,11 @@ Now analyze the transcript and provide the team with their next steps for transf
             </div>
           ))}
 
-          {generatedPrompt && (
+          {promptGeneratorGeneratedPrompt && (
             <div className="card">
               <h4>Generated Prompt:</h4>
-              <div className="prompt-output">{generatedPrompt}</div>
-              <button className="btn-secondary" onClick={() => navigator.clipboard.writeText(generatedPrompt)}>
+              <div className="prompt-output">{promptGeneratorGeneratedPrompt}</div>
+              <button className="btn-secondary" onClick={() => navigator.clipboard.writeText(promptGeneratorGeneratedPrompt)}>
                 Copy to Clipboard
               </button>
             </div>
