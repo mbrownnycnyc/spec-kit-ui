@@ -37,7 +37,7 @@ function App() {
   const [completedSteps, setCompletedSteps] = useState([false, false, false, false, false, false, false])
   const [expandedStep, setExpandedStep] = useState(null)
   const [selectedScenario, setSelectedScenario] = useState(null)
-  const [expandedTemplates, setExpandedTemplates] = useState([true, true, true, true]) // All templates expanded by default
+  const [expandedTemplates, setExpandedTemplates] = useState([false, false, false, false, false]) // All templates collapsed by default
   const [generatingPrompt, setGeneratingPrompt] = useState(false)
   const [generateSuccess, setGenerateSuccess] = useState(false)
 
@@ -306,7 +306,8 @@ This constitution will guide all technical decisions, ensure consistency across 
       why: 'Specifications are the foundation of SDD. They serve as the primary artifact that guides all development activities, ensuring clarity and completeness before any code is written.',
       what: 'Create a comprehensive Product Requirements Document (PRD) that includes user stories, acceptance criteria, technical constraints, and success metrics.',
       whatToDoNext: '1. Fill out the below Template Variables to Complete or leverage the Quick Start Templates above.\n2. Click Generate Prompt and scroll to "Generated Prompt" section.\n3. Execute the prompt prepending with `/specify`\n4. Update as needed: Revise your specification as requirements evolve while ensuring constitutional compliance',
-      template: `Create a comprehensive feature specification for {feature_type} that will serve as the foundation for implementation.
+      template: `/specify
+Create a comprehensive feature specification for {feature_type} that will serve as the foundation for implementation.
 
 ## Feature Overview
 **Feature Name:** {feature_name}
@@ -391,7 +392,8 @@ This specification will guide the technical planning and implementation phases w
       why: 'Clarification reduces rework downstream by ensuring all requirements are well-understood before technical decisions are made.',
       what: 'Go through the specification systematically, asking questions to identify missing details, conflicting requirements, or unclear functionality.',
       whatToDoNext: '1. Fill out the below Template Variables to Complete or leverage the Quick Start Templates above.\n2. Click Generate Prompt and scroll to "Generated Prompt" section.\n3. Execute the prompt prepending with `/clarify`\n4. Update as needed: Refine your clarification questions as new requirements or ambiguities emerge during specification',
-      template: `Review the following specification for {specification_name} and identify areas that need clarification or additional detail.
+      template: `/clarify
+Review the following specification for {specification_name} and identify areas that need clarification or additional detail.
 
 Specification Focus: {specification_focus}
 
@@ -455,7 +457,8 @@ Please provide specific questions and recommendations for each identified area t
       why: 'A solid technical plan ensures architectural consistency, identifies potential challenges early, and provides a roadmap for implementation.',
       what: 'Create a comprehensive technical plan including technology stack, architecture decisions, data models, API contracts, testing strategy, and deployment approach.',
       whatToDoNext: '1. Fill out the below Template Variables to Complete or leverage the Quick Start Templates above.\n2. Click Generate Prompt and scroll to "Generated Prompt" section.\n3. Execute the prompt prepending with `/plan`\n4. Update as needed: Adjust your implementation plan as technical requirements or architectural decisions evolve',
-      template: `Create a comprehensive implementation plan for {project_name} that aligns with SDD constitutional principles.
+      template: `/plan
+Create a comprehensive implementation plan for {project_name} that aligns with SDD constitutional principles.
 
 ## Technology Foundation
 {technology_foundation}
@@ -2422,16 +2425,9 @@ ${'```'}`,
       }
 
       recognitionInstance.onend = () => {
-        if (isRecording) {
-          // Try to restart recognition for continuous recording
-          try {
-            recognitionInstance.start()
-          } catch (err) {
-            // If restart fails (e.g., due to silence timeout), update recording state
-            console.log('Recording stopped due to silence or timeout')
-            setIsRecording(false)
-          }
-        }
+        // Always update recording state when recognition ends
+        console.log('Recording ended')
+        setIsRecording(false)
       }
 
       setRecognition(recognitionInstance)
