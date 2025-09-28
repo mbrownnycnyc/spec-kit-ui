@@ -1,0 +1,2247 @@
+import { useState, useEffect, useRef } from 'react'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import './App.css'
+import AppHeader from './components/AppHeader'
+import AppContent from './components/AppContent'
+import AppModals from './components/AppModals'
+import promptTemplates from './data/promptTemplates'
+import scenarioPresets from './data/scenarioPresets'
+import tutorials from './data/tutorials'
+import skillAssessmentQuestions from './data/skillAssessmentQuestions'
+import achievementDefinitions from './data/achievementDefinitions'
+import communityPostsData from './data/communityPostsData'
+import peerReviewRequests from './data/peerReviewRequests'
+import navigationSections from './data/navigationSections'
+import sddSteps from './data/sddSteps'
+import { useTutorialPlayer, useProgressTracking, useCommunityFeatures, useSkillAssessment, useSpeechRecognition, usePromptGenerator, useTutorialProgress, useTheme, useThemeToggle } from './hooks'
+import { calculateSkillLevel, generateLearningPath } from './utils/skillAssessment'
+import { updateTutorialProgress, getTutorialStats } from './utils/tutorialProgress'
+import { checkAndAwardAchievements } from './utils/achievements'
+
+function App() {
+  const [activeSection, setActiveSection] = useState('overview')
+  const [promptVariables, setPromptVariables] = useState({})
+  const [generatedPrompt, setGeneratedPrompt] = useState('')
+  const [specEarFierGeneratedPrompt, setSpecEarFierGeneratedPrompt] = useState('')
+  const [promptGeneratorGeneratedPrompt, setPromptGeneratorGeneratedPrompt] = useState('')
+  const { isDarkTheme, toggleTheme } = useThemeToggle()
+
+  useTheme(isDarkTheme)
+
+  // Spec-ear-fier state
+  const [doNotSave, setDoNotSave] = useState(false)
+  const [selectedScenario, setSelectedScenario] = useState(null)
+
+  // Tutorial player state
+  const {
+    activeTutorial,
+    currentStep,
+    tutorialCompleted,
+    exerciseAnswers,
+    showTutorialPlayer,
+    mediaLoaded,
+    startTutorial,
+    closeTutorial,
+    nextStep,
+    previousStep,
+    handleExerciseAnswer,
+    getTutorialProgress,
+    setMediaLoadedForTutorial
+  } = useTutorialPlayer()
+
+  // Skill assessment and adaptive learning state
+  const {
+    assessmentStarted,
+    currentQuestion,
+    assessmentAnswers,
+    assessmentResult,
+    adaptiveDifficulty,
+    showSkillAssessment,
+    recommendedTutorials,
+    userSkillLevel,
+    learningPath,
+    startAssessment,
+    handleAnswer,
+    completeAssessment,
+    resetAssessment,
+    getAssessmentProgress,
+    isRecommendedTutorial,
+    setShowSkillAssessment
+  } = useSkillAssessment()
+
+  // Progress tracking and achievement system
+  const {
+    userProgress,
+    achievements,
+    currentStreak,
+    lastActiveDate,
+    totalPoints,
+    showAchievementsModal,
+    showAchievementNotifications,
+    updateTutorialProgress,
+    completeTutorial,
+    getTutorialStats,
+    calculateSkillLevel,
+    resetProgress,
+    setShowAchievementsModal
+  } = useProgressTracking()
+
+  // Community and collaboration features
+  const {
+    activeCommunityTab,
+    communityPosts,
+    showCreatePost,
+    newPostContent,
+    peerReviews,
+    userReputation,
+    showCommunityModal,
+    createCommunityPost,
+    likePost,
+    addComment,
+    createPeerReview,
+    submitReview,
+    switchTab,
+    toggleCommunityModal,
+    setNewPostContent,
+    setShowCreatePost
+  } = useCommunityFeatures()
+
+  // Speech recognition hook
+  const {
+    isRecording,
+    transcript,
+    setTranscript,
+    isProcessing,
+    saveButtonState,
+    setSaveButtonState,
+    toggleRecording
+  } = useSpeechRecognition()
+
+  // Prompt generator hook
+  const {
+    promptVariables,
+    expandedTemplates,
+    generatingPrompt,
+    generateSuccess,
+    selectedScenario: promptSelectedScenario,
+    promptGeneratorGeneratedPrompt,
+    handleVariableChange,
+    toggleTemplate,
+    generatePrompt: hookGeneratePrompt,
+    applyScenario: hookApplyScenario,
+    clearScenario: hookClearScenario,
+    setPromptVariables,
+    setPromptGeneratorGeneratedPrompt
+  } = usePromptGenerator()
+
+  // Tutorial progress hook
+  const {
+    tutorialProgress,
+    completedSteps,
+    expandedStep,
+    completeTutorialStep,
+    completeWorkflowStep,
+    toggleStepDetails
+  } = useTutorialProgress()
+
+  
+  
+  // Scenario presets for quick template population
+
+  // Tutorial modules
+
+  // Skill assessment questions
+
+  // Adaptive learning logic
+  // Assessment-related functions now provided by useSkillAssessment hook
+
+  // Achievement definitions
+
+  // Progress tracking functions now provided by useProgressTracking hook
+
+  // Community features data and functions now provided by useCommunityFeatures hook
+
+  
+  
+
+  // Tutorial player functions now provided by useTutorialPlayer hook
+
+  return (
+    <div className="container">
+      <header>
+        <h1>Spec Kit UI</h1>
+        <p className="subtitle">Master the art of specification-first software development</p>
+
+        <nav>
+          {navigationSections.map(section => (
+            <button
+              key={section.id}
+              className={`nav-button ${activeSection === section.id ? 'active' : ''}`}
+              onClick={() => setActiveSection(section.id)}
+            >
+              {section.icon} {section.label}
+            </button>
+          ))}
+        </nav>
+      </header>
+
+      {/* Overview Section */}
+      {activeSection === 'overview' && <Overview />}
+
+  
+      {/* Spec-ear-fier Section */}
+      {activeSection === 'spec-ear-fier' && (
+        <div className="content-section active">
+          <div className="card">
+            <h3>Spec-ear-fier</h3>
+            <p>Capture your thoughts naturally through speech and transform them into structured specifications.</p>
+              <div style={{ background: 'rgba(99, 102, 241, 0.1)', padding: '1rem', borderRadius: '8px', marginTop: '1rem' }}>
+                <p style={{ margin: 0, fontSize: '0.9rem', fontStyle: 'italic', color: '#000000' }}>
+                  "Spec-ear-fier gave me the entry point to spec-kit that I didn't know I needed.  It was like a giant, red easy button from Staples in the early aughts (one you might sit on like a comfy couch) that's allowed me to take my waking nightmare of an idea to a concrete money making machine.  Thanks Sam Altman!" - Matt Brown
+                </p>
+              </div>
+            <div style={{ background: 'rgba(72, 187, 120, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
+              <h4 style={{ color: '#48bb78', marginBottom: '1rem' }}>🎯 How to Use This Tool</h4>
+              <p style={{ marginBottom: '1rem', lineHeight: '1.6' }}>
+                <strong>Spec-ear-fier</strong> is your digital thinking partner for capturing the free formation of ideas.
+                It's designed for the messy, iterative process of problem-solving where your best insights emerge
+                through natural expression rather than structured forms. 
+              </p>
+              <p style={{ marginBottom: '1rem', lineHeight: '1.6' }}>
+              <strong>Just talk</strong> and let Spec-ear-fier do the rest.
+              </p>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginTop: '1.5rem' }}>
+                <div style={{ background: 'rgba(102, 126, 234, 0.1)', padding: '1.25rem', borderRadius: '10px', borderLeft: '4px solid #667eea' }}>
+                  <h5 style={{ color: '#667eea', marginBottom: '0.75rem', fontSize: '1rem' }}>💭 Free Formation</h5>
+                  <p style={{ margin: 0, fontSize: '0.9rem', lineHeight: '1.5' }}>
+                    Speak naturally about your problem, solution ideas, challenges, and thoughts.
+                    Ramble, go off on tangents, challenge your assumptions—this is where innovation happens.
+                  </p>
+                </div>
+
+                <div style={{ background: 'rgba(236, 72, 153, 0.1)', padding: '1.25rem', borderRadius: '10px', borderLeft: '4px solid #ec4899' }}>
+                  <h5 style={{ color: '#ec4899', marginBottom: '0.75rem', fontSize: '1rem' }}>🔍 Deep Exploration</h5>
+                  <p style={{ margin: 0, fontSize: '0.9rem', lineHeight: '1.5' }}>
+                    Go deep into technical details or stay at a high level. Discuss edge cases,
+                    potential failures, user needs, and implementation considerations as they come to mind.
+                  </p>
+                </div>
+
+                <div style={{ background: 'rgba(245, 158, 11, 0.1)', padding: '1.25rem', borderRadius: '10px', borderLeft: '4px solid #f59e0b' }}>
+                  <h5 style={{ color: '#f59e0b', marginBottom: '0.75rem', fontSize: '1rem' }}>🧠 Challenge & Distill</h5>
+                  <p style={{ margin: 0, fontSize: '0.9rem', lineHeight: '1.5' }}>
+                    Question your own assumptions, explore alternative approaches,
+                    and distill complex thoughts into actionable insights through the process of speaking.
+                  </p>
+                </div>
+              </div>
+
+              <div style={{ background: 'rgba(16, 185, 129, 0.1)', padding: '1.25rem', borderRadius: '10px', marginTop: '1.5rem', border: '1px solid #10b981' }}>
+                <h5 style={{ color: '#059669', marginBottom: '0.75rem', fontSize: '1rem' }}>🚀 From Thoughts to Specifications</h5>
+                <p style={{ margin: 0, fontSize: '0.9rem', lineHeight: '1.5' }}>
+                  Once you've captured your thoughts, the real magic happens. Your raw transcript becomes
+                  the foundation for creating precise <code style={{ background: '#e5e7eb', padding: '0.2rem 0.4rem', borderRadius: '4px' }}>/specify</code> and
+                  <code style={{ background: '#e5e7eb', padding: '0.2rem 0.4rem', borderRadius: '4px' }}>/clarify</code> commands that transform your
+                  spoken ideas into structured, executable specifications for AI-driven development.
+                </p>
+              </div>
+            </div>
+
+            <div style={{ background: 'rgba(102, 126, 234, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
+              <h4 style={{ color: '#667eea', marginBottom: '1rem' }}>💡 Pro Tips for Effective Sessions</h4>
+
+              <ol style={{ textAlign: 'left', lineHeight: '1.8', paddingLeft: '1.5rem', marginBottom: '1rem', color: '#000000' }}>
+                <li><strong>Start with the problem:</strong> Describe what you're trying to solve and why it matters</li>
+                <li><strong>Think out loud:</strong> Verbalize your thought process, including dead ends and realizations</li>
+                <li><strong>Embrace imperfection:</strong> Your first ideas don't need to be polished—capture them anyway</li>
+                <li><strong>Connect the dots:</strong> Explain how different concepts relate to each other</li>
+                <li><strong>Consider alternatives:</strong> Discuss different approaches and their trade-offs</li>
+              </ol>
+
+              <div style={{ background: 'rgba(99, 102, 241, 0.1)', padding: '1rem', borderRadius: '8px', marginTop: '1rem' }}>
+                <p style={{ margin: 0, fontSize: '0.9rem', fontStyle: 'italic', color: '#000000' }}>
+                  "The best specifications emerge from the messy process of thinking through problems out loud.
+                  Spec-ear-fier captures that creative energy and transforms it into structured precision." - a person from thispersondoesnotexist.com
+                </p>
+              </div>
+            </div>
+
+            <div style={{ background: 'rgba(237, 137, 54, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
+              <h4 style={{ color: '#ed8936', marginBottom: '1rem' }}>🎙️ Rick Rubin Machine</h4>
+
+              {/* Browser Compatibility Warning */}
+              {!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) && (
+                <div style={{ background: 'rgba(245, 101, 101, 0.1)', padding: '1rem', borderRadius: '8px', marginBottom: '1rem', border: '1px solid #f56565' }}>
+                  <p style={{ color: '#e53e3e', margin: 0 }}>
+                    <strong>Browser Not Supported:</strong> Speech Recognition is not supported in your browser.
+                    Please use Chrome, Edge, or Safari for this feature.
+                  </p>
+                </div>
+              )}
+
+              {/* Controls */}
+              <div style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <button
+                  onClick={toggleRecording}
+                  disabled={!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)}
+                  style={{
+                    padding: '0.75rem 1.5rem',
+                    borderRadius: '8px',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    backgroundColor: isRecording ? '#e53e3e' : '#48bb78',
+                    color: 'white',
+                    transition: 'all 0.2s ease'
+                  }}
+                >
+                  {isRecording ? '⏹️ Stop Recording' : '🎙️ Start Recording'}
+                </button>
+
+                <div style={{
+                  padding: '0.5rem 1rem',
+                  borderRadius: '20px',
+                  backgroundColor: isProcessing ? '#feebc8' : isRecording ? '#fed7d7' : '#c6f6d5',
+                  color: isProcessing ? '#c05621' : isRecording ? '#c53030' : '#276749',
+                  fontSize: '0.875rem',
+                  fontWeight: '600',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  transition: 'all 0.3s ease'
+                }}>
+                  {isProcessing && (
+                    <span style={{ animation: 'pulse 1s infinite' }}>⚡</span>
+                  )}
+                  {isRecording && (
+                    <span style={{ animation: 'pulse 1.5s infinite' }}>🔴</span>
+                  )}
+                  {isProcessing ? 'Processing...' : isRecording ? 'Recording...' : 'Ready'}
+                </div>
+              </div>
+
+              {/* Text Output */}
+              <div style={{ marginBottom: '1rem' }}>
+                <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '600', color: '#2d3748' }}>
+                  It's The Word... It's The Word... It's The Word... It's The Word...
+                  {isRecording && (
+                    <span style={{
+                      marginLeft: '0.5rem',
+                      fontSize: '0.75rem',
+                      color: '#48bb78',
+                      fontWeight: 'normal'
+                    }}>
+                      🎤 Listening... (interim results shown instantly)
+                    </span>
+                  )}
+                </label>
+                <textarea
+                  value={transcript}
+                  onChange={(e) => setTranscript(e.target.value)}
+                  placeholder="Your words will appear here as words..."
+                  style={{
+                    width: '100%',
+                    minHeight: '300px',
+                    padding: '1rem',
+                    borderRadius: '8px',
+                    border: isRecording ? '2px solid #48bb78' : '2px solid #e2e8f0',
+                    fontSize: '1rem',
+                    lineHeight: '1.6',
+                    resize: 'vertical',
+                    fontFamily: 'inherit',
+                    whiteSpace: 'pre-wrap',
+                    wordWrap: 'break-word',
+                    boxShadow: isRecording ? '0 0 0 3px rgba(72, 187, 120, 0.1)' : 'none',
+                    transition: 'all 0.3s ease'
+                  }}
+                />
+                {isRecording && transcript.length === 0 && (
+                  <div style={{
+                    marginTop: '0.5rem',
+                    fontSize: '0.875rem',
+                    color: '#718096',
+                    fontStyle: 'italic'
+                  }}>
+                    💡 Speak now and you'll see text appear immediately as you talk...
+                  </div>
+                )}
+              </div>
+
+              {/* Controls Row */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '1rem',
+                flexWrap: 'wrap'
+              }}>
+                {/* Do Not Save Toggle */}
+                <label style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  cursor: 'pointer',
+                  fontSize: '0.875rem',
+                  color: '#4a5568',
+                  backgroundColor: doNotSave ? 'rgba(245, 101, 101, 0.1)' : 'rgba(72, 187, 120, 0.1)',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '20px',
+                  border: `1px solid ${doNotSave ? '#f56565' : '#48bb78'}`,
+                  transition: 'all 0.3s ease'
+                }}>
+                  <input
+                    type="checkbox"
+                    checked={doNotSave}
+                    onChange={(e) => setDoNotSave(e.target.checked)}
+                    style={{ margin: 0 }}
+                  />
+                  <span style={{ fontWeight: '500' }}>
+                    {doNotSave ? '🚫 Do Not Save' : '💾 Save on Clear'}
+                  </span>
+                </label>
+
+                {/* Clear Button */}
+                <button
+                  onClick={(event) => {
+                    if (!doNotSave && transcript.trim()) {
+                      // Save as markdown file
+                      setSaveButtonState('saving')
+                      const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5)
+                      const filename = `spec-ear-fier-transcript-${timestamp}.md`
+                      const content = `# Spec-ear-fier Transcript
+
+**Date:** ${new Date().toLocaleString()}
+**Duration:** ${isRecording ? 'Recording in progress' : 'Completed'}
+
+## Transcript
+
+${transcript}
+
+---
+*Generated by Spec-ear-fier*
+`
+
+                      const blob = new Blob([content], { type: 'text/markdown' })
+                      const url = URL.createObjectURL(blob)
+                      const a = document.createElement('a')
+                      a.href = url
+                      a.download = filename
+                      document.body.appendChild(a)
+                      a.click()
+                      document.body.removeChild(a)
+                      URL.revokeObjectURL(url)
+
+                      // Show success feedback
+                      setSaveButtonState('saved')
+
+                      // Auto-revert logic
+                      const revertTime = isRecording ? 2000 : 4000
+                      setTimeout(() => {
+                        if (!isRecording) {
+                          setSaveButtonState('normal')
+                        }
+                      }, revertTime)
+                    }
+
+                    setTranscript('')
+                  }}
+                  disabled={!transcript.trim()}
+                  style={{
+                    padding: '0.5rem 1rem',
+                    borderRadius: '6px',
+                    border: '1px solid #e2e8f0',
+                    backgroundColor: saveButtonState === 'saved' ? '#48bb78' :
+                                     !transcript.trim() ? '#f7fafc' : 'white',
+                    color: saveButtonState === 'saved' ? 'white' :
+                            !transcript.trim() ? '#a0aec0' : '#4a5568',
+                    cursor: !transcript.trim() ? 'not-allowed' : 'pointer',
+                    fontSize: '0.875rem',
+                    transition: 'all 0.3s ease',
+                    minWidth: '120px'
+                  }}
+                >
+                  {saveButtonState === 'saved' ? '✅ Saved!' :
+                   saveButtonState === 'saving' ? '💾 Saving...' :
+                   !doNotSave ? '💾 Save & Clear' : '🗑️ Clear Only'}
+                </button>
+              </div>
+
+              {/* Save Status */}
+              {!doNotSave && transcript.trim() && (
+                <div style={{
+                  marginTop: '1rem',
+                  padding: '0.75rem 1rem',
+                  backgroundColor: 'rgba(72, 187, 120, 0.1)',
+                  border: '1px solid #48bb78',
+                  borderRadius: '8px',
+                  fontSize: '0.875rem',
+                  color: '#276749'
+                }}>
+                  💡 <strong>Auto-save enabled:</strong> When you click "Save & Clear", your transcript will be saved as a markdown file with timestamp.
+                </div>
+              )}
+
+              {doNotSave && transcript.trim() && (
+                <div style={{
+                  marginTop: '1rem',
+                  padding: '0.75rem 1rem',
+                  backgroundColor: 'rgba(245, 101, 101, 0.1)',
+                  border: '1px solid #f56565',
+                  borderRadius: '8px',
+                  fontSize: '0.875rem',
+                  color: '#c53030'
+                }}>
+                  ⚠️ <strong>Do not save mode:</strong> Text will be permanently deleted when you click "Clear Only".
+                </div>
+              )}
+
+              {/* Generate Prompt Button */}
+              <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+                <button
+                  onClick={() => {
+                    if (!transcript.trim()) return
+
+                    setGeneratingPrompt(true)
+
+                    // Create the comprehensive prompt
+                    const prompt = `# Spec-ear-fier Analysis: From Ideas to Structured Specifications
+
+## Context
+You are acting as an expert Business Development Specialist working with a development team that uses **spec-kit** for Spec-Driven Development (SDD). The team has captured their raw thoughts and ideas through a spoken brainstorming session, which has been transcribed below.
+
+## Your Mission
+Analyze the following transcript and help the team transform their free-flowing ideas into structured, actionable **spec-kit** commands. Your goal is to extract the essence of their solution concept and organize it into:
+
+1. **\`/specify\` prompts** - For defining clear feature specifications
+2. **\`/clarify\` commands** - For gathering additional information needed
+
+## Analysis Guidelines
+
+### Step 1: Understand the Core Concept
+- Identify the primary problem or opportunity being discussed
+- Extract key stakeholders and their needs
+- Note any technical constraints or preferences mentioned
+- Identify the main value proposition or business objective
+
+### Step 2: Extract Potential Features
+- Look for specific functionality mentioned
+- Identify user pain points that suggest feature needs
+- Note any technical components or integrations discussed
+- Extract performance, scalability, or usability requirements
+
+### Step 3: Identify Clarification Needs
+- Look for assumptions that need validation
+- Identify missing technical details
+- Note areas where requirements seem ambiguous
+- Find places where user research or market validation might be needed
+
+### Step 4: Organize by Priority
+- Distinguish between must-have and nice-to-have features
+- Identify dependencies between features
+- Note any time-sensitive or business-critical elements
+
+## Transcript of Solution Idea Generation Session
+
+\`\`\`
+${transcript}
+\`\`\`
+
+---
+
+## Required Output Format
+
+Please format your response as **markdown** with the following structure:
+
+### Analysis Summary
+[Brief summary of what you understand about the project concept]
+
+### /specify Prompts
+Create separate fenced code blocks for each distinct feature or component:
+
+\`\`\`/specify
+[Feature specification prompt here]
+\`\`\`
+
+\`\`\`/specify
+[Another feature specification prompt here]
+\`\`\`
+
+### /clarify Commands
+Create separate fenced code blocks for each area needing clarification:
+
+\`\`\`/clarify
+[Clarification command here]
+\`\`\`
+
+\`\`\`/clarify
+[Another clarification command here]
+\`\`\`
+
+### Additional Notes
+[Any context, warnings, or suggestions for the development team]
+
+---
+
+## Tips for High-Quality Output
+- Focus on **actionable** commands that the team can execute immediately
+- Each \`/specify\` should define one coherent feature or component
+- Each \`/clarify\` should target one specific area of uncertainty
+- Use clear, concise language that guides the AI toward useful responses
+- Consider the **scope** - don't try to boil the ocean in a single command
+- Remember the **SDD methodology** - specifications come before implementation
+
+Now analyze the transcript and provide the team with their next steps for transforming their ideas into structured specifications.`
+
+                    setSpecEarFierGeneratedPrompt(prompt)
+                    setGeneratingPrompt(false)
+                  }}
+                  disabled={!transcript.trim() || generatingPrompt}
+                  className="btn"
+                  style={{
+                    padding: '0.75rem 2rem',
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    margin: '0 auto',
+                    minWidth: '200px',
+                    justifyContent: 'center'
+                  }}
+                >
+                  {generatingPrompt ? (
+                    <>
+                      <span>⚡</span>
+                      <span>Generating...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>🚀</span>
+                      <span>Generate Prompt</span>
+                    </>
+                  )}
+                </button>
+                {!transcript.trim() && (
+                  <p style={{ marginTop: '0.5rem', fontSize: '0.875rem', color: '#718096', fontStyle: 'italic' }}>
+                    Record some speech first to generate a prompt
+                  </p>
+                )}
+              </div>
+
+              {/* Generated Prompt Section */}
+              {specEarFierGeneratedPrompt && (
+                <div className="card" style={{ marginTop: '2rem' }}>
+                  <h4>Generated Prompt:</h4>
+                  <div className="prompt-output">{specEarFierGeneratedPrompt}</div>
+                  <button
+                    className="btn-secondary"
+                    onClick={() => navigator.clipboard.writeText(specEarFierGeneratedPrompt)}
+                    style={{ marginTop: '1rem' }}
+                  >
+                    Copy to Clipboard
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Prompt Generator Section */}
+      {activeSection === 'prompts' && (
+        <div className="content-section active">
+          <div className="card">
+            <h3>Interactive Prompt Generator</h3>
+            <p>Generate customized prompts for your SDD workflow by filling in the variables below.</p>
+
+            <div style={{ background: 'rgba(237, 137, 54, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem', borderLeft: '4px solid #ed8936' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+                <span style={{ fontSize: '1.5rem' }}>🎙️</span>
+                <h4 style={{ color: '#ed8936', margin: 0, fontSize: '1.1rem' }}>Don't know what to do?</h4>
+              </div>
+              <p style={{ margin: 0, lineHeight: '1.6', color: '#2d3748' }}>
+                <strong>Have you tried the Spec-ear-fier?</strong> Just talk about your ideas naturally, and let the Spec-ear-fier help you transform your thoughts into structured specification prompts. It's perfect for brainstorming and exploring concepts before diving into templates!
+              </p>
+              <div style={{ marginTop: '0.75rem', textAlign: 'center' }}>
+                <button
+                  onClick={() => setActiveSection('spec-ear-fier')}
+                  style={{
+                    padding: '0.5rem 1rem',
+                    borderRadius: '6px',
+                    border: '1px solid #ed8936',
+                    backgroundColor: 'white',
+                    color: '#ed8936',
+                    cursor: 'pointer',
+                    fontSize: '0.875rem',
+                    fontWeight: '600',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseOver={(e) => {
+                    e.target.style.backgroundColor = '#ed8936'
+                    e.target.style.color = 'white'
+                  }}
+                  onMouseOut={(e) => {
+                    e.target.style.backgroundColor = 'white'
+                    e.target.style.color = '#ed8936'
+                  }}
+                >
+                  Try Spec-ear-fier →
+                </button>
+              </div>
+            </div>
+
+            <div style={{ background: 'rgba(72, 187, 120, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
+              <h4 style={{ color: '#48bb78', marginBottom: '1rem' }}>🎯 How to Use This Tool</h4>
+              <ol style={{ textAlign: 'left', lineHeight: '1.8', paddingLeft: '1.5rem' }} className="text-dark">
+                <li><strong>Choose a template:</strong> Select between Feature Specification or Implementation Plan templates</li>
+                <li><strong>Fill in the variables:</strong> Replace the placeholders with your specific project details</li>
+                <li><strong>Generate your prompt:</strong> Click the generate button to create your customized prompt</li>
+                <li><strong>Copy and use:</strong> Copy the generated prompt to your clipboard and use it with your AI assistant</li>
+              </ol>
+            </div>
+
+            <div style={{ background: 'rgba(102, 126, 234, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
+              <h4 style={{ color: '#667eea', marginBottom: '1rem' }}>💡 Pro Tips</h4>
+              <ul style={{ textAlign: 'left', lineHeight: '1.8', paddingLeft: '1.5rem' }} className="text-dark">
+                <li><strong>Use Quick Start Templates:</strong> Choose a scenario above to auto-populate both templates with industry best practices</li>
+                <li>Be specific with your feature descriptions - more detail leads to better specifications</li>
+                <li>Consider your technical constraints and requirements before filling variables</li>
+                <li>Use the generated prompts as starting points - feel free to customize them further</li>
+                <li>Keep your requirements realistic and achievable for the best results</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Scenario Selection */}
+          <div className="card">
+            <h4>🚀 Quick Start Templates</h4>
+            <p>Choose a scenario to auto-populate both templates with best practices and industry standards:</p>
+
+            {selectedScenario && (
+              <div style={{
+                background: 'rgba(72, 187, 120, 0.1)',
+                padding: '1rem',
+                borderRadius: '8px',
+                margin: '1rem 0',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+              }}>
+                <span style={{ color: '#48bb78', fontWeight: '500' }}>
+                  ✅ {scenarioPresets.find(s => s.id === selectedScenario)?.name} template applied
+                </span>
+                <button
+                  className="btn-secondary"
+                  onClick={clearScenario}
+                  style={{ fontSize: '0.8rem', padding: '0.4rem 0.8rem' }}
+                >
+                  Clear Selection
+                </button>
+              </div>
+            )}
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '1rem',
+              marginTop: '1.5rem'
+            }}>
+              {scenarioPresets.map((scenario) => (
+                <button
+                  key={scenario.id}
+                  className={`btn ${selectedScenario === scenario.id ? 'active' : ''}`}
+                  onClick={() => applyScenario(scenario.id)}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    textAlign: 'left',
+                    padding: '1.2rem',
+                    minHeight: '100px',
+                    position: 'relative',
+                    background: selectedScenario === scenario.id
+                      ? 'linear-gradient(135deg, #4c51bf 0%, #553c9a 100%)'
+                      : undefined
+                  }}
+                >
+                  <div style={{
+                    fontSize: '1.5rem',
+                    marginBottom: '0.5rem',
+                    filter: selectedScenario === scenario.id ? 'brightness(1.2)' : 'none'
+                  }}>
+                    {scenario.icon}
+                  </div>
+                  <div style={{ fontWeight: '600', marginBottom: '0.3rem' }}>
+                    {scenario.name}
+                  </div>
+                  <div style={{ fontSize: '0.85rem', opacity: 0.8, lineHeight: '1.4' }}>
+                    {scenario.description}
+                  </div>
+                  {selectedScenario === scenario.id && (
+                    <div style={{
+                      position: 'absolute',
+                      top: '0.5rem',
+                      right: '0.5rem',
+                      background: 'rgba(255, 255, 255, 0.2)',
+                      borderRadius: '50%',
+                      width: '24px',
+                      height: '24px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '0.8rem'
+                    }}>
+                      ✓
+                    </div>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {promptTemplates.map((template, templateIndex) => (
+            <div key={templateIndex} className="card">
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  cursor: 'pointer',
+                  padding: '1rem',
+                  margin: '-1rem -1rem 1rem -1rem',
+                  borderRadius: '12px 12px 0 0',
+                  transition: 'background-color 0.3s ease'
+                }}
+                onClick={() => toggleTemplate(templateIndex)}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(102, 126, 234, 0.05)'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+              >
+                <div>
+                  <h4 style={{ margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    {template.name}
+                    <span style={{ fontSize: '0.8rem', color: '#667eea' }}>
+                      {expandedTemplates[templateIndex] ? '▼' : '▶'}
+                    </span>
+                  </h4>
+                  <p style={{ margin: '0.5rem 0 0 0', color: '#4a5568' }}>{template.description}</p>
+                </div>
+              </div>
+
+              {expandedTemplates[templateIndex] && (
+                <div>
+                  {/* Why Section */}
+                  <div style={{ background: 'rgba(72, 187, 120, 0.1)', padding: '1rem', borderRadius: '8px', margin: '1rem 0' }}>
+                    <h5 style={{ color: '#48bb78', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      💡 Why
+                    </h5>
+                    <p style={{ margin: 0, color: '#2d3748', lineHeight: '1.6' }}>{template.why}</p>
+                  </div>
+
+                  {/* When to Change Your Constitution Section */}
+                  {template.whenToChange && (
+                    <div style={{ background: 'rgba(236, 72, 153, 0.1)', padding: '1rem', borderRadius: '8px', margin: '1rem 0' }}>
+                      <h5 style={{ color: '#ec4899', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        🔄 When to Change Your Constitution
+                      </h5>
+                      <p style={{ margin: 0, color: '#2d3748', lineHeight: '1.6', whiteSpace: 'pre-line' }}>{template.whenToChange}</p>
+                    </div>
+                  )}
+
+                  {/* What to Do Next Section */}
+                  <div style={{ background: 'rgba(237, 137, 54, 0.1)', padding: '1rem', borderRadius: '8px', margin: '1rem 0' }}>
+                    <h5 style={{ color: '#ed8936', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      🎯 What to Do Next
+                    </h5>
+                    <p style={{ margin: 0, color: '#2d3748', lineHeight: '1.6', whiteSpace: 'pre-line' }}>{template.whatToDoNext}</p>
+                  </div>
+
+                  {template.variables.length > 0 && (
+                    <div style={{ background: 'rgba(255, 255, 255, 0.8)', padding: '1rem', borderRadius: '8px', margin: '1rem 0', border: '1px solid #e2e8f0' }}>
+                      <h5 style={{ marginBottom: '1rem' }}>📝 Template Instructions:</h5>
+                      {template.templateInstructions ? (
+                        <p style={{ fontSize: '0.9rem', color: '#4a5568', marginBottom: '1rem', whiteSpace: 'pre-line' }}>
+                          {template.templateInstructions}
+                        </p>
+                      ) : (
+                        <>
+                          <p style={{ fontSize: '0.9rem', color: '#4a5568', marginBottom: '1rem' }}>
+                            Fill in all the variables below to customize your template. Each placeholder will be replaced with your specific information.
+                          </p>
+
+                          <h5>Variables to Complete:</h5>
+                          {template.variables.map((variable, varIndex) => (
+                            <div key={varIndex} className="variable-input">
+                              <label>{variable.label}:</label>
+                              <input
+                                type="text"
+                                placeholder={variable.placeholder}
+                                value={promptVariables[`${templateIndex}_${variable.key}`] || ''}
+                                onChange={(e) => handleVariableChange(templateIndex, variable.key, e.target.value)}
+                              />
+                            </div>
+                          ))}
+                        </>
+                      )}
+                    </div>
+                  )}
+
+                  {template.variables.length > 0 && (
+                    <button
+                      className="btn"
+                      onClick={() => generatePrompt(templateIndex)}
+                      disabled={generatingPrompt}
+                      style={{
+                        position: 'relative',
+                        minWidth: '140px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        justifyContent: 'center'
+                      }}
+                    >
+                      {generatingPrompt ? (
+                        <>
+                          <span>⏳</span>
+                          <span>Generating...</span>
+                        </>
+                      ) : generateSuccess ? (
+                        <>
+                          <span>✅</span>
+                          <span>Generated!</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>🚀</span>
+                          <span>Generate Prompt</span>
+                        </>
+                      )}
+                    </button>
+                  )}
+                </div>
+              )}
+            </div>
+          ))}
+
+          {promptGeneratorGeneratedPrompt && (
+            <div className="card">
+              <h4>Generated Prompt:</h4>
+              <div className="prompt-output">{promptGeneratorGeneratedPrompt}</div>
+              <button className="btn-secondary" onClick={() => navigator.clipboard.writeText(promptGeneratorGeneratedPrompt)}>
+                Copy to Clipboard
+              </button>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Interactive Tutorials Section */}
+      {activeSection === 'tutorials' && (
+        <div className="content-section active">
+          <div className="card">
+            <h3>Interactive Learning Modules</h3>
+            <p>Master SDD through hands-on tutorials and guided exercises.</p>
+          </div>
+
+          {/* Skill Assessment Card */}
+          {!userSkillLevel && (
+            <div className="card" style={{ background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)', border: '2px solid rgba(102, 126, 234, 0.2)' }}>
+              <h4 style={{ color: '#667eea', marginBottom: '1rem' }}>🎯 Personalize Your Learning Path</h4>
+              <p style={{ marginBottom: '1.5rem' }}>
+                Take our quick skill assessment to get a personalized learning path tailored to your experience level and goals.
+              </p>
+              <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                <button className="btn" onClick={startSkillAssessment}>
+                  Start Assessment (2 minutes)
+                </button>
+                <span style={{ fontSize: '0.9rem', color: '#718096' }}>
+                  ✨ Get customized tutorial recommendations
+                </span>
+              </div>
+            </div>
+          )}
+
+          {/* Learning Path Display */}
+          {userSkillLevel && recommendedTutorials.length > 0 && (
+            <div className="card" style={{ background: 'linear-gradient(135deg, rgba(72, 187, 120, 0.1) 0%, rgba(56, 161, 105, 0.1) 100%)', border: '2px solid rgba(72, 187, 120, 0.2)' }}>
+              <h4 style={{ color: '#48bb78', marginBottom: '1rem' }}>🚀 Your Personalized Learning Path</h4>
+              <p style={{ marginBottom: '1rem' }}>
+                Based on your assessment, we recommend starting with these {recommendedTutorials.length} tutorials:
+              </p>
+              <div style={{ marginBottom: '1.5rem' }}>
+                {recommendedTutorials.map((tutorial, index) => (
+                  <div key={tutorial.id} style={{ display: 'flex', alignItems: 'center', marginBottom: '0.75rem', padding: '0.75rem', background: 'rgba(255, 255, 255, 0.6)', borderRadius: '8px' }}>
+                    <div style={{ width: '30px', height: '30px', background: '#48bb78', color: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', marginRight: '1rem' }}>
+                      {index + 1}
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontWeight: '600', color: '#2d3748' }}>{tutorial.title}</div>
+                      <div style={{ fontSize: '0.85rem', color: '#718096' }}>{tutorial.duration} • {tutorial.level}</div>
+                    </div>
+                    <button className="btn" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }} onClick={() => startTutorial(tutorials.indexOf(tutorial))}>
+                      Start
+                    </button>
+                  </div>
+                ))}
+              </div>
+              <button className="btn-secondary" onClick={() => setShowSkillAssessment(true)}>
+                Retake Assessment
+              </button>
+            </div>
+          )}
+
+          {/* Progress Dashboard */}
+          {(userSkillLevel || Object.keys(userProgress).length > 0) && (
+            <div className="card" style={{ background: 'linear-gradient(135deg, rgba(159, 122, 234, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)', border: '2px solid rgba(159, 122, 234, 0.2)' }}>
+              <h4 style={{ color: '#9f7aea', marginBottom: '1rem' }}>📊 Your Learning Progress</h4>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
+                <div style={{ textAlign: 'center', padding: '1rem', background: 'rgba(255, 255, 255, 0.6)', borderRadius: '8px' }}>
+                  <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#9f7aea' }}>{getTutorialStats().completionRate}%</div>
+                  <div style={{ fontSize: '0.85rem', color: '#718096' }}>Completion</div>
+                </div>
+                <div style={{ textAlign: 'center', padding: '1rem', background: 'rgba(255, 255, 255, 0.6)', borderRadius: '8px' }}>
+                  <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#f6ad55' }}>{getTutorialStats().totalPoints}</div>
+                  <div style={{ fontSize: '0.85rem', color: '#718096' }}>Points</div>
+                </div>
+                <div style={{ textAlign: 'center', padding: '1rem', background: 'rgba(255, 255, 255, 0.6)', borderRadius: '8px' }}>
+                  <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#48bb78' }}>{getTutorialStats().streakDays}</div>
+                  <div style={{ fontSize: '0.85rem', color: '#718096' }}>Day Streak</div>
+                </div>
+                <div style={{ textAlign: 'center', padding: '1rem', background: 'rgba(255, 255, 255, 0.6)', borderRadius: '8px' }}>
+                  <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#667eea' }}>{getTutorialStats().achievementsCount}</div>
+                  <div style={{ fontSize: '0.85rem', color: '#718096' }}>Achievements</div>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', gap: '1rem', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div>
+                  <div style={{ fontSize: '0.9rem', color: '#4a5568', marginBottom: '0.25rem' }}>
+                    {getTutorialStats().completedCount} of {getTutorialStats().totalCount} tutorials completed
+                  </div>
+                  <div style={{ fontSize: '0.85rem', color: '#718096' }}>
+                    Average accuracy: {getTutorialStats().averageAccuracy}%
+                  </div>
+                </div>
+                <button className="btn-secondary" onClick={() => setShowAchievementsModal(true)}>
+                  View Achievements
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Tutorial filters and categories */}
+          <div style={{ marginBottom: '2rem' }}>
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+              <button className="nav-button active" style={{ fontSize: '0.9rem', padding: '0.5rem 1rem' }}>
+                All Tutorials
+              </button>
+              <button className="nav-button" style={{ fontSize: '0.9rem', padding: '0.5rem 1rem' }}>
+                Beginner
+              </button>
+              <button className="nav-button" style={{ fontSize: '0.9rem', padding: '0.5rem 1rem' }}>
+                Intermediate
+              </button>
+              <button className="nav-button" style={{ fontSize: '0.9rem', padding: '0.5rem 1rem' }}>
+                Advanced
+              </button>
+            </div>
+            <p style={{ color: '#718096', fontSize: '0.9rem' }}>
+              📚 {tutorials.length} comprehensive tutorials available • 🎯 Progress tracking included
+            </p>
+          </div>
+
+          <div className="tutorial-grid">
+            {tutorials.map((tutorial, index) => (
+              <div key={index} className="card" style={{ position: 'relative' }}>
+                <div style={{
+                  position: 'absolute',
+                  top: '1rem',
+                  right: '1rem',
+                  background: tutorial.level === 'Beginner' ? 'rgba(72, 187, 120, 0.1)' :
+                           tutorial.level === 'Intermediate' ? 'rgba(237, 137, 54, 0.1)' :
+                           'rgba(159, 122, 234, 0.1)',
+                  color: tutorial.level === 'Beginner' ? '#48bb78' :
+                         tutorial.level === 'Intermediate' ? '#ed8936' : '#9f7aea',
+                  padding: '0.25rem 0.75rem',
+                  borderRadius: '20px',
+                  fontSize: '0.8rem',
+                  fontWeight: '600'
+                }}>
+                  {tutorial.level}
+                </div>
+
+                <h4>{tutorial.title}</h4>
+                <p style={{ marginBottom: '1rem' }}>{tutorial.description}</p>
+
+                <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', fontSize: '0.85rem', color: '#718096' }}>
+                  <span>📅 {tutorial.duration}</span>
+                  <span>📝 {tutorial.steps.length} steps</span>
+                  <span>🎯 {tutorial.category}</span>
+                </div>
+
+                <button className="btn" onClick={() => startTutorial(index)}>
+                  Start Tutorial
+                </button>
+
+                <div style={{ marginTop: '1rem' }}>
+                  <h5 style={{ fontSize: '0.95rem', marginBottom: '0.75rem' }}>What you'll learn:</h5>
+                  <ul style={{ textAlign: 'left', fontSize: '0.85rem', paddingLeft: '1.25rem' }}>
+                    {tutorial.steps.slice(0, 3).map((step, stepIndex) => (
+                      <li key={stepIndex} style={{ marginBottom: '0.25rem' }}>
+                        {typeof step === 'string' ? step : step.title}
+                      </li>
+                    ))}
+                    {tutorial.steps.length > 3 && (
+                      <li style={{ marginBottom: '0.25rem', color: '#718096', fontStyle: 'italic' }}>
+                        +{tutorial.steps.length - 3} more steps...
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="card">
+            <h3>Quick Start Exercise</h3>
+            <p>Try this simple exercise to understand the SDD workflow:</p>
+
+            <div className="step">
+              <div className="step-number">1</div>
+              <div className="step-content">
+                <h4>Define a Simple Feature</h4>
+                <p>Think of a simple feature you'd like to build (e.g., a to-do list, a contact form, etc.).</p>
+              </div>
+            </div>
+
+            <div className="step">
+              <div className="step-number">2</div>
+              <div className="step-content">
+                <h4>Write Your Specification</h4>
+                <p>Use the prompt generator above to create a specification for your feature.</p>
+              </div>
+            </div>
+
+            <div className="step">
+              <div className="step-number">3</div>
+              <div className="step-content">
+                <h4>Generate Implementation Plan</h4>
+                <p>Use the /plan command structure to outline how you would implement it.</p>
+              </div>
+            </div>
+
+            <button className="btn" onClick={completeTutorialStep}>
+              Mark Exercise Complete
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Templates Section */}
+      {activeSection === 'templates' && (
+        <div className="content-section active">
+          <div className="card">
+            <h3>SDD Templates and Examples</h3>
+            <p>Ready-to-use templates for your Spec-Driven Development workflow.</p>
+          </div>
+
+          <div className="card">
+            <h4>Feature Specification Template</h4>
+            <div style={{ background: 'rgba(72, 187, 120, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
+              <h4 style={{ color: '#48bb78', marginBottom: '1rem' }}>🤔 Why This Template Matters</h4>
+              <p style={{ textAlign: 'left', lineHeight: '1.8', margin: 0, color: '#2d3748' }}>Feature specifications are the foundation of Spec-Driven Development. They provide clear, unambiguous requirements that guide implementation and ensure all stakeholders have a shared understanding of what needs to be built.</p>
+            </div>
+            <div style={{ background: 'rgba(102, 126, 234, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
+              <h4 style={{ color: '#667eea', marginBottom: '1rem' }}>🎯 What to Do Next</h4>
+              <ol style={{ textAlign: 'left', lineHeight: '1.8', paddingLeft: '1.5rem', margin: 0 }} className="text-dark">
+                <li>Copy this template and customize it for your specific feature</li>
+                <li>Use it with the <code>/specify</code> command to start the specification-driven development process</li>
+                <li>Replace all placeholders with your specific requirements and constraints</li>
+                <li>Review and refine the specification until all [NEEDS CLARIFICATION] markers are resolved</li>
+              </ol>
+            </div>
+
+            <div className="example-code">{`# Feature Specification: [Feature Name]
+
+## Overview
+[High-level description of the feature and its purpose]
+
+## User Stories
+### Primary User Story
+As a [user type], I want to [action] so that [benefit].
+
+**Acceptance Criteria:**
+- [ ] Given [context], when [action], then [outcome]
+- [ ] [Additional criteria]
+
+### Secondary User Stories
+- As a [user type], I want to [action] so that [benefit]
+
+## Non-Functional Requirements
+### Performance
+- [ ] Response time less than target
+- [ ] Support target concurrent users
+
+### Security
+- [ ] [Authentication requirement]
+- [ ] [Authorization requirement]
+
+### Usability
+- [ ] [Usability requirement]
+
+## Integration Requirements
+- [ ] Integration with [existing system]
+- [ ] API compatibility with [external service]
+
+## Constraints
+- [ ] Technology constraint
+- [ ] Business constraint
+- [ ] Regulatory constraint
+
+## Success Metrics
+- [ ] [Measurable outcome 1]
+- [ ] [Measurable outcome 2]
+
+## Open Questions
+[NEEDS CLARIFICATION: Question 1]
+[NEEDS CLARIFICATION: Question 2]
+
+---
+*This specification follows the SDD methodology and constitutional principles.*`}</div>
+
+            <button className="btn" onClick={() => {
+              const templateText = `# Feature Specification: [Feature Name]
+
+## Overview
+[High-level description of the feature and its purpose]
+
+## User Stories
+### Primary User Story
+As a [user type], I want to [action] so that [benefit].
+
+**Acceptance Criteria:**
+- [ ] Given [context], when [action], then [outcome]
+- [ ] [Additional criteria]
+
+### Secondary User Stories
+- As a [user type], I want to [action] so that [benefit]
+
+## Non-Functional Requirements
+### Performance
+- [ ] Response time less than target
+- [ ] Support target concurrent users
+
+### Security
+- [ ] [Authentication requirement]
+- [ ] [Authorization requirement]
+
+### Usability
+- [ ] [Usability requirement]
+
+## Integration Requirements
+- [ ] Integration with [existing system]
+- [ ] API compatibility with [external service]
+
+## Constraints
+- [ ] Technology constraint
+- [ ] Business constraint
+- [ ] Regulatory constraint
+
+## Success Metrics
+- [ ] [Measurable outcome 1]
+- [ ] [Measurable outcome 2]
+
+## Open Questions
+[NEEDS CLARIFICATION: Question 1]
+[NEEDS CLARIFICATION: Question 2]
+
+---
+*This specification follows the SDD methodology and constitutional principles.*`;
+              navigator.clipboard.writeText(templateText);
+            }}>Copy Template</button>
+          </div>
+
+          <div className="card">
+            <h4>Implementation Plan Template</h4>
+            <div style={{ background: 'rgba(72, 187, 120, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
+              <h4 style={{ color: '#48bb78', marginBottom: '1rem' }}>🤔 Why This Template Matters</h4>
+              <p style={{ textAlign: 'left', lineHeight: '1.8', margin: 0, color: '#2d3748' }}>Implementation plans bridge the gap between specification and code. They provide technical guidance, architecture decisions, and a clear roadmap for developers while ensuring constitutional compliance throughout the development process.</p>
+            </div>
+            <div style={{ background: 'rgba(102, 126, 234, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
+              <h4 style={{ color: '#667eea', marginBottom: '1rem' }}>🎯 What to Do Next</h4>
+              <ol style={{ textAlign: 'left', lineHeight: '1.8', paddingLeft: '1.5rem', margin: 0 }} className="text-dark">
+                <li>Copy this template and customize it for your project</li>
+                <li>Use it with the <code>/plan</code> command to generate detailed technical tasks and implementation steps</li>
+                <li>Ensure all constitutional gates are satisfied before proceeding</li>
+                <li>Follow the task execution order to maintain constitutional compliance</li>
+              </ol>
+            </div>
+
+            <div className="example-code">{`# Implementation Plan: [Project Name]
+
+## Phase -1: Pre-Implementation Gates
+### Simplicity Gate (Article VII)
+- [ ] Using ≤3 projects?
+- [ ] No future-proofing?
+
+### Anti-Abstraction Gate (Article VIII)
+- [ ] Using framework directly?
+- [ ] Single model representation?
+
+### Integration-First Gate (Article IX)
+- [ ] Contracts defined?
+- [ ] Contract tests written?
+
+## Phase 0: Foundation Setup
+### Project Structure
+project/
+├── packages/
+│   ├── feature-library/     # Main feature implementation
+│   ├── cli-interface/       # CLI interface for the feature
+│   └── test-suite/          # Integration and contract tests
+└── contracts/              # API contracts and schemas
+
+### Technology Stack
+- **Frontend:** [Technology choice and rationale]
+- **Backend:** [Technology choice and rationale]
+- **Database:** [Technology choice and rationale]
+- **Testing:** [Testing framework and rationale]
+
+## Phase 1: Contract Definition
+### API Contracts
+- [ ] Define REST/OpenAPI specifications
+- [ ] Create data model schemas
+- [ ] Write contract tests
+
+### Data Model
+- [ ] Entity relationship design
+- [ ] Database schema definition
+- [ ] Data validation rules
+
+## Phase 2: Library Development
+### Core Library Implementation
+- [ ] Implement core business logic
+- [ ] Create CLI interface
+- [ ] Write comprehensive tests
+
+### Integration Layer
+- [ ] Implement API endpoints
+- [ ] Create authentication layer
+- [ ] Add error handling
+
+## Phase 3: Application Integration
+### Frontend Integration
+- [ ] Create UI components
+- [ ] Implement state management
+- [ ] Add user interactions
+
+### Deployment Setup
+- [ ] Configure CI/CD pipeline
+- [ ] Set up monitoring
+- [ ] Create documentation
+
+## Testing Strategy
+### Test Types
+- **Contract Tests:** Ensure API compliance
+- **Integration Tests:** Verify system interactions
+- **E2E Tests:** Validate user workflows
+- **Unit Tests:** Test individual components
+
+### Test Coverage Goals
+- Unit tests: ≥90% coverage
+- Integration tests: All critical paths
+- E2E tests: Key user workflows
+
+## Success Criteria
+- [ ] All tests passing
+- [ ] Performance targets met
+- [ ] Security requirements satisfied
+- [ ] Documentation complete
+
+## Complexity Tracking
+*Document any justified complexity with clear rationale*`}</div>
+
+            <button className="btn" onClick={() => {
+              const templateText = `# Implementation Plan: [Project Name]
+
+## Phase -1: Pre-Implementation Gates
+### Simplicity Gate (Article VII)
+- [ ] Using ≤3 projects?
+- [ ] No future-proofing?
+
+### Anti-Abstraction Gate (Article VIII)
+- [ ] Using framework directly?
+- [ ] Single model representation?
+
+### Integration-First Gate (Article IX)
+- [ ] Contracts defined?
+- [ ] Contract tests written?
+
+## Phase 0: Foundation Setup
+### Project Structure
+project/
+├── packages/
+│   ├── feature-library/     # Main feature implementation
+│   ├── cli-interface/       # CLI interface for the feature
+│   └── test-suite/          # Integration and contract tests
+└── contracts/              # API contracts and schemas
+
+### Technology Stack
+- **Frontend:** [Technology choice and rationale]
+- **Backend:** [Technology choice and rationale]
+- **Database:** [Technology choice and rationale]
+- **Testing:** [Testing framework and rationale]
+
+## Phase 1: Contract Definition
+### API Contracts
+- [ ] Define REST/OpenAPI specifications
+- [ ] Create data model schemas
+- [ ] Write contract tests
+
+### Data Model
+- [ ] Entity relationship design
+- [ ] Database schema definition
+- [ ] Data validation rules
+
+## Phase 2: Library Development
+### Core Library Implementation
+- [ ] Implement core business logic
+- [ ] Create CLI interface
+- [ ] Write comprehensive tests
+
+### Integration Layer
+- [ ] Implement API endpoints
+- [ ] Create authentication layer
+- [ ] Add error handling
+
+## Phase 3: Application Integration
+### Frontend Integration
+- [ ] Create UI components
+- [ ] Implement state management
+- [ ] Add user interactions
+
+### Deployment Setup
+- [ ] Configure CI/CD pipeline
+- [ ] Set up monitoring
+- [ ] Create documentation
+
+## Testing Strategy
+### Test Types
+- **Contract Tests:** Ensure API compliance
+- **Integration Tests:** Verify system interactions
+- **E2E Tests:** Validate user workflows
+- **Unit Tests:** Test individual components
+
+### Test Coverage Goals
+- Unit tests: ≥90% coverage
+- Integration tests: All critical paths
+- E2E tests: Key user workflows
+
+## Success Criteria
+- [ ] All tests passing
+- [ ] Performance targets met
+- [ ] Security requirements satisfied
+- [ ] Documentation complete
+
+## Complexity Tracking
+*Document any justified complexity with clear rationale*`;
+              navigator.clipboard.writeText(templateText);
+            }}>Copy Template</button>
+          </div>
+
+          <div className="card">
+            <h4>Constitutional Compliance Checklist</h4>
+            <div style={{ background: 'rgba(72, 187, 120, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
+              <h4 style={{ color: '#48bb78', marginBottom: '1rem' }}>🤔 Why This Template Matters</h4>
+              <p style={{ textAlign: 'left', lineHeight: '1.8', margin: 0, color: '#2d3748' }}>The Constitution ensures your implementations follow Spec-Driven Development principles consistently. This checklist validates compliance with core tenets like library-first development, CLI accessibility, test-first implementation, and simplicity.</p>
+            </div>
+            <div style={{ background: 'rgba(236, 72, 153, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
+              <h4 style={{ color: '#ec4899', marginBottom: '1rem' }}>🔄 When to Change Your Constitution</h4>
+              <p style={{ textAlign: 'left', lineHeight: '1.8', margin: 0, color: '#2d3748' }}>Different constitutions should be used when applications have distinct:</p>
+              <ul style={{ textAlign: 'left', lineHeight: '1.8', paddingLeft: '1.5rem', margin: '0.5rem 0', color: '#2d3748' }}>
+                <li><strong>Purpose or Domain:</strong> Unique goals, like gaming vs. e-commerce, requiring specific principles</li>
+                <li><strong>Architecture:</strong> Different patterns, e.g., MVVM vs. Clean Architecture</li>
+                <li><strong>Technical Requirements:</strong> Varying APIs, libraries, or performance needs</li>
+                <li><strong>UI/UX Standards:</strong> Custom branding or design guidelines</li>
+                <li><strong>Team Practices:</strong> Unique coding standards, testing, or deployment processes</li>
+                <li><strong>Constraints:</strong> Specific device support, offline modes, or security needs</li>
+              </ul>
+              <p style={{ textAlign: 'left', lineHeight: '1.8', margin: '0.5rem 0 0 0', color: '#2d3748' }}>Use a new constitution per app unless they share identical conventions.</p>
+            </div>
+            <div style={{ background: 'rgba(102, 126, 234, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
+              <h4 style={{ color: '#667eea', marginBottom: '1rem' }}>🎯 What to Do Next</h4>
+              <ol style={{ textAlign: 'left', lineHeight: '1.8', paddingLeft: '1.5rem', margin: 0 }} className="text-dark">
+                <li>Use this checklist during implementation planning and review</li>
+                <li>Each article represents a constitutional principle that must be satisfied or properly justified</li>
+                <li>Document any exceptions with clear justifications</li>
+                <li>Review compliance regularly throughout the development process</li>
+              </ol>
+            </div>
+            <div className="example-code">{`# Constitutional Compliance Checklist
+
+## Article I: Library-First Principle
+- [ ] Feature implemented as standalone library
+- [ ] Clear separation between library and application
+- [ ] Minimal external dependencies
+- [ ] Well-defined public API
+
+## Article II: CLI Interface Mandate
+- [ ] All functionality accessible via CLI
+- [ ] Text-based input/output supported
+- [ ] JSON format available for structured data
+- [ ] CLI commands documented and tested
+
+## Article III: Test-First Imperative
+- [ ] Tests written before implementation
+- [ ] All tests fail initially (Red phase)
+- [ ] Implementation makes tests pass (Green phase)
+- [ ] Test coverage meets requirements
+
+## Article VII: Simplicity Principle
+- [ ] Maximum 3 projects for initial implementation
+- [ ] No future-proofing or over-engineering
+- [ ] Simple, straightforward solutions preferred
+- [ ] Complexity properly justified
+
+## Article VIII: Anti-Abstraction Principle
+- [ ] Using framework features directly
+- [ ] No unnecessary abstraction layers
+- [ ] Single model representation
+- [ ] Framework conventions followed
+
+## Article IX: Integration-First Testing
+- [ ] Using real databases over mocks
+- [ ] Actual service instances in tests
+- [ ] Contract tests before implementation
+- [ ] Realistic test environments
+
+## Overall Compliance
+- [ ] All applicable articles satisfied
+- [ ] Justifications documented for exceptions
+- [ ] Constitutional principles followed
+- [ ] Quality gates passed`}</div>
+            <button className="btn" onClick={() => {
+              const templateText = `# Constitutional Compliance Checklist
+
+## Article I: Library-First Principle
+- [ ] Feature implemented as standalone library
+- [ ] Clear separation between library and application
+- [ ] Minimal external dependencies
+- [ ] Well-defined public API
+
+## Article II: CLI Interface Mandate
+- [ ] All functionality accessible via CLI
+- [ ] Text-based input/output supported
+- [ ] JSON format available for structured data
+- [ ] CLI commands documented and tested
+
+## Article III: Test-First Imperative
+- [ ] Tests written before implementation
+- [ ] All tests fail initially (Red phase)
+- [ ] Implementation makes tests pass (Green phase)
+- [ ] Test coverage meets requirements
+
+## Article VII: Simplicity Principle
+- [ ] Maximum 3 projects for initial implementation
+- [ ] No future-proofing or over-engineering
+- [ ] Simple, straightforward solutions preferred
+- [ ] Complexity properly justified
+
+## Article VIII: Anti-Abstraction Principle
+- [ ] Using framework features directly
+- [ ] No unnecessary abstraction layers
+- [ ] Single model representation
+- [ ] Framework conventions followed
+
+## Article IX: Integration-First Testing
+- [ ] Using real databases over mocks
+- [ ] Actual service instances in tests
+- [ ] Contract tests before implementation
+- [ ] Realistic test environments
+
+## Overall Compliance
+- [ ] All applicable articles satisfied
+- [ ] Justifications documented for exceptions
+- [ ] Constitutional principles followed
+- [ ] Quality gates passed`;
+              navigator.clipboard.writeText(templateText);
+            }}>Copy Checklist</button>
+          </div>
+        </div>
+      )}
+
+      {/* Skill Assessment Modal */}
+      {showSkillAssessment && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(0, 0, 0, 0.8)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1000,
+          padding: '2rem'
+        }}>
+          <div style={{
+            background: 'white',
+            borderRadius: '20px',
+            padding: '2rem',
+            maxWidth: '600px',
+            width: '100%',
+            maxHeight: '90vh',
+            overflowY: 'auto'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+              <h2 style={{ margin: 0 }}>🎯 Skill Assessment</h2>
+              <button
+                onClick={() => setShowSkillAssessment(false)}
+                style={{
+                  background: 'transparent',
+                  border: 'none',
+                  fontSize: '1.5rem',
+                  cursor: 'pointer',
+                  color: '#718096'
+                }}
+              >
+                ×
+              </button>
+            </div>
+
+            <p style={{ marginBottom: '2rem', color: '#4a5568' }}>
+              Answer these 6 quick questions to get personalized tutorial recommendations based on your experience and goals.
+            </p>
+
+            <div style={{ marginBottom: '2rem' }}>
+              {skillAssessmentQuestions.map((question, index) => (
+                <div key={question.id} style={{ marginBottom: '1.5rem' }}>
+                  <h4 style={{ marginBottom: '1rem', color: '#2d3748' }}>
+                    {index + 1}. {question.question}
+                  </h4>
+
+                  {question.type === 'multiple-choice' && (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                      {question.options.map((option, optionIndex) => (
+                        <label key={optionIndex} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', padding: '0.75rem', background: assessmentAnswers[question.id] === option ? 'rgba(102, 126, 234, 0.1)' : 'rgba(0, 0, 0, 0.05)', borderRadius: '8px', transition: 'all 0.3s ease' }}>
+                          <input
+                            type="radio"
+                            name={question.id}
+                            value={option}
+                            checked={assessmentAnswers[question.id] === option}
+                            onChange={(e) => handleAnswer(question.id, e.target.value)}
+                            style={{ marginRight: '0.75rem' }}
+                          />
+                          {option}
+                        </label>
+                      ))}
+                    </div>
+                  )}
+
+                  {question.type === 'multi-select' && (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                      {question.options.map((option, optionIndex) => (
+                        <label key={optionIndex} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', padding: '0.75rem', background: (assessmentAnswers[question.id] || []).includes(option) ? 'rgba(102, 126, 234, 0.1)' : 'rgba(0, 0, 0, 0.05)', borderRadius: '8px', transition: 'all 0.3s ease' }}>
+                          <input
+                            type="checkbox"
+                            value={option}
+                            checked={(assessmentAnswers[question.id] || []).includes(option)}
+                            onChange={(e) => {
+                              const currentValues = assessmentAnswers[question.id] || []
+                              if (e.target.checked) {
+                                handleAnswer(question.id, [...currentValues, option])
+                              } else {
+                                handleAnswer(question.id, currentValues.filter(v => v !== option))
+                              }
+                            }}
+                            style={{ marginRight: '0.75rem' }}
+                          />
+                          {option}
+                        </label>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end' }}>
+              <button className="btn-secondary" onClick={() => setShowSkillAssessment(false)}>
+                Cancel
+              </button>
+              <button
+                className="btn"
+                onClick={completeSkillAssessment}
+                disabled={Object.keys(assessmentAnswers).length < skillAssessmentQuestions.length - 1} // Allow one unanswered for multi-select
+              >
+                Get My Learning Path
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Achievement Notifications */}
+      {showAchievementNotifications && (
+        <div style={{
+          position: 'fixed',
+          top: '2rem',
+          right: '2rem',
+          zIndex: 2000,
+          animation: 'slideIn 0.5s ease-out'
+        }}>
+          {achievements.slice(-3).map(achievementId => {
+            const achievement = achievementDefinitions.find(a => a.id === achievementId)
+            return achievement ? (
+              <div key={achievementId} style={{
+                background: 'white',
+                borderRadius: '12px',
+                padding: '1rem',
+                marginBottom: '1rem',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
+                borderLeft: '4px solid #f6ad55',
+                maxWidth: '300px',
+                animation: 'bounceIn 0.6s ease-out'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '0.5rem' }}>
+                  <div style={{ fontSize: '2rem', marginRight: '0.75rem' }}>{achievement.icon}</div>
+                  <div>
+                    <div style={{ fontWeight: 'bold', color: '#2d3748' }}>Achievement Unlocked!</div>
+                    <div style={{ color: '#f6ad55', fontWeight: '600' }}>{achievement.title}</div>
+                  </div>
+                </div>
+                <div style={{ fontSize: '0.85rem', color: '#718096' }}>
+                  {achievement.description} • +{achievement.points} points
+                </div>
+              </div>
+            ) : null
+          })}
+        </div>
+      )}
+
+      {/* Achievements Modal */}
+      {showAchievementsModal && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(0, 0, 0, 0.8)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1000,
+          padding: '2rem'
+        }}>
+          <div style={{
+            background: 'white',
+            borderRadius: '20px',
+            padding: '2rem',
+            maxWidth: '700px',
+            width: '100%',
+            maxHeight: '90vh',
+            overflowY: 'auto'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+              <h2 style={{ margin: 0 }}>🏆 Achievements</h2>
+              <button
+                onClick={() => setShowAchievementsModal(false)}
+                style={{
+                  background: 'transparent',
+                  border: 'none',
+                  fontSize: '1.5rem',
+                  cursor: 'pointer',
+                  color: '#718096'
+                }}
+              >
+                ×
+              </button>
+            </div>
+
+            <div style={{ marginBottom: '2rem' }}>
+              <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#2d3748', marginBottom: '0.5rem' }}>
+                {achievements.length} of {achievementDefinitions.length} achievements unlocked
+              </div>
+              <div style={{ fontSize: '0.9rem', color: '#718096' }}>
+                Keep learning to unlock more achievements!
+              </div>
+            </div>
+
+            <div style={{ display: 'grid', gap: '1rem' }}>
+              {achievementDefinitions.map(achievement => {
+                const isUnlocked = achievements.includes(achievement.id)
+                return (
+                  <div
+                    key={achievement.id}
+                    style={{
+                      padding: '1rem',
+                      borderRadius: '12px',
+                      background: isUnlocked ? 'linear-gradient(135deg, rgba(246, 173, 85, 0.1) 0%, rgba(251, 191, 36, 0.1) 100%)' : 'rgba(0, 0, 0, 0.05)',
+                      border: isUnlocked ? '2px solid rgba(246, 173, 85, 0.3)' : '2px solid transparent',
+                      opacity: isUnlocked ? 1 : 0.6,
+                      transition: 'all 0.3s ease'
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                      <div style={{ fontSize: '2.5rem', marginRight: '1rem', filter: isUnlocked ? 'none' : 'grayscale(100%)' }}>
+                        {achievement.icon}
+                      </div>
+                      <div style={{ flex: 1 }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.25rem' }}>
+                          <h4 style={{ margin: 0, color: isUnlocked ? '#2d3748' : '#718096' }}>
+                            {achievement.title}
+                          </h4>
+                          <div style={{ fontSize: '0.85rem', color: isUnlocked ? '#f6ad55' : '#a0aec0' }}>
+                            {isUnlocked ? `+${achievement.points} pts` : 'Locked'}
+                          </div>
+                        </div>
+                        <p style={{ margin: 0, fontSize: '0.9rem', color: isUnlocked ? '#4a5568' : '#a0aec0' }}>
+                          {achievement.description}
+                        </p>
+                        {!isUnlocked && (
+                          <div style={{ fontSize: '0.8rem', color: '#a0aec0', marginTop: '0.25rem' }}>
+                            Keep learning to unlock this achievement
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Community Section */}
+      {activeSection === 'community' && (
+        <div className="content-section active">
+          <div className="card">
+            <h3>👥 SDD Community</h3>
+            <p>Connect with fellow SDD practitioners, share knowledge, and collaborate on projects.</p>
+          </div>
+
+          {/* Community Stats */}
+          <div className="card">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1rem' }}>
+              <div style={{ textAlign: 'center', padding: '1rem', background: 'rgba(102, 126, 234, 0.1)', borderRadius: '12px' }}>
+                <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#667eea' }}>
+                  {getCommunityStats().totalMembers}
+                </div>
+                <div style={{ color: '#4a5568', fontSize: '0.9rem' }}>Community Members</div>
+              </div>
+              <div style={{ textAlign: 'center', padding: '1rem', background: 'rgba(72, 187, 120, 0.1)', borderRadius: '12px' }}>
+                <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#48bb78' }}>
+                  {getCommunityStats().totalPosts}
+                </div>
+                <div style={{ color: '#4a5568', fontSize: '0.9rem' }}>Discussion Posts</div>
+              </div>
+              <div style={{ textAlign: 'center', padding: '1rem', background: 'rgba(237, 137, 54, 0.1)', borderRadius: '12px' }}>
+                <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#ed8936' }}>
+                  {getCommunityStats().activeNow}
+                </div>
+                <div style={{ color: '#4a5568', fontSize: '0.9rem' }}>Active Now</div>
+              </div>
+              <div style={{ textAlign: 'center', padding: '1rem', background: 'rgba(159, 122, 234, 0.1)', borderRadius: '12px' }}>
+                <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#9f7aea' }}>
+                  {getCommunityStats().yourReputation}
+                </div>
+                <div style={{ color: '#4a5568', fontSize: '0.9rem' }}>Your Reputation</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Community Navigation */}
+          <div className="card">
+            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+              <button
+                className={`btn ${activeCommunityTab === 'discussions' ? 'active' : ''}`}
+                onClick={() => switchTab('discussions')}
+              >
+                💬 Discussions
+              </button>
+              <button
+                className={`btn ${activeCommunityTab === 'peer-reviews' ? 'active' : ''}`}
+                onClick={() => switchTab('peer-reviews')}
+              >
+                🔍 Peer Reviews
+              </button>
+              <button
+                className={`btn ${activeCommunityTab === 'success-stories' ? 'active' : ''}`}
+                onClick={() => switchTab('success-stories')}
+              >
+                🏆 Success Stories
+              </button>
+              <button
+                className="btn-secondary"
+                onClick={() => setShowCreatePost(true)}
+              >
+                ✨ Create Post
+              </button>
+            </div>
+
+            {/* Discussions Tab */}
+            {activeCommunityTab === 'discussions' && (
+              <div>
+                <h4>Community Discussions</h4>
+                {[...communityPostsData, ...communityPosts].map(post => (
+                  <div key={post.id} style={{
+                    marginBottom: '1.5rem',
+                    padding: '1.5rem',
+                    background: 'rgba(255, 255, 255, 0.8)',
+                    borderRadius: '12px',
+                    border: '1px solid rgba(0, 0, 0, 0.1)'
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
+                      <div style={{ fontSize: '2rem', marginRight: '1rem' }}>{post.avatar}</div>
+                      <div style={{ flex: 1 }}>
+                        <h5 style={{ margin: '0', color: '#2d3748' }}>{post.title}</h5>
+                        <p style={{ margin: '0.25rem 0 0 0', color: '#718096', fontSize: '0.9rem' }}>
+                          {post.author} • {post.timestamp}
+                        </p>
+                      </div>
+                    </div>
+                    <p style={{ color: '#4a5568', lineHeight: '1.6', marginBottom: '1rem' }}>
+                      {post.content}
+                    </p>
+                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                      <button className="btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.8rem' }}>
+                        👍 {post.likes}
+                      </button>
+                      <button className="btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.8rem' }}>
+                        💬 {post.comments}
+                      </button>
+                      <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                        {post.tags.map((tag, index) => (
+                          <span key={index} style={{
+                            background: 'rgba(102, 126, 234, 0.1)',
+                            color: '#667eea',
+                            padding: '0.25rem 0.5rem',
+                            borderRadius: '12px',
+                            fontSize: '0.8rem'
+                          }}>
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Peer Reviews Tab */}
+            {activeCommunityTab === 'peer-reviews' && (
+              <div>
+                <h4>Peer Review Requests</h4>
+                {peerReviewRequests.map(review => (
+                  <div key={review.id} style={{
+                    marginBottom: '1.5rem',
+                    padding: '1.5rem',
+                    background: 'rgba(255, 255, 255, 0.8)',
+                    borderRadius: '12px',
+                    border: '1px solid rgba(0, 0, 0, 0.1)'
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
+                      <div style={{ fontSize: '2rem', marginRight: '1rem' }}>{review.avatar}</div>
+                      <div style={{ flex: 1 }}>
+                        <h5 style={{ margin: '0', color: '#2d3748' }}>{review.title}</h5>
+                        <p style={{ margin: '0.25rem 0 0 0', color: '#718096', fontSize: '0.9rem' }}>
+                          {review.author} • {review.timestamp} • {review.difficulty}
+                        </p>
+                      </div>
+                      <div style={{
+                        padding: '0.25rem 0.75rem',
+                        borderRadius: '12px',
+                        fontSize: '0.8rem',
+                        background: review.status === 'pending' ? 'rgba(237, 137, 54, 0.1)' :
+                                       review.status === 'in-progress' ? 'rgba(102, 126, 234, 0.1)' :
+                                       'rgba(72, 187, 120, 0.1)',
+                        color: review.status === 'pending' ? '#ed8936' :
+                               review.status === 'in-progress' ? '#667eea' :
+                               '#48bb78'
+                      }}>
+                        {review.status}
+                      </div>
+                    </div>
+                    <p style={{ color: '#4a5568', lineHeight: '1.6', marginBottom: '1rem' }}>
+                      {review.content}
+                    </p>
+                    <div style={{ display: 'flex', gap: '1rem' }}>
+                      <button className="btn" style={{ padding: '0.5rem 1rem', fontSize: '0.8rem' }}>
+                        📝 Review
+                      </button>
+                      <button className="btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.8rem' }}>
+                        💬 Comment
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Success Stories Tab */}
+            {activeCommunityTab === 'success-stories' && (
+              <div>
+                <h4>Success Stories</h4>
+                {communityPostsData.filter(post => post.category === 'success-story').map(story => (
+                  <div key={story.id} style={{
+                    marginBottom: '1.5rem',
+                    padding: '1.5rem',
+                    background: 'rgba(72, 187, 120, 0.1)',
+                    borderRadius: '12px',
+                    border: '1px solid rgba(72, 187, 120, 0.2)'
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
+                      <div style={{ fontSize: '2rem', marginRight: '1rem' }}>{story.avatar}</div>
+                      <div style={{ flex: 1 }}>
+                        <h5 style={{ margin: '0', color: '#2d3748' }}>{story.title}</h5>
+                        <p style={{ margin: '0.25rem 0 0 0', color: '#718096', fontSize: '0.9rem' }}>
+                          {story.author} • {story.timestamp}
+                        </p>
+                      </div>
+                    </div>
+                    <p style={{ color: '#4a5568', lineHeight: '1.6', marginBottom: '1rem' }}>
+                      {story.content}
+                    </p>
+                    <div style={{ display: 'flex', gap: '1rem' }}>
+                      <button className="btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.8rem' }}>
+                        👍 {story.likes}
+                      </button>
+                      <button className="btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.8rem' }}>
+                        💬 {story.comments}
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Tutorial Player Modal */}
+      {showTutorialPlayer && activeTutorial !== null && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(0, 0, 0, 0.8)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1000,
+          padding: '2rem'
+        }}>
+          <div style={{
+            background: 'white',
+            borderRadius: '20px',
+            maxWidth: '800px',
+            width: '100%',
+            maxHeight: '90vh',
+            overflow: 'hidden',
+            display: 'flex',
+            flexDirection: 'column'
+          }}>
+            {/* Tutorial Header */}
+            <div style={{
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              color: 'white',
+              padding: '2rem',
+              position: 'relative'
+            }}>
+              <button
+                onClick={closeTutorial}
+                style={{
+                  position: 'absolute',
+                  top: '1rem',
+                  right: '1rem',
+                  background: 'rgba(255, 255, 255, 0.2)',
+                  border: 'none',
+                  color: 'white',
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  cursor: 'pointer',
+                  fontSize: '1.2rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                ×
+              </button>
+
+              <h2 style={{ margin: '0 0 0.5rem 0' }}>
+                {tutorials[activeTutorial].title}
+              </h2>
+              <p style={{ margin: '0', opacity: 0.9 }}>
+                {tutorials[activeTutorial].description}
+              </p>
+              <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem', fontSize: '0.9rem' }}>
+                <span>📅 {tutorials[activeTutorial].duration}</span>
+                <span>🎯 {tutorials[activeTutorial].level}</span>
+                <span>📝 Step {currentStep + 1} of {tutorials[activeTutorial].steps.length}</span>
+              </div>
+
+              {/* Progress Bar */}
+              <div style={{ marginTop: '1rem', height: '4px', background: 'rgba(255, 255, 255, 0.3)', borderRadius: '2px' }}>
+                <div style={{
+                  width: `${getTutorialProgress()}%`,
+                  height: '100%',
+                  background: 'white',
+                  borderRadius: '2px',
+                  transition: 'width 0.3s ease'
+                }} />
+              </div>
+            </div>
+
+            {/* Tutorial Content */}
+            <div style={{ flex: 1, overflowY: 'auto', padding: '2rem' }}>
+              {!tutorialCompleted ? (
+                <div>
+                  {/* Current Step */}
+                  <div>
+                    <h3 style={{ color: '#2d3748', marginBottom: '1rem' }}>
+                      {tutorials[activeTutorial].steps[currentStep].title}
+                    </h3>
+                    <p style={{ color: '#4a5568', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+                      {tutorials[activeTutorial].steps[currentStep].content}
+                    </p>
+
+                    {/* Enhanced Content Types */}
+                    {tutorials[activeTutorial].steps[currentStep].video && (
+                      <VideoRenderer videoData={tutorials[activeTutorial].steps[currentStep].video} />
+                    )}
+
+                    {tutorials[activeTutorial].steps[currentStep].diagram && (
+                      <DiagramRenderer diagramData={tutorials[activeTutorial].steps[currentStep].diagram} />
+                    )}
+
+                    {tutorials[activeTutorial].steps[currentStep].caseStudy && (
+                      <CaseStudyRenderer caseStudyData={tutorials[activeTutorial].steps[currentStep].caseStudy} />
+                    )}
+
+                    {/* Key Points */}
+                    {tutorials[activeTutorial].steps[currentStep].keyPoints && (
+                      <div style={{ marginBottom: '1.5rem' }}>
+                        <h4 style={{ color: '#667eea', marginBottom: '0.75rem' }}>🔑 Key Points:</h4>
+                        <ul style={{ textAlign: 'left', paddingLeft: '1.5rem', color: '#4a5568' }}>
+                          {tutorials[activeTutorial].steps[currentStep].keyPoints.map((point, index) => (
+                            <li key={index} style={{ marginBottom: '0.5rem' }}>{point}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Exercise */}
+                    {tutorials[activeTutorial].steps[currentStep].exercise && (
+                      <TutorialExerciseRenderer
+                        step={tutorials[activeTutorial].steps[currentStep]}
+                        stepIndex={currentStep}
+                        exerciseAnswers={exerciseAnswers}
+                        handleExerciseAnswer={handleExerciseAnswer}
+                      />
+                    )}
+                  </div>
+
+                  {/* Navigation */}
+                  <div style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginTop: '2rem',
+                    paddingTop: '1.5rem',
+                    borderTop: '1px solid #e2e8f0'
+                  }}>
+                    <button
+                      onClick={previousStep}
+                      disabled={currentStep === 0}
+                      className={`btn-secondary ${currentStep === 0 ? 'disabled' : ''}`}
+                      style={{ opacity: currentStep === 0 ? 0.5 : 1 }}
+                    >
+                      ← Previous
+                    </button>
+
+                    <div style={{ fontSize: '0.9rem', color: '#718096' }}>
+                      {currentStep + 1} of {tutorials[activeTutorial].steps.length} steps
+                    </div>
+
+                    <button
+                      onClick={() => nextStep(updateTutorialProgress)}
+                      className="btn"
+                    >
+                      {currentStep === tutorials[activeTutorial].steps.length - 1 ? 'Complete Tutorial' : 'Next →'}
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                /* Tutorial Completion */
+                <div style={{ textAlign: 'center', padding: '2rem 0' }}>
+                  <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>🎉</div>
+                  <h2 style={{ color: '#48bb78', marginBottom: '1rem' }}>Tutorial Complete!</h2>
+                  <p style={{ color: '#4a5568', marginBottom: '2rem', lineHeight: '1.6' }}>
+                    Congratulations! You've successfully completed "{tutorials[activeTutorial].title}".
+                    You've gained valuable skills in Spec-Driven Development.
+                  </p>
+
+                  <div style={{
+                    background: 'rgba(72, 187, 120, 0.1)',
+                    padding: '1.5rem',
+                    borderRadius: '12px',
+                    marginBottom: '2rem',
+                    textAlign: 'left'
+                  }}>
+                    <h4 style={{ color: '#48bb78', marginBottom: '1rem' }}>🏆 What You've Achieved:</h4>
+                    <ul style={{ textAlign: 'left', color: '#2d3748', marginBottom: 0 }}>
+                      <li>Completed {tutorials[activeTutorial].steps.length} learning steps</li>
+                      <li>Mastered key SDD concepts</li>
+                      <li>Gained hands-on practice experience</li>
+                      <li>Built confidence in applying SDD methodology</li>
+                    </ul>
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+                    <button onClick={closeTutorial} className="btn">
+                      Back to Tutorials
+                    </button>
+                    <button
+                      onClick={() => {
+                        setActiveTutorial(null)
+                        setShowTutorialPlayer(false)
+                        setActiveSection('prompts')
+                      }}
+                      className="btn-secondary"
+                    >
+                      Try Practice Exercises
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Theme Toggle Button */}
+      <button
+        className="theme-toggle"
+        onClick={toggleTheme}
+        aria-label="Toggle theme"
+      >
+        {isDarkTheme ? '☀️' : '🌙'}
+      </button>
+    </div>
+  )
+}
+
+export default App
