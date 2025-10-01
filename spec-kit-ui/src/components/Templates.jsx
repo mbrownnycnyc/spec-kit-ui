@@ -278,6 +278,64 @@ Please provide this as a single, comprehensive prompt that I can use with Claude
           navigator.clipboard.writeText(templateText);
         }}>Copy Template</button>
       </div>
+
+      <div className="card">
+        <h4>Building Claude Agents Based on Project Specifications</h4>
+        <div style={{ background: 'rgba(72, 187, 120, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
+          <h4 style={{ color: '#48bb78', marginBottom: '1rem' }}>🤔 Why This Template Matters</h4>
+          <p style={{ textAlign: 'left', lineHeight: '1.8', margin: 0, color: '#2d3748' }}>This template helps you generate project-specific Claude agents that understand your codebase, constitution, and implementation requirements. By leveraging your existing specifications and available MCP tools, you can create targeted agents for common development tasks.</p>
+        </div>
+        <div style={{ background: 'rgba(236, 72, 153, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
+          <h4 style={{ color: '#ec4899', marginBottom: '1rem' }}>🔄 When to Use This Template</h4>
+          <p style={{ textAlign: 'left', lineHeight: '1.8', margin: 0, color: '#2d3748' }}>Use this template when you need to:</p>
+          <ul style={{ textAlign: 'left', lineHeight: '1.8', paddingLeft: '1.5rem', margin: '0.5rem 0', color: '#2d3748' }}>
+            <li><strong>Automate repetitive tasks:</strong> Create agents for testing, documentation, or code reviews</li>
+            <li><strong>Improve team efficiency:</strong> Build agents that understand your project's specific patterns</li>
+            <li><strong>Leverage MCP tools:</strong> Utilize available tools for context-aware automation</li>
+            <li><strong>Scale development processes:</strong> Extend your team's capabilities with specialized agents</li>
+            <li><strong>Maintain consistency:</strong> Ensure agents follow your constitutional principles</li>
+          </ul>
+        </div>
+        <div style={{ background: 'rgba(102, 126, 234, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
+          <h4 style={{ color: '#667eea', marginBottom: '1rem' }}>🎯 What to Do Next</h4>
+          <ol style={{ textAlign: 'left', lineHeight: '1.8', paddingLeft: '1.5rem', margin: 0 }} className="text-dark">
+            <li>Copy the template below and execute it with Claude Code</li>
+            <li>Review the generated agent descriptions for relevance</li>
+            <li>Use the output with the <code>/agents</code> command to build your agents</li>
+            <li>Test agents on small tasks before full deployment</li>
+            <li>Refine agents based on project evolution and team feedback</li>
+          </ol>
+        </div>
+
+        <div className="example-code">{`Inspect the project constitution, implementation-plan and specs, and produce a prompt to command claude code to generate five of the most relevant agents for this project. They should be short descriptions to utilize the Claude Code Agent build process rather than full out markdown files. Take a look at the MCP tools available as well.
+
+Primary purpose: The agents should control context usage for the main thread by handling specialized tasks independently.
+
+Focus on agents that will:
+- Automate repetitive development tasks while minimizing main thread context
+- Enforce constitutional compliance through dedicated oversight
+- Improve code quality and testing with focused analysis
+- Streamline documentation and review processes efficiently
+- Leverage available MCP tools for specialized operations
+
+The output should be concise agent descriptions ready for use with /agents command.`}</div>
+
+        <button className="btn" onClick={() => {
+          const templateText = `Inspect the project constitution, implementation-plan and specs, and produce a prompt to command claude code to generate five of the most relevant agents for this project. They should be short descriptions to utilize the Claude Code Agent build process rather than full out markdown files. Take a look at the MCP tools available as well.
+
+Primary purpose: The agents should control context usage for the main thread by handling specialized tasks independently.
+
+Focus on agents that will:
+- Automate repetitive development tasks while minimizing main thread context
+- Enforce constitutional compliance through dedicated oversight
+- Improve code quality and testing with focused analysis
+- Streamline documentation and review processes efficiently
+- Leverage available MCP tools for specialized operations
+
+The output should be concise agent descriptions ready for use with /agents command.`;
+          navigator.clipboard.writeText(templateText);
+        }}>Copy Template</button>
+      </div>
     </div>
   )
 }
