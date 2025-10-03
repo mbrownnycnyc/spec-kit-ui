@@ -306,11 +306,21 @@ const SpecEarFier = () => {
                   🎤 Listening... (interim results shown instantly)
                 </span>
               )}
+              {!isRecording && transcript.trim() && (
+                <span style={{
+                  marginLeft: '0.5rem',
+                  fontSize: '0.75rem',
+                  color: '#667eea',
+                  fontWeight: 'normal'
+                }}>
+                  ✅ {transcript.trim().length} characters - Ready to generate prompt
+                </span>
+              )}
             </label>
             <textarea
               value={transcript}
               onChange={(e) => setTranscript(e.target.value)}
-              placeholder="Your words will appear here as words..."
+              placeholder="Your words will appear here as you speak, or you can type text directly to test the prompt generator..."
               style={{
                 width: '100%',
                 minHeight: '300px',
@@ -470,101 +480,89 @@ ${transcript}
           <div style={{ marginTop: '2rem', textAlign: 'center' }}>
             <button
               onClick={() => {
-                if (!transcript.trim()) return
+                console.log('Generate prompt clicked!')
 
+                if (!transcript.trim()) {
+                  console.log('No transcript text, returning early')
+                  alert('Please add some text to the transcript first!')
+                  return
+                }
+
+                console.log('Starting prompt generation...')
                 setGeneratingPrompt(true)
 
-                // Create the comprehensive prompt
-                const prompt = `# Spec-ear-fier Analysis: From Ideas to Structured Specifications
+                try {
+                  // Create the comprehensive prompt
+                  const prompt = "# Spec-ear-fier Analysis: From Ideas to Structured Specifications\n\n" +
+                  "## Context\n" +
+                  "You are acting as an expert Business Development Specialist working with a development team that uses **spec-kit** for Spec-Driven Development (SDD). The team has captured their raw thoughts and ideas through a spoken brainstorming session, which has been transcribed below.\n\n" +
+                  "## Your Mission\n" +
+                  "Analyze the following transcript and help the team transform their free-flowing ideas into structured, actionable **spec-kit** commands. Your goal is to extract the essence of their solution concept and organize it into:\n\n" +
+                  "1. **`/specify` prompts** - For defining clear feature specifications\n" +
+                  "2. **`/clarify` commands** - For gathering additional information needed\n\n" +
+                  "## Analysis Guidelines\n\n" +
+                  "### Step 1: Understand the Core Concept\n" +
+                  "- Identify the primary problem or opportunity being discussed\n" +
+                  "- Extract key stakeholders and their needs\n" +
+                  "- Note any technical constraints or preferences mentioned\n" +
+                  "- Identify the main value proposition or business objective\n\n" +
+                  "### Step 2: Extract Potential Features\n" +
+                  "- Look for specific functionality mentioned\n" +
+                  "- Identify user pain points that suggest feature needs\n" +
+                  "- Note any technical components or integrations discussed\n" +
+                  "- Extract performance, scalability, or usability requirements\n\n" +
+                  "### Step 3: Identify Clarification Needs\n" +
+                  "- Look for assumptions that need validation\n" +
+                  "- Identify missing technical details\n" +
+                  "- Note areas where requirements seem ambiguous\n" +
+                  "- Find places where user research or market validation might be needed\n\n" +
+                  "### Step 4: Organize by Priority\n" +
+                  "- Distinguish between must-have and nice-to-have features\n" +
+                  "- Identify dependencies between features\n" +
+                  "- Note any time-sensitive or business-critical elements\n\n" +
+                  "## Transcript of Solution Idea Generation Session\n\n" +
+                  "```\n" + transcript + "\n```\n\n" +
+                  "---\n\n" +
+                  "## Required Output Format\n\n" +
+                  "Please format your response as **markdown** with the following structure:\n\n" +
+                  "### Analysis Summary\n" +
+                  "[Brief summary of what you understand about the project concept]\n\n" +
+                  "### /specify Prompts\n" +
+                  "Create separate fenced code blocks for each distinct feature or component:\n\n" +
+                  "```/specify\n" +
+                  "[Feature specification prompt here]\n" +
+                  "```\n\n" +
+                  "```/specify\n" +
+                  "[Another feature specification prompt here]\n" +
+                  "```\n\n" +
+                  "### /clarify Commands\n" +
+                  "Create separate fenced code blocks for each area needing clarification:\n\n" +
+                  "```/clarify\n" +
+                  "[Clarification command here]\n" +
+                  "```\n\n" +
+                  "```/clarify\n" +
+                  "[Another clarification command here]\n" +
+                  "```\n\n" +
+                  "### Additional Notes\n" +
+                  "[Any context, warnings, or suggestions for the development team]\n\n" +
+                  "---\n\n" +
+                  "## Tips for High-Quality Output\n" +
+                  "- Focus on **actionable** commands that the team can execute immediately\n" +
+                  "- Each `/specify` should define one coherent feature or component\n" +
+                  "- Each `/clarify` should target one specific area of uncertainty\n" +
+                  "- Use clear, concise language that guides the AI toward useful responses\n" +
+                  "- Consider the **scope** - don't try to boil the ocean in a single command\n" +
+                  "- Remember the **SDD methodology** - specifications come before implementation\n\n" +
+                  "Now analyze the transcript and provide the team with their next steps for transforming their ideas into structured specifications."
 
-## Context
-You are acting as an expert Business Development Specialist working with a development team that uses **spec-kit** for Spec-Driven Development (SDD). The team has captured their raw thoughts and ideas through a spoken brainstorming session, which has been transcribed below.
-
-## Your Mission
-Analyze the following transcript and help the team transform their free-flowing ideas into structured, actionable **spec-kit** commands. Your goal is to extract the essence of their solution concept and organize it into:
-
-1. **\`/specify\` prompts** - For defining clear feature specifications
-2. **\`/clarify\` commands** - For gathering additional information needed
-
-## Analysis Guidelines
-
-### Step 1: Understand the Core Concept
-- Identify the primary problem or opportunity being discussed
-- Extract key stakeholders and their needs
-- Note any technical constraints or preferences mentioned
-- Identify the main value proposition or business objective
-
-### Step 2: Extract Potential Features
-- Look for specific functionality mentioned
-- Identify user pain points that suggest feature needs
-- Note any technical components or integrations discussed
-- Extract performance, scalability, or usability requirements
-
-### Step 3: Identify Clarification Needs
-- Look for assumptions that need validation
-- Identify missing technical details
-- Note areas where requirements seem ambiguous
-- Find places where user research or market validation might be needed
-
-### Step 4: Organize by Priority
-- Distinguish between must-have and nice-to-have features
-- Identify dependencies between features
-- Note any time-sensitive or business-critical elements
-
-## Transcript of Solution Idea Generation Session
-
-\`\`\`
-${transcript}
-\`\`\`
-
----
-
-## Required Output Format
-
-Please format your response as **markdown** with the following structure:
-
-### Analysis Summary
-[Brief summary of what you understand about the project concept]
-
-### /specify Prompts
-Create separate fenced code blocks for each distinct feature or component:
-
-\`\`\`/specify
-[Feature specification prompt here]
-\`\`\`
-
-\`\`\`/specify
-[Another feature specification prompt here]
-\`\`\`
-
-### /clarify Commands
-Create separate fenced code blocks for each area needing clarification:
-
-\`\`\`/clarify
-[Clarification command here]
-\`\`\`
-
-\`\`\`/clarify
-[Another clarification command here]
-\`\`\`
-
-### Additional Notes
-[Any context, warnings, or suggestions for the development team]
-
----
-
-## Tips for High-Quality Output
-- Focus on **actionable** commands that the team can execute immediately
-- Each \`/specify\` should define one coherent feature or component
-- Each \`/clarify\` should target one specific area of uncertainty
-- Use clear, concise language that guides the AI toward useful responses
-- Consider the **scope** - don't try to boil the ocean in a single command
-- Remember the **SDD methodology** - specifications come before implementation
-
-Now analyze the transcript and provide the team with their next steps for transforming their ideas into structured specifications.`
-
-                setSpecEarFierGeneratedPrompt(prompt)
-                setGeneratingPrompt(false)
+                  console.log('Full prompt created successfully', { length: prompt.length })
+                  setSpecEarFierGeneratedPrompt(prompt)
+                } catch (error) {
+                  console.error('Error generating prompt:', error)
+                  alert('Error generating prompt: ' + error.message)
+                } finally {
+                  setGeneratingPrompt(false)
+                }
               }}
               disabled={!transcript.trim() || generatingPrompt}
               className="btn"
@@ -594,9 +592,23 @@ Now analyze the transcript and provide the team with their next steps for transf
             </button>
             {!transcript.trim() && (
               <p style={{ marginTop: '0.5rem', fontSize: '0.875rem', color: '#718096', fontStyle: 'italic' }}>
-                Record some speech first to generate a prompt
+                💡 Record some speech or type text in the textarea above to generate a prompt
               </p>
             )}
+
+            {/* Test Button for Demo */}
+            <div style={{ marginTop: '1rem', textAlign: 'center' }}>
+              <button
+                onClick={() => {
+                  const sampleTranscript = "I'm thinking about building a task management app that helps teams collaborate better. The main problem is that most task managers are too complicated and people don't actually use them. I want something simple that integrates with Slack and has automatic reminders. Maybe it could use AI to prioritize tasks based on deadlines and importance. The key features would be: simple task creation, Slack integration, smart notifications, and a clean mobile interface. I'm not sure about the tech stack but I'm thinking React for the frontend and Node.js for the backend."
+                  setTranscript(sampleTranscript)
+                }}
+                className="btn-secondary"
+                style={{ fontSize: '0.875rem' }}
+              >
+                📝 Load Sample Text for Testing
+              </button>
+            </div>
           </div>
 
           {/* Generated Prompt Section */}
@@ -604,13 +616,20 @@ Now analyze the transcript and provide the team with their next steps for transf
             <div className="card" style={{ marginTop: '2rem' }}>
               <h4>Generated Prompt:</h4>
               <div className="prompt-output">{specEarFierGeneratedPrompt}</div>
-              <button
-                className="btn-secondary"
-                onClick={() => navigator.clipboard.writeText(specEarFierGeneratedPrompt)}
-                style={{ marginTop: '1rem' }}
-              >
-                Copy to Clipboard
-              </button>
+              <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+                <button
+                  className="btn-secondary"
+                  onClick={() => navigator.clipboard.writeText(specEarFierGeneratedPrompt)}
+                >
+                  Copy to Clipboard
+                </button>
+                <button
+                  className="btn-secondary"
+                  onClick={() => setSpecEarFierGeneratedPrompt('')}
+                >
+                  Clear Prompt
+                </button>
+              </div>
             </div>
           )}
         </div>

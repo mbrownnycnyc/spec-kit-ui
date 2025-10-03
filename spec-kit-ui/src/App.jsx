@@ -19,6 +19,7 @@ function App() {
   // Spec-ear-fier state
   const [doNotSave, setDoNotSave] = useState(false)
   const [selectedScenario, setSelectedScenario] = useState(null)
+  const [generatingSpecEarFierPrompt, setGeneratingSpecEarFierPrompt] = useState(false)
 
   // Tutorial player hook
   const {
@@ -159,6 +160,9 @@ function App() {
         saveButtonState={saveButtonState}
         setSaveButtonState={setSaveButtonState}
         toggleRecording={toggleRecording}
+        generatingPrompt={generatingSpecEarFierPrompt}
+        setGeneratingPrompt={setGeneratingSpecEarFierPrompt}
+        setSpecEarFierGeneratedPrompt={setSpecEarFierGeneratedPrompt}
         // Tutorial player props
         showTutorialPlayer={showTutorialPlayer}
         activeTutorial={activeTutorial}

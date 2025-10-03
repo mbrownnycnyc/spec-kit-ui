@@ -12,6 +12,7 @@ const AppContent = ({
   // Spec-ear-fier props
   doNotSave, setDoNotSave, selectedScenario, setSelectedScenario,
   isRecording, transcript, setTranscript, isProcessing, saveButtonState, setSaveButtonState, toggleRecording,
+  generatingPrompt: specEarFierGeneratingPrompt, setGeneratingPrompt: setSpecEarFierGeneratingPrompt, setSpecEarFierGeneratedPrompt,
   // Tutorial player props
   showTutorialPlayer, activeTutorial, currentStep, tutorialCompleted, exerciseAnswers, mediaLoaded, closeTutorial, nextStep, previousStep, handleExerciseAnswer, getTutorialProgress, setMediaLoadedForTutorial,
   // Progress tracking props
@@ -42,7 +43,10 @@ const AppContent = ({
           saveButtonState={saveButtonState}
           setSaveButtonState={setSaveButtonState}
           toggleRecording={toggleRecording}
-          generatedPrompt={specEarFierGeneratedPrompt}
+          generatingPrompt={specEarFierGeneratingPrompt}
+          setGeneratingPrompt={setSpecEarFierGeneratingPrompt}
+          specEarFierGeneratedPrompt={specEarFierGeneratedPrompt}
+          setSpecEarFierGeneratedPrompt={setSpecEarFierGeneratedPrompt}
         />
       )}
 
