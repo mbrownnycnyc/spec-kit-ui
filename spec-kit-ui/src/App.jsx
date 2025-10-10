@@ -3,7 +3,8 @@ import AppHeader from './components/AppHeader'
 import AppContent from './components/AppContent'
 import AppModals from './components/AppModals'
 import navigationSections from './data/navigationSections'
-import { useTutorialPlayer, useProgressTracking, useCommunityFeatures, useSkillAssessment, useSpeechRecognition, usePromptGenerator, useTutorialProgress, useTheme, useThemeToggle } from './hooks'
+import { useTutorialPlayer, useProgressTracking, useCommunityFeatures, useSkillAssessment, useSpeechRecognition, usePromptGenerator, useTutorialProgress, useTheme, useThemeToggle, useBackendSubagent } from './hooks'
+import subagentService from './services/subagentService.js'
 import achievementDefinitions from './data/achievementDefinitions'
 
 function App() {
@@ -13,6 +14,14 @@ function App() {
   const [specEarFierGeneratedPrompt, setSpecEarFierGeneratedPrompt] = useState('')
   const [promptGeneratorGeneratedPrompt, setPromptGeneratorGeneratedPrompt] = useState('')
   const { isDarkTheme, toggleTheme } = useThemeToggle()
+
+  // Initialize backend subagent hook
+  const backendSubagent = useBackendSubagent()
+
+  // Initialize subagent service with backend hook
+  useState(() => {
+    subagentService.initialize(backendSubagent)
+  })
 
   useTheme(isDarkTheme)
 

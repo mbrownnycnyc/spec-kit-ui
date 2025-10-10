@@ -2,6 +2,7 @@ import Overview from './Overview'
 import SpecEarFierSection from './SpecEarFierSection'
 import PromptGeneratorSection from './PromptGeneratorSection'
 import TemplatesSection from './TemplatesSection'
+import SubagentLibrarySection from './SubagentLibrarySection'
 import TutorialsSection from './TutorialsSection'
 import JourneySection from './JourneySection'
 import SDDExplanation from './SDDExplanation'
@@ -71,6 +72,9 @@ const AppContent = ({
 
       {/* Templates Section */}
       {activeSection === 'templates' && <TemplatesSection />}
+
+      {/* Subagent Library Section */}
+      {activeSection === 'subagents' && <SubagentLibrarySection />}
 
       {/* Tutorials Section */}
       {activeSection === 'tutorials' && (

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Integration Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        .loading { background-color: #fff3cd; border-color: #ffeaa7; }
+        pre {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #0056b3; }
+        button:disabled { background: #6c757d; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+    <h1>Backend Integration Test</h1>
+
+    <div class="test-section" id="health-test">
+        <h3>Health Check</h3>
+        <button onclick="testHealth()">Test Health Endpoint</button>
+        <div id="health-result"></div>
+    </div>
+
+    <div class="test-section" id="status-test">
+        <h3>Repository Status</h3>
+        <button onclick="testStatus()">Test Repository Status</button>
+        <div id="status-result"></div>
+    </div>
+
+    <div class="test-section" id="subagents-test">
+        <h3>Get Subagents</h3>
+        <button onclick="testSubagents()">Get Subagents</button>
+        <div id="subagents-result"></div>
+    </div>
+
+    <div class="test-section" id="search-test">
+        <h3>Search Subagents</h3>
+        <input type="text" id="search-input" value="python" placeholder="Search query...">
+        <button onclick="testSearch()">Search</button>
+        <div id="search-result"></div>
+    </div>
+
+    <div class="test-section" id="update-test">
+        <h3>Force Update</h3>
+        <button onclick="testUpdate()">Force Repository Update</button>
+        <div id="update-result"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:3001/api';
+
+        async function makeRequest(endpoint, options = {}) {
+            try {
+                const response = await fetch(`${API_BASE}${endpoint}`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        ...options.headers
+                    },
+                    ...options
+                });
+
+                const data = await response.json();
+                return { success: response.ok, data, status: response.status };
+            } catch (error) {
+                return { success: false, error: error.message };
+            }
+        }
+
+        async function testHealth() {
+            const resultDiv = document.getElementById('health-result');
+            resultDiv.innerHTML = '<div class="loading">Testing...</div>';
+
+            const result = await makeRequest('/health');
+
+            if (result.success) {
+                resultDiv.innerHTML = `
+                    <div class="success">
+                        <strong>✅ Health check successful!</strong>
+                        <pre>${JSON.stringify(result.data, null, 2)}</pre>
+                    </div>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <div class="error">
+                        <strong>❌ Health check failed!</strong>
+                        <p>Error: ${result.error || result.data?.error}</p>
+                    </div>
+                `;
+            }
+        }
+
+        async function testStatus() {
+            const resultDiv = document.getElementById('status-result');
+            resultDiv.innerHTML = '<div class="loading">Testing...</div>';
+
+            const result = await makeRequest('/subagents/status');
+
+            if (result.success) {
+                resultDiv.innerHTML = `
+                    <div class="success">
+                        <strong>✅ Repository status retrieved!</strong>
+                        <p><strong>Repository accessible:</strong> ${result.data.repository.accessible ? 'Yes' : 'No'}</p>
+                        <p><strong>Needs update:</strong> ${result.data.repository.needsUpdate ? 'Yes' : 'No'}</p>
+                        <p><strong>Last update:</strong> ${result.data.lastUpdate || 'Never'}</p>
+                        <pre>${JSON.stringify(result.data, null, 2)}</pre>
+                    </div>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <div class="error">
+                        <strong>❌ Status check failed!</strong>
+                        <p>Error: ${result.error || result.data?.error}</p>
+                    </div>
+                `;
+            }
+        }
+
+        async function testSubagents() {
+            const resultDiv = document.getElementById('subagents-result');
+            resultDiv.innerHTML = '<div class="loading">Loading subagents...</div>';
+
+            const result = await makeRequest('/subagents');
+
+            if (result.success) {
+                const subagents = result.data.subagents || [];
+                resultDiv.innerHTML = `
+                    <div class="success">
+                        <strong>✅ Retrieved ${subagents.length} subagents!</strong>
+                        <p><strong>Repository exists:</strong> ${result.data.repositoryExists ? 'Yes' : 'No'}</p>
+                        <p><strong>Total count:</strong> ${result.data.totalCount}</p>
+                        <details>
+                            <summary>View first 3 subagents</summary>
+                            <pre>${JSON.stringify(subagents.slice(0, 3), null, 2)}</pre>
+                        </details>
+                    </div>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <div class="error">
+                        <strong>❌ Failed to get subagents!</strong>
+                        <p>Error: ${result.error || result.data?.error}</p>
+                    </div>
+                `;
+            }
+        }
+
+        async function testSearch() {
+            const resultDiv = document.getElementById('search-result');
+            const query = document.getElementById('search-input').value;
+
+            if (!query.trim()) {
+                resultDiv.innerHTML = '<div class="error">Please enter a search query</div>';
+                return;
+            }
+
+            resultDiv.innerHTML = '<div class="loading">Searching...</div>';
+
+            const result = await makeRequest(`/subagents/search?q=${encodeURIComponent(query)}`);
+
+            if (result.success) {
+                const results = result.data.results || [];
+                resultDiv.innerHTML = `
+                    <div class="success">
+                        <strong>✅ Search results for "${query}": ${results.length} found!</strong>
+                        <details>
+                            <summary>View results</summary>
+                            <pre>${JSON.stringify(results, null, 2)}</pre>
+                        </details>
+                    </div>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <div class="error">
+                        <strong>❌ Search failed!</strong>
+                        <p>Error: ${result.error || result.data?.error}</p>
+                    </div>
+                `;
+            }
+        }
+
+        async function testUpdate() {
+            const resultDiv = document.getElementById('update-result');
+            resultDiv.innerHTML = '<div class="loading">Forcing update...</div>';
+
+            const result = await makeRequest('/subagents/update', { method: 'POST' });
+
+            if (result.success) {
+                resultDiv.innerHTML = `
+                    <div class="success">
+                        <strong>✅ Update completed!</strong>
+                        <pre>${JSON.stringify(result.data, null, 2)}</pre>
+                    </div>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <div class="error">
+                        <strong>❌ Update failed!</strong>
+                        <p>Error: ${result.error || result.data?.error}</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Run health check automatically on page load
+        window.onload = () => {
+            testHealth();
+        };
+    </script>
+</body>
+</html>
