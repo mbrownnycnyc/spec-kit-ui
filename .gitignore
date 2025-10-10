@@ -1,0 +1,9 @@
+# MCP configuration files
+.mcp*
+.mcp.json~
+
+# Environment files
+.env*
+
+# Claude settings
+.claude/settings.local.json

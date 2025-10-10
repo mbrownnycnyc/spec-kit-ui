@@ -5,7 +5,7 @@ const TemplatesSection = () => {
   return (
     <div className="content-section active">
       <div className="card">
-        <h3>SDD Templates and Examples</h3>
+        <h3>Prompt Library</h3>
         <p>Ready-to-use templates for your Spec-Driven Development workflow.</p>
       </div>
 
@@ -338,6 +338,66 @@ Focus on agents that will:
 - Leverage available MCP tools for specialized operations
 
 The output should be concise agent descriptions ready for use with /agents command.`;
+          navigator.clipboard.writeText(templateText);
+        }}>Copy Template</button>
+      </div>
+
+      <div className="card">
+        <h4>Task Completion Enforcement Methodology</h4>
+        <div style={{ background: 'rgba(72, 187, 120, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
+          <h4 style={{ color: '#48bb78', marginBottom: '1rem' }}>🤔 Why This Template Matters</h4>
+          <p style={{ textAlign: 'left', lineHeight: '1.8', margin: 0, color: '#2d3748' }}>This methodology ensures that no tasks are left incomplete by providing a structured approach to task management, progress tracking, and verification. It emphasizes completion over partial progress and utilizes all available tools systematically.</p>
+        </div>
+        <div style={{ background: 'rgba(236, 72, 153, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
+          <h4 style={{ color: '#ec4899', marginBottom: '1rem' }}>🔄 When to Use This Template</h4>
+          <p style={{ textAlign: 'left', lineHeight: '1.8', margin: 0, color: '#2d3748' }}>Use this template when you need to:</p>
+          <ul style={{ textAlign: 'left', lineHeight: '1.8', paddingLeft: '1.5rem', margin: '0.5rem 0', color: '#2d3748' }}>
+            <li><strong>Ensure complete execution:</strong> Guarantee that all tasks are fully completed</li>
+            <li><strong>Track progress systematically:</strong> Maintain clear task status and verification</li>
+            <li><strong>Utilize MCP tools:</strong> Leverage sequential-thinking, memory, and context7 tools</li>
+            <li><strong>Avoid incomplete work:</strong> Prevent tasks from being left partially done</li>
+            <li><strong>Maintain build integrity:</strong> Ensure successful builds and commits throughout</li>
+          </ul>
+        </div>
+        <div style={{ background: 'rgba(102, 126, 234, 0.1)', padding: '1.5rem', borderRadius: '12px', marginTop: '1.5rem' }}>
+          <h4 style={{ color: '#667eea', marginBottom: '1rem' }}>🎯 What to Do Next</h4>
+          <ol style={{ textAlign: 'left', lineHeight: '1.8', paddingLeft: '1.5rem', margin: 0 }} className="text-dark">
+            <li>Save the provided markdown as TASK_LIST_VERIFICATION.md</li>
+            <li>Use the prompt with your model to initiate the methodology</li>
+            <li>Follow the sequential execution pattern with task tracking</li>
+            <li>Verify completion and successful build/commit at each step</li>
+            <li>Continue until all tasks are completed without stopping</li>
+          </ol>
+        </div>
+
+        <div className="example-code">{`###TASK COMPLETION###
+
+The steps for the methodlogy are:
+1. Save this markdown as TASK_LIST_VERIFICATION.md.
+2. Prompt your model with:
+\`\`\`
+Refer to @TASK_LIST_VERIFICATION.md to learn a methodology to build a tasklist.  Derive a todo list using the methodology.  Progress through all items in a prioritized order that you decide is most efficient.  Make sure that you are tracking your execution and update the task list as necessary.  Verify that a task hasn't yet been completed before working on it.  Test a successful build, bug fix, and commit as needed.
+
+Utilize all MCP tools you have at your disposal, but absolutely utilize sequential-thinking, memory, and context7 liberally.
+
+IMPORTANT RULE: Do not stop until you have completed all tasks.  You may take as much times as you need to complete your tasks, unless you get stuck in a loop.
+\`\`\`
+3. It is possible`}</div>
+
+        <button className="btn" onClick={() => {
+          const templateText = `###TASK COMPLETION###
+
+The steps for the methodlogy are:
+1. Save this markdown as TASK_LIST_VERIFICATION.md.
+2. Prompt your model with:
+\`\`\`
+Refer to @TASK_LIST_VERIFICATION.md to learn a methodology to build a tasklist.  Derive a todo list using the methodology.  Progress through all items in a prioritized order that you decide is most efficient.  Make sure that you are tracking your execution and update the task list as necessary.  Verify that a task hasn't yet been completed before working on it.  Test a successful build, bug fix, and commit as needed.
+
+Utilize all MCP tools you have at your disposal, but absolutely utilize sequential-thinking, memory, and context7 liberally.
+
+IMPORTANT RULE: Do not stop until you have completed all tasks.  You may take as much times as you need to complete your tasks, unless you get stuck in a loop.
+\`\`\`
+3. It is possible`;
           navigator.clipboard.writeText(templateText);
         }}>Copy Template</button>
       </div>
