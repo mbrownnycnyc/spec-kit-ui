@@ -48,6 +48,14 @@ A web UI to assist humans with using spec-kit.  This includes Spec-ear-fier, whi
 - **Real-time Preview**: See generated prompts as you type
 - **Copy to Clipboard**: One-click copying for easy use with AI assistants
 
+### 🤖 Subagent Library 🎉
+- **105+ Expert Subagents**: Explore a comprehensive collection of pre-built subagents for every development task! 🚀
+- **Smart Filtering**: Filter by category, technology, experience level, and complexity to find the perfect subagent instantly! 🔍
+- **On-Demand Templates**: Click to expand and view complete agent templates in plain text - no more waiting! ⚡
+- **Copy & Go**: One-click template copying to instantly use any subagent with your AI assistant! 📋
+- **Categories Galore**: Core Development, Language Specialists, Infrastructure, Security, Data & AI, and so much more! 🎨
+- **Expert-Level Tools**: Each subagent comes with specialized MCP tools and expertise for their domain! 🛠️
+
 ### 📱 Responsive Design
 - **Mobile-First**: Optimized for all screen sizes
 - **Touch-Friendly**: Large buttons and intuitive gestures
