@@ -97,10 +97,23 @@ const TechnologyTags = ({ technologies }) => {
 }
 
 // Subagent card component
-const SubagentCard = ({ subagent, onSelect }) => {
+const SubagentCard = ({ subagent, onSelect, expandedSubagents, loadingSubagents, onToggleTemplate, subagentTemplateCache }) => {
+  const subagentId = subagent.filename || subagent.path || subagent.id
+  const isExpanded = expandedSubagents[subagentId]
+  const isLoading = loadingSubagents[subagentId]
+  const cachedSubagent = subagentTemplateCache[subagentId]
+  const displaySubagent = cachedSubagent || subagent
+
   const handleCopyTemplate = () => {
-    if (subagent.exampleCode) {
-      navigator.clipboard.writeText(subagent.exampleCode)
+    const templateContent = displaySubagent.agentTemplate || displaySubagent.exampleCode
+    if (templateContent) {
+      navigator.clipboard.writeText(templateContent)
+    }
+  }
+
+  const handleToggleTemplate = async () => {
+    if (onToggleTemplate) {
+      onToggleTemplate(subagentId)
     }
   }
 
@@ -137,6 +150,58 @@ const SubagentCard = ({ subagent, onSelect }) => {
         </div>
       )}
 
+      {/* Agent Template Section */}
+      <div style={{ marginTop: '1rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+          <h5 style={{ color: '#2d3748', margin: 0, fontSize: '0.95rem' }}>📋 Agent Template</h5>
+          <button
+            className="btn-secondary"
+            onClick={(e) => {
+              e.stopPropagation()
+              handleToggleTemplate()
+            }}
+            style={{ fontSize: '0.8rem', padding: '0.25rem 0.5rem' }}
+          >
+            {isExpanded ? 'Hide' : 'Show'} Template
+          </button>
+        </div>
+
+        {isExpanded && (
+          <>
+            {isLoading ? (
+              <TemplateLoadingSkeleton />
+            ) : displaySubagent.agentTemplate || displaySubagent.exampleCode ? (
+              <div className="example-code" style={{
+                maxHeight: '300px',
+                whiteSpace: 'pre-wrap',
+                fontFamily: 'monospace',
+                fontSize: '0.85rem',
+                lineHeight: '1.4',
+                background: '#f8f9fa',
+                border: '1px solid #e9ecef',
+                borderRadius: '6px',
+                padding: '1rem',
+                overflow: 'auto'
+              }}>
+                {displaySubagent.agentTemplate || displaySubagent.exampleCode}
+              </div>
+            ) : (
+              <div style={{
+                background: '#f8f9fa',
+                border: '1px solid #e9ecef',
+                borderRadius: '6px',
+                padding: '1rem',
+                color: '#6c757d',
+                fontSize: '0.9rem',
+                textAlign: 'center'
+              }}>
+                Template not available
+              </div>
+            )}
+          </>
+        )}
+      </div>
+
       <div className="card-actions" style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem' }}>
         <button
           className="btn"
@@ -144,7 +209,7 @@ const SubagentCard = ({ subagent, onSelect }) => {
             e.stopPropagation()
             handleCopyTemplate()
           }}
-          disabled={!subagent.exampleCode || subagent.exampleCode === '# Example code not available'}
+          disabled={!(subagent.agentTemplate || subagent.exampleCode) || ((subagent.agentTemplate || subagent.exampleCode) === '# Example code not available')}
         >
           Copy Template
         </button>
@@ -439,6 +504,37 @@ const LoadingState = () => (
   </div>
 )
 
+// Template loading skeleton component
+const TemplateLoadingSkeleton = () => (
+  <div style={{ marginTop: '1.5rem' }}>
+    <h4 style={{ color: '#2d3748', marginBottom: '1rem' }}>Agent Template</h4>
+    <div style={{
+      background: '#f7fafc',
+      border: '1px solid #e2e8f0',
+      borderRadius: '8px',
+      padding: '1rem',
+      minHeight: '100px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: '#718096',
+      fontSize: '0.9rem'
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+        <div style={{
+          width: '16px',
+          height: '16px',
+          border: '2px solid #e2e8f0',
+          borderTop: '2px solid #667eea',
+          borderRadius: '50%',
+          animation: 'spin 1s linear infinite'
+        }}></div>
+        Loading template...
+      </div>
+    </div>
+  </div>
+)
+
 // Error component
 const ErrorState = ({ error, onRetry }) => (
   <div className="card" style={{ textAlign: 'center', padding: '3rem' }}>
@@ -477,8 +573,9 @@ const SubagentDetailModal = ({ subagent, isOpen, onClose }) => {
   if (!isOpen || !subagent) return null
 
   const handleCopyTemplate = () => {
-    if (subagent.exampleCode) {
-      navigator.clipboard.writeText(subagent.exampleCode)
+    const templateContent = subagent.agentTemplate || subagent.exampleCode
+    if (templateContent) {
+      navigator.clipboard.writeText(templateContent)
     }
   }
 
@@ -581,11 +678,11 @@ const SubagentDetailModal = ({ subagent, isOpen, onClose }) => {
             </div>
           )}
 
-          {subagent.exampleCode && subagent.exampleCode !== '# Example code not available' && (
+          {(subagent.agentTemplate || subagent.exampleCode) && (
             <div style={{ marginTop: '1.5rem' }}>
-              <h4 style={{ color: '#2d3748', marginBottom: '1rem' }}>Example Configuration</h4>
-              <div className="example-code" style={{ maxHeight: '400px' }}>
-                {subagent.exampleCode}
+              <h4 style={{ color: '#2d3748', marginBottom: '1rem' }}>Agent Template</h4>
+              <div className="example-code" style={{ maxHeight: '400px', whiteSpace: 'pre-wrap', fontFamily: 'monospace', fontSize: '0.9rem', lineHeight: '1.5' }}>
+                {subagent.agentTemplate || subagent.exampleCode}
               </div>
             </div>
           )}
@@ -594,6 +691,7 @@ const SubagentDetailModal = ({ subagent, isOpen, onClose }) => {
             <button
               className="btn"
               onClick={handleCopyTemplate}
+              disabled={!(subagent.agentTemplate || subagent.exampleCode) || ((subagent.agentTemplate || subagent.exampleCode) === '# Example code not available')}
             >
               Copy Template
             </button>
@@ -638,6 +736,9 @@ const SubagentLibrary = () => {
   })
   const [selectedSubagent, setSelectedSubagent] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [expandedSubagents, setExpandedSubagents] = useState({})
+  const [loadingSubagents, setLoadingSubagents] = useState({})
+  const [subagentTemplateCache, setSubagentTemplateCache] = useState({})
 
   // Fetch subagents with filters
   const fetchSubagents = useCallback(async (resetOffset = false) => {
@@ -666,6 +767,7 @@ const SubagentLibrary = () => {
       params.append('sortOrder', filters.sortOrder)
       params.append('limit', filters.limit || pagination.limit)
       params.append('offset', resetOffset ? 0 : filters.offset || pagination.offset)
+      // Removed expand=true to load only metadata initially (on-demand loading for templates)
 
       const response = await fetch(`${API_BASE_URL}/filter?${params}`)
 
@@ -677,7 +779,11 @@ const SubagentLibrary = () => {
 
       if (data.success) {
         setSubagents(data.data.subagents)
-        setPagination(data.data.pagination)
+        setPagination({
+          ...data.data.pagination,
+          totalCount: data.data.totalCount,
+          filteredCount: data.data.filteredCount
+        })
 
         // Update categories and technologies from available filters
         if (data.data.availableFilters) {
@@ -699,6 +805,42 @@ const SubagentLibrary = () => {
     }
   }, [filters, pagination.limit, pagination.offset])
 
+  // Fetch individual subagent details with agentTemplate on-demand
+  const fetchSubagentDetails = useCallback(async (subagentId) => {
+    // Check cache first
+    if (subagentTemplateCache[subagentId]) {
+      return subagentTemplateCache[subagentId]
+    }
+
+    setLoadingSubagents(prev => ({ ...prev, [subagentId]: true }))
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/filter?name=${encodeURIComponent(subagentId)}&expand=true&limit=1`)
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+
+      const data = await response.json()
+
+      if (data.success && data.data.subagents.length > 0) {
+        const fullSubagent = data.data.subagents[0]
+
+        // Cache the result
+        setSubagentTemplateCache(prev => ({ ...prev, [subagentId]: fullSubagent }))
+
+        return fullSubagent
+      } else {
+        throw new Error('Subagent not found')
+      }
+    } catch (err) {
+      console.error('Error fetching subagent details:', err)
+      throw err
+    } finally {
+      setLoadingSubagents(prev => ({ ...prev, [subagentId]: false }))
+    }
+  }, [subagentTemplateCache])
+
   // Initial load and fetch when filters change
   useEffect(() => {
     fetchSubagents(true)
@@ -711,15 +853,45 @@ const SubagentLibrary = () => {
   }
 
   // Handle subagent selection
-  const handleSubagentSelect = (subagent) => {
-    setSelectedSubagent(subagent)
-    setIsModalOpen(true)
+  const handleSubagentSelect = async (subagent) => {
+    try {
+      // Fetch full subagent details if not already cached
+      const fullSubagent = await fetchSubagentDetails(subagent.filename || subagent.path || subagent.id)
+      setSelectedSubagent(fullSubagent)
+      setIsModalOpen(true)
+    } catch (err) {
+      console.error('Error loading subagent details:', err)
+      // Fallback to basic subagent if fetch fails
+      setSelectedSubagent(subagent)
+      setIsModalOpen(true)
+    }
   }
 
   // Handle modal close
   const handleModalClose = () => {
     setIsModalOpen(false)
     setSelectedSubagent(null)
+  }
+
+  // Handle template toggle for on-demand loading
+  const handleToggleTemplate = async (subagentId) => {
+    if (expandedSubagents[subagentId]) {
+      // Collapse if already expanded
+      setExpandedSubagents(prev => ({ ...prev, [subagentId]: false }))
+      return
+    }
+
+    // Expand and fetch template if not cached
+    setExpandedSubagents(prev => ({ ...prev, [subagentId]: true }))
+
+    if (!subagentTemplateCache[subagentId]) {
+      try {
+        await fetchSubagentDetails(subagentId)
+      } catch (err) {
+        console.error('Error loading template:', err)
+        // Keep expanded but show error state
+      }
+    }
   }
 
   // Handle retry
@@ -797,6 +969,10 @@ const SubagentLibrary = () => {
                     key={`${subagent.filename || subagent.path || subagent.id || 'unknown'}-${index}`}
                     subagent={subagent}
                     onSelect={handleSubagentSelect}
+                    expandedSubagents={expandedSubagents}
+                    loadingSubagents={loadingSubagents}
+                    onToggleTemplate={handleToggleTemplate}
+                    subagentTemplateCache={subagentTemplateCache}
                   />
                 ))}
               </div>
