@@ -14,12 +14,13 @@
     "automation"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "description": "Backend service for managing awesome-claude-code-subagents repository with automatic updates",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "js-yaml": "^4.1.0",
     "node-cron": "^4.2.1",
     "simple-git": "^3.28.0"
   },
