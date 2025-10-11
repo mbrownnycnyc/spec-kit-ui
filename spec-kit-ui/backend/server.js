@@ -1,5 +1,4 @@
 const express = require('express')
-const cors = require('cors')
 const path = require('path')
 const config = require('./config')
 const logger = require('./logger')
@@ -23,12 +22,6 @@ class SubagentGitServer {
   }
 
   setupMiddleware() {
-    // CORS configuration
-    this.app.use(cors({
-      origin: config.CORS_ORIGIN,
-      credentials: true
-    }))
-
     // Body parsing
     this.app.use(express.json({ limit: '10mb' }))
     this.app.use(express.urlencoded({ extended: true, limit: '10mb' }))
@@ -83,6 +76,19 @@ class SubagentGitServer {
 
       clientData.count++
       next()
+    })
+
+    // CORS headers - set after all middleware, before routes
+    this.app.use((req, res, next) => {
+      res.setHeader('Access-Control-Allow-Origin', '*')
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+      res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
+
+      if (req.method === 'OPTIONS') {
+        res.sendStatus(200)
+      } else {
+        next()
+      }
     })
   }
 

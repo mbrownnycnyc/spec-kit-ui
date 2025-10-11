@@ -1,0 +1,28 @@
+{
+  "description": "Configuration for filtering relevant subagent markdown files from the awesome-claude-code-subagents repository. The validation logic is now primarily handled by subagent-validator.js module.",
+  "lastUpdated": "2025-10-11",
+  "legacy": {
+    "note": "This configuration is kept for backward compatibility. Primary validation is now handled by SubagentValidator class in subagent-validator.js",
+    "exclusionRules": {
+      "filePatterns": {
+        "exactMatch": [
+          "README.md",
+          "LICENSE",
+          "CONTRIBUTING.md"
+        ]
+      },
+      "validCategories": [
+        "01-core-development",
+        "02-language-specialists",
+        "03-infrastructure",
+        "04-quality-security",
+        "05-data-ai",
+        "06-developer-experience",
+        "07-specialized-domains",
+        "08-business-product",
+        "09-meta-orchestration",
+        "10-research-analysis"
+      ]
+    }
+  }
+}

@@ -7,3 +7,9 @@
 
 # Claude settings
 .claude/settings.local.json
+
+# External subagents repository
+external-subagents/
+
+# Subagent update tracking
+.last-subagent-update
